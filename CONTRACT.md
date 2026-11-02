@@ -75,3 +75,54 @@ stub retroforge already emits is its first feeder.
   final line. Rendered views go to stdout or a named
   path, atomically. Every failure is a named error with
   exit 1. Test, tests/test_registry.py.
+
+## Round 1 amendments, the pinned shapes (recorded before code)
+
+- VL-5a. An event is a JSON object carrying type
+  (opened, result, or closed), experiment (the id
+  string), at (a caller-supplied ISO timestamp), and
+  its payload. Positions are 1-based line numbers in
+  the file, the same numbers check reports. Measures
+  are finite numbers; a line holding NaN or an
+  infinity is a defect. Test, tests/test_registry.py.
+- VL-6a. The opened payload: source, proposal,
+  baseline (a statement naming what the baseline
+  measures), baseline_measures (an object of measure
+  name to number), judged (a list of objects with
+  name, direction lower or higher, and an optional
+  margin_pct), and margin_pct (the opening's default
+  margin, 10 when unstated). Every judged name must
+  be a key of baseline_measures or the opening is
+  refused by name. Test, tests/test_registry.py.
+- VL-8a. The closed payload: verdict, rationale,
+  rests_on naming the baseline by the opened event's
+  position and the result by its position, and, for
+  a rerun verdict, optionally successor naming the
+  successor experiment's id. Closing rests on the
+  current (latest) result; closing with no result is
+  refused by name. The successor is opened as its
+  own experiment through the open command, never
+  implicitly by the close. Test,
+  tests/test_registry.py.
+- VL-9a. The suggestion is computed at close time
+  over the judged measures present in both the
+  baseline and the current result, and recorded in
+  the closed event with the regressed measure names.
+  A measure regresses when it moves against its
+  direction by more than its margin percent of the
+  baseline; a zero baseline regresses for a lower
+  measure on any positive result, and never for a
+  higher measure. Judged measures missing from the
+  result are named in the closed event as unmeasured
+  and count neither way. Test, tests/test_registry.py.
+- VL-11a. Reads for the views and for every write
+  refuse a defective registry, naming the defects;
+  check reports them and exits 1 when any exist.
+  Defects: a line that is not JSON or not an event
+  object, duplicate JSON keys, unknown types,
+  missing or mistyped fields, events for unopened
+  experiments, duplicate openings, results after a
+  close, second closes, and closes whose rests_on
+  names a position that is not that experiment's
+  opened or result event. Test,
+  tests/test_registry.py.
