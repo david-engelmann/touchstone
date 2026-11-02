@@ -325,3 +325,25 @@ def test_a_view_never_overwrites_the_registry(tmp_path, capsys):
     assert "never overwrites" in capsys.readouterr().err
     _, defects = load_registry(path)
     assert defects == []
+
+
+def test_an_unhashable_judged_name_is_a_defect_not_a_crash(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    weird = {**OPENED, "judged": [
+        {"name": ["cost"], "direction": "lower"},
+        {"name": "rescue", "direction": "higher"}]}
+    path.write_text(json.dumps(weird) + "\n")
+    _, defects = load_registry(path)
+    assert any("judged entry needs a name" in d for d in defects)
+    with pytest.raises(RegistryError):
+        open_experiment(tmp_path / "other.jsonl", weird)
+
+
+def test_deeply_nested_cli_input_is_a_named_error(tmp_path, capsys):
+    path = str(tmp_path / "registry.jsonl")
+    nested = "[" * 100000
+    assert main(["open", path, "exp-x", "--source", "s",
+                 "--proposal", "p", "--baseline", "b",
+                 "--measures", nested, "--judged", "[]",
+                 "--at", "2026-01-05T09:00:00Z"]) == 1
+    assert "not valid JSON" in capsys.readouterr().err

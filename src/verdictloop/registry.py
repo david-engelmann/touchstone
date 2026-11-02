@@ -86,7 +86,8 @@ def event_defects(event, position: int) -> list[str]:
                            f"non-empty list")
         else:
             names = [e.get("name") for e in judged
-                     if isinstance(e, dict)]
+                     if isinstance(e, dict)
+                     and isinstance(e.get("name"), str)]
             if len(names) != len(set(names)):
                 defects.append(f"{where}: judged names are "
                                f"not unique")

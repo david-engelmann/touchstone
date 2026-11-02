@@ -18,7 +18,7 @@ from .registry import (RegistryError, add_result, close_experiment,
 def _parse_json(text: str, what: str):
     try:
         return json.loads(text)
-    except ValueError:
+    except (ValueError, RecursionError):
         raise RegistryError(f"{what} is not valid JSON") from None
 
 
