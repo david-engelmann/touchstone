@@ -126,3 +126,27 @@ stub retroforge already emits is its first feeder.
   names a position that is not that experiment's
   opened or result event. Test,
   tests/test_registry.py.
+
+## Round 1 amendments, after the reviews (recorded before the repair code)
+
+- VL-5c. The at timestamp carries a date and a time;
+  a bare date is not a timestamp. Test,
+  tests/test_registry.py.
+- VL-6b. Judged names are unique within an opening,
+  and every margin, the opening's and each entry's,
+  is non-negative. Violations are defects at read
+  and refusals at write. Test, tests/test_registry.py.
+- VL-8b. The result a close rests on must be the
+  current one at the close's position: no later
+  result of the same experiment may stand before
+  the close. Verified at read as a defect, and the
+  write path rests on the latest by construction.
+  A successor is recorded only on a rerun verdict.
+  Test, tests/test_registry.py.
+- VL-9b. The recorded suggestion is re-derived at
+  read from the baseline and the rested result, the
+  way onrecord re-derives claim ids: a closed event
+  whose suggested, regressed, or unmeasured values
+  do not match the recomputation is a defect naming
+  the line. The record's receipts verify themselves.
+  Test, tests/test_registry.py.
