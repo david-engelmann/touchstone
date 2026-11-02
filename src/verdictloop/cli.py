@@ -97,6 +97,11 @@ def main(argv: list[str] | None = None) -> int:
     ck.add_argument("registry")
     args = parser.parse_args(argv)
     path = Path(args.registry)
+    out = getattr(args, "output", None)
+    if out is not None and Path(out).resolve() == path.resolve():
+        print("error, a view never overwrites the registry",
+              file=sys.stderr)
+        return 1
     try:
         if args.command == "open":
             event = {"type": "opened",

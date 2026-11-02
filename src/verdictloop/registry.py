@@ -3,6 +3,7 @@ file, folded into state on every read."""
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -22,8 +23,13 @@ def _is_number(value) -> bool:
             and value not in (float("inf"), float("-inf")))
 
 
+_TIMESTAMP_FORM = re.compile(
+    r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}")
+
+
 def _is_timestamp(value) -> bool:
-    if not isinstance(value, str):
+    if not isinstance(value, str) \
+            or not _TIMESTAMP_FORM.match(value):
         return False
     try:
         datetime.fromisoformat(value.replace("Z", "+00:00"))
@@ -79,6 +85,11 @@ def event_defects(event, position: int) -> list[str]:
             defects.append(f"{where}: judged is not a "
                            f"non-empty list")
         else:
+            names = [e.get("name") for e in judged
+                     if isinstance(e, dict)]
+            if len(names) != len(set(names)):
+                defects.append(f"{where}: judged names are "
+                               f"not unique")
             for entry in judged:
                 if not isinstance(entry, dict) \
                         or not isinstance(entry.get("name"), str) \
@@ -87,10 +98,11 @@ def event_defects(event, position: int) -> list[str]:
                         f"{where}: a judged entry needs a name "
                         f"and a direction of lower or higher")
                 elif "margin_pct" in entry \
-                        and not _is_number(entry["margin_pct"]):
+                        and (not _is_number(entry["margin_pct"])
+                             or entry["margin_pct"] < 0):
                     defects.append(
                         f"{where}: a judged margin_pct is not "
-                        f"a finite number")
+                        f"a non-negative number")
                 elif isinstance(measures, dict) \
                         and entry.get("name") not in measures:
                     defects.append(
@@ -98,9 +110,10 @@ def event_defects(event, position: int) -> list[str]:
                         f"{entry.get('name')!r} is not in the "
                         f"baseline measures")
         if "margin_pct" in event \
-                and not _is_number(event["margin_pct"]):
+                and (not _is_number(event["margin_pct"])
+                     or event["margin_pct"] < 0):
             defects.append(f"{where}: margin_pct is not a "
-                           f"finite number")
+                           f"non-negative number")
     if kind == "result":
         measures = event.get("measures")
         if not isinstance(measures, dict) or not measures:
@@ -118,15 +131,28 @@ def event_defects(event, position: int) -> list[str]:
             defects.append(f"{where}: rationale is not a "
                            f"non-empty string")
         rests = event.get("rests_on")
+        def _position(value):
+            return isinstance(value, int) \
+                and not isinstance(value, bool)
         if not isinstance(rests, dict) \
-                or not isinstance(rests.get("baseline"), int) \
-                or not isinstance(rests.get("result"), int):
+                or not _position(rests.get("baseline")) \
+                or not _position(rests.get("result")):
             defects.append(f"{where}: rests_on does not name "
                            f"the baseline and result positions")
         if not isinstance(event.get("suggested"), str) \
                 or event.get("suggested") not in VERDICTS:
             defects.append(f"{where}: the recorded suggestion "
                            f"is not a verdict")
+        for field in ("regressed", "unmeasured"):
+            if not isinstance(event.get(field), list) \
+                    or any(not isinstance(n, str)
+                           for n in event.get(field, [])):
+                defects.append(f"{where}: {field} is not a "
+                               f"list of measure names")
+        if "successor" in event \
+                and event.get("verdict") != "rerun":
+            defects.append(f"{where}: a successor is recorded "
+                           f"only on a rerun verdict")
     return defects
 
 
@@ -211,6 +237,30 @@ def _fold_defects(events) -> list[str]:
                     f"line {position}: the close rests on a "
                     f"result that is not a result of "
                     f"{experiment}")
+            else:
+                later = [pos for pos, other in events
+                         if other["experiment"] == experiment
+                         and other["type"] == "result"
+                         and result_at < pos < position]
+                if later:
+                    defects.append(
+                        f"line {position}: the close rests on "
+                        f"a result that is not the current "
+                        f"one; a later result stands at line "
+                        f"{later[-1]}")
+                else:
+                    opened_event = dict(events)[opened[experiment]]
+                    result_event = dict(events)[result_at]
+                    found = suggested_verdict(opened_event,
+                                              result_event)
+                    recorded = (event.get("suggested"),
+                                event.get("regressed"),
+                                event.get("unmeasured"))
+                    if recorded != found:
+                        defects.append(
+                            f"line {position}: the recorded "
+                            f"suggestion does not match the "
+                            f"measures it rests on")
     return defects
 
 

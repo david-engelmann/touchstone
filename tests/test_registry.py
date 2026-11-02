@@ -181,3 +181,147 @@ def test_the_cli_round_trip(tmp_path, capsys):
     assert "sound" in capsys.readouterr().out
     assert main(["result", path, "exp-abc123", "--measures",
                  '{"cost": 1}', "--at", "2026-01-14T09:00:00Z"]) == 1
+
+
+def _close_line(suggested="keep", regressed=(), unmeasured=(),
+                result=2, verdict="keep"):
+    return {"type": "closed", "experiment": "exp-abc123",
+            "at": "2026-01-13T09:00:00Z", "verdict": verdict,
+            "rationale": "hand written", "suggested": suggested,
+            "regressed": list(regressed),
+            "unmeasured": list(unmeasured),
+            "rests_on": {"baseline": 1, "result": result}}
+
+
+def test_a_forged_suggestion_is_a_defect(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    lines = [json.dumps(OPENED),
+             json.dumps(result_event({"cost": 130.0,
+                                      "rescue": 60.0})),
+             json.dumps(_close_line())]
+    path.write_text("\n".join(lines) + "\n")
+    _, defects = load_registry(path)
+    assert any("recorded suggestion does not match" in d
+               for d in defects)
+
+
+def test_a_close_on_a_stale_result_is_a_defect(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    lines = [json.dumps(OPENED),
+             json.dumps(result_event({"cost": 90.0,
+                                      "rescue": 85.0})),
+             json.dumps(result_event({"cost": 130.0,
+                                      "rescue": 60.0},
+                                     at="2026-01-12T10:00:00Z")),
+             json.dumps(_close_line(result=2))]
+    path.write_text("\n".join(lines) + "\n")
+    _, defects = load_registry(path)
+    assert any("not the current one" in d for d in defects)
+
+
+def test_a_close_rests_on_the_latest_result_at_write(tmp_path):
+    path = opened(tmp_path)
+    add_result(path, result_event({"cost": 90.0, "rescue": 85.0}))
+    add_result(path, result_event({"cost": 130.0, "rescue": 60.0},
+                                  at="2026-01-12T10:00:00Z"))
+    closed = close_experiment(path, {
+        "type": "closed", "experiment": "exp-abc123",
+        "at": "2026-01-13T09:00:00Z", "verdict": "kill",
+        "rationale": "the second result settled it"})
+    assert closed["rests_on"]["result"] == 3
+    assert closed["suggested"] == "kill"
+
+
+def test_duplicate_judged_names_and_negative_margins_refused(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    dup = {**OPENED, "judged": [
+        {"name": "cost", "direction": "lower"},
+        {"name": "cost", "direction": "lower"},
+        {"name": "rescue", "direction": "higher"}]}
+    with pytest.raises(RegistryError, match="not unique"):
+        open_experiment(path, dup)
+    neg = {**OPENED, "margin_pct": -5}
+    with pytest.raises(RegistryError, match="non-negative"):
+        open_experiment(path, neg)
+
+
+def test_a_successor_belongs_to_rerun_only(tmp_path):
+    path = opened(tmp_path)
+    add_result(path, result_event({"cost": 95.0, "rescue": 82.0}))
+    with pytest.raises(RegistryError, match="rerun"):
+        close_experiment(path, {
+            "type": "closed", "experiment": "exp-abc123",
+            "at": "2026-01-13T09:00:00Z", "verdict": "keep",
+            "rationale": "held", "successor": "exp-next"})
+
+
+def test_bare_dates_and_boolean_positions_are_defects(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    bare = {**OPENED, "at": "2026-01-05"}
+    path.write_text(json.dumps(bare) + "\n")
+    _, defects = load_registry(path)
+    assert any("at is not an ISO timestamp" in d for d in defects)
+    forged = _close_line()
+    forged["rests_on"] = {"baseline": True, "result": 2}
+    path.write_text("\n".join([
+        json.dumps(OPENED),
+        json.dumps(result_event({"cost": 95.0, "rescue": 82.0})),
+        json.dumps(forged)]) + "\n")
+    _, defects = load_registry(path)
+    assert any("rests_on does not name" in d for d in defects)
+
+
+def test_stated_margins_govern_the_suggestion(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    strict = {**OPENED, "margin_pct": 50}
+    open_experiment(path, strict)
+    add_result(path, result_event({"cost": 130.0, "rescue": 60.0}))
+    closed = close_experiment(path, {
+        "type": "closed", "experiment": "exp-abc123",
+        "at": "2026-01-13T09:00:00Z", "verdict": "keep",
+        "rationale": "inside the stated margins"})
+    assert closed["suggested"] == "keep"
+    per_entry = {**OPENED, "experiment": "exp-other",
+                 "judged": [{"name": "cost", "direction": "lower",
+                             "margin_pct": 5},
+                            {"name": "rescue",
+                             "direction": "higher"}]}
+    path2 = tmp_path / "second.jsonl"
+    open_experiment(path2, per_entry)
+    add_result(path2, {**result_event({"cost": 108.0,
+                                       "rescue": 82.0}),
+                       "experiment": "exp-other"})
+    closed2 = close_experiment(path2, {
+        "type": "closed", "experiment": "exp-other",
+        "at": "2026-01-13T09:00:00Z", "verdict": "rerun",
+        "rationale": "the entry margin fired"})
+    assert closed2["regressed"] == ["cost"]
+
+
+def test_list_order_is_opening_order_and_appends_never_glue(tmp_path):
+    path = tmp_path / "registry.jsonl"
+    open_experiment(path, dict(OPENED))
+    open_experiment(path, {**OPENED, "experiment": "exp-second"})
+    add_result(path, {**result_event({"cost": 1.0}),
+                      "experiment": "exp-second"})
+    add_result(path, result_event({"cost": 1.0, "rescue": 80.0}))
+    view = list_view(path)
+    assert [e["experiment"] for e in view["experiments"]] == [
+        "exp-abc123", "exp-second"]
+    raw = path.read_bytes()
+    path.write_bytes(raw.rstrip(b"\n"))
+    add_result(path, result_event({"cost": 2.0, "rescue": 80.0},
+                                  at="2026-01-13T09:00:00Z"))
+    text = path.read_text()
+    lines = text.strip().split("\n")
+    assert len(lines) == 5
+    _, defects = load_registry(path)
+    assert defects == []
+
+
+def test_a_view_never_overwrites_the_registry(tmp_path, capsys):
+    path = opened(tmp_path)
+    assert main(["list", str(path), "-o", str(path)]) == 1
+    assert "never overwrites" in capsys.readouterr().err
+    _, defects = load_registry(path)
+    assert defects == []
