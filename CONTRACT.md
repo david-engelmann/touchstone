@@ -12,10 +12,11 @@ on it lands.
 
 ## Round 1. The registry (VL-5 to VL-12)
 
-Contract preparation only in this pass. The build opens
-when this repo's turn in the line's build order arrives;
-verdictloop builds last in the line, and the registry
-stub retroforge already emits is its first feeder.
+Built in Round 1, last in the line; the registry stub
+retroforge already emits is its first feeder. The
+round also added the amendments below (VL-5a to
+VL-11a before code, VL-5c, VL-6b, VL-8b, and VL-9b
+after the reviews, before the repair code).
 
 - VL-5. The registry is an append-only JSON lines file
   of events: opened, result, and closed. Each event
