@@ -8,14 +8,17 @@ Setup changes ship on faith, and findings from every other instrument evaporate 
 
 ## Status
 
-Round 1 is built and in review on its branch. Setup landed earlier in October 2026.
+Rounds 1 and 2 are landed. Round 2 ported the registry to Rust,
+byte for byte against the Python it replaced; the Python is
+retired and the crate is the implementation now. Setup landed
+earlier in October 2026.
 
 ## Programme status
 
-- Closed perfection rounds, 1 of 100. A round counts only when a
+- Closed perfection rounds, 2 of 100. A round counts only when a
   full cycle of work, audit, review, red team, and approval has
   closed.
-- Contract, VL-1 to VL-12 as amended, met for the Round 1 scope.
+- Contract, VL-1 to VL-19 as amended, met for the Round 2 scope.
 - Local gate, python3 scripts/codepoint_scan.py, cargo
   fmt --check, cargo clippy --all-targets -- -D warnings,
   and cargo test. CI runs the same commands.
