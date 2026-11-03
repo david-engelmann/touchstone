@@ -16,8 +16,9 @@ Round 1 is built and in review on its branch. Setup landed earlier in October 20
   full cycle of work, audit, review, red team, and approval has
   closed.
 - Contract, VL-1 to VL-12 as amended, met for the Round 1 scope.
-- Local gate, python3 scripts/codepoint_scan.py and
-  python3 -m pytest tests -q. CI runs the same commands.
+- Local gate, python3 scripts/codepoint_scan.py, cargo
+  fmt --check, cargo clippy --all-targets -- -D warnings,
+  and cargo test. CI runs the same commands.
 
 ## Licence
 
