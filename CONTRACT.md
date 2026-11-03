@@ -7,7 +7,7 @@ on it lands.
 
 - VL-1. Every proposed setup change becomes a tracked experiment with a baseline, a result, and a verdict. No change is verdict free.
 - VL-2. The registry is fed by hand at first. Automation earns its way in later.
-- VL-3. Verdictloop judges changes, keeporkill judges checks. A keeporkill ruling registers here as an experiment.
+- VL-3. Verdictloop judges changes, tameshi judges checks. A tameshi ruling registers here as an experiment.
 - VL-4. Every fixture committed to this repo is synthetic.
 
 ## Round 1. The registry (VL-5 to VL-12)
