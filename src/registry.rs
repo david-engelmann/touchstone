@@ -961,7 +961,7 @@ fn append(path: &RegPath, event: &Value) -> Result<(), RegError> {
                 let mut handle = std::fs::File::open(&path.os)?;
                 handle.seek(SeekFrom::End(-1))?;
                 handle.read_exact(&mut tail)?;
-                if tail != [b'\n'] {
+                if tail != *b"\n" {
                     prefix = b"\n";
                 }
             }
