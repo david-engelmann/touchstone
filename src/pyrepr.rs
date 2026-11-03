@@ -38,9 +38,7 @@ fn scalars(text: &Text) -> Vec<u32> {
             && index + 1 < units.len()
             && (0xDC00..=0xDFFF).contains(&units[index + 1])
         {
-            out.push(
-                0x10000 + (((unit as u32) - 0xD800) << 10) + (units[index + 1] as u32 - 0xDC00),
-            );
+            out.push(crate::util::decode_pair(unit, units[index + 1]));
             index += 2;
         } else {
             out.push(unit as u32);
@@ -92,7 +90,8 @@ pub fn repr_text(text: &Text) -> String {
 }
 
 /// CPython's repr of any JSON value, recursively: the
-/// form the floor refusal and the call_id phrases use.
+/// form the unknown event type and judged measure
+/// phrases use.
 pub fn repr_value(value: &Value) -> String {
     match value {
         Value::Null => "None".to_string(),

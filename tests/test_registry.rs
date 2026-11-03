@@ -3,7 +3,6 @@
 //! registry functions; the CLI tests drive the
 //! compiled binary, as the Python's drive main().
 
-use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
@@ -685,7 +684,12 @@ fn an_unhashable_judged_name_is_a_defect_not_a_crash() {
         "{defects:?}"
     );
     let other = RegPath::new(dir.join("other.jsonl").to_str().expect("utf8"));
-    assert!(open_experiment(&other, &weird).is_err());
+    let err = open_experiment(&other, &weird).unwrap_err();
+    assert!(
+        err_text(&err).contains("judged entry needs a name"),
+        "{}",
+        err_text(&err)
+    );
 }
 
 #[test]
@@ -713,6 +717,7 @@ fn deeply_nested_cli_input_is_a_named_error() {
     ]);
     assert_eq!(code, 1);
     assert!(err.contains("not valid JSON"), "{err}");
-    // The deep write must not leave a stray file behind.
-    let _ = std::io::stdout().flush();
+    // The refused parse happens before any write: the
+    // registry file was never created.
+    assert!(!Path::new(path).exists());
 }

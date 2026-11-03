@@ -17,14 +17,22 @@ use flighttape::value::{object, set_key, Text, Value};
 use crate::emit::{dumps_line, Mode};
 use crate::pyrepr::repr_value;
 use crate::util::{
-    cmp_f64_int, int_to_f64, join_msgs, json_text_depth, normalize_path_display, rational_to_f64,
-    scan_line, Big, Msg,
+    cmp_f64_int, decode_pair, int_to_f64, join_msgs, json_text_depths, normalize_path_display,
+    overflow_threshold, rational_to_f64, scan_line, Big, Msg,
 };
 
-/// The registry line's parse depth cap, probed at
-/// the CLI against the Python: a line whose text
-/// nests 9997 deep still parses; 9998 refuses.
-pub const LINE_DEPTH_CAP: usize = 9997;
+/// The registry line's parse depth caps, probed
+/// through the shipped CLI against the Python: a
+/// line nesting past 9994 refuses outright, and a
+/// line whose deepest object sits past 9992 refuses
+/// (the Python's reader calls its duplicate key
+/// hook as each object closes, and the hook spends
+/// stack a deep array never does; mixed lines
+/// follow the same two measures, object position
+/// counting, array position counting only toward
+/// the total).
+pub const LINE_DEPTH_CAP: usize = 9994;
+pub const LINE_OBJECT_DEPTH_CAP: usize = 9992;
 
 /// The CLI's JSON argument parse depth cap, probed
 /// the same way: text nesting 9994 parses, 9995
@@ -304,6 +312,13 @@ fn measures_defects(measures: &Value, position: usize, field: &str, defects: &mu
     }
 }
 
+fn not_in_baseline_msg(name: &Value) -> Msg {
+    let mut msg = Msg::str("judged measure ");
+    msg.push_str(&repr_value(name));
+    msg.push_str(" is not in the baseline measures");
+    msg
+}
+
 fn opened_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
     for field in ["source", "proposal", "baseline"] {
         if !is_nonempty_str(event.get(field).unwrap_or(&Value::Null)) {
@@ -314,20 +329,7 @@ fn opened_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
         }
     }
     let measures = event.get("baseline_measures").unwrap_or(&Value::Null);
-    match measures {
-        Value::Object(pairs) if !pairs.is_empty() => {
-            if pairs.iter().any(|(_, value)| !is_number(value)) {
-                defects.push(defect(
-                    position,
-                    "baseline_measures holds a value that is not a finite number",
-                ));
-            }
-        }
-        _ => defects.push(defect(
-            position,
-            "baseline_measures is not a non-empty object",
-        )),
-    }
+    measures_defects(measures, position, "baseline_measures", defects);
     let judged = event.get("judged").unwrap_or(&Value::Null);
     match judged {
         Value::Array(entries) if !entries.is_empty() => {
@@ -370,10 +372,10 @@ fn opened_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
                         )
                         .is_none()
                     {
-                        let mut msg = Msg::str("judged measure ");
-                        msg.push_str(&repr_value(entry.get("name").unwrap_or(&Value::Null)));
-                        msg.push_str(" is not in the baseline measures");
-                        defects.push(defect_msg(position, msg));
+                        defects.push(defect_msg(
+                            position,
+                            not_in_baseline_msg(entry.get("name").unwrap_or(&Value::Null)),
+                        ));
                     }
                 } else if matches!(measures, Value::Object(_))
                     && obj_get(
@@ -382,10 +384,10 @@ fn opened_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
                     )
                     .is_none()
                 {
-                    let mut msg = Msg::str("judged measure ");
-                    msg.push_str(&repr_value(entry.get("name").unwrap_or(&Value::Null)));
-                    msg.push_str(" is not in the baseline measures");
-                    defects.push(defect_msg(position, msg));
+                    defects.push(defect_msg(
+                        position,
+                        not_in_baseline_msg(entry.get("name").unwrap_or(&Value::Null)),
+                    ));
                 }
             }
         }
@@ -450,19 +452,51 @@ fn closed_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
 /// the Python reader's depth refusal (VL-15's second
 /// surface).
 pub fn parse_arg_json(text: &Text, what: &str) -> Result<Value, RegError> {
-    let plain = match text.as_str() {
-        Some(plain) => plain,
-        None => return Err(named(&format!("{what} is not valid JSON"))),
-    };
-    match flighttape::json::parse(&plain) {
-        Ok(value) => {
-            if json_text_depth(&plain) > ARG_DEPTH_CAP {
-                return Err(named(&format!("{what} is not valid JSON")));
-            }
-            Ok(value)
+    // The Python's reader works on the decoded
+    // argument string, lone surrogates included; the
+    // crate reader takes a Rust string, which cannot
+    // hold one. A lone surrogate can only ride inside
+    // a JSON string, where its escape form parses to
+    // the same text, so the argument is re-spelled
+    // with escapes before it is read. The depth
+    // refusal is decided from the text before the
+    // parse, as in the registry loader.
+    let units = text.units();
+    let mut plain = String::new();
+    let mut index = 0;
+    while index < units.len() {
+        let unit = units[index];
+        if (0xD800..=0xDBFF).contains(&unit)
+            && index + 1 < units.len()
+            && (0xDC00..=0xDFFF).contains(&units[index + 1])
+        {
+            let scalar = decode_pair(unit, units[index + 1]);
+            plain.push(char::from_u32(scalar).expect("a valid pair"));
+            index += 2;
+        } else if (0xD800..=0xDFFF).contains(&unit) {
+            plain.push_str(&format!("\\u{unit:04x}"));
+            index += 1;
+        } else {
+            plain.push(char::from_u32(unit as u32).expect("a BMP scalar"));
+            index += 1;
         }
+    }
+    if json_text_depths(&plain).0 > ARG_DEPTH_CAP {
+        return Err(named(&format!("{what} is not valid JSON")));
+    }
+    match flighttape::json::parse(&plain) {
+        Ok(value) => Ok(value),
         Err(_) => Err(named(&format!("{what} is not valid JSON"))),
     }
+}
+
+/// The Python's blank test for a registry line:
+/// str.strip() empties it. Its whitespace set is
+/// Rust's White_Space set plus the four separators
+/// U+001C to U+001F.
+fn is_blank_line(line: &str) -> bool {
+    line.chars()
+        .all(|ch| ch.is_whitespace() || ('\u{1c}'..='\u{1f}').contains(&ch))
 }
 
 /// What a load returns: events carrying their 1-based
@@ -508,8 +542,18 @@ pub fn load_registry(path: &RegPath) -> LoadOutcome {
     let mut defects: Vec<Msg> = Vec::new();
     for (index, line) in lines.iter().enumerate() {
         let position = index + 1;
-        if line.trim().is_empty() {
+        if is_blank_line(line) {
             defects.push(defect(position, "blank line"));
+            continue;
+        }
+        // The depth refusal is decided from the text
+        // before the parse: past the caps the value
+        // itself would nest too deep to scan or drop
+        // safely, and the Python names the same defect
+        // from its reader's recursion limit.
+        let (depth, object_depth) = json_text_depths(line);
+        if depth > LINE_DEPTH_CAP || object_depth > LINE_OBJECT_DEPTH_CAP {
+            defects.push(defect(position, "not valid JSON"));
             continue;
         }
         let value = match flighttape::json::parse(line) {
@@ -520,7 +564,7 @@ pub fn load_registry(path: &RegPath) -> LoadOutcome {
             }
         };
         let scan = scan_line(line);
-        if scan.duplicate_key || scan.constant || json_text_depth(line) > LINE_DEPTH_CAP {
+        if scan.duplicate_key || scan.constant {
             defects.push(defect(position, "not valid JSON"));
             continue;
         }
@@ -782,11 +826,12 @@ fn regressed(
                 base_big.sub(&value_big)
             };
             // The one division must not overflow: the
-            // Python raises where the quotient leaves
-            // the double range.
-            let (max_digits, _) = crate::emit::exact_decimal(f64::MAX);
-            let max = Big::from_int_str(&max_digits);
-            if diff.abs().compare(&max.mul(&base_big.abs())) == std::cmp::Ordering::Greater {
+            // Python raises where the correctly rounded
+            // quotient leaves the double range, at the
+            // rounding midpoint above the largest
+            // double.
+            let threshold = overflow_threshold();
+            if diff.abs().compare(&threshold.mul(&base_big.abs())) != std::cmp::Ordering::Less {
                 return Err(RegError::Crash);
             }
             let quotient = rational_to_f64(&diff, &base_big.abs());

@@ -261,8 +261,7 @@ fn escape_string(text: &Text, mode: Mode, out: &mut Vec<u8>) -> Result<(), EmitE
             && index + 1 < units.len()
             && (0xDC00..=0xDFFF).contains(&units[index + 1])
         {
-            let scalar =
-                0x10000 + (((unit as u32) - 0xD800) << 10) + (units[index + 1] as u32 - 0xDC00);
+            let scalar = crate::util::decode_pair(unit, units[index + 1]);
             push_scalar(scalar, out);
             index += 2;
             continue;

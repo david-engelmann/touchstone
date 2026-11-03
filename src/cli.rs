@@ -25,7 +25,7 @@ use crate::registry::{
     add_result, close_experiment, list_view, load_registry, open_experiment, parse_arg_json,
     show_view, RegError, RegPath,
 };
-use crate::util::{fsdecode_units, fsencode_bytes, stderr_render};
+use crate::util::{fsdecode_units, fsencode_bytes, normalize_path_display, stderr_render};
 
 /// One argument token: its text, and its decoded
 /// scalars for the parser's character work.
@@ -44,9 +44,7 @@ impl Token {
                 && index + 1 < units.len()
                 && (0xDC00..=0xDFFF).contains(&units[index + 1])
             {
-                scalars.push(
-                    0x10000 + (((unit as u32) - 0xD800) << 10) + (units[index + 1] as u32 - 0xDC00),
-                );
+                scalars.push(crate::util::decode_pair(unit, units[index + 1]));
                 index += 2;
             } else {
                 scalars.push(unit as u32);
@@ -73,11 +71,25 @@ fn option_shaped(token: &Token) -> bool {
     if scalars.len() < 2 || scalars[0] != '-' as u32 {
         return false;
     }
-    let first = scalars[1];
-    let digit = |c: u32| ('0' as u32..='9' as u32).contains(&c);
-    let negative_number =
-        digit(first) || (first == '.' as u32 && scalars.get(2).is_some_and(|c| digit(*c)));
-    !negative_number
+    !is_negative_number(&scalars[1..])
+}
+
+/// argparse's negative number matcher, the full token
+/// pattern ^-\d+$|^-\d*\.\d+$ with \d a Unicode
+/// decimal digit: a token matching it whole is a
+/// value, never an option.
+fn is_negative_number(rest: &[u32]) -> bool {
+    let digit = |c: &u32| crate::util::decimal_digit(*c).is_some();
+    if !rest.is_empty() && rest.iter().all(digit) {
+        return true;
+    }
+    match rest.iter().position(|c| *c == '.' as u32) {
+        Some(dot) => {
+            let (before, after) = (&rest[..dot], &rest[dot + 1..]);
+            !after.is_empty() && before.iter().all(digit) && after.iter().all(digit)
+        }
+        None => false,
+    }
 }
 
 fn scalars_of(text: &str) -> Vec<u32> {
@@ -111,6 +123,26 @@ fn split_long(token: &Token) -> (&[u32], Option<Text>) {
         }
         None => (&token.scalars[..], None),
     }
+}
+
+/// The text of a token from a scalar index on, for
+/// the value glued behind an '=' in a short cluster.
+fn text_from_scalar(token: &Token, scalar_index: usize) -> Text {
+    let units = token.text.units();
+    let mut unit_at = 0usize;
+    let mut scalar_at = 0usize;
+    while scalar_at < scalar_index && unit_at < units.len() {
+        if (0xD800..=0xDBFF).contains(&units[unit_at])
+            && unit_at + 1 < units.len()
+            && (0xDC00..=0xDFFF).contains(&units[unit_at + 1])
+        {
+            unit_at += 2;
+        } else {
+            unit_at += 1;
+        }
+        scalar_at += 1;
+    }
+    Text::from_units(units[unit_at.min(units.len())..].to_vec())
 }
 
 /// The outcome of matching a long-option name against
@@ -395,7 +427,8 @@ fn spec_for(command: &str) -> &'static SubSpec {
 /// --margin: surrounding whitespace is stripped, the
 /// words inf, infinity, and nan read in any case, and
 /// a decimal numeral may carry single underscores
-/// between its digits. Anything else is not a float.
+/// between its digits, which may be any Unicode
+/// decimal digits. Anything else is not a float.
 fn py_float_parse(text: &Text) -> Option<f64> {
     let plain = text.as_str()?;
     let trimmed = plain.trim();
@@ -409,6 +442,17 @@ fn py_float_parse(text: &Text) -> Option<f64> {
             None => (1.0, trimmed),
         },
     };
+    // CPython reads each Unicode decimal digit at its
+    // ASCII value; the numeral grammar below runs on
+    // the normalized spelling.
+    let normalized: String = body
+        .chars()
+        .map(|ch| match crate::util::decimal_digit(ch as u32) {
+            Some(value) => char::from_digit(value, 10).expect("a decimal digit"),
+            None => ch,
+        })
+        .collect();
+    let body: &str = &normalized;
     let lowered = body.to_ascii_lowercase();
     if lowered == "inf" || lowered == "infinity" {
         return Some(sign * f64::INFINITY);
@@ -626,6 +670,20 @@ fn parse_sub(command: &'static str, tokens: &[Token], top_extras: &[Text]) -> Pa
             while at < cluster.len() {
                 match cluster[at] {
                     c if c == 'h' as u32 => {
+                        if cluster.get(at + 1) == Some(&('=' as u32)) {
+                            // A flag that takes no value,
+                            // given one: argparse refuses
+                            // the explicit argument.
+                            let value = text_from_scalar(token, at + 3);
+                            return parse_error(
+                                spec.usage,
+                                spec.prog,
+                                &format!(
+                                    "argument -h/--help: ignored explicit argument {}",
+                                    repr_text(&value)
+                                ),
+                            );
+                        }
                         help_pending = true;
                         at += 1;
                     }
@@ -760,6 +818,12 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
             }
         }
         if token.scalars == scalars_of("--") || !option_shaped(token) {
+            if token.scalars == scalars_of("--") && index == tokens.len() - 1 {
+                // A separator with nothing after it:
+                // argparse has consumed it, and the
+                // command is simply missing.
+                break;
+            }
             for command in COMMANDS {
                 if token.text.units() == Text::from_str(command).units() {
                     let command: &'static str = command;
@@ -828,17 +892,21 @@ fn resolve_path(path: &Path) -> PathBuf {
     base
 }
 
-/// The OS path for a text argument, in the operating
-/// system's own encoding.
+/// The OS path for a text argument: pathlib's
+/// lexical normalization first (the same form the
+/// path's display form takes, so a trailing slash
+/// or dot component names the same file), in the
+/// operating system's own encoding.
 pub fn os_path(text: &Text) -> PathBuf {
+    let units = normalize_path_display(text.units());
     #[cfg(unix)]
     {
         use std::os::unix::ffi::OsStringExt;
-        PathBuf::from(std::ffi::OsString::from_vec(fsencode_bytes(text.units())))
+        PathBuf::from(std::ffi::OsString::from_vec(fsencode_bytes(&units)))
     }
     #[cfg(not(unix))]
     {
-        PathBuf::from(String::from_utf16_lossy(text.units()))
+        PathBuf::from(String::from_utf16_lossy(&units))
     }
 }
 
@@ -964,6 +1032,19 @@ fn text_arg(parsed: &SubParsed, canonical: &str) -> Text {
     parsed.get_text(canonical).expect("a required argument")
 }
 
+/// The write guard (VL-12): a view whose output path
+/// resolves to the registry itself is refused before
+/// the view runs.
+fn view_is_guarded(registry: &RegPath, parsed: &SubParsed) -> bool {
+    match &parsed.output {
+        Some(out) if resolve_path(&os_path(out)) == resolve_path(&registry.os) => {
+            eprintln!("error, a view never overwrites the registry");
+            true
+        }
+        _ => false,
+    }
+}
+
 fn execute(command: &str, parsed: &SubParsed) -> i32 {
     let registry = RegPath::from_typed(&parsed.positionals[0]);
     match command {
@@ -1015,11 +1096,8 @@ fn execute(command: &str, parsed: &SubParsed) -> i32 {
             Ok(0)
         })()),
         "list" => {
-            if let Some(out) = &parsed.output {
-                if resolve_path(&os_path(out)) == resolve_path(&registry.os) {
-                    eprintln!("error, a view never overwrites the registry");
-                    return 1;
-                }
+            if view_is_guarded(&registry, parsed) {
+                return 1;
             }
             report((|| {
                 let document = list_view(&registry)?;
@@ -1027,11 +1105,8 @@ fn execute(command: &str, parsed: &SubParsed) -> i32 {
             })())
         }
         "show" => {
-            if let Some(out) = &parsed.output {
-                if resolve_path(&os_path(out)) == resolve_path(&registry.os) {
-                    eprintln!("error, a view never overwrites the registry");
-                    return 1;
-                }
+            if view_is_guarded(&registry, parsed) {
+                return 1;
             }
             report((|| {
                 let document = show_view(&registry, &parsed.positionals[1])?;
@@ -1090,16 +1165,6 @@ pub fn run_cli() -> i32 {
             let bytes = arg.to_string_lossy().into_owned().into_bytes();
             Token::from_units(fsdecode_units(&bytes))
         })
-        .collect();
-    run_tokens(tokens)
-}
-
-/// The CLI over explicit argument tokens, the shape
-/// the ported suite drives.
-pub fn run_with_args(tokens: Vec<String>) -> i32 {
-    let tokens: Vec<Token> = tokens
-        .iter()
-        .map(|token| Token::from_units(fsdecode_units(token.as_bytes())))
         .collect();
     run_tokens(tokens)
 }
