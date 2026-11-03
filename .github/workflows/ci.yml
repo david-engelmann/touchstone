@@ -7,11 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Codepoint scan
         run: python3 scripts/codepoint_scan.py
+      - name: Format
+        run: cargo fmt --check
+      - name: Clippy
+        run: cargo clippy --all-targets -- -D warnings
       - name: Tests
-        run: |
-          if [ -d tests ]; then python3 -m pip install pytest -q && python3 -m pytest tests -q; else echo "no tests yet, the documented gate is the codepoint scan until the first build act"; fi
+        run: cargo test

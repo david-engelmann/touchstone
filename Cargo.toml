@@ -1,0 +1,17 @@
+[package]
+name = "verdictloop"
+version = "0.1.0"
+edition = "2021"
+description = "Every setup change as a tracked experiment, with a verdict"
+license = "MIT"
+
+[lib]
+name = "verdictloop"
+path = "src/lib.rs"
+
+[[bin]]
+name = "verdictloop"
+path = "src/main.rs"
+
+[dependencies]
+flighttape = { git = "https://github.com/david-engelmann/flighttape", rev = "ba8d4b550850179722f48b8f9c909e199efe3548" }

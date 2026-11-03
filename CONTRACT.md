@@ -151,3 +151,53 @@ after the reviews, before the repair code).
   do not match the recomputation is a defect naming
   the line. The record's receipts verify themselves.
   Test, tests/test_registry.py.
+
+## Round 2. The Rust port (VL-13 to VL-19)
+
+Written ahead of the code, in the shape the flighttape
+port set with FT-49 to FT-56 and secondtake's port
+followed with ST-20 to ST-26. The Python of Round 1
+is the behavioral spec.
+
+- VL-13. The port reproduces the Python's behavior
+  exactly: every command, refusal, defect phrase,
+  rendered byte, and exit code. Deviations are named
+  in the round dossier, never silent. Test, the
+  differential harness of VL-18.
+- VL-14. A Rust library crate plus a thin verdictloop
+  binary. The flighttape crate at pinned revision
+  ba8d4b550850179722f48b8f9c909e199efe3548 is the only
+  direct dependency: the JSON reader, the value model,
+  and the timestamp grammar come from the crate, never
+  re-implemented. The registry format is verdictloop's
+  own; no tape format, canonical form, or digest is
+  consumed. Test, tests/test_registry.rs.
+- VL-15. Where the registry reading differs from the
+  crate reader, the Python governs: duplicate keys in
+  a registry line are refused, the NaN and Infinity
+  constants are refused, and a line past the Python's
+  parse depth is refused, each surfacing as that
+  line's not-valid-JSON defect. The port closes the
+  differences in its loader and names them in the
+  dossier. Test, tests/test_registry.rs.
+- VL-16. Appended lines and views reproduce Python's
+  json.dumps byte for byte: insertion key order, the
+  default separators on lines, the indent of two on
+  views, ensure_ascii=False, and exact float
+  rendering. Test, tests/test_registry.rs.
+- VL-17. The Python tests port to cargo tests file
+  for file, and the Python package, its tests, and
+  pyproject leave the tree only in the landing state.
+  Cargo tests are the suite. Test, cargo test.
+- VL-18. A differential harness over the whole
+  command surface byte-compares stdout, stderr, exit
+  codes, registry bytes, and view files against the
+  Python: the happy path, the defect catalogue, every
+  refusal, the write guard, and an argv battery
+  across both argparse levels. Test, the harness run
+  recorded in the dossier.
+- VL-19. The round dossier carries the port report:
+  port or full rewrite with reasons, the Rust versus
+  Python line share on the landing tree, the bindings
+  determination, and the non-Rust remainder register
+  with a justification per item.
