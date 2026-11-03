@@ -908,8 +908,7 @@ fn next_position(path: &RegPath) -> usize {
 }
 
 fn append(path: &RegPath, event: &Value) -> Result<(), RegError> {
-    let line = dumps_line(event, Mode::Strict).map_err(|_| RegError::Crash)?;
-    let outcome = (|| -> Result<(), std::io::Error> {
+    let outcome = (|| -> Result<Result<(), RegError>, std::io::Error> {
         let mut prefix: &[u8] = b"";
         let mut tail = [0u8; 1];
         if let Ok(metadata) = std::fs::metadata(&path.os) {
@@ -926,16 +925,27 @@ fn append(path: &RegPath, event: &Value) -> Result<(), RegError> {
             .append(true)
             .create(true)
             .open(&path.os)?;
+        // The Python renders its line before opening the
+        // file but writes through the text layer, so a
+        // line holding a lone surrogate fails at the
+        // write, after the open has created the file,
+        // and nothing lands. The port renders at the
+        // same point in the sequence: after the open,
+        // before any byte is written.
+        let line = match dumps_line(event, Mode::Strict) {
+            Ok(line) => line,
+            Err(_) => return Ok(Err(RegError::Crash)),
+        };
         let mut bytes = Vec::with_capacity(prefix.len() + line.len() + 1);
         bytes.extend_from_slice(prefix);
         bytes.extend_from_slice(&line);
         bytes.push(b'\n');
         handle.write_all(&bytes)?;
         handle.flush()?;
-        Ok(())
+        Ok(Ok(()))
     })();
     match outcome {
-        Ok(()) => Ok(()),
+        Ok(inner) => inner,
         Err(err) => {
             let mut msg = Msg::str("cannot append to the registry at ");
             msg.push_msg(&path.display);
