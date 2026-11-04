@@ -295,3 +295,24 @@ is the behavioral spec.
   holds not_consulted to exact-object equality.
   A judged or unavailable section carrying a
   field the writer never emits is a defect.
+- VL-28. Round 4 re-pins flighttape at 74a83298,
+  the Round 13 merge, in every table that names
+  it. Nothing else in the crate's behavior
+  changes.
+- VL-29. The re-pin is hygiene, not repair:
+  verdictloop's card digest is built over a
+  single String value, no Float can enter it,
+  and Round 3's sweep digested 6,072 strings
+  identically under the old pin and the Round 12
+  pin. This round re-proves invariance across
+  the full jump (the old pin to 74a83298) before
+  landing: the recorded fixture cards digest to
+  their recorded values under the new pin, the
+  differential harness runs clean unmodified as
+  the control, and a fresh digest sweep over
+  the fixture card corpus plus generated strings
+  agrees under both pins. Any digest that moves
+  stops the round.
+- VL-30. README records 4 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
