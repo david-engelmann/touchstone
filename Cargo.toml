@@ -14,4 +14,4 @@ name = "verdictloop"
 path = "src/main.rs"
 
 [dependencies]
-flighttape = { git = "https://github.com/david-engelmann/flighttape", rev = "ba8d4b550850179722f48b8f9c909e199efe3548" }
+flighttape = { git = "https://github.com/david-engelmann/flighttape", rev = "74a83298aeb31c82e62b9fb0c613f5bc8600799e" }

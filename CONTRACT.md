@@ -295,3 +295,46 @@ is the behavioral spec.
   holds not_consulted to exact-object equality.
   A judged or unavailable section carrying a
   field the writer never emits is a defect.
+- VL-28. Round 4 re-pins flighttape at 74a83298,
+  the Round 13 merge, in every table that names
+  it. Nothing else in the crate's behavior
+  changes.
+- VL-29. The re-pin is hygiene, not repair:
+  verdictloop's card digest is built over a
+  single String value, no Float can enter it,
+  and Round 3's sweep digested 6,072 strings
+  identically under the old pin and the Round 12
+  pin. This round re-proves invariance across
+  the full jump (the old pin to 74a83298) before
+  landing: the recorded fixture cards digest to
+  their recorded values under the new pin, the
+  differential harness runs clean unmodified as
+  the control, and a fresh digest sweep over
+  the fixture card corpus plus generated strings
+  agrees under both pins. Any digest that moves
+  stops the round.
+- VL-30. README records 4 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
+- VL-29a. Correction to VL-29, written before
+  any implementation: the crate also consumes
+  flighttape::timeparse::parse_timestamp
+  (registry.rs, the timestamp validity check)
+  and flighttape::identity::tape_digest over
+  registry values, so the jump crosses both
+  grammar rounds and the Round 12 rendering
+  repairs. The round therefore proves three
+  things by probes: the recorded fixture cards
+  digest to their recorded values under the new
+  pin (the card case, strings only); timestamp
+  validity through the registry's surface agrees
+  with the Python original on representative
+  shapes from both deltas (FT-60 and FT-60a,
+  FT-63 to FT-66, FT-68); and any registry value
+  carrying floats that reaches tape_digest
+  digests identically to the Python original
+  under the new pin (the 2^-24 shape included),
+  with the old pin's reading recorded either
+  way. The unmodified harness runs as the
+  control. Any recorded fixture digest that
+  moves stops the round.
