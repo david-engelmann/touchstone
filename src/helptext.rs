@@ -12,8 +12,8 @@ pub const RESULT_HELP: &str = "usage: verdictloop result [-h] --measures MEASURE
 pub const RESULT_USAGE: &str =
     "usage: verdictloop result [-h] --measures MEASURES --at AT registry experiment";
 
-pub const CLOSE_HELP: &str = "usage: verdictloop close [-h] --verdict VERDICT --rationale RATIONALE --at AT\n                         [--successor SUCCESSOR]\n                         registry experiment\n\npositional arguments:\n  registry\n  experiment\n\noptions:\n  -h, --help            show this help message and exit\n  --verdict VERDICT\n  --rationale RATIONALE\n  --at AT\n  --successor SUCCESSOR\n";
-pub const CLOSE_USAGE: &str = "usage: verdictloop close [-h] --verdict VERDICT --rationale RATIONALE --at AT\n                         [--successor SUCCESSOR]\n                         registry experiment";
+pub const CLOSE_HELP: &str = "usage: verdictloop close [-h] --verdict VERDICT --rationale RATIONALE --at AT\n                         [--successor SUCCESSOR] [--judge JUDGE]\n                         registry experiment\n\npositional arguments:\n  registry\n  experiment\n\noptions:\n  -h, --help            show this help message and exit\n  --verdict VERDICT\n  --rationale RATIONALE\n  --at AT\n  --successor SUCCESSOR\n  --judge JUDGE\n";
+pub const CLOSE_USAGE: &str = "usage: verdictloop close [-h] --verdict VERDICT --rationale RATIONALE --at AT\n                         [--successor SUCCESSOR] [--judge JUDGE]\n                         registry experiment";
 
 pub const LIST_HELP: &str = "usage: verdictloop list [-h] [-o OUTPUT] registry\n\npositional arguments:\n  registry\n\noptions:\n  -h, --help            show this help message and exit\n  -o OUTPUT, --output OUTPUT\n";
 pub const LIST_USAGE: &str = "usage: verdictloop list [-h] [-o OUTPUT] registry";

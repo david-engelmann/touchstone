@@ -97,7 +97,7 @@ fn open_result_close_with_agreement() {
     )
     .expect("result");
     let closed =
-        close_experiment(&path, &close_event("keep", "both measures held")).expect("close");
+        close_experiment(&path, &close_event("keep", "both measures held"), None).expect("close");
     assert_eq!(as_text(get(&closed, "suggested")), "keep");
     assert_eq!(get(&closed, "regressed"), &ev("[]"));
     assert_eq!(
@@ -108,7 +108,9 @@ fn open_result_close_with_agreement() {
     let expected = ev(r#"{"experiment": "exp-abc123", "source": "retroforge",
         "proposal": "rules-edit-1", "state": "closed",
         "results": 1, "verdict": "keep", "suggested": "keep",
-        "agrees": true}"#);
+        "agrees": true,
+        "judgment": {"status": "not_consulted",
+                     "reason": "the verdict and the suggestion agree"}}"#);
     assert_eq!(get(&view, "experiments"), &Value::Array(vec![expected]));
 }
 
@@ -128,6 +130,7 @@ fn the_suggestion_kills_at_two_regressions() {
     let closed = close_experiment(
         &path,
         &close_event("keep", "the operator disagrees on the record"),
+        None,
     )
     .expect("close");
     assert_eq!(as_text(get(&closed, "suggested")), "kill");
@@ -155,7 +158,7 @@ fn one_regression_suggests_rerun_and_unmeasured_is_named() {
         "successor",
         Value::Str(Text::from_str("exp-def456")),
     );
-    let closed = close_experiment(&path, &event).expect("close");
+    let closed = close_experiment(&path, &event, None).expect("close");
     assert_eq!(as_text(get(&closed, "suggested")), "rerun");
     assert_eq!(get(&closed, "regressed"), &ev(r#"["cost"]"#));
     assert_eq!(get(&closed, "unmeasured"), &ev(r#"["rescue"]"#));
@@ -181,14 +184,14 @@ fn refusals_at_write_time() {
     );
     let err = add_result(&path, &ghost).unwrap_err();
     assert!(err_text(&err).contains("not open"), "{}", err_text(&err));
-    let err = close_experiment(&path, &close_event("keep", "too soon")).unwrap_err();
+    let err = close_experiment(&path, &close_event("keep", "too soon"), None).unwrap_err();
     assert!(err_text(&err).contains("no result"), "{}", err_text(&err));
     add_result(
         &path,
         &result_event("{\"cost\": 95.0, \"rescue\": 82.0}", "2026-01-12T09:00:00Z"),
     )
     .expect("result");
-    close_experiment(&path, &close_event("keep", "held")).expect("close");
+    close_experiment(&path, &close_event("keep", "held"), None).expect("close");
     let err = add_result(
         &path,
         &result_event("{\"cost\": 1.0}", "2026-01-14T09:00:00Z"),
@@ -462,8 +465,12 @@ fn a_close_rests_on_the_latest_result_at_write() {
         ),
     )
     .expect("result");
-    let closed = close_experiment(&path, &close_event("kill", "the second result settled it"))
-        .expect("close");
+    let closed = close_experiment(
+        &path,
+        &close_event("kill", "the second result settled it"),
+        None,
+    )
+    .expect("close");
     assert_eq!(get(get(&closed, "rests_on"), "result"), &ev("3"));
     assert_eq!(as_text(get(&closed, "suggested")), "kill");
 }
@@ -508,7 +515,7 @@ fn a_successor_belongs_to_rerun_only() {
         "successor",
         Value::Str(Text::from_str("exp-next")),
     );
-    let err = close_experiment(&path, &event).unwrap_err();
+    let err = close_experiment(&path, &event, None).unwrap_err();
     assert!(err_text(&err).contains("rerun"), "{}", err_text(&err));
 }
 
@@ -564,8 +571,12 @@ fn stated_margins_govern_the_suggestion() {
         ),
     )
     .expect("result");
-    let closed =
-        close_experiment(&path, &close_event("keep", "inside the stated margins")).expect("close");
+    let closed = close_experiment(
+        &path,
+        &close_event("keep", "inside the stated margins"),
+        None,
+    )
+    .expect("close");
     assert_eq!(as_text(get(&closed, "suggested")), "keep");
     let file2 = dir.join("second.jsonl");
     let path2 = RegPath::new(file2.to_str().expect("utf8"));
@@ -598,7 +609,7 @@ fn stated_margins_govern_the_suggestion() {
         "experiment",
         Value::Str(Text::from_str("exp-other")),
     );
-    let closed2 = close_experiment(&path2, &close).expect("close");
+    let closed2 = close_experiment(&path2, &close, None).expect("close");
     assert_eq!(get(&closed2, "regressed"), &ev(r#"["cost"]"#));
 }
 

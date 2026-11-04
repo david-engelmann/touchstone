@@ -7,12 +7,15 @@
 //! consumed from the flighttape crate at a pinned
 //! revision (VL-14), never re-implemented here; this
 //! crate carries the registry itself. The registry
-//! format is verdictloop's own: no tape format,
-//! canonical form, or digest is consumed.
+//! format is verdictloop's own. Round 3 adds the
+//! judge (VL-20 to VL-26): the one digest the crate
+//! consumes is canonical form 1 over the decision
+//! card a contested close puts to the model.
 
 pub mod cli;
 pub mod emit;
 pub mod helptext;
+pub mod judge;
 pub mod pyrepr;
 pub mod registry;
 pub mod repr_table;
