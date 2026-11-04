@@ -316,3 +316,25 @@ is the behavioral spec.
 - VL-30. README records 4 of 100 only in the
   closure commit written after this round's
   three reviews, fixes, and owner verification.
+- VL-29a. Correction to VL-29, written before
+  any implementation: the crate also consumes
+  flighttape::timeparse::parse_timestamp
+  (registry.rs, the timestamp validity check)
+  and flighttape::identity::tape_digest over
+  registry values, so the jump crosses both
+  grammar rounds and the Round 12 rendering
+  repairs. The round therefore proves three
+  things by probes: the recorded fixture cards
+  digest to their recorded values under the new
+  pin (the card case, strings only); timestamp
+  validity through the registry's surface agrees
+  with the Python original on representative
+  shapes from both deltas (FT-60 and FT-60a,
+  FT-63 to FT-66, FT-68); and any registry value
+  carrying floats that reaches tape_digest
+  digests identically to the Python original
+  under the new pin (the 2^-24 shape included),
+  with the old pin's reading recorded either
+  way. The unmodified harness runs as the
+  control. Any recorded fixture digest that
+  moves stops the round.
