@@ -195,6 +195,9 @@ pub fn build_card(
 }
 
 fn answer_decision(response: &Value) -> Result<Value, JudgeError> {
+    if response.as_object().is_none() {
+        return Err(err("the judge's answer is not an object"));
+    }
     let model_ok = matches!(response.get("model"), Some(Value::Str(m)) if m.as_str().as_deref() == Some(MODEL));
     if !model_ok {
         return Err(err("the judge's answer names an unpinned model"));

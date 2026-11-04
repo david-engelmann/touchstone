@@ -516,12 +516,51 @@ const ANSWER_FIELDS: [&str; 6] = [
     "regression_risk",
 ];
 
+/// The fields the writer emits for a judged close,
+/// in emission order (VL-24a): the card and its
+/// digest, the answer in judge_card's order, and
+/// the status last, as consult builds the section.
+const JUDGED_FIELDS: [&str; 9] = [
+    "card_sha256",
+    "card",
+    "model",
+    "choice",
+    "confidence",
+    "probabilities",
+    "evidence_strength",
+    "regression_risk",
+    "status",
+];
+
+/// The fields the writer emits for an unavailable
+/// close, in emission order (VL-24a).
+const UNAVAILABLE_FIELDS: [&str; 4] = ["card_sha256", "card", "status", "reason"];
+
+/// Whether a judgment section's fields are exactly
+/// the writer's, names and order (VL-24a): the
+/// closed shape the fold's exact-object comparison
+/// already imposes on a not_consulted section.
+fn judgment_fields_are_emitted(judgment: &Value, expected: &[&str]) -> bool {
+    match judgment {
+        Value::Object(pairs) => {
+            pairs.len() == expected.len()
+                && pairs
+                    .iter()
+                    .zip(expected.iter())
+                    .all(|((name, _), want)| name.as_str().as_deref() == Some(*want))
+        }
+        _ => false,
+    }
+}
+
 /// The judgment section's own shape (VL-26): a
 /// close recorded before Round 3 carries none and
 /// is sound without it; a section that is present
-/// must be internally consistent. The card's
-/// re-derivation against the rested measures is
-/// the fold's work, beside VL-9b.
+/// must be internally consistent, and a judged or
+/// unavailable section's fields must be exactly
+/// the writer's (VL-24a). The card's re-derivation
+/// against the rested measures is the fold's work,
+/// beside VL-9b.
 fn judgment_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
     let judgment = match event.get("judgment") {
         Some(judgment) => judgment,
@@ -567,6 +606,12 @@ fn judgment_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
             }
         }
         "unavailable" => {
+            if !judgment_fields_are_emitted(judgment, &UNAVAILABLE_FIELDS) {
+                defects.push(defect(
+                    position,
+                    "the unavailable section's fields are not the recorded fields",
+                ));
+            }
             if !is_digest_text(judgment.get("card_sha256")) {
                 defects.push(defect(
                     position,
@@ -593,6 +638,12 @@ fn judgment_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
             }
         }
         _ => {
+            if !judgment_fields_are_emitted(judgment, &JUDGED_FIELDS) {
+                defects.push(defect(
+                    position,
+                    "the judged section's fields are not the recorded fields",
+                ));
+            }
             match judgment.get("model") {
                 Some(Value::Str(model))
                     if model.units() == Text::from_str(judge::MODEL).units() => {}

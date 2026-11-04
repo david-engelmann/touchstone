@@ -828,8 +828,12 @@ fn judged_registry(tag: &str) -> (PathBuf, RegPath, Value) {
 /// Rewrite the registry's closed line with a
 /// mutated judgment section and return the defect
 /// texts the load reports.
-fn defects_after_mutation(tag: &str, mutate: impl Fn(&mut Value)) -> Vec<String> {
-    let (root, path, closed) = judged_registry(tag);
+fn defects_after_rewrite(
+    root: &Path,
+    path: &RegPath,
+    closed: &Value,
+    mutate: impl Fn(&mut Value),
+) -> Vec<String> {
     let file = root.join("registry.jsonl");
     let text_in = std::fs::read_to_string(&file).unwrap();
     let mut lines: Vec<String> = text_in.lines().map(|line| line.to_string()).collect();
@@ -840,11 +844,16 @@ fn defects_after_mutation(tag: &str, mutate: impl Fn(&mut Value)) -> Vec<String>
     let rendered = dumps_line(&forged, Mode::Strict).expect("renders");
     lines[2] = String::from_utf8(rendered).unwrap();
     std::fs::write(&file, lines.join("\n") + "\n").unwrap();
-    let (_events, defects) = load_registry(&path).expect("loads");
+    let (_events, defects) = load_registry(path).expect("loads");
     defects
         .iter()
         .map(|defect| defect.render_stderr())
         .collect()
+}
+
+fn defects_after_mutation(tag: &str, mutate: impl Fn(&mut Value)) -> Vec<String> {
+    let (root, path, closed) = judged_registry(tag);
+    defects_after_rewrite(&root, &path, &closed, mutate)
 }
 
 #[test]
@@ -899,6 +908,95 @@ fn check_names_forged_judgments() {
     assert!(
         defects.iter().any(|d| d.contains("unpinned model")),
         "{defects:?}"
+    );
+}
+
+#[test]
+fn check_names_sections_outside_the_recorded_shape() {
+    // The genuine judged section is the writer's
+    // exact shape and loads sound (VL-24a).
+    let (_root, path, _closed) = judged_registry("shape-genuine");
+    let (_events, defects) = load_registry(&path).expect("loads");
+    assert!(defects.is_empty(), "{defects:?}");
+    // A judged section carrying fields the writer
+    // never emits (the red team's A5: a reason and
+    // a note riding along).
+    let defects = defects_after_mutation("shape-judged-extra", |judgment| {
+        set_key(judgment, "reason", text("the judge explained itself"));
+        set_key(judgment, "note", text("trust me"));
+    });
+    assert!(
+        defects
+            .iter()
+            .any(|d| d.contains("the judged section's fields are not the recorded fields")),
+        "{defects:?}"
+    );
+    // A judged section with its fields reordered
+    // (the red team's A5c) is outside the shape
+    // too: the fold holds not_consulted to exact
+    // equality, order included, and VL-24a holds
+    // the consulted sections to the same standard.
+    let defects = defects_after_mutation("shape-judged-reordered", |judgment| {
+        let pairs = match judgment {
+            Value::Object(pairs) => pairs.clone(),
+            _ => unreachable!("a judgment section is an object"),
+        };
+        *judgment = Value::Object(pairs.into_iter().rev().collect());
+    });
+    assert!(
+        defects
+            .iter()
+            .any(|d| d.contains("the judged section's fields are not the recorded fields")),
+        "{defects:?}"
+    );
+    // An unavailable section carrying a field the
+    // writer never emits (the red team's A5b).
+    let (root, path) = contested_registry("shape-unavailable");
+    let closed =
+        close_experiment(&path, &close_event("keep", "holding"), Some(&Down)).expect("close");
+    assert_eq!(st(get(get(&closed, "judgment"), "status")), "unavailable");
+    let defects = defects_after_rewrite(&root, &path, &closed, |judgment| {
+        set_key(judgment, "note", text("smuggled"));
+    });
+    assert!(
+        defects
+            .iter()
+            .any(|d| d.contains("the unavailable section's fields are not the recorded fields")),
+        "{defects:?}"
+    );
+}
+
+#[test]
+fn a_non_object_answer_records_its_own_reason() {
+    // A wholly non-object response names nothing:
+    // the recorded unavailable reason is the guard
+    // phrase, not a model failure (standards m1,
+    // mirroring secondtake's answer_decision).
+    let scripted = |choice: Value| {
+        Scripted::new(HashMap::from([
+            ("choice".to_string(), choice),
+            ("evidence".to_string(), score_response(7.5)),
+            ("risk".to_string(), score_response(8.25)),
+        ]))
+    };
+    let error = judge_card(CARD, &scripted(Value::Array(vec![]))).expect_err("an array answer");
+    assert_eq!(error.0, "the judge's answer is not an object");
+    let error = judge_card(CARD, &scripted(text("a bare string"))).expect_err("a string answer");
+    assert_eq!(error.0, "the judge's answer is not an object");
+    // Through the close, the refusal lands as
+    // unavailable carrying that reason.
+    let (_root, path) = contested_registry("non-object-close");
+    let closed = close_experiment(
+        &path,
+        &close_event("keep", "holding"),
+        Some(&scripted(Value::Array(vec![]))),
+    )
+    .expect("close");
+    let judgment = get(&closed, "judgment");
+    assert_eq!(st(get(judgment, "status")), "unavailable");
+    assert_eq!(
+        st(get(judgment, "reason")),
+        "the judge's answer is not an object"
     );
 }
 
