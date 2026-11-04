@@ -201,3 +201,97 @@ is the behavioral spec.
   Python line share on the landing tree, the bindings
   determination, and the non-Rust remainder register
   with a justification per item.
+- VL-20. Round 3 is the decision-model round
+  VL-9 foresaw. Judgment enters only where the
+  recorded verdict and the deterministic
+  suggestion disagree at close time; that
+  disagreement is the contested band. Where
+  they agree, the close records judgment status
+  not_consulted with the reason that verdict
+  and suggestion agree, and no model is called.
+- VL-21. A contested close with no judge
+  configured closes as before, its judgment
+  section recording not_consulted with the
+  reason that no judge is configured. The judge
+  is configured the way secondtake configures
+  its judge (the same transport shape and
+  configuration surface), re-implemented in
+  this crate; no sibling crate is consumed.
+- VL-22. A contested close with a judge builds
+  a decision card from the computed state (the
+  opening's margins, the baseline and current
+  measures, which judged measures regressed,
+  the recorded verdict, the suggestion), digests
+  it under canonical form 1, and asks the model
+  for a choice among keep, kill, rerun, and
+  abstain, with scores for evidence strength
+  and regression risk and a calibrated
+  confidence, exactly the roadmap's card.
+- VL-23. The model's answer is recorded in the
+  close event's judgment section beside the
+  measures that produced it, with the model
+  name and the card digest. The recorded
+  verdict stands as the author's act; where
+  the model's proposal differs, both stand,
+  as VL-9 already provides for disagreements.
+- VL-24. Where the model abstains, or answers
+  under the confidence floor of 0.6, the close
+  does not land: no event is appended, the
+  experiment stays open, and the command
+  refuses naming the abstention. Where the
+  judge cannot answer (transport failure or an
+  unparseable answer), the close lands with
+  judgment status unavailable and is never
+  marked judged. Deterministic refusals (no
+  baseline, an incomplete window, a malformed
+  close) precede any call, as they precede the
+  close itself.
+- VL-25. Tests stay offline. A bounded
+  recording window captures synthetic contested
+  cards and the model's answers as fixtures in
+  the repo, each carrying the model name and
+  the exact call shape; the suite replays them
+  through a fixture transport. Live calls stay
+  inside this repo's harmonized allowance (at
+  most 10 verification calls, at most 200 in
+  the recording window, the 5 dollar monthly
+  hard stop), and the round's gate report
+  prints the recorded usage.
+- VL-26. The views carry the judgment: list and
+  show render a closed experiment's judgment
+  section where one exists, and check
+  re-derives the recorded suggestion and the
+  judgment's internal consistency (a judged
+  close names its card digest and model; an
+  abstained close does not exist, by VL-24).
+- VL-27. The round's verification is the full
+  local gate plus the differential harness at
+  zero failures over the whole surface,
+  judgment included, with the Python oracle
+  for this round being Round 2's behavior on
+  the uncontested surface and the contract on
+  the judgment surface (the oracle predates
+  the feature; the harness marks the judgment
+  cells accordingly rather than dropping the
+  uncontested ones).
+- VL-22a. The card's full contents, enumerated
+  (addendum from the Round 3 spec review, whose
+  parenthetical in VL-22 named the load-bearing
+  elements but not the frame): the header line
+  naming the experiment and its proposal; one
+  line per judged measure carrying its name,
+  baseline, current, direction, effective
+  margin, and outcome word; a line naming any
+  judged measure the rested result did not
+  measure; the regressed-measures line; and the
+  verdict and suggestion line. Every element is
+  deterministic from the opening and the rested
+  result, and check rebuilds the card
+  byte-for-byte, as it did before this addendum
+  named the frame.
+- VL-24a. Amendment, from the Round 3 red team:
+  check holds every judgment section to its
+  status's exact key set, as the fold already
+  holds not_consulted to exact-object equality.
+  A judged or unavailable section carrying a
+  field the writer never emits is a defect.

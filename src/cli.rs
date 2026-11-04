@@ -20,6 +20,7 @@ use flighttape::value::{object, Text, Value};
 
 use crate::emit::{dumps_view, Mode};
 use crate::helptext::*;
+use crate::judge::{FixtureTransport, JudgeError, LiveTransport, Transport};
 use crate::pyrepr::repr_text;
 use crate::registry::{
     add_result, close_experiment, list_view, load_registry, open_experiment, parse_arg_json,
@@ -363,6 +364,11 @@ const CLOSE_SPEC: SubSpec = SubSpec {
         OptSpec {
             canonical: "--successor",
             label: "--successor",
+            kind: OptKind::Value,
+        },
+        OptSpec {
+            canonical: "--judge",
+            label: "--judge",
             kind: OptKind::Value,
         },
     ],
@@ -910,6 +916,12 @@ pub fn os_path(text: &Text) -> PathBuf {
     }
 }
 
+/// A typed path's display form, as the Python
+/// prints it in its messages.
+fn display_path(text: &Text) -> String {
+    stderr_render(&normalize_path_display(text.units()))
+}
+
 fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     let parent = path.parent().unwrap_or_else(|| Path::new("."));
     let name = path
@@ -1079,22 +1091,56 @@ fn execute(command: &str, parsed: &SubParsed) -> i32 {
             add_result(&registry, &event)?;
             Ok(0)
         })()),
-        "close" => report((|| {
-            let mut pairs = vec![
-                ("type", Value::Str(Text::from_str("closed"))),
-                ("experiment", Value::Str(parsed.positionals[1].clone())),
-                ("at", Value::Str(text_arg(parsed, "--at"))),
-                ("verdict", Value::Str(text_arg(parsed, "--verdict"))),
-                ("rationale", Value::Str(text_arg(parsed, "--rationale"))),
-            ];
-            if let Some(successor) = parsed.get_text("--successor") {
-                if !successor.units().is_empty() {
-                    pairs.push(("successor", Value::Str(successor)));
+        "close" => {
+            // The judge's configuration surface is
+            // secondtake's (VL-21): the word live names
+            // the connector call script in JEV_CALL,
+            // and any other value names a judgments
+            // file the fixture transport replays. The
+            // transport is built before the close runs,
+            // as secondtake builds it before the
+            // comparison; no model is called until the
+            // close's own refusals have passed.
+            let judge: Option<Box<dyn Transport>> = match parsed.get_text("--judge") {
+                Some(word) if word.units() == Text::from_str("live").units() => {
+                    match std::env::var_os("JEV_CALL") {
+                        Some(script) if !script.is_empty() => {
+                            Some(Box::new(LiveTransport::new(script)))
+                        }
+                        _ => {
+                            eprintln!(
+                                "error, live judging needs the JEV_CALL environment variable naming the connector call script"
+                            );
+                            return 1;
+                        }
+                    }
                 }
-            }
-            close_experiment(&registry, &object(pairs))?;
-            Ok(0)
-        })()),
+                Some(path) => match FixtureTransport::load(&os_path(&path), &display_path(&path)) {
+                    Ok(transport) => Some(Box::new(transport)),
+                    Err(JudgeError(message)) => {
+                        eprintln!("error, {message}");
+                        return 1;
+                    }
+                },
+                None => None,
+            };
+            report((|| {
+                let mut pairs = vec![
+                    ("type", Value::Str(Text::from_str("closed"))),
+                    ("experiment", Value::Str(parsed.positionals[1].clone())),
+                    ("at", Value::Str(text_arg(parsed, "--at"))),
+                    ("verdict", Value::Str(text_arg(parsed, "--verdict"))),
+                    ("rationale", Value::Str(text_arg(parsed, "--rationale"))),
+                ];
+                if let Some(successor) = parsed.get_text("--successor") {
+                    if !successor.units().is_empty() {
+                        pairs.push(("successor", Value::Str(successor)));
+                    }
+                }
+                close_experiment(&registry, &object(pairs), judge.as_deref())?;
+                Ok(0)
+            })())
+        }
         "list" => {
             if view_is_guarded(&registry, parsed) {
                 return 1;

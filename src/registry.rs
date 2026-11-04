@@ -12,9 +12,11 @@ use std::collections::{HashMap, HashSet};
 use std::io::{Read, Seek, SeekFrom, Write};
 use std::path::PathBuf;
 
+use flighttape::identity::tape_digest;
 use flighttape::value::{object, set_key, Text, Value};
 
 use crate::emit::{dumps_line, Mode};
+use crate::judge::{self, Consult, Transport};
 use crate::pyrepr::repr_value;
 use crate::util::{
     cmp_f64_int, decode_pair, int_to_f64, join_msgs, json_text_depths, normalize_path_display,
@@ -445,6 +447,254 @@ fn closed_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
             "a successor is recorded only on a rerun verdict",
         ));
     }
+    judgment_defects(event, position, defects);
+}
+
+/// A recorded judgment number as an f64 for the
+/// range checks below: a huge integer becomes an
+/// infinity and fails every bound, where the
+/// registry's own converter would meet the crash
+/// class. A forged line must name a defect, never
+/// crash the read.
+fn judgment_number(value: &Value) -> Option<f64> {
+    match value {
+        Value::Int(digits) => digits.parse::<f64>().ok(),
+        Value::Float(number) => Some(*number),
+        _ => None,
+    }
+}
+
+fn judgment_bounded(value: Option<&Value>, low: f64, high: f64) -> bool {
+    match value.and_then(judgment_number) {
+        Some(number) => number.is_finite() && number >= low && number <= high,
+        None => false,
+    }
+}
+
+fn is_digest_text(value: Option<&Value>) -> bool {
+    match value {
+        Some(Value::Str(text)) => {
+            let units = text.units();
+            units.len() == 64
+                && units
+                    .iter()
+                    .all(|unit| (0x30..=0x39).contains(unit) || (0x61..=0x66).contains(unit))
+        }
+        _ => false,
+    }
+}
+
+fn judgment_probabilities_ok(value: Option<&Value>) -> bool {
+    let entries = match value {
+        Some(Value::Object(pairs)) => pairs,
+        _ => return false,
+    };
+    if entries.len() != judge::LABELS.len() {
+        return false;
+    }
+    let mut sum = 0.0;
+    for label in judge::LABELS {
+        let found = entries
+            .iter()
+            .find(|(name, _)| name.units() == Text::from_str(label).units());
+        match found {
+            Some((_, item)) if judgment_bounded(Some(item), 0.0, 1.0) => {
+                sum += judgment_number(item).expect("bounded");
+            }
+            _ => return false,
+        }
+    }
+    (sum - 1.0).abs() <= 0.02
+}
+
+const ANSWER_FIELDS: [&str; 6] = [
+    "model",
+    "choice",
+    "confidence",
+    "probabilities",
+    "evidence_strength",
+    "regression_risk",
+];
+
+/// The fields the writer emits for a judged close,
+/// in emission order (VL-24a): the card and its
+/// digest, the answer in judge_card's order, and
+/// the status last, as consult builds the section.
+const JUDGED_FIELDS: [&str; 9] = [
+    "card_sha256",
+    "card",
+    "model",
+    "choice",
+    "confidence",
+    "probabilities",
+    "evidence_strength",
+    "regression_risk",
+    "status",
+];
+
+/// The fields the writer emits for an unavailable
+/// close, in emission order (VL-24a).
+const UNAVAILABLE_FIELDS: [&str; 4] = ["card_sha256", "card", "status", "reason"];
+
+/// Whether a judgment section's fields are exactly
+/// the writer's, names and order (VL-24a): the
+/// closed shape the fold's exact-object comparison
+/// already imposes on a not_consulted section.
+fn judgment_fields_are_emitted(judgment: &Value, expected: &[&str]) -> bool {
+    match judgment {
+        Value::Object(pairs) => {
+            pairs.len() == expected.len()
+                && pairs
+                    .iter()
+                    .zip(expected.iter())
+                    .all(|((name, _), want)| name.as_str().as_deref() == Some(*want))
+        }
+        _ => false,
+    }
+}
+
+/// The judgment section's own shape (VL-26): a
+/// close recorded before Round 3 carries none and
+/// is sound without it; a section that is present
+/// must be internally consistent, and a judged or
+/// unavailable section's fields must be exactly
+/// the writer's (VL-24a). The card's re-derivation
+/// against the rested measures is the fold's work,
+/// beside VL-9b.
+fn judgment_defects(event: &Value, position: usize, defects: &mut Vec<Msg>) {
+    let judgment = match event.get("judgment") {
+        Some(judgment) => judgment,
+        None => return,
+    };
+    if !matches!(judgment, Value::Object(_)) {
+        defects.push(defect(position, "the judgment section is not an object"));
+        return;
+    }
+    let status = judgment.get("status").unwrap_or(&Value::Null);
+    let status_name = ["judged", "not_consulted", "unavailable"]
+        .iter()
+        .copied()
+        .find(|name| str_in(status, &[name]));
+    let status_name = match status_name {
+        Some(name) => name,
+        None => {
+            defects.push(defect(
+                position,
+                "the judgment status is not one of judged, not_consulted, unavailable",
+            ));
+            return;
+        }
+    };
+    match status_name {
+        "not_consulted" => {
+            if !is_nonempty_str(judgment.get("reason").unwrap_or(&Value::Null)) {
+                defects.push(defect(
+                    position,
+                    "a judgment that was not consulted names no reason",
+                ));
+            }
+            if judgment.get("card").is_some()
+                || judgment.get("card_sha256").is_some()
+                || ANSWER_FIELDS
+                    .iter()
+                    .any(|field| judgment.get(field).is_some())
+            {
+                defects.push(defect(
+                    position,
+                    "a judgment that was not consulted carries a card or an answer",
+                ));
+            }
+        }
+        "unavailable" => {
+            if !judgment_fields_are_emitted(judgment, &UNAVAILABLE_FIELDS) {
+                defects.push(defect(
+                    position,
+                    "the unavailable section's fields are not the recorded fields",
+                ));
+            }
+            if !is_digest_text(judgment.get("card_sha256")) {
+                defects.push(defect(
+                    position,
+                    "an unavailable judgment does not name its card digest",
+                ));
+            }
+            if !matches!(judgment.get("card"), Some(Value::Str(_))) {
+                defects.push(defect(
+                    position,
+                    "an unavailable judgment does not carry its card",
+                ));
+            }
+            if !is_nonempty_str(judgment.get("reason").unwrap_or(&Value::Null)) {
+                defects.push(defect(position, "an unavailable judgment names no reason"));
+            }
+            if ANSWER_FIELDS
+                .iter()
+                .any(|field| judgment.get(field).is_some())
+            {
+                defects.push(defect(
+                    position,
+                    "an unavailable judgment carries an answer",
+                ));
+            }
+        }
+        _ => {
+            if !judgment_fields_are_emitted(judgment, &JUDGED_FIELDS) {
+                defects.push(defect(
+                    position,
+                    "the judged section's fields are not the recorded fields",
+                ));
+            }
+            match judgment.get("model") {
+                Some(Value::Str(model))
+                    if model.units() == Text::from_str(judge::MODEL).units() => {}
+                Some(Value::Str(_)) => {
+                    defects.push(defect(position, "a judged close names an unpinned model"))
+                }
+                _ => defects.push(defect(position, "a judged close does not name its model")),
+            }
+            if !is_digest_text(judgment.get("card_sha256")) {
+                defects.push(defect(
+                    position,
+                    "a judged close does not name its card digest",
+                ));
+            }
+            if !matches!(judgment.get("card"), Some(Value::Str(_))) {
+                defects.push(defect(position, "a judged close does not carry its card"));
+            }
+            if !str_in(judgment.get("choice").unwrap_or(&Value::Null), &VERDICTS) {
+                defects.push(defect(
+                    position,
+                    "a judged close names a choice that is not a verdict",
+                ));
+            }
+            let confidence = judgment.get("confidence");
+            if !judgment_bounded(confidence, 0.0, 1.0) {
+                defects.push(defect(
+                    position,
+                    "the judgment confidence is not a number within 0 and 1",
+                ));
+            } else if judge::confidence_below_floor(confidence.expect("a bounded confidence")) {
+                defects.push(defect(
+                    position,
+                    "the judgment confidence is below the floor of 0.6",
+                ));
+            }
+            if !judgment_bounded(judgment.get("evidence_strength"), 0.0, 10.0)
+                || !judgment_bounded(judgment.get("regression_risk"), 0.0, 10.0)
+            {
+                defects.push(defect(
+                    position,
+                    "the judgment scores are not numbers within 0 and 10",
+                ));
+            }
+            if !judgment_probabilities_ok(judgment.get("probabilities")) {
+                defects.push(defect(
+                    position,
+                    "the judgment probabilities do not cover the four choices",
+                ));
+            }
+        }
+    }
 }
 
 /// Parse one CLI JSON argument (a measures object, a
@@ -697,11 +947,100 @@ fn fold_defects(events: &[(usize, Value)]) -> Result<Vec<Msg>, RegError> {
                             "the recorded suggestion does not match the measures it rests on",
                         ));
                     }
+                    if let Some(judgment) = event.get("judgment") {
+                        judgment_fold_defects(
+                            judgment,
+                            event,
+                            opened_event,
+                            result_event,
+                            &found,
+                            *position,
+                            &mut defects,
+                        )?;
+                    }
                 }
             }
         }
     }
     Ok(defects)
+}
+
+/// The judgment's consistency against the rested
+/// measures (VL-26), beside the VL-9b suggestion
+/// re-derivation: an uncontested close records
+/// exactly the not_consulted section the band
+/// prescribes, and a consulted close's card is
+/// rebuilt from the opening and the rested result
+/// and must digest to the recorded digest. The
+/// section's own shape was settled at the event
+/// level, so only the statuses arrive here.
+fn judgment_fold_defects(
+    judgment: &Value,
+    event: &Value,
+    opened_event: &Value,
+    result_event: &Value,
+    found: &(&'static str, Vec<Text>, Vec<Text>),
+    position: usize,
+    defects: &mut Vec<Msg>,
+) -> Result<(), RegError> {
+    let verdict = match VERDICTS
+        .iter()
+        .copied()
+        .find(|name| str_in(event.get("verdict").unwrap_or(&Value::Null), &[name]))
+    {
+        Some(verdict) => verdict,
+        None => return Ok(()),
+    };
+    let status = judgment.get("status").unwrap_or(&Value::Null);
+    if str_in(status, &["not_consulted"]) {
+        let reason = if verdict == found.0 {
+            "the verdict and the suggestion agree"
+        } else {
+            "no judge is configured"
+        };
+        let expected = object(vec![
+            ("status", Value::Str(Text::from_str("not_consulted"))),
+            ("reason", Value::Str(Text::from_str(reason))),
+        ]);
+        if judgment != &expected {
+            defects.push(defect(
+                position,
+                "the recorded judgment does not match the close it rests on",
+            ));
+        }
+        return Ok(());
+    }
+    if !str_in(status, &["judged", "unavailable"]) {
+        return Ok(());
+    }
+    if verdict == found.0 {
+        defects.push(defect(
+            position,
+            "a judgment was recorded where the verdict and the suggestion agree",
+        ));
+        return Ok(());
+    }
+    let card = judge::build_card(
+        opened_event,
+        result_event,
+        verdict,
+        found.0,
+        &found.1,
+        &found.2,
+    );
+    let digest = match tape_digest(&Value::Str(Text::from_str(&card))) {
+        Ok(digest) => digest,
+        Err(_) => return Err(RegError::Crash),
+    };
+    let card_ok = judgment.get("card") == Some(&Value::Str(Text::from_str(&card)))
+        && judgment.get("card_sha256") == Some(&Value::Str(Text::from_str(&digest)));
+    if !card_ok {
+        defects.push(defect(
+            position,
+            "the recorded judgment does not match the card it rests on",
+        ));
+    }
+    Ok(())
 }
 
 fn kind_name(event: &Value) -> &'static str {
@@ -1058,7 +1397,11 @@ pub fn add_result(path: &RegPath, event: &Value) -> Result<(), RegError> {
     append(path, event)
 }
 
-pub fn close_experiment(path: &RegPath, event: &Value) -> Result<Value, RegError> {
+pub fn close_experiment(
+    path: &RegPath,
+    event: &Value,
+    judge: Option<&dyn Transport>,
+) -> Result<Value, RegError> {
     let events = require_sound(path)?;
     let states = fold(&events);
     let experiment = experiment_of(event);
@@ -1123,6 +1466,37 @@ pub fn close_experiment(path: &RegPath, event: &Value) -> Result<Value, RegError
     if !defects.is_empty() {
         return Err(refusal_defects(defects));
     }
+    // The judgment (VL-20 to VL-24): every
+    // deterministic refusal above precedes any call,
+    // as it precedes the close itself. An abstention
+    // refuses the close and nothing is appended; the
+    // experiment stays open.
+    let verdict = VERDICTS
+        .iter()
+        .copied()
+        .find(|name| str_in(event.get("verdict").unwrap_or(&Value::Null), &[name]))
+        .expect("a checked verdict");
+    let judgment = match judge::consult(
+        &state.opened,
+        result_event,
+        verdict,
+        suggestion,
+        &regressed_names,
+        &unmeasured,
+        judge,
+    ) {
+        Ok(Consult::Record(judgment)) => judgment,
+        Ok(Consult::Refuse(message)) => return Err(named(&message)),
+        Err(_) => return Err(RegError::Crash),
+    };
+    set_key(&mut full, "judgment", judgment);
+    let defects = event_defects(&full, next_position(path));
+    if !defects.is_empty() {
+        // The recorded judgment is built to the
+        // catalogue's own shapes; a defect here is
+        // the port's failure, not the caller's.
+        return Err(RegError::Crash);
+    }
     append(path, &full)?;
     Ok(full)
 }
@@ -1156,6 +1530,9 @@ pub fn list_view(path: &RegPath) -> Result<Value, RegError> {
             set_key(&mut entry, "verdict", verdict);
             set_key(&mut entry, "suggested", suggested);
             set_key(&mut entry, "agrees", Value::Bool(agrees));
+            if let Some(judgment) = closed.get("judgment") {
+                set_key(&mut entry, "judgment", judgment.clone());
+            }
         }
         entries.push(entry);
     }
