@@ -274,3 +274,24 @@ is the behavioral spec.
   the feature; the harness marks the judgment
   cells accordingly rather than dropping the
   uncontested ones).
+- VL-22a. The card's full contents, enumerated
+  (addendum from the Round 3 spec review, whose
+  parenthetical in VL-22 named the load-bearing
+  elements but not the frame): the header line
+  naming the experiment and its proposal; one
+  line per judged measure carrying its name,
+  baseline, current, direction, effective
+  margin, and outcome word; a line naming any
+  judged measure the rested result did not
+  measure; the regressed-measures line; and the
+  verdict and suggestion line. Every element is
+  deterministic from the opening and the rested
+  result, and check rebuilds the card
+  byte-for-byte, as it did before this addendum
+  named the frame.
+- VL-24a. Amendment, from the Round 3 red team:
+  check holds every judgment section to its
+  status's exact key set, as the fold already
+  holds not_consulted to exact-object equality.
+  A judged or unavailable section carrying a
+  field the writer never emits is a defect.
