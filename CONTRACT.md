@@ -338,3 +338,42 @@ is the behavioral spec.
   way. The unmodified harness runs as the
   control. Any recorded fixture digest that
   moves stops the round.
+- VL-31. Round 5 takes the registry path itself
+  as its subject. Every other crate in this line
+  has now had its path handling probed under the
+  families the rotation measured (deleted
+  working directories, tailed spellings, links
+  and chains, and, in secondbill's Round 5, the
+  temp placement law); this crate's registry
+  argument has never had the same pass. The
+  probe set: relative and absolute registry
+  spellings from a deleted working directory on
+  every command; tailed registry spellings
+  (trailing separator, dot component, doubled
+  separators, anchors); the registry spelled
+  through live links, dangling links, chains,
+  and loops, for reads and for appends alike;
+  and any surface in this crate that hands a
+  path to a library call whose own path handling
+  could differ from a plain open. Each family is
+  measured against the oracle before any repair
+  is written, and the crate's own postures
+  (named refusals, the standing crash-class
+  deviation) decide what faithful means per
+  cell.
+- VL-32. The CodeRabbit disposition owed from
+  Round 4 discharges here on evidence: the
+  Round 4 pull request carries zero inline
+  findings on read-back (checked 2026-11-04
+  alongside the whole rotation's late shells,
+  all zero), so there is nothing to fix and the
+  absence is the disposition.
+- VL-33. Repairs follow the measurements under
+  new clauses if a probe set expands; the
+  differential harness gains the proven cells
+  with control runs against the pre-repair
+  binary failing exactly the new cells, and the
+  standing harness stays clean.
+- VL-34. README records 5 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
