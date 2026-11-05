@@ -377,3 +377,87 @@ is the behavioral spec.
 - VL-34. README records 5 of 100 only in the
   closure commit written after this round's
   three reviews, fixes, and owner verification.
+- VL-35. Amendment, from the Round 5 probes
+  (written before any repair). From a deleted
+  working directory, reads and appends agree on
+  every command, but the view guard's resolution
+  consults the working directory for relative
+  spellings: the Python's resolve() raises there
+  uncaught, while the port falls back to a root
+  spelling and proceeds, in two cells writing
+  the view where the Python crashed. A failed
+  working-directory read on a relative spelling
+  fails the resolution outright, and the guard
+  takes the crash class (VL-13's posture),
+  exactly as the Python's uncaught raise
+  behaves.
+- VL-36. The guard's resolution is the
+  interpreter's walk, not a canonicalize with a
+  lexical peel. Measured against the Python's
+  resolve(): a dangling final link resolves to
+  its target spelling read against the link's
+  parent directory (a dangling link naming a
+  missing registry still refuses as the view
+  overwriting it); a link loop that is not
+  cancelled by a following dotdot fails the
+  resolution and takes the crash class (the
+  port today writes over the loop link); nested
+  splices past the kernel's open limit still
+  resolve by the walk, up to this command's
+  measured recursion band: a chain of 991
+  nested links onto the registry resolves and
+  refuses, and the 992nd fails the resolution
+  and takes the crash class (the port today
+  writes over the chain head at every depth
+  past 40); a loop cancelled by a following
+  dotdot resolves as the walk resolves it.
+- VL-37. The view's temporary file is created
+  under the lexically absolutized parent of
+  the constructed output path: the working
+  directory joined when the parent is relative,
+  then lexically normalized with no link
+  resolution, exactly where tempfile.mkstemp
+  places it in the Python; the rename still
+  targets the constructed path. Measured: when
+  the output's parent pops a symlink with a
+  dotdot and only the physically resolved
+  parent exists, the port writes where the
+  Python refuses that it cannot write the
+  view.
+- VL-38. open's existence probe mirrors
+  pathlib's exists(): a stat failure in the
+  not-found class (a missing component, a
+  component that is not a directory, a loop)
+  still reads as absence, and any other stat
+  failure propagates as the bare OS-error
+  refusal the Python's main handler prints.
+  Measured as uid 65534, since the differential
+  harness runs as root and cannot carry the
+  cell (the probes are the pin): open with the
+  registry under an unsearchable directory,
+  where the port today answers with its
+  cannot-append phrase. Result, check, and
+  list under the same directory already agree,
+  because the load speaks first.
+- VL-39. The absent classes, measured and
+  pinned with no repair: deleted-working-
+  directory reads and appends on every command
+  (plain opens never consult the working
+  directory); tailed registry spellings (a
+  trailing separator, a dot or doubled
+  component, the anchor forms, the empty
+  spelling) on reads, appends, and fresh
+  opens alike; registry reads and appends
+  through live links, dangling links, chains,
+  and loops, including a fresh registry
+  created through a dangling link and the
+  Errno 40 refusals a 41-link chain names
+  identically on both sides; and the judge
+  fixture read, a plain read of the
+  constructed path whose spellings naming the
+  same file behave identically and whose
+  unreadable spellings refuse with the one no
+  judgments file text, while the connector
+  script in JEV_CALL is handed to the
+  interpreter as an argument and never opened
+  by this crate.
