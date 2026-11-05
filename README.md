@@ -15,7 +15,7 @@ earlier in October 2026.
 
 ## Programme status
 
-- Closed perfection rounds, 4 of 100. A round counts only when a
+- Closed perfection rounds, 5 of 100. A round counts only when a
   full cycle of work, audit, review, red team, and approval has
   closed.
 - Contract, VL-1 to VL-19 as amended, met for the Round 2 scope.

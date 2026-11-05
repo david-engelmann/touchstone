@@ -1344,8 +1344,31 @@ fn refusal_defects(defects: Vec<Msg>) -> RegError {
     named_msg(join_msgs(&defects, "; "))
 }
 
+/// open's existence probe, pathlib's exists()
+/// (VL-38): a stat failure in the not-found
+/// class (a missing component, a component that
+/// is not a directory, a loop: the errnos the
+/// interpreter's exists() swallows) reads as
+/// absence, and any other stat failure
+/// propagates as the bare OS-error refusal the
+/// Python's main handler prints, rather than
+/// reading as a fresh registry whose append
+/// then fails under a different phrase.
+fn probe_exists(path: &RegPath) -> Result<bool, RegError> {
+    match std::fs::metadata(&path.os) {
+        Ok(_) => Ok(true),
+        Err(error) => match error.raw_os_error() {
+            Some(2) | Some(20) | Some(40) => Ok(false),
+            _ => Err(RegError::Named(RegistryError(os_exc(
+                &error,
+                Some(&path.display),
+            )))),
+        },
+    }
+}
+
 pub fn open_experiment(path: &RegPath, event: &Value) -> Result<(), RegError> {
-    let events = if path.os.exists() {
+    let events = if probe_exists(path)? {
         require_sound(path)?
     } else {
         Vec::new()
