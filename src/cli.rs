@@ -859,43 +859,240 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
     )
 }
 
-/// Path.resolve() for the write guard: canonicalize
-/// what exists, then append the rest with lexical
-/// normalization.
-fn resolve_path(path: &Path) -> PathBuf {
-    if let Ok(canonical) = std::fs::canonicalize(path) {
-        return canonical;
+/// The recursion budget of the interpreter's
+/// resolution walk, measured at this command
+/// (VL-36): a resolution nesting 991 splices
+/// completes, and the 992nd nesting raises the
+/// interpreter's RecursionError out of resolve().
+/// The count is of nesting depth, not of splices
+/// in total: the top call of a resolution stands
+/// at depth 0 and each splice's call stands one
+/// deeper. The number belongs to this CLI's
+/// stack as measured at it, not to the line.
+const MAX_WALK_DEPTH: usize = 991;
+
+/// A path's bytes in the operating system's
+/// encoding.
+fn os_bytes(value: &std::ffi::OsStr) -> Vec<u8> {
+    #[cfg(unix)]
+    {
+        use std::os::unix::ffi::OsStrExt as _;
+        value.as_bytes().to_vec()
     }
+    #[cfg(not(unix))]
+    {
+        value.to_string_lossy().into_owned().into_bytes()
+    }
+}
+
+/// A transient path over raw bytes, for the
+/// walk's stats and link reads.
+fn path_from_bytes(bytes: &[u8]) -> PathBuf {
+    #[cfg(unix)]
+    {
+        use std::os::unix::ffi::OsStringExt as _;
+        PathBuf::from(std::ffi::OsString::from_vec(bytes.to_vec()))
+    }
+    #[cfg(not(unix))]
+    {
+        PathBuf::from(String::from_utf8_lossy(bytes).into_owned())
+    }
+}
+
+/// os.path.join on byte strings: an absolute
+/// second part stands alone, an empty or
+/// separator-ending first part takes the second
+/// as it is, anything else joins on a separator.
+fn join_bytes(first: &[u8], second: &[u8]) -> Vec<u8> {
+    if second.first() == Some(&0x2F) {
+        return second.to_vec();
+    }
+    let mut out = first.to_vec();
+    if !out.is_empty() && !out.ends_with(b"/") {
+        out.push(0x2F);
+    }
+    out.extend_from_slice(second);
+    out
+}
+
+/// os.path.split on byte strings: the head is
+/// everything up to the last separator, trailing
+/// separators stripped unless the head is nothing
+/// but separators, and the tail is what follows.
+fn split_bytes(path: &[u8]) -> (Vec<u8>, Vec<u8>) {
+    let index = path
+        .iter()
+        .rposition(|byte| *byte == 0x2F)
+        .map_or(0, |i| i + 1);
+    let (mut head, tail) = (path[..index].to_vec(), path[index..].to_vec());
+    if !head.is_empty() && !head.iter().all(|byte| *byte == 0x2F) {
+        while head.ends_with(b"/") {
+            head.pop();
+        }
+    }
+    (head, tail)
+}
+
+/// The interpreter's realpath walk itself
+/// (posixpath._joinrealpath with strict=False):
+/// `path` is the resolved prefix, `rest` the
+/// spelling still to walk, and `seen` the links
+/// already met, an open entry (None) marking a
+/// resolution still in progress and a finished
+/// one carrying its result. A component that is
+/// a symlink hands the walk its target spelling,
+/// resolved against the prefix the link stands
+/// in, and the walk continues against the splice,
+/// however long the chain runs and wherever in
+/// the spelling the link stands; a dangling link
+/// therefore lands the resolution on its target
+/// spelling rather than on its own name. A stat
+/// failure on a component (a missing name, an
+/// unsearchable prefix) reads the component as
+/// no link and the walk carries it lexically,
+/// the interpreter's non-strict rule. `depth` is
+/// the nesting of this call, the top call of a
+/// resolution standing at 0; a call entered past
+/// MAX_WALK_DEPTH aborts the walk, read here as
+/// None, the way the interpreter's RecursionError
+/// aborts the resolution. A link met again while
+/// its own resolution is still open is a loop:
+/// the walk leaves that component and the rest
+/// of the spelling standing in the result
+/// unresolved, and resolve_path's closing stat
+/// judges the finished path. A link whose target
+/// bytes cannot be read aborts the walk the way
+/// the interpreter's uncaught raise does,
+/// likewise read as None.
+fn joinrealpath(
+    mut path: Vec<u8>,
+    rest: Vec<u8>,
+    seen: &mut std::collections::HashMap<Vec<u8>, Option<Vec<u8>>>,
+    depth: usize,
+) -> Option<(Vec<u8>, bool)> {
+    if depth > MAX_WALK_DEPTH {
+        return None;
+    }
+    let mut rest: &[u8] = &rest;
+    if rest.first() == Some(&0x2F) {
+        rest = &rest[1..];
+        path = vec![0x2F];
+    }
+    while !rest.is_empty() {
+        let (name, tail) = match rest.iter().position(|byte| *byte == 0x2F) {
+            Some(index) => (&rest[..index], &rest[index + 1..]),
+            None => (rest, &rest[rest.len()..]),
+        };
+        rest = tail;
+        if name.is_empty() || name == b"." {
+            continue;
+        }
+        if name == b".." {
+            if !path.is_empty() {
+                let (head, popped) = split_bytes(&path);
+                path = head;
+                if popped == b".." {
+                    path = join_bytes(&join_bytes(&path, b".."), b"..");
+                }
+            } else {
+                path = b"..".to_vec();
+            }
+            continue;
+        }
+        let newpath = join_bytes(&path, name);
+        let is_link = match std::fs::symlink_metadata(path_from_bytes(&newpath)) {
+            Ok(meta) => meta.file_type().is_symlink(),
+            Err(_) => false,
+        };
+        if !is_link {
+            path = newpath;
+            continue;
+        }
+        if let Some(cached) = seen.get(&newpath) {
+            match cached {
+                Some(resolved) => {
+                    path = resolved.clone();
+                    continue;
+                }
+                None => return Some((join_bytes(&newpath, rest), false)),
+            }
+        }
+        seen.insert(newpath.clone(), None);
+        let target = match std::fs::read_link(path_from_bytes(&newpath)) {
+            Ok(target) => os_bytes(target.as_os_str()),
+            Err(_) => return None,
+        };
+        let (resolved, ok) = joinrealpath(path, target, seen, depth + 1)?;
+        if !ok {
+            return Some((join_bytes(&resolved, rest), false));
+        }
+        seen.insert(newpath, Some(resolved.clone()));
+        path = resolved;
+    }
+    Some((path, true))
+}
+
+/// Path.resolve() for the write guard: pathlib's
+/// resolve, in byte form: absolute against the
+/// working directory, then the interpreter's own
+/// walk (joinrealpath), finished lexically. It
+/// fails (None) where the interpreter's resolve
+/// raises: the working directory read behind a
+/// relative spelling failing (VL-35; a root
+/// spelling is never substituted for it), the
+/// walk nested past its budget, a link whose
+/// target bytes cannot be read, or the closing
+/// stat of the finished path reporting the
+/// kernel's loop errno (VL-36). The guard reads
+/// the failure as the interpreter's crash, this
+/// crate's crash class (VL-13).
+fn resolve_path(path: &Path) -> Option<PathBuf> {
     let absolute = if path.is_absolute() {
         path.to_path_buf()
     } else {
-        std::env::current_dir()
-            .unwrap_or_else(|_| PathBuf::from("/"))
-            .join(path)
+        std::env::current_dir().ok()?.join(path)
     };
-    let mut ancestor: &Path = &absolute;
-    let mut rest: Vec<std::path::Component> = Vec::new();
-    while !ancestor.exists() {
-        match ancestor.components().next_back() {
-            Some(component) => rest.push(component),
-            None => break,
+    let spelling = os_bytes(absolute.as_os_str());
+    let mut seen = std::collections::HashMap::new();
+    let (resolved, _ok) = joinrealpath(Vec::new(), spelling, &mut seen, 0)?;
+    // The lexical finish over the walk's result:
+    // a dot component drops and a dot-dot pops
+    // the component before it, whatever kind of
+    // component that is, so the tail a standing
+    // loop remainder left behind (a cancelled
+    // loop's spelling) finishes the way the
+    // interpreter's resolve returns it, and an
+    // uncancelled remainder reaches the closing
+    // stat still naming its loop.
+    let mut parts: Vec<&[u8]> = Vec::new();
+    for part in resolved.split(|&byte| byte == 0x2F) {
+        if part.is_empty() || part == b"." {
+            continue;
         }
-        match ancestor.parent() {
-            Some(parent) => ancestor = parent,
-            None => break,
+        if part == b".." {
+            parts.pop();
+            continue;
+        }
+        parts.push(part);
+    }
+    let mut finished: Vec<u8> = vec![0x2F];
+    for (index, part) in parts.iter().enumerate() {
+        if index > 0 {
+            finished.push(0x2F);
+        }
+        finished.extend_from_slice(part);
+    }
+    // The closing stat of resolve(): only the
+    // kernel's loop report fails the resolution;
+    // any other stat failure (a missing tail, an
+    // unsearchable prefix) is swallowed there,
+    // as the interpreter swallows it.
+    if let Err(error) = std::fs::metadata(path_from_bytes(&finished)) {
+        if error.raw_os_error() == Some(40) {
+            return None;
         }
     }
-    let mut base = std::fs::canonicalize(ancestor).unwrap_or_else(|_| ancestor.to_path_buf());
-    for component in rest.iter().rev() {
-        match component {
-            std::path::Component::Normal(name) => base.push(name),
-            std::path::Component::ParentDir => {
-                base.pop();
-            }
-            _ => {}
-        }
-    }
-    base
+    Some(path_from_bytes(&finished))
 }
 
 /// The OS path for a text argument: pathlib's
@@ -922,8 +1119,78 @@ fn display_path(text: &Text) -> String {
     stderr_render(&normalize_path_display(text.units()))
 }
 
+/// posixpath.normpath on byte strings: empty and
+/// dot components drop, a dotdot pops the
+/// component before it (and stands only at the
+/// head of a relative spelling), and exactly two
+/// leading separators keep their pair, the
+/// anchor form.
+fn normpath_bytes(path: &[u8]) -> Vec<u8> {
+    let slashes: &[u8] = if path.starts_with(b"//") && !path.starts_with(b"///") {
+        b"//"
+    } else if path.starts_with(b"/") {
+        b"/"
+    } else {
+        b""
+    };
+    let mut parts: Vec<&[u8]> = Vec::new();
+    for part in path.split(|&byte| byte == 0x2F) {
+        if part.is_empty() || part == b"." {
+            continue;
+        }
+        if part == b".." {
+            match parts.last() {
+                Some(last) if *last != b".." => {
+                    parts.pop();
+                }
+                _ => {
+                    if slashes.is_empty() {
+                        parts.push(part);
+                    }
+                }
+            }
+            continue;
+        }
+        parts.push(part);
+    }
+    if parts.is_empty() {
+        if slashes.is_empty() {
+            return b".".to_vec();
+        }
+        return slashes.to_vec();
+    }
+    let mut out = slashes.to_vec();
+    for (index, part) in parts.iter().enumerate() {
+        if index > 0 {
+            out.push(0x2F);
+        }
+        out.extend_from_slice(part);
+    }
+    out
+}
+
+/// The directory tempfile.mkstemp creates the
+/// view's temporary file in (VL-37): the
+/// constructed path's parent absolutized
+/// lexically, the working directory joined when
+/// the parent is relative and the result
+/// normalized without resolving any link,
+/// exactly os.path.abspath's shape in the
+/// Python.
+fn temp_parent(path: &Path) -> std::io::Result<PathBuf> {
+    let parent = path.parent().unwrap_or_else(|| Path::new(""));
+    let parent_bytes = os_bytes(parent.as_os_str());
+    let absolute = if parent_bytes.first() == Some(&0x2F) {
+        parent_bytes
+    } else {
+        let cwd = std::env::current_dir()?;
+        join_bytes(&os_bytes(cwd.as_os_str()), &parent_bytes)
+    };
+    Ok(path_from_bytes(&normpath_bytes(&absolute)))
+}
+
 fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
-    let parent = path.parent().unwrap_or_else(|| Path::new("."));
+    let parent = temp_parent(path)?;
     let name = path
         .file_name()
         .map(|n| n.to_string_lossy().into_owned())
@@ -1044,16 +1311,29 @@ fn text_arg(parsed: &SubParsed, canonical: &str) -> Text {
     parsed.get_text(canonical).expect("a required argument")
 }
 
-/// The write guard (VL-12): a view whose output path
-/// resolves to the registry itself is refused before
-/// the view runs.
-fn view_is_guarded(registry: &RegPath, parsed: &SubParsed) -> bool {
+/// The write guard's outcome (VL-12): a view whose
+/// output path resolves to the registry itself is
+/// refused before the view runs, and a resolution
+/// that fails outright takes the crash class,
+/// exactly as the Python's uncaught raise from
+/// resolve() behaves (VL-35, VL-36).
+enum Guard {
+    Pass,
+    Refuse,
+    Crash,
+}
+
+fn view_guard(registry: &RegPath, parsed: &SubParsed) -> Guard {
     match &parsed.output {
-        Some(out) if resolve_path(&os_path(out)) == resolve_path(&registry.os) => {
-            eprintln!("error, a view never overwrites the registry");
-            true
-        }
-        _ => false,
+        Some(out) => match (resolve_path(&os_path(out)), resolve_path(&registry.os)) {
+            (Some(out), Some(registry)) if out == registry => {
+                eprintln!("error, a view never overwrites the registry");
+                Guard::Refuse
+            }
+            (Some(_), Some(_)) => Guard::Pass,
+            _ => Guard::Crash,
+        },
+        None => Guard::Pass,
     }
 }
 
@@ -1142,7 +1422,7 @@ fn execute(command: &str, parsed: &SubParsed) -> i32 {
             })())
         }
         "list" => {
-            if view_is_guarded(&registry, parsed) {
+            if !matches!(view_guard(&registry, parsed), Guard::Pass) {
                 return 1;
             }
             report((|| {
@@ -1151,7 +1431,7 @@ fn execute(command: &str, parsed: &SubParsed) -> i32 {
             })())
         }
         "show" => {
-            if view_is_guarded(&registry, parsed) {
+            if !matches!(view_guard(&registry, parsed), Guard::Pass) {
                 return 1;
             }
             report((|| {
