@@ -1,4 +1,4 @@
-//! verdictloop: every proposed setup change as a
+//! touchstone: every proposed setup change as a
 //! tracked experiment with a baseline, a result, and
 //! a verdict (VL-1 to VL-12).
 //!
@@ -7,7 +7,7 @@
 //! consumed from the flighttape crate at a pinned
 //! revision (VL-14), never re-implemented here; this
 //! crate carries the registry itself. The registry
-//! format is verdictloop's own. Round 3 adds the
+//! format is touchstone's own. Round 3 adds the
 //! judge (VL-20 to VL-26): the one digest the crate
 //! consumes is canonical form 1 over the decision
 //! card a contested close puts to the model.

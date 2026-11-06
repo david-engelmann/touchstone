@@ -12,12 +12,12 @@ use std::path::{Path, PathBuf};
 use flighttape::identity::tape_digest;
 use flighttape::json::parse;
 use flighttape::value::{set_key, Text, Value};
-use verdictloop::emit::{dumps_line, Mode};
-use verdictloop::judge::{
+use touchstone::emit::{dumps_line, Mode};
+use touchstone::judge::{
     build_card, judge_card, FixtureTransport, JudgeError, LiveTransport, Transport,
 };
-use verdictloop::registry::RegPath;
-use verdictloop::{
+use touchstone::registry::RegPath;
+use touchstone::{
     add_result, close_experiment, list_view, load_registry, open_experiment, show_view, RegError,
 };
 
@@ -61,7 +61,7 @@ fn close_event(verdict: &str, rationale: &str) -> Value {
 
 fn temp_root(tag: &str) -> PathBuf {
     let root = std::env::temp_dir().join(format!(
-        "verdictloop-judge-{}-{}-{tag}",
+        "touchstone-judge-{}-{}-{tag}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)

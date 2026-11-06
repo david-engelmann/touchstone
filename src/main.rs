@@ -1,3 +1,3 @@
 fn main() {
-    std::process::exit(verdictloop::run_cli());
+    std::process::exit(touchstone::run_cli());
 }
