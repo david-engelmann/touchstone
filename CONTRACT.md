@@ -461,3 +461,85 @@ is the behavioral spec.
   script in JEV_CALL is handed to the
   interpreter as an argument and never opened
   by this crate.
+- VL-40. Round 6 takes the view temporary's
+  name as its subject. VL-37 settled where the
+  temporary file is created; what it is called
+  has never been measured in this crate. The
+  name has two parts with an oracle law each:
+  the suffix tempfile.mkstemp appends to the
+  prefix it is handed, and the output's name
+  the prefix carries. Both are measured
+  against the Python at the view seam (list
+  and show writing to an output path), at the
+  name-length boundary the filesystem sets,
+  before any repair is written.
+- VL-41. The CodeRabbit dispositions owed
+  from Round 5 and from the rename discharge
+  here on evidence, in VL-32's shape: the
+  Round 5 pull request (PR 7) carries zero
+  inline findings on read-back (checked
+  2026-11-06: zero review comments and zero
+  reviews; its summary shell finalized after
+  the merge as a walkthrough recording that
+  the review closed with the pull request,
+  and no finding was ever posted), and the
+  rename pull request (PR 8) carries zero
+  inline findings on read-back (the same
+  check: zero review comments and zero
+  reviews, and its summary states no
+  actionable comments were generated), so
+  there is nothing to fix and the absences
+  are the dispositions.
+- VL-42. The suffix law, measured: mkstemp
+  appends exactly eight characters to the
+  prefix (the name and a dot), so the
+  Python's temporary candidate is the output
+  name plus nine characters, and against this
+  filesystem's 255-byte component limit the
+  Python writes a view to names of up to 246
+  bytes and refuses at 247. The port's
+  generator draws nine bytes and renders each
+  as two hexadecimal characters, a constant
+  eighteen: its candidate is the name plus
+  nineteen, and it refuses names of 237 to
+  246 bytes the Python writes, answering that
+  it cannot write the view where the Python
+  wrote. The repair renders exactly eight
+  hexadecimal characters from four drawn
+  bytes, the fallback's sixteen-byte mix
+  folded by lanes so every term of it still
+  reaches the drawn bytes; the draw's sources
+  and the exclusive-create retry loop stand
+  unchanged.
+- VL-43. The name the prefix carries is the
+  output's raw name, byte for byte. The
+  Python hands mkstemp the name as spelled,
+  and surrogateescape round-trips its raw
+  bytes; the port builds its candidate's name
+  through to_string_lossy, so a raw byte in
+  the name becomes the three bytes of U+FFFD
+  and the candidate runs two bytes longer
+  than the name it stands for: a name carrying
+  one raw byte meets the port's refusal two
+  lengths before even VL-42's boundary, at
+  235, while the Python writes it through
+  246. The repair assembles the candidate
+  from raw bytes end to end (the temporary
+  parent's bytes, the name's bytes, the dot,
+  the suffix), the shape SB-37 settled in
+  secondbill; the rename target and the
+  cannot-write message keep the raw spelling
+  they already keep.
+- VL-44. The differential harness gains the
+  boundary cells in both arms: plain names at
+  the lengths around both flips (236, 237,
+  246, 247) and names carrying one raw byte
+  at the lengths around theirs (234, 235,
+  245, 246, 247), each plain and through a popped
+  parent, with control runs against the
+  pre-repair binary failing exactly the new
+  cells and the standing harness clean.
+  README records 6 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner
+  verification.
