@@ -258,7 +258,7 @@ const HELP_OPT: OptSpec = OptSpec {
 
 const OPEN_SPEC: SubSpec = SubSpec {
     usage: OPEN_USAGE,
-    prog: "verdictloop open",
+    prog: "touchstone open",
     help: OPEN_HELP,
     positionals: &["registry", "experiment"],
     options: &[
@@ -314,7 +314,7 @@ const OPEN_SPEC: SubSpec = SubSpec {
 
 const RESULT_SPEC: SubSpec = SubSpec {
     usage: RESULT_USAGE,
-    prog: "verdictloop result",
+    prog: "touchstone result",
     help: RESULT_HELP,
     positionals: &["registry", "experiment"],
     options: &[
@@ -341,7 +341,7 @@ const RESULT_SPEC: SubSpec = SubSpec {
 
 const CLOSE_SPEC: SubSpec = SubSpec {
     usage: CLOSE_USAGE,
-    prog: "verdictloop close",
+    prog: "touchstone close",
     help: CLOSE_HELP,
     positionals: &["registry", "experiment"],
     options: &[
@@ -390,7 +390,7 @@ const OUTPUT_OPT: OptSpec = OptSpec {
 
 const LIST_SPEC: SubSpec = SubSpec {
     usage: LIST_USAGE,
-    prog: "verdictloop list",
+    prog: "touchstone list",
     help: LIST_HELP,
     positionals: &["registry"],
     options: &[HELP_OPT, OUTPUT_OPT],
@@ -400,7 +400,7 @@ const LIST_SPEC: SubSpec = SubSpec {
 
 const SHOW_SPEC: SubSpec = SubSpec {
     usage: SHOW_USAGE,
-    prog: "verdictloop show",
+    prog: "touchstone show",
     help: SHOW_HELP,
     positionals: &["registry", "experiment"],
     options: &[HELP_OPT, OUTPUT_OPT],
@@ -410,7 +410,7 @@ const SHOW_SPEC: SubSpec = SubSpec {
 
 const CHECK_SPEC: SubSpec = SubSpec {
     usage: CHECK_USAGE,
-    prog: "verdictloop check",
+    prog: "touchstone check",
     help: CHECK_HELP,
     positionals: &["registry"],
     options: &[HELP_OPT],
@@ -762,7 +762,7 @@ fn parse_sub(command: &'static str, tokens: &[Token], top_extras: &[Text]) -> Pa
         let rendered: Vec<String> = extras.iter().map(|t| stderr_render(t.units())).collect();
         return parse_error(
             TOP_USAGE,
-            "verdictloop",
+            "touchstone",
             &format!("unrecognized arguments: {}", rendered.join(" ")),
         );
     }
@@ -806,7 +806,7 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
                     if let Some(value) = glued {
                         return parse_error(
                             TOP_USAGE,
-                            "verdictloop",
+                            "touchstone",
                             &format!(
                                 "argument -h/--help: ignored explicit argument {}",
                                 repr_text(&value)
@@ -838,7 +838,7 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
             }
             return parse_error(
                 TOP_USAGE,
-                "verdictloop",
+                "touchstone",
                 &format!(
                     "argument command: invalid choice: {} (choose from 'open', 'result', 'close', 'list', 'show', 'check')",
                     repr_text(&token.text)
@@ -854,7 +854,7 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
     }
     parse_error(
         TOP_USAGE,
-        "verdictloop",
+        "touchstone",
         "the following arguments are required: command",
     )
 }

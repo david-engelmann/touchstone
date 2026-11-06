@@ -3,7 +3,7 @@
 //! them. The shape is secondtake's judge (ST-13 to
 //! ST-19) re-implemented in this crate, as VL-21
 //! provides: the same transport shape and
-//! configuration surface, verdictloop's own card,
+//! configuration surface, touchstone's own card,
 //! labels, and score questions.
 
 use std::collections::HashMap;

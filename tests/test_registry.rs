@@ -7,9 +7,9 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
 use flighttape::value::{set_key, Text, Value};
-use verdictloop::emit::{dumps_line, Mode};
-use verdictloop::registry::RegPath;
-use verdictloop::{
+use touchstone::emit::{dumps_line, Mode};
+use touchstone::registry::RegPath;
+use touchstone::{
     add_result, close_experiment, list_view, load_registry, open_experiment, show_view, RegError,
 };
 
@@ -44,7 +44,7 @@ fn close_event(verdict: &str, rationale: &str) -> Value {
 
 fn temp_root(tag: &str) -> PathBuf {
     let root = std::env::temp_dir().join(format!(
-        "verdictloop-test-{}-{}-{tag}",
+        "touchstone-test-{}-{}-{tag}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -315,7 +315,7 @@ fn a_close_resting_on_a_wrong_position_is_a_defect() {
 }
 
 fn run_cli(args: &[&str]) -> (i32, String, String) {
-    let output = Command::new(env!("CARGO_BIN_EXE_verdictloop"))
+    let output = Command::new(env!("CARGO_BIN_EXE_touchstone"))
         .args(args)
         .stdin(Stdio::null())
         .output()

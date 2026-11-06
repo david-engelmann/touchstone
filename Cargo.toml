@@ -1,16 +1,16 @@
 [package]
-name = "verdictloop"
+name = "touchstone"
 version = "0.1.0"
 edition = "2021"
 description = "Every setup change as a tracked experiment, with a verdict"
 license = "MIT"
 
 [lib]
-name = "verdictloop"
+name = "touchstone"
 path = "src/lib.rs"
 
 [[bin]]
-name = "verdictloop"
+name = "touchstone"
 path = "src/main.rs"
 
 [dependencies]

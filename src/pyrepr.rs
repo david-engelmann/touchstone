@@ -3,7 +3,7 @@
 //! The flighttape crate's repr derives printability
 //! from its own table, which disagrees with CPython at
 //! U+0378, U+0379, U+1AFF, and U+E0001; the phrases
-//! here are verdictloop's own output, so this module
+//! here are touchstone's own output, so this module
 //! carries CPython's table (repr_table) and emit's
 //! exact float rendering.
 

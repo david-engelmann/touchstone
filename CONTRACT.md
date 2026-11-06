@@ -1,4 +1,4 @@
-# verdictloop Contract, stub
+# touchstone Contract, stub
 
 The full Contract is the first build act of this repo phase. This
 stub records the obligations the setup already knows it owes. Each
@@ -7,7 +7,7 @@ on it lands.
 
 - VL-1. Every proposed setup change becomes a tracked experiment with a baseline, a result, and a verdict. No change is verdict free.
 - VL-2. The registry is fed by hand at first. Automation earns its way in later.
-- VL-3. Verdictloop judges changes, tameshi judges checks. A tameshi ruling registers here as an experiment.
+- VL-3. Touchstone judges changes, tameshi judges checks. A tameshi ruling registers here as an experiment.
 - VL-4. Every fixture committed to this repo is synthetic.
 
 ## Round 1. The registry (VL-5 to VL-12)
@@ -164,12 +164,12 @@ is the behavioral spec.
   rendered byte, and exit code. Deviations are named
   in the round dossier, never silent. Test, the
   differential harness of VL-18.
-- VL-14. A Rust library crate plus a thin verdictloop
+- VL-14. A Rust library crate plus a thin touchstone
   binary. The flighttape crate at pinned revision
   ba8d4b550850179722f48b8f9c909e199efe3548 is the only
   direct dependency: the JSON reader, the value model,
   and the timestamp grammar come from the crate, never
-  re-implemented. The registry format is verdictloop's
+  re-implemented. The registry format is touchstone's
   own; no tape format, canonical form, or digest is
   consumed. Test, tests/test_registry.rs.
 - VL-15. Where the registry reading differs from the
@@ -300,7 +300,7 @@ is the behavioral spec.
   it. Nothing else in the crate's behavior
   changes.
 - VL-29. The re-pin is hygiene, not repair:
-  verdictloop's card digest is built over a
+  touchstone's card digest is built over a
   single String value, no Float can enter it,
   and Round 3's sweep digested 6,072 strings
   identically under the old pin and the Round 12
