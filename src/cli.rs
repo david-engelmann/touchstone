@@ -1191,10 +1191,14 @@ fn temp_parent(path: &Path) -> std::io::Result<PathBuf> {
 
 fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     let parent = temp_parent(path)?;
-    let name = path
-        .file_name()
-        .map(|n| n.to_string_lossy().into_owned())
-        .unwrap_or_default();
+    // The candidate is assembled from raw bytes end
+    // to end (VL-43): the temporary parent's bytes,
+    // the output name's bytes as spelled, the dot,
+    // and the suffix. A lossy reading of the name
+    // would run the candidate longer than the name
+    // it stands for and move the refusal boundary.
+    let parent_bytes = os_bytes(parent.as_os_str());
+    let name_bytes = path.file_name().map(os_bytes).unwrap_or_default();
     // mkstemp's shape: an unpredictable name in the
     // target directory, created exclusively at mode
     // 0600, so a file already at any guessed name is
@@ -1202,7 +1206,10 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     let mut attempt = 0;
     let temp = loop {
         let suffix = random_suffix(attempt);
-        let candidate = parent.join(format!("{name}.{suffix}"));
+        let mut candidate_bytes = join_bytes(&parent_bytes, &name_bytes);
+        candidate_bytes.push(b'.');
+        candidate_bytes.extend_from_slice(suffix.as_bytes());
+        let candidate = path_from_bytes(&candidate_bytes);
         let mut options = std::fs::OpenOptions::new();
         options.write(true).create_new(true);
         #[cfg(unix)]
@@ -1235,7 +1242,10 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
 }
 
 fn random_suffix(attempt: u32) -> String {
-    let mut bytes = [0u8; 9];
+    // mkstemp's suffix is eight characters (VL-42):
+    // four drawn bytes, each rendered as two
+    // hexadecimal characters.
+    let mut bytes = [0u8; 4];
     let filled = std::fs::File::open("/dev/urandom")
         .and_then(|mut file| std::io::Read::read_exact(&mut file, &mut bytes))
         .is_ok();
@@ -1244,10 +1254,10 @@ fn random_suffix(attempt: u32) -> String {
             .duration_since(std::time::UNIX_EPOCH)
             .map(|d| d.as_nanos())
             .unwrap_or(0);
-        bytes = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes()
-            [..9]
-            .try_into()
-            .expect("nine bytes");
+        let mix = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes();
+        for lane in 0..4 {
+            bytes[lane] = mix[lane] ^ mix[lane + 4] ^ mix[lane + 8] ^ mix[lane + 12];
+        }
     }
     bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }
