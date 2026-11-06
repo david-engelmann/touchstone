@@ -543,3 +543,23 @@ is the behavioral spec.
   closure commit written after this round's
   three reviews, fixes, and owner
   verification.
+- VL-45. Two wording corrections to this
+  round's own clauses, on the spec review's
+  Minors. VL-41's account of PR 7's summary
+  shell is exact as follows: the shell
+  records the review as failed because the
+  pull request closed before the review
+  completed; no finding was ever posted, and
+  the disposition stands on the zero-comment
+  read-back, not on the shell's wording.
+  VL-44's cells are not a full cross product
+  of the plain and popped forms: the plain
+  arm pins 236, 237, 246, and 247 (with show
+  at 246 and 247), the popped arm pins 237,
+  246, and 247; the raw arm pins 234, 235,
+  245, 246, and 247 (with show at 246), the
+  raw popped arm pins 235, 246, and 247. The
+  popped arms omit plain 236, raw 234, and
+  raw 245 by design: the convictions those
+  lengths carry are pinned in the plain arms
+  and at raw popped 246.
