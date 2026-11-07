@@ -563,3 +563,218 @@ is the behavioral spec.
   raw 245 by design: the convictions those
   lengths carry are pinned in the plain arms
   and at raw popped 246.
+- VL-46. Round 6's CodeRabbit disposition,
+  owed to this round's contract as late
+  findings by Round 6's own record, is
+  discharged here on a full read-back of
+  PR 9 taken on 2026-11-07, all three list
+  endpoints read to their ends. Inline
+  review comments: none. Reviews: exactly
+  one, a COMMENTED review submitted
+  2026-11-06T10:59:20Z, before the merge
+  at 11:03:06Z; its body posts no finding,
+  and its one actionable item is a failed
+  pre-merge check, Docstring Coverage,
+  asking for docstrings on the functions
+  the Round 6 diff touched, to meet an 80
+  percent threshold. Issue comments: four,
+  the trigger, the summary shell, one
+  auto-reply, and the landing comment. The
+  shell's final form is a completed
+  walkthrough (created 10:56:04Z, last
+  updated 10:59:22Z) stating that no
+  merge-blocking issue was identified,
+  with pre-merge checks at four passed and
+  one failed warning, the same Docstring
+  Coverage item. It does not carry the
+  failed-because-closed shape of the
+  sibling dispositions, because it
+  completed before the merge. Round 6's
+  record, that the shell stood in progress
+  at the merge with zero findings, was
+  stale in the sibling way: the shell had
+  finalized before the merge and the
+  merge-time read missed its final form.
+  The auto-reply (10:59:40Z) records an
+  action not completed against a
+  finishing-touches interaction (already
+  reviewed the last commit); it carries no
+  finding. The one item is dismissed, with
+  its reason stated here. The check ran
+  under CodeRabbit's default profile with,
+  by its own run configuration, no
+  configuration file from this repository
+  applied, so the threshold it enforces is
+  that default, not a standard of this
+  repo. The two functions it names,
+  write_atomically and random_suffix in
+  src/cli.rs, are private helpers, and
+  each carries explanatory comments in its
+  body in the crate's standing style,
+  citing the clauses it implements (VL-43
+  and VL-42); the check counts doc
+  comments only, so what it reports is the
+  comment style, not an absence of
+  documentation. It identifies no wrong
+  behavior. CodeRabbit stands advisory in
+  this line, never a gate, and no source
+  change is made for this item.
+- VL-47. The README is rewritten to the
+  fleet README standard. The first screen
+  carries, in order: the title; the lede,
+  the repo description carried verbatim
+  (An experiment registry for a fleet's
+  setup. Every proposed change becomes a
+  tracked experiment with a hypothesis, a
+  run, measurements, and a verdict, keep
+  or kill.); one short paragraph stating
+  what the software is, what it does, and
+  how it is used; the one badge; and one
+  block of real captured output. Then
+  Install, Quickstart, Usage, Status, and
+  License, in that order. The badge is the
+  ci workflow's Actions badge, verified
+  before it ships: the workflow stands
+  active, its latest run on main completed
+  success, and the badge image itself was
+  fetched and renders ci - passing. The
+  description line carries no colon and no
+  semicolon, so carrying it verbatim needs
+  no exception to the standard's copy bar,
+  unlike the sibling case where the pinned
+  line carries a colon (OR-39). Every
+  capture in the README is real: the
+  Install block runs verbatim (cargo
+  install --path . into a scratch
+  CARGO_HOME), the Quickstart runs the
+  installed command end to end (open,
+  result, close), and the Usage outputs
+  are captured from the same binary. Every
+  number in the README traces to the
+  repo's own records. This subject touches
+  README.md only.
+- VL-48. The third home of the one line
+  description does not agree. Cargo.toml's
+  description reads Every setup change as
+  a tracked experiment, with a verdict, a
+  third variant against the repo
+  description and the README lede of
+  VL-47. It is named here as an open item
+  outside this round's README-only bound,
+  and it is not fixed in this round.
+- VL-49. Regression evidence and closure.
+  No source file changes in this round.
+  The standing differential harness (198
+  cases, 400 steps, in its standing form)
+  runs against this round's tip binary and
+  reads byte-clean, and the four-check
+  gate (cargo test at the standing 44,
+  cargo clippy --all-targets -- -D
+  warnings, cargo fmt --check, and the
+  codepoint scan over all tracked files)
+  passes on the final tree. README records
+  7 of 100 only in the closure commit
+  written after this round's three
+  reviews, fixes, and owner verification.
+- VL-50. A repair to the README on the
+  red team's Minor, owed to this round's
+  closure. The Usage paragraph said the
+  judgment and its standing are recorded
+  in the experiment's record either way.
+  That is wrong for two of the four
+  consult outcomes. When the judge
+  abstains, and when the judge answers
+  below the confidence floor, the close
+  does not land, the experiment stays
+  open, and nothing is recorded, as
+  VL-24a contracts and the binary does.
+  The paragraph now states the outcomes
+  exactly: a consulted judge's answer is
+  recorded with the close when the close
+  lands, and on an abstention or a
+  below-floor answer the close does not
+  land, the experiment stays open, and
+  nothing is recorded.
+- VL-51. A wording correction to VL-46,
+  on the spec review's Minor, in the
+  VL-45 class. VL-46 says the one
+  actionable item names the two
+  functions, write_atomically and
+  random_suffix. The Docstring Coverage
+  check names no function: neither the
+  review body nor the shell's Docstring
+  row names either function, and the
+  item scopes itself to the functions
+  touched by the diff in general. The
+  two names come from the Round 6 diff
+  itself and from the shell's file
+  summary. VL-46's dismissal stands on
+  that restated basis, its substance
+  unchanged: the threshold the check
+  enforces is CodeRabbit's default, the
+  two helpers are private and each
+  carries explanatory comments in its
+  body citing the clauses it implements
+  (VL-43 and VL-42), the check counts
+  doc comments only so what it reports
+  is the comment style and not an
+  absence of documentation, it
+  identifies no wrong behavior, and
+  CodeRabbit stands advisory in this
+  line, never a gate.
+- VL-52. CodeRabbit step 0 repairs on
+  PR 11. Four findings against the new
+  README, each verified against the
+  binary or the source before the
+  sentence moved. First, comment
+  4501918687. The check sentence said
+  check recomputes every experiment
+  id. It does not. The registry
+  validates each event's id as a
+  non-empty string (event_defects in
+  registry.rs) and the fold groups
+  events by the id string, so a result
+  or close naming an id no opening
+  named is a defect, and what check
+  recomputes is the recorded
+  suggestion and a judged close's card
+  digest. Demonstrated on the
+  quickstart record with the shipped
+  binary. The id swapped consistently
+  to a second non-empty id still reads
+  sound, and one event renamed alone
+  fails on the unopened-experiment
+  defect. The sentence now states the
+  validation semantics. Second, third,
+  and fourth, all under comment
+  4501918694. The successor sentence
+  named the flag and no restriction,
+  and the band paragraph implied every
+  disagreement consults a judge and a
+  consulted judge's answer is what the
+  close records. The paragraph now
+  states that a successor is recorded
+  only on a rerun verdict and a keep
+  or kill close naming one is refused
+  with the rule named, shown against
+  the binary with the registry left
+  unappended, and that naming a
+  successor does not open it, the
+  successor needing its own opening.
+  It states that a disagreement with
+  no judge named lands the close with
+  the judgment recorded as not
+  consulted, shown with the recorded
+  reason that no judge is configured.
+  And it qualifies the answer sentence
+  with the unavailable outcome. A
+  judge whose call fails or whose
+  answer is malformed leaves the
+  close landed with the judgment
+  recorded as unavailable in place of
+  an answer, shown with a judgments
+  file holding no recorded card, the
+  close landing with the card and its
+  digest recorded and the status
+  unavailable. No source file changes.
+  README and this clause only.
