@@ -112,14 +112,14 @@ $ touchstone show registry.jsonl exp-00beff503e75f106
 
 The registry is one append-only file of events, and its path is the first argument to every command. State is folded from the file on every read and nothing is stored beside it. The six commands are open, result, close, list, show, and check, and their full flags stand in each command's own help text.
 
-The list command prints every experiment with its state, its verdict where one stands, and the suggestion beside it, which is the block at the top of this README. The check command re-reads the whole file, recomputes every experiment id and every recorded suggestion, and names every defect it finds.
+The list command prints every experiment with its state, its verdict where one stands, and the suggestion beside it, which is the block at the top of this README. The check command re-reads the whole file, validates every experiment id, recomputes every recorded suggestion, and names every defect it finds. An id validates as a non-empty string used consistently, with each event naming the experiment its opening named, and an id is never recomputed from the record's contents, so an id swapped consistently through the whole file still passes and one event naming a different id fails.
 
 ```console
 $ touchstone check registry.jsonl
 the registry is sound
 ```
 
-Closing rests on the baseline and the current result, named by their one-based positions in the file. Where the closer's verdict and the computed suggestion agree, no judge is consulted, as the quickstart record shows. Where they disagree, the close stands in the contested band and consults a judge named with the --judge flag, and a consulted judge's answer is recorded with the close when the close lands. When the judge abstains or answers below the 0.6 confidence floor, the close does not land, the experiment stays open, and nothing is recorded. A close can also name a successor experiment with the --successor flag.
+Closing rests on the baseline and the current result, named by their one-based positions in the file. Where the closer's verdict and the computed suggestion agree, no judge is consulted, as the quickstart record shows. Where they disagree, the close stands in the contested band. With no judge named, the close lands and records the judgment as not consulted. With a judge named by the --judge flag, the judge is consulted and its answer is recorded with the close when the close lands, and when the judge's call fails or its answer is not a valid one the close still lands and records the judgment as unavailable in place of an answer. When the judge abstains or answers below the 0.6 confidence floor, the close does not land, the experiment stays open, and nothing is recorded. A close can also name a successor experiment with the --successor flag. A successor is recorded only on a rerun verdict, and a keep or kill close naming one is refused with the rule named. Naming a successor does not open it, and the successor must be opened separately before anything can be recorded against it.
 
 An experiment that does not exist is refused by name on stderr, and the command exits 1.
 

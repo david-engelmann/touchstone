@@ -722,3 +722,59 @@ is the behavioral spec.
   identifies no wrong behavior, and
   CodeRabbit stands advisory in this
   line, never a gate.
+- VL-52. CodeRabbit step 0 repairs on
+  PR 11. Four findings against the new
+  README, each verified against the
+  binary or the source before the
+  sentence moved. First, comment
+  4501918687. The check sentence said
+  check recomputes every experiment
+  id. It does not. The registry
+  validates each event's id as a
+  non-empty string (event_defects in
+  registry.rs) and the fold groups
+  events by the id string, so a result
+  or close naming an id no opening
+  named is a defect, and what check
+  recomputes is the recorded
+  suggestion and a judged close's card
+  digest. Demonstrated on the
+  quickstart record with the shipped
+  binary. The id swapped consistently
+  to a second non-empty id still reads
+  sound, and one event renamed alone
+  fails on the unopened-experiment
+  defect. The sentence now states the
+  validation semantics. Second, third,
+  and fourth, all under comment
+  4501918694. The successor sentence
+  named the flag and no restriction,
+  and the band paragraph implied every
+  disagreement consults a judge and a
+  consulted judge's answer is what the
+  close records. The paragraph now
+  states that a successor is recorded
+  only on a rerun verdict and a keep
+  or kill close naming one is refused
+  with the rule named, shown against
+  the binary with the registry left
+  unappended, and that naming a
+  successor does not open it, the
+  successor needing its own opening.
+  It states that a disagreement with
+  no judge named lands the close with
+  the judgment recorded as not
+  consulted, shown with the recorded
+  reason that no judge is configured.
+  And it qualifies the answer sentence
+  with the unavailable outcome. A
+  judge whose call fails or whose
+  answer is malformed leaves the
+  close landed with the judgment
+  recorded as unavailable in place of
+  an answer, shown with a judgments
+  file holding no recorded card, the
+  close landing with the card and its
+  digest recorded and the status
+  unavailable. No source file changes.
+  README and this clause only.
