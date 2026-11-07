@@ -676,3 +676,49 @@ is the behavioral spec.
   7 of 100 only in the closure commit
   written after this round's three
   reviews, fixes, and owner verification.
+- VL-50. A repair to the README on the
+  red team's Minor, owed to this round's
+  closure. The Usage paragraph said the
+  judgment and its standing are recorded
+  in the experiment's record either way.
+  That is wrong for two of the four
+  consult outcomes. When the judge
+  abstains, and when the judge answers
+  below the confidence floor, the close
+  does not land, the experiment stays
+  open, and nothing is recorded, as
+  VL-24a contracts and the binary does.
+  The paragraph now states the outcomes
+  exactly: a consulted judge's answer is
+  recorded with the close when the close
+  lands, and on an abstention or a
+  below-floor answer the close does not
+  land, the experiment stays open, and
+  nothing is recorded.
+- VL-51. A wording correction to VL-46,
+  on the spec review's Minor, in the
+  VL-45 class. VL-46 says the one
+  actionable item names the two
+  functions, write_atomically and
+  random_suffix. The Docstring Coverage
+  check names no function: neither the
+  review body nor the shell's Docstring
+  row names either function, and the
+  item scopes itself to the functions
+  touched by the diff in general. The
+  two names come from the Round 6 diff
+  itself and from the shell's file
+  summary. VL-46's dismissal stands on
+  that restated basis, its substance
+  unchanged: the threshold the check
+  enforces is CodeRabbit's default, the
+  two helpers are private and each
+  carries explanatory comments in its
+  body citing the clauses it implements
+  (VL-43 and VL-42), the check counts
+  doc comments only so what it reports
+  is the comment style and not an
+  absence of documentation, it
+  identifies no wrong behavior, and
+  CodeRabbit stands advisory in this
+  line, never a gate.

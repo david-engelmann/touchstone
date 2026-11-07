@@ -119,7 +119,7 @@ $ touchstone check registry.jsonl
 the registry is sound
 ```
 
-Closing rests on the baseline and the current result, named by their one-based positions in the file. Where the closer's verdict and the computed suggestion agree, no judge is consulted, as the quickstart record shows. Where they disagree, the close stands in the contested band and consults a judge named with the --judge flag, and the judgment and its standing are recorded in the experiment's record either way. A close can also name a successor experiment with the --successor flag.
+Closing rests on the baseline and the current result, named by their one-based positions in the file. Where the closer's verdict and the computed suggestion agree, no judge is consulted, as the quickstart record shows. Where they disagree, the close stands in the contested band and consults a judge named with the --judge flag, and a consulted judge's answer is recorded with the close when the close lands. When the judge abstains or answers below the 0.6 confidence floor, the close does not land, the experiment stays open, and nothing is recorded. A close can also name a successor experiment with the --successor flag.
 
 An experiment that does not exist is refused by name on stderr, and the command exits 1.
 
