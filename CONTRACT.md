@@ -1187,6 +1187,42 @@ is the behavioral spec.
   one is made. The band holds at
   every edge measured, and no
   repair is owed.
+- VL-61. The gate and the
+  reruns on the final tree of
+  this round. Cargo test passes
+  47, none failed, the 44 of the
+  base plus the three pins of
+  VL-57 (24 judgment, 20
+  registry, 3 library). Cargo
+  clippy over all targets with
+  warnings denied is clean, on
+  the tree where the VL-57 test
+  module stands at the end of
+  src/cli.rs, moved there
+  byte-identical because
+  clippy's items after test
+  module rule refused its first
+  placement mid-file. Cargo fmt
+  check is clean, and the
+  codepoint scan stands at zero
+  of U+2014 and zero of U+2013.
+  The draw battery reruns whole
+  against the repaired binary,
+  13 cells and none failed, the
+  control and repaired baseline
+  documents both 386 bytes and
+  byte-equal, and the repaired
+  cells R1 to R4 passing as
+  VL-57 contracts. The
+  differential harness against
+  the final Python oracle
+  completed 144 of its 198
+  cases clean in its best run
+  on this tree and was stopped
+  there by the box write fault
+  refusing an append, not by a
+  divergence, and its full run
+  stands owed to the record.
 - VL-62. README records 8 of 100 only
   in the closure commit written after
   this round's three reviews, fixes,
