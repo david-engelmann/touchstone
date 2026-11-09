@@ -778,3 +778,416 @@ is the behavioral spec.
   digest recorded and the status
   unavailable. No source file changes.
   README and this clause only.
+
+## Round 8
+
+- VL-53. Round 8 opens with the full
+  read-back of pull request 11 (Round
+  7), taken on 2026-11-08 through the
+  API, every review comment thread,
+  every review body to its end, and
+  every issue comment, the follow-up
+  shells and the bot acknowledgment
+  replies included. Inline review
+  comments, six: two CodeRabbit
+  finding comments carrying the four
+  findings (4501918687, the experiment
+  id recomputation claim, and
+  4501918694, carrying three, the
+  successor restriction, the no-judge
+  outcome, and the unavailable
+  outcome), the owner's two fix
+  replies (4501948633 and 4501948797),
+  and CodeRabbit's two acknowledgment
+  replies (4501950917 and 4501951533,
+  each recording its thread resolved).
+  Reviews, five: one CodeRabbit
+  COMMENTED review (5812467162,
+  submitted 2026-11-07T13:29:41Z,
+  Actionable comments posted: 4, its
+  run configuration stating that no
+  configuration file from this
+  repository was applied), the owner's
+  two empty COMMENTED reviews riding
+  the fix replies, and CodeRabbit's
+  two empty COMMENTED reviews riding
+  the acknowledgments. Issue comments,
+  four: the owner's trigger
+  (6707524253), the summary shell
+  (6707525643, created
+  2026-11-07T13:25:53Z and last updated
+  2026-11-07T13:42:01Z), the action
+  notice (6707570818, Already reviewed
+  the last commit, carrying no
+  finding), and the owner's landing
+  comment (6707768518, after the merge
+  at 2026-11-07T13:49:27Z). The shell
+  stands in its final form as the
+  rate-limit banner (Review limit
+  reached, the next included review
+  available in 43 minutes, its second
+  run over the range from 4f385428 to
+  84be44f3) over a complete
+  walkthrough of the first head, with
+  Merge Risk Low up to 4f385428 and
+  its pre-merge checks at four passed
+  (Description, Title, Linked Issues,
+  and Out of Scope Changes), no failed
+  check among them. The four findings
+  stand disposed in VL-52, repaired
+  before the merge, replied to on
+  their threads, and acknowledged by
+  the bot, and the VL-52 head drew no
+  fresh findings review, the second
+  run having been rate limited before
+  it could post one. No Docstring
+  Coverage item recurs on this pull
+  request (no such check row stands
+  in the shell's pre-merge table), so
+  the dismissal basis of VL-46 and
+  VL-51 is not needed here. Nothing
+  on the pull request stands
+  undisposed, and no source or prose
+  change is owed to it. Any late
+  findings on this round's pull
+  request are owed to Round 9's
+  contract by the same shape.
+- VL-54. The three homes of the one
+  line description, measured through
+  the API at this round's base (main
+  at bc6f944d, tree 26682ce9), never
+  from a local clone. The GitHub
+  repository description and the
+  README lede carry one line verbatim:
+  An experiment registry for a
+  fleet's setup. Every proposed
+  change becomes a tracked experiment
+  with a hypothesis, a run,
+  measurements, and a verdict, keep
+  or kill. Cargo.toml's description
+  field carries the third variant
+  VL-48 named: Every setup change as
+  a tracked experiment, with a
+  verdict. The standing precedent
+  (secondtake's ST-51, onrecord's
+  OR-50) permits exactly one move
+  without David's word: where two
+  homes carry one line verbatim and
+  the third diverges, the third
+  aligns to the standing line, byte
+  for byte. The divergent home here
+  is Cargo.toml, not the GitHub
+  description (his surface), so the
+  permitted move is the one taken:
+  Cargo.toml's description now reads
+  as the standing line, byte for
+  byte, and no other home is edited.
+  Storefront item 3 passes on this
+  round's tree.
+- VL-55. The temp-name draw, stated
+  in its own terms before any
+  measurement. The seam is
+  write_atomically in src/cli.rs,
+  which list and show reach when a
+  view is written to an output path.
+  The candidate is the temporary
+  parent's bytes, the output name's
+  bytes, a dot, and the suffix
+  random_suffix draws, assembled as
+  VL-43 contracts, created
+  exclusively at mode 0600, and
+  renamed onto the constructed path.
+  The retry loop draws at attempt 0
+  and increments on AlreadyExists
+  while the attempt is below 16, so
+  one write draws at most seventeen
+  candidates, attempts 0 to 16. As
+  shipped at this round's base,
+  random_suffix renders eight
+  lowercase hexadecimal characters
+  from four bytes. Its primary arm
+  reads those four bytes from
+  /dev/urandom. Its fallback arm,
+  where that read fails, folds a
+  sixteen-byte little-endian mix by
+  lanes to the same four bytes, the
+  mix being the SystemTime
+  nanoseconds xor the process id as
+  a u128 shifted left by 64 xor the
+  attempt, the fold VL-42 recorded.
+  The two arms differ in kind: the
+  primary arm's term is operating
+  system randomness, which no
+  observer can hold, and the
+  fallback arm is a public function
+  of a clock reading, the process
+  id, and the attempt, every one of
+  them knowable or fixable by an
+  observer who can plant names in
+  the output directory.
+- VL-56. The adjudication, by
+  measurement, in the sibling shape
+  (tetlock's WW-70, unheard's UH-49,
+  and bluepencil's BP-54), adapted to
+  this draw's own budget of seventeen
+  candidates. The battery (the round's
+  scratch instrument) freezes the wall
+  clock by an LD_PRELOAD interposition
+  on clock_gettime at two readings,
+  1700000000.123456789 and
+  1800000000.987654321, fixes the
+  process id in a fresh pid namespace
+  at 1 and at 250 with genuineness
+  verified from the pid file the
+  child writes before it execs, and
+  computes the fallback candidate set
+  in advance over VL-55's fold. The
+  baseline view document is 386
+  bytes, taken unshimmed. On the
+  shipped binary (a fresh build of
+  this round's base tree, the
+  control) the verdict splits by arm.
+  The primary arm is acquitted: with
+  /dev/urandom answering and all
+  seventeen fallback candidates
+  planted, at the first reading and
+  pid 1 and at the second reading
+  and pid 250 alike, the write lands
+  and the document is byte-identical
+  to the baseline, the plants
+  standing inert, because the
+  primary draw never reads the clock
+  or the process id. The fallback
+  arm is convicted: with every open
+  of /dev/urandom failed by
+  interposition with EACCES, the
+  same seventeen plants refuse the
+  write at both readings and both
+  pids, exit 1 with the standing
+  cannot write the view line naming
+  the output, no output landed, and
+  the directory left exactly as
+  seeded, and sixteen plants write
+  on the seventeenth candidate at
+  both readings and both pids, the
+  document byte-identical to the
+  baseline. Under a frozen and known
+  clock with its entropy source
+  failed, the shipped draw is
+  therefore the public function the
+  sibling draws were, and a planted
+  directory can deny the write
+  outright in that arm. Correctness
+  is never at stake (the create is
+  exclusive, so a plant is never
+  opened); the exposure is refusal
+  only, and it is convicted because
+  the fallback made a computable
+  draw of what the Python's mkstemp
+  and this draw's own primary arm
+  keep unguessable.
+- VL-57. The repair, in the fleet
+  shape at the seam VL-55 states.
+  random_suffix now draws sixteen
+  bytes of operating system
+  randomness fresh for each candidate
+  from /dev/urandom through the
+  standard library's file read, and
+  renders the suffix from those bytes
+  alone: the sixteen bytes fold by
+  lanes to four (the fold the
+  convicted fallback used, now fed by
+  entropy instead of the clock mix),
+  and each folded byte renders as two
+  lowercase hexadecimal characters,
+  so the suffix's shape, the
+  candidate's construction and
+  placement, the exclusive create,
+  the 0600 mode, the seventeen
+  candidate retry budget, the rename
+  target, and the cannot-write text
+  all stand unchanged. The failure
+  posture is refusal, never fallback:
+  where the entropy read fails or
+  comes up short, and on the
+  non-unix arm, which has no such
+  source to read, the draw yields no
+  suffix and write_atomically refuses
+  through its standing arm, the
+  cannot-write line at exit 1, before
+  any create, so no computable draw
+  is ever made silently. What the law
+  now claims: the candidate set
+  cannot be computed from the process
+  id, nor from the process id and a
+  frozen and known clock together,
+  nor in the entropy source's failure
+  arm, where no candidate is drawn at
+  all. What it still does not claim:
+  the suffix carries 32 bits, so a
+  planted name can still collide by
+  chance, once in 2^32 per candidate
+  on average, and the redraw budget,
+  not the draw, is what answers a
+  collision; no collision-freedom is
+  claimed. Three unit pins land with
+  the repair in the shape WW-73
+  settled: the entropy term decides
+  the suffix (a change in any lane
+  position of the entropy moves it),
+  the suffix matches an independent
+  derivation of the contracted fold,
+  and a live draw renders eight
+  lowercase hexadecimal characters or
+  refuses, the pin accepting the
+  contracted refusal where the source
+  does not answer and never requiring
+  two draws to differ.
+- VL-58. The output guard,
+  measured fresh at the shipped
+  binary (a fresh build of this
+  round's base tree) with a battery
+  of nineteen cells over seeded
+  registries. The guard resolves
+  the output path and the registry
+  path through the component walk
+  and compares the finished paths.
+  Naming the registry directly,
+  naming it through a symlink,
+  naming it through a dangling
+  link whose target spelling
+  normalizes onto it, naming it by
+  an absolute path against a
+  relative registry spelling all refuse
+  before any write with the
+  standing line, error, a view
+  never overwrites the registry,
+  at exit 1. A chain of links
+  naming the registry refuses at
+  lengths 1, 40, 100, 500, 990,
+  and 991 and fails resolution at
+  992 and 1000, exiting 1 with no
+  output on either stream, the
+  crash class standing since
+  VL-13, so the walk's
+  substitution budget splits
+  exactly between 991 and 992 at
+  this binary. A self-referential
+  link fails resolution the same
+  way. A hard link is a second
+  path, not the registry path, so
+  the guard passes it, the
+  document lands at that name as
+  its own file, and the registry
+  bytes stand. A dangling link to
+  a fresh name lands the document
+  at the link's name and creates
+  nothing at the target, and a
+  symlinked directory component
+  resolves through, the document
+  landing at the real path. A
+  dot-dot pops the resolved
+  prefix, over a substituted
+  loop, over the registry file
+  component itself, and over a
+  component that does not exist,
+  so the guard passes those
+  spellings, and the write then
+  fails on the unenterable parent
+  spelling with the cannot write
+  the view line naming the output
+  as spelled, nothing landed. A
+  dead component with no dot-dot
+  passes the guard and fails the
+  same way. No cell wrote to the
+  registry, and no repair is owed.
+- VL-59. The registry load and
+  check surface, measured at the
+  same binary with nine crafted
+  files. Check names every defect
+  with its line, and list refuses
+  each file with the registry has
+  defects line carrying the same
+  words. A duplicate opening of
+  one experiment is named at its
+  second line. A result event for
+  an unopened experiment is
+  named. A line that is not JSON
+  is named not valid JSON, and a
+  line carrying one key twice is
+  refused at the same parse with
+  the same words, so a duplicate
+  key never folds silently. An
+  opening whose baseline measures
+  are absent is named baseline
+  measures is not a non-empty
+  object. A line that is a bare
+  array is named the event is not
+  an object, and an unknown type
+  is named with the type itself.
+  A recorded suggestion rewritten
+  against its own measures is
+  caught by recomputation and
+  named the recorded suggestion
+  does not match the measures it
+  rests on, and a close resting
+  on a line that is not its
+  opening's result is named with
+  the opening it fails to rest
+  on. The surface is strict and
+  exact, and no repair is owed.
+- VL-60. The judgment band,
+  measured at the same binary
+  with thirteen cells driven by a
+  scripted judge standing in for
+  the pinned model. The seed's
+  judged measure regresses past
+  its margin, so the deterministic
+  rule suggests rerun, as the
+  card the judge receives states.
+  Where the verdict equals the
+  suggestion the judge is never
+  consulted, no call is made even
+  with a live judge configured
+  whose every call fails, and the
+  close records not consulted
+  because the verdict and the
+  suggestion agree. Contested
+  with no judge configured, the
+  close lands not consulted
+  because no judge is configured.
+  Contested with a judge, exactly
+  three calls are made, the
+  choice, the evidence score, and
+  the regression risk score. A
+  choice at confidence exactly
+  0.6 lands judged, carrying the
+  model name, the choice, the
+  confidence, the probabilities,
+  and both scores, and an integer
+  confidence of 1 lands the same
+  way. A confidence of 0.59
+  refuses the close with the
+  below 0.6 line and the registry
+  byte-identical, an integer
+  confidence of 0 refuses as
+  below the floor, and an abstain
+  refuses with the abstained
+  line, likewise recording
+  nothing. A failed call, an
+  answer that is not JSON,
+  probabilities that do not carry
+  the four labels summing near
+  one, a score outside its range,
+  and an answer naming an
+  unpinned model each land the
+  close as unavailable with the
+  reason stated in the record,
+  and no call past the failing
+  one is made. The band holds at
+  every edge measured, and no
+  repair is owed.
+- VL-62. README records 8 of 100 only
+  in the closure commit written after
+  this round's three reviews, fixes,
+  and owner verification.

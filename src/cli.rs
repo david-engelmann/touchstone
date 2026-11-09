@@ -1205,7 +1205,13 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     // never touched.
     let mut attempt = 0;
     let temp = loop {
-        let suffix = random_suffix(attempt);
+        // A draw whose entropy source fails refuses
+        // the write here, before any create (VL-57):
+        // refusal, never a computable fallback.
+        let suffix = match random_suffix() {
+            Some(suffix) => suffix,
+            None => return Err(std::io::Error::other("no entropy source")),
+        };
         let mut candidate_bytes = join_bytes(&parent_bytes, &name_bytes);
         candidate_bytes.push(b'.');
         candidate_bytes.extend_from_slice(suffix.as_bytes());
@@ -1241,25 +1247,58 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     }
 }
 
-fn random_suffix(attempt: u32) -> String {
-    // mkstemp's suffix is eight characters (VL-42):
-    // four drawn bytes, each rendered as two
-    // hexadecimal characters.
+/// Sixteen bytes of operating system randomness
+/// (VL-57), drawn fresh for each candidate from
+/// /dev/urandom, the kernel's randomness
+/// interface, through the standard library's
+/// file read. Any failure, the open or a short
+/// or failed read, yields None. The crate's
+/// non-unix arm has no operating system
+/// randomness source to read and yields None on
+/// every call, so a build there refuses view
+/// writes rather than drawing computably.
+#[cfg(unix)]
+fn os_entropy() -> Option<[u8; 16]> {
+    use std::io::Read;
+    let mut bytes = [0u8; 16];
+    let mut file = std::fs::File::open("/dev/urandom").ok()?;
+    file.read_exact(&mut bytes).ok()?;
+    Some(bytes)
+}
+
+#[cfg(not(unix))]
+fn os_entropy() -> Option<[u8; 16]> {
+    None
+}
+
+/// The suffix the entropy decides, factored out
+/// of random_suffix so the tests can pin it term
+/// by term: the sixteen entropy bytes are folded
+/// by lanes to four bytes (the fold VL-42's
+/// fallback mix already used, now fed by entropy
+/// alone), and each folded byte renders as two
+/// hexadecimal characters.
+fn suffix_from_entropy(entropy: &[u8; 16]) -> String {
     let mut bytes = [0u8; 4];
-    let filled = std::fs::File::open("/dev/urandom")
-        .and_then(|mut file| std::io::Read::read_exact(&mut file, &mut bytes))
-        .is_ok();
-    if !filled {
-        let nanos = std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH)
-            .map(|d| d.as_nanos())
-            .unwrap_or(0);
-        let mix = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes();
-        for lane in 0..4 {
-            bytes[lane] = mix[lane] ^ mix[lane + 4] ^ mix[lane + 8] ^ mix[lane + 12];
-        }
+    for lane in 0..4 {
+        bytes[lane] = entropy[lane] ^ entropy[lane + 4] ^ entropy[lane + 8] ^ entropy[lane + 12];
     }
     bytes.iter().map(|byte| format!("{byte:02x}")).collect()
+}
+
+fn random_suffix() -> Option<String> {
+    // mkstemp's suffix is eight characters (VL-42):
+    // four folded bytes, each rendered as two
+    // hexadecimal characters. The draw carries an
+    // unknowable term on every candidate (VL-57):
+    // sixteen bytes from the operating system's
+    // randomness source, drawn fresh per candidate.
+    // Where that source fails the draw yields no
+    // suffix and the caller refuses the write; it
+    // never falls back to the computable mix of a
+    // clock reading, the process id, and the
+    // attempt that VL-56 convicted.
+    Some(suffix_from_entropy(&os_entropy()?))
 }
 
 /// Emit a view document (list, show): to stdout, or
@@ -1509,5 +1548,83 @@ fn run_tokens(tokens: Vec<Token>) -> i32 {
     match parse_top(&tokens) {
         ParseOutcome::Run(command, parsed) => execute(command, &parsed),
         ParseOutcome::Exit(code) => code,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{random_suffix, suffix_from_entropy};
+
+    #[test]
+    fn the_entropy_term_decides_the_suffix() {
+        // With every other input absent by
+        // construction (the suffix is a function
+        // of the entropy alone), a change in any
+        // lane position of the entropy moves the
+        // suffix. A draw that dropped the entropy
+        // term would render one suffix for all
+        // three entropies and fail here.
+        let base = [0u8; 16];
+        let mut first_lane = [0u8; 16];
+        first_lane[0] = 1;
+        let mut last_lane = [0u8; 16];
+        last_lane[15] = 1;
+        let rendered = suffix_from_entropy(&base);
+        assert_ne!(rendered, suffix_from_entropy(&first_lane));
+        assert_ne!(rendered, suffix_from_entropy(&last_lane));
+        assert_ne!(
+            suffix_from_entropy(&first_lane),
+            suffix_from_entropy(&last_lane)
+        );
+    }
+
+    #[test]
+    fn the_suffix_matches_an_independent_derivation() {
+        // The contracted fold, derived here from
+        // the clause's own terms rather than by
+        // calling the production fold: lane bytes
+        // 0x10^0x55^0x27^0x99, 0x83^0x9a^0x6d^0x0e,
+        // 0x2f^0x01^0xb8^0xd3, and
+        // 0xc4^0xfe^0x40^0x71 render as fb7a450b.
+        let entropy: [u8; 16] = [
+            0x10, 0x83, 0x2f, 0xc4, 0x55, 0x9a, 0x01, 0xfe, 0x27, 0x6d, 0xb8, 0x40, 0x99, 0x0e,
+            0xd3, 0x71,
+        ];
+        let expected: String = (0..4)
+            .map(|lane| {
+                format!(
+                    "{:02x}",
+                    entropy[lane] ^ entropy[lane + 4] ^ entropy[lane + 8] ^ entropy[lane + 12]
+                )
+            })
+            .collect();
+        assert_eq!(expected, "fb7a450b");
+        assert_eq!(suffix_from_entropy(&entropy), expected);
+    }
+
+    #[test]
+    fn a_live_draw_renders_eight_hex_characters_or_refuses() {
+        // The WW-73 shape: the pin asserts what
+        // the contract promises on every platform.
+        // Where the entropy source answers, the
+        // draw renders exactly eight lowercase
+        // hexadecimal characters; where it does
+        // not (the non-unix arm, an unreadable
+        // /dev/urandom), the draw yields None,
+        // which is the contracted refusal itself,
+        // and the pin accepts it rather than
+        // panicking. Two draws are not required
+        // to differ: the suffix carries 32 bits,
+        // so two valid draws can collide, once in
+        // 2^32 per pair on average, and requiring
+        // difference would be a flake source.
+        for _ in 0..8 {
+            if let Some(suffix) = random_suffix() {
+                assert_eq!(suffix.len(), 8);
+                assert!(suffix
+                    .bytes()
+                    .all(|byte| byte.is_ascii_hexdigit() && !byte.is_ascii_uppercase()));
+            }
+        }
     }
 }
