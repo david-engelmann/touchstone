@@ -2,7 +2,7 @@
 name = "touchstone"
 version = "0.1.0"
 edition = "2021"
-description = "Every setup change as a tracked experiment, with a verdict"
+description = "An experiment registry for a fleet's setup. Every proposed change becomes a tracked experiment with a hypothesis, a run, measurements, and a verdict, keep or kill."
 license = "MIT"
 
 [lib]
