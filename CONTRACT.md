@@ -1227,3 +1227,15 @@ is the behavioral spec.
   in the closure commit written after
   this round's three reviews, fixes,
   and owner verification.
+- VL-63. The full differential
+  harness run VL-61 left owed is
+  discharged. The red team ran it
+  against the final tree's binary
+  in its own review, 198 cases and
+  400 steps, all byte-clean against
+  the Python oracle, on the first
+  attempt in an open write window.
+  The run the lane banked at 144
+  cases stands as the partial it
+  was, and no case in either run
+  diverged.
