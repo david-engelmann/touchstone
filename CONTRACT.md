@@ -1534,3 +1534,39 @@ is the behavioral spec.
   spelling L/../L/view.json lands the
   document at the finished path. No
   repair is owed.
+- VL-69. The gate and the reruns on
+  the final tree of this round.
+  Cargo test passes 47, none failed
+  (24 judgment, 20 registry, 3
+  library). Cargo clippy over all
+  targets with warnings denied is
+  clean. Cargo fmt check is clean,
+  and the codepoint scan stands at
+  zero of U+2014 and zero of U+2013.
+  The batteries of VL-65 to VL-68 run
+  whole against the round's binary:
+  the judgment battery at fifteen
+  cells, the draw battery at eight,
+  the walk battery at eight, and the
+  corpus of VL-66 at 180 twin steps
+  and eight judged closes, none
+  failed. The differential harness
+  against the final Python oracle ran
+  whole on the first attempt: 198
+  cases and 400 steps, all byte-clean.
+  This round changes no source, so
+  the binary the batteries and the
+  harness measured, built fresh from
+  this round's base tree, is the
+  final tree's binary. Item 3 stands
+  passing on this round's own
+  evidence, measured through the API
+  at the round's base: the repository
+  description, the README lede, and
+  the Cargo.toml description field
+  carry the one line byte for byte,
+  as VL-54 left them.
+- VL-70. README records 9 of 100 only
+  in the closure commit written after
+  this round's three reviews, fixes,
+  and owner verification.
