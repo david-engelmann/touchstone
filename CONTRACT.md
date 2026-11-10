@@ -1239,3 +1239,334 @@ is the behavioral spec.
   cases stands as the partial it
   was, and no case in either run
   diverged.
+
+## Round 9
+
+- VL-64. Round 9 opens with the full
+  read-back of pull request 12 (Round
+  8), taken on 2026-11-10 through the
+  API, every review body to its end,
+  every review comment thread, and
+  every issue comment, the follow-up
+  shells included. Inline review
+  comments, none. Reviews, one:
+  CodeRabbit's COMMENTED review
+  5821200018, submitted
+  2026-11-09T03:01:05Z, over the range
+  from bc6f944d (the base) to
+  4b1390f4 (the closure head), its
+  files CONTRACT.md, Cargo.toml,
+  README.md, and src/cli.rs, its run
+  configuration stating that no
+  configuration file from this
+  repository was applied, profile
+  CHILL, layers defaults. The body
+  posts no inline findings; its one
+  substantive item is the failed
+  pre-merge check named in its prompt
+  block, Docstring Coverage. Issue
+  comments, five: the summary shell
+  6731146073, standing in its final
+  form as the rate-limit banner (the
+  next included review available in
+  45 minutes, its second run header
+  over the range from 4b1390f4 to
+  e4cc5d3d) over a complete
+  walkthrough of the first head, with
+  Merge Risk Minimal up to 4b1390f4
+  and its pre-merge checks at four
+  passed (Description, Title, Linked
+  Issues, and Out of Scope Changes)
+  and one failed, Docstring Coverage
+  at 40.00 percent against the
+  required 80.00 percent, analyzed 5
+  functions across 1 file with 3
+  skipped as unsupported, naming no
+  function; the owner's trigger
+  6731311511; the action notice
+  6731312811 (Action not completed,
+  review rate limited, carrying no
+  finding); the owner's disposition
+  6731362254; and the owner's landing
+  comment 6732476919. The one item
+  stands disposed in 6731362254 on
+  the standing basis of VL-51 and
+  ST-61, and this round verified the
+  basis limb by limb firsthand: the
+  shell names no function (it counts
+  five and names none); this
+  repository carries no docstring
+  configuration or threshold of its
+  own (no configuration file for the
+  review tool, nothing in Cargo.toml
+  or the CI workflow, and the
+  review's own run configuration
+  confirms none was applied); and the
+  check applies the review tool's
+  default profile, so there is no
+  repository rule for it to enforce.
+  No review comment thread exists on
+  the pull request, so no
+  acknowledgment reply rides one, and
+  nothing arrived after the landing
+  comment. The confirmation Round 8's
+  spec notes owed is recorded here:
+  no later driver landed a fuller
+  harness run than the red team's,
+  nothing in this pull request's
+  record or on main since shows one,
+  and the run VL-63 records stands as
+  the complete run of record for
+  Round 8. Nothing on the pull
+  request stands undisposed, and no
+  source or prose change is owed to
+  it. Any late findings on this
+  round's pull request are owed to
+  Round 10's contract by the same
+  shape.
+- VL-65. The judgment band, measured
+  fresh at the shipped binary (a
+  fresh build of this round's base
+  tree) with a battery of fifteen
+  cells driven by a scripted judge
+  over the live transport. The seed's
+  judged measure regresses, so the
+  deterministic rule suggests rerun.
+  Where the verdict equals the
+  suggestion the judge is never
+  consulted, no call made even with a
+  live judge configured whose every
+  call fails, and the close records
+  not consulted because the verdict
+  and the suggestion agree. Contested
+  with no judge configured, the close
+  lands not consulted because no
+  judge is configured. Contested with
+  a judge, exactly three calls are
+  made, the choice, the evidence
+  score, and the regression risk
+  score. A choice at confidence
+  exactly 0.6 lands judged, carrying
+  the model name jev-1.13.0, the
+  choice, the confidence, the
+  probabilities over the four labels,
+  both scores, the card, and the
+  card's SHA-256 digest. A confidence
+  of 0.599999 refuses the close after
+  the three calls with the line that
+  the judge's confidence 0.599999 is
+  below 0.6, the registry
+  byte-identical, and a confidence of
+  0.600001 lands judged. An integer
+  confidence of 1 lands judged,
+  recorded as the integer 1, and an
+  integer confidence of 0 refuses as
+  below the floor, the registry
+  byte-identical. An abstaining
+  choice at confidence 0.99 refuses
+  with the abstained line, the
+  registry byte-identical, and an
+  abstaining judge under an agreement
+  verdict is never consulted at all.
+  The unavailable family lands the
+  close with its reason recorded and
+  no call past the failing one: a
+  failed call (one call), an answer
+  that is not JSON (one call),
+  probabilities carrying the four
+  labels but summing to one half, so
+  the choice answer is malformed (one
+  call), an evidence score of 11,
+  outside its range, so the evidence
+  answer is malformed (two calls),
+  and an answer naming the unpinned
+  model jev-1.12.0 (one call). A keep
+  close naming a successor with a
+  live judge configured refuses on
+  the successor rule, at line 3 of
+  the registry, with no judge call
+  made and the registry
+  byte-identical: the close's own
+  refusals precede any call. The band
+  holds at every edge measured, and
+  no repair is owed.
+- VL-66. The hearing surfaces at a
+  realistic shape, measured against
+  the Python oracle (the final Python
+  tree at d62e5dc, consumed as the
+  renamed copy the differential
+  harness uses; the copy's fidelity
+  is proven by the harness run
+  VL-69 records). A corpus of 48
+  experiments is built twin-style,
+  the same steps driven at both
+  implementations: sources cycling
+  eight fleet names, two to three
+  judged measures per experiment with
+  margins on some entries, one to
+  three results each, verdicts mixed
+  by construction. The suggestion is
+  steered under the VL-9 rule (moves
+  of 30 percent against margins of at
+  most 10, the default included) and
+  verified against the recorded
+  suggestion at every close. The
+  count: 48 opens, 92 results, 40
+  closes, 180 steps, every step's
+  exit code, stderr, and registry
+  bytes identical, the registry bytes
+  compared after the prescribed
+  judgment cut, each cut span
+  verified to be exactly one of the
+  two not consulted shapes, keys in
+  order, before its removal; the
+  final check and the final list are
+  identical without any cut beyond
+  the same spans in the list. Sixteen
+  closes agree with the suggestion,
+  twenty-four are contested, and
+  eight experiments stand open. A
+  judged pass over the eight
+  contested opens, on the Rust side
+  with the scripted judge rotating
+  through its arms, lands two judged
+  (one of them a rerun verdict whose
+  named successor stands recorded in
+  the close), refuses four with the
+  registry byte-identical (two below
+  the confidence floor, two
+  abstentions), and lands two
+  unavailable (a failed call, a
+  malformed evidence answer), the
+  call sequences exact per arm, and
+  the final registry reads sound
+  under check. No repair is owed.
+- VL-67. The temp draw, measured
+  fresh at the same binary after the
+  VL-57 repair, with a battery of
+  eight cells over a seeded registry
+  whose baseline view document is 168
+  bytes. The entropy failure arm,
+  every open of /dev/urandom failed
+  by interposition with EACCES,
+  refuses with the cannot write the
+  view line naming the output at exit
+  1, the directory exactly as seeded.
+  The short-read arm, opens serving
+  five bytes and then end of file so
+  the sixteen-byte read comes up
+  short, refuses the same way:
+  refusal, never a fallback, on both
+  arms, before any create. The clock
+  plants stand inert: all seventeen
+  candidates of the convicted
+  pre-repair fallback, computed from
+  VL-55's fold, planted at the frozen
+  reading 1700000000.123456789 in a
+  pid namespace at pid 1 and at
+  1800000000.987654321 at pid 250,
+  the pids genuine from the pid and
+  NSpid files the runs record, and at
+  both the write lands and the
+  document is byte-identical to the
+  baseline, because the repaired draw
+  never reads the clock or the
+  process id. The plant bound is
+  proven by a positive control, not
+  assumed: with opens of /dev/urandom
+  serving a deterministic byte
+  stream, one block per open in
+  order, whose folded suffixes the
+  battery computes independently of
+  the crate, sixteen planted
+  candidates let the write land on
+  the seventeenth candidate, and
+  seventeen planted candidates refuse
+  it with the directory as seeded, so
+  the candidate set the draw walks
+  and the seventeen-candidate budget
+  are both measured at the shipped
+  binary. A first candidate planted
+  and the second draw served short
+  refuses mid-loop, before any create
+  on the short draw. No repair is
+  owed.
+- VL-68. The resolver walk, measured
+  fresh at the same binary at its own
+  constant, MAX_WALK_DEPTH 991 in
+  src/cli.rs, a number belonging to
+  this CLI's stack as VL-36 measured
+  it and never inherited, with a
+  battery of eight cells. A chain of
+  links naming the registry refuses
+  with the standing line, error, a
+  view never overwrites the registry,
+  at lengths 990 and 991, and at 992
+  fails resolution silently, exit 1
+  with no output on either stream and
+  the directory unchanged, the crash
+  class standing since VL-13. A chain
+  of 991 links to a fresh name
+  completes inside the budget: the
+  document lands at the spelled path
+  byte-identical to the baseline, and
+  nothing lands at the target. A
+  chain of 992 links to a fresh name
+  fails the same silent way, so the
+  budget is the walk's, not the
+  guard's. A self-referential link
+  named as the output path fails
+  resolution silently the same way. A
+  loop the finished path pops, the
+  output spelled through a
+  self-referential link and a
+  dot-dot, passes the guard, the
+  finished path being clean, and the
+  write then fails on the
+  unenterable spelling with the
+  cannot write the view line naming
+  the output as spelled, nothing
+  landed: the VL-58 posture, measured
+  here on both twins, the oracle and
+  the port refusing identically. A
+  link met again after its resolution
+  completed is followed again: the
+  spelling L/../L/view.json lands the
+  document at the finished path. No
+  repair is owed.
+- VL-69. The gate and the reruns on
+  the final tree of this round.
+  Cargo test passes 47, none failed
+  (24 judgment, 20 registry, 3
+  library). Cargo clippy over all
+  targets with warnings denied is
+  clean. Cargo fmt check is clean,
+  and the codepoint scan stands at
+  zero of U+2014 and zero of U+2013.
+  The batteries of VL-65 to VL-68 run
+  whole against the round's binary:
+  the judgment battery at fifteen
+  cells, the draw battery at eight,
+  the walk battery at eight, and the
+  corpus of VL-66 at 180 twin steps
+  and eight judged closes, none
+  failed. The differential harness
+  against the final Python oracle ran
+  whole on the first attempt: 198
+  cases and 400 steps, all byte-clean.
+  This round changes no source, so
+  the binary the batteries and the
+  harness measured, built fresh from
+  this round's base tree, is the
+  final tree's binary. Item 3 stands
+  passing on this round's own
+  evidence, measured through the API
+  at the round's base: the repository
+  description, the README lede, and
+  the Cargo.toml description field
+  carry the one line byte for byte,
+  as VL-54 left them.
+- VL-70. README records 9 of 100 only
+  in the closure commit written after
+  this round's three reviews, fixes,
+  and owner verification.
