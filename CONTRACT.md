@@ -1890,3 +1890,7 @@ is the behavioral spec.
   README lede, and the Cargo.toml
   description field carry the one line
   byte for byte, as VL-54 left them.
+- VL-77. README records 10 of 100 only
+  in the closure commit written after
+  this round's three reviews, fixes,
+  and owner verification.
