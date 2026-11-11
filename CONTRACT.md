@@ -1570,3 +1570,411 @@ is the behavioral spec.
   in the closure commit written after
   this round's three reviews, fixes,
   and owner verification.
+- VL-71. Round 10 opens with the full
+  read-back of pull request 13 (Round
+  9), taken on 2026-11-11 through the
+  API, every review body to its end,
+  every review comment thread, and
+  every issue comment. Reviews, none.
+  Inline review comments, none. Issue
+  comments, four: the CodeRabbit
+  summary shell 6761037568, created
+  2026-11-10T06:49:45Z and edited into
+  its final form at 06:55:53Z; the
+  owner's trigger 6761059805; the
+  bot's action notice 6761128171
+  (Action not completed, already
+  reviewed the last commit, carrying
+  no finding); and the owner's landing
+  comment 6763574496. The shell in its
+  final form states that no actionable
+  comments were generated in the
+  recent review, carries a complete
+  walkthrough of the change, base to
+  the closure head 31158973, Merge
+  Risk Minimal, and pre-merge checks
+  at exactly four passed: Description,
+  Title, Linked Issues, and Out of
+  Scope Changes. No Docstring Coverage
+  row stands anywhere in the shell's
+  final form, and no review object
+  stands on the pull request at all.
+  This contracts exactly the one item
+  Round 9's record left open: the
+  standards review's Minor against the
+  Round 9 build report, whose
+  CodeRabbit evidence stated five
+  passed pre-merge checks including a
+  Docstring Coverage pass, where the
+  shell lists four and no Docstring
+  row. The Minor stands confirmed
+  against the report and against no
+  pull request artifact; the
+  nothing-to-fix disposition was
+  correct on the shell's own words,
+  and the shell's run configuration
+  (no configuration file from this
+  repository applied, profile CHILL)
+  stands as the shell itself records
+  it. No acknowledgment reply rides
+  any thread, because no review
+  comment thread exists, and nothing
+  arrived after the landing comment.
+  No Round 9 disposition is falsified
+  by this record beyond the shell-form
+  point the Minor already recorded,
+  nothing on the pull request stands
+  undisposed, and no source or prose
+  change is owed to it. Any late
+  findings on this round's pull
+  request are owed to Round 11's
+  contract by the same shape.
+- VL-72. The judgment band, measured
+  fresh at the shipped binary (a fresh
+  build of this round's base tree)
+  with a battery of seventeen cells
+  driven by a scripted judge over the
+  live transport and the fixture
+  transport. The seed's judged measure
+  regresses, so the deterministic rule
+  suggests rerun. Where the verdict
+  equals the suggestion the judge is
+  never consulted, no call made even
+  with a live judge configured whose
+  every call fails, and the close
+  records not consulted because the
+  verdict and the suggestion agree.
+  Contested with no judge configured,
+  the close lands not consulted
+  because no judge is configured.
+  Contested with a judge, exactly
+  three calls are made, the choice,
+  the evidence score, and the
+  regression risk score. A choice at
+  confidence exactly 0.6, decided at
+  the point itself and not bracketed
+  from its neighbours, lands judged,
+  carrying the model name jev-1.13.0,
+  the choice, the confidence, the
+  probabilities over the four labels,
+  both scores, the card, and the
+  card's SHA-256 digest. A confidence
+  of 0.599999 refuses the close after
+  the three calls with the line that
+  the judge's confidence 0.599999 is
+  below 0.6, the registry
+  byte-identical, and a confidence of
+  0.600001 lands judged. An integer
+  confidence of 1 lands judged,
+  recorded as the integer 1, and an
+  integer confidence of 0 refuses as
+  below the floor, the registry
+  byte-identical. An abstaining choice
+  at confidence 0.99 refuses with the
+  abstained line, the registry
+  byte-identical, and an abstaining
+  judge under an agreement verdict is
+  never consulted at all. The abstain
+  posture holds in the fixture seat as
+  well: an abstain replayed from a
+  judgments file keyed by the recorded
+  card's digest refuses the same close
+  with the registry byte-identical,
+  and the recorded responses replayed
+  whole through the fixture land a
+  judged close byte-identical to the
+  live seat's. The unavailable family
+  lands the close with its reason
+  recorded and no call past the
+  failing one: a failed call (one
+  call), an answer that is not JSON
+  (one call), probabilities carrying
+  the four labels but summing to one
+  half, so the choice answer is
+  malformed (one call), an evidence
+  score of 11, outside its range, so
+  the evidence answer is malformed
+  (two calls), and an answer naming
+  the unpinned model jev-1.12.0 (one
+  call). A keep close naming a
+  successor with a live judge
+  configured refuses on the successor
+  rule, at line 3 of the registry,
+  with no judge call made and the
+  registry byte-identical: the close's
+  own refusals precede any call. The
+  band holds at every edge measured,
+  and no repair is owed.
+- VL-73. The band's outer edges,
+  measured fresh at the same binary
+  with a battery of five cells at the
+  margin's exact points. The
+  regression rule is strict: a move
+  regresses only past the margin,
+  never at it. The points are chosen
+  exact in binary, a baseline of 128
+  and a margin of 12.5, so the point
+  itself is decided and not bracketed.
+  A move of 16, the scaled move
+  exactly 12.5, does not regress: the
+  suggestion is keep, a rerun verdict
+  against it is contested and consults
+  the judge, and a keep verdict agrees
+  and consults nothing, even with a
+  failing judge configured. A move of
+  17, the scaled move 13.28125,
+  regresses: the suggestion is rerun
+  and a rerun verdict agrees with zero
+  calls. With two judged measures,
+  both standing exactly at their
+  margins (a rise of 16 against a
+  lower direction, a fall of 16
+  against a higher direction), the
+  suggestion is keep; both one unit
+  past their margins, the suggestion
+  is kill, the regressed list naming
+  both measures. The edges hold at
+  their points, and no repair is owed.
+- VL-74. The hearing surfaces at a
+  realistic shape, measured against
+  the Python oracle (the final Python
+  tree at d62e5dc, consumed as the
+  renamed copy the differential
+  harness uses; the copy's fidelity is
+  proven by the harness run VL-76
+  records). A corpus of 120
+  experiments is built twin-style, the
+  same steps driven at both
+  implementations: sources cycling
+  eight fleet names, two to three
+  judged measures per experiment, half
+  the judged entries carrying a margin
+  of 5 or 10 and a quarter of the
+  openings an event-level margin of
+  10, one to twelve results each,
+  eight experiments carrying twelve
+  results as deep histories. The
+  suggestion is steered by
+  construction (improvement inside the
+  margins for keep, a 30 percent move
+  on one judged measure for rerun, on
+  two for kill) and verified against
+  the recorded suggestion at every
+  close under the VL-9 rule,
+  recomputed in exact rational
+  arithmetic by the driver. The count:
+  120 opens, 292 results, 100 closes,
+  517 steps in all (the 512 events and
+  the five refusal steps below), every
+  step's exit code,
+  stdout, and stderr identical, the
+  registry bytes compared after the
+  prescribed judgment cut, each cut
+  span verified to be exactly one of
+  the two not consulted shapes before
+  its removal, and the final list and
+  show compared after the same cut in
+  their pretty form; the final check
+  is identical and sound. Sixty closes
+  agree with the suggestion, forty are
+  contested, and twenty experiments
+  stand open. The registry at the
+  corpus end stands at 512 lines and
+  113,545 bytes on the Rust side. Five
+  refusal steps ride the corpus, each
+  refused identically on both twins: a
+  show naming a missing experiment, a
+  result for an unopened experiment, a
+  duplicate opening, a second close of
+  a closed experiment, and a keep
+  close naming a successor against
+  that same closed experiment, which
+  refuses on the already closed line
+  on both twins; the successor rule
+  itself is exercised against an open
+  experiment in VL-72. A judged pass
+  over twelve of the contested opens,
+  on the Rust side with the scripted
+  judge rotating through six arms
+  twice, lands four judged (two at
+  confidence 0.9, two at exactly 0.6),
+  refuses four with the registry
+  byte-identical (two at 0.59, two
+  abstentions), and lands four
+  unavailable (two failed calls, two
+  malformed evidence answers), and the
+  final registry, 520 lines and
+  120,515 bytes, reads sound under
+  check. One earlier run of this corpus
+  died mid-corpus when the shared /tmp
+  scratch filled and a registry append
+  met ENOSPC, truncating a line and
+  poisoning the run's remaining steps;
+  the poisoned registry was discarded
+  whole, and the clean re-run after
+  space was freed is the run of record
+  above; the killed run is counted
+  neither for nor against. The round's
+  scratch and instruments staged in
+  /tmp, as VL-78 records. No behavioral
+  repair is owed.
+- VL-75. The resolver walk and the
+  flighttape pin, measured fresh at
+  the same binary. The walk battery
+  runs eight cells at this CLI's own
+  constant, MAX_WALK_DEPTH 991 in
+  src/cli.rs. A chain of links naming
+  the registry refuses with the
+  standing line, error, a view never
+  overwrites the registry, at lengths
+  990 and 991, and at 992 fails
+  resolution silently, exit 1 with no
+  output on either stream and the
+  directory unchanged, the crash class
+  standing since VL-13. A chain of 991
+  links to a fresh name completes
+  inside the budget: the document
+  lands at the spelled path
+  byte-identical to the baseline, and
+  nothing lands at the target. A chain
+  of 992 links to a fresh name fails
+  the same silent way, so the budget
+  is the walk's, not the guard's. A
+  self-referential link named as the
+  output path fails resolution
+  silently the same way. A loop the
+  finished path pops, the output
+  spelled loop/../view.json, passes
+  the guard, the finished path being
+  clean, and the write then fails on
+  the unenterable spelling with the
+  cannot write the view line naming
+  the output as spelled, nothing
+  landed, measured on both twins, the
+  oracle and the port refusing
+  identically. A link met again after
+  its resolution completed is followed
+  again: the spelling
+  dirlink/../dirlink/view.json lands
+  the document at the finished path.
+  The pin stands as Cargo.lock
+  resolves it: the flighttape git
+  dependency at exactly
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  whose tree through the API is
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  at exactly 50 blobs, the golden
+  fixture among them at blob
+  41e713560548837a3f406f1bb23cb21eaef74ad7,
+  hash-identical in the cargo checkout
+  at that revision. The pinned crate's
+  own identity and digest suites run
+  at the checkout (identity 13 tests,
+  digest_cli 5, none failed),
+  executing the golden
+  digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  over the fixture. No repair is owed.
+- VL-76. The gate and the reruns on
+  the final tree of this round. Cargo
+  test passes 47, none failed (24
+  judgment, 20 registry, 3 library).
+  Cargo clippy over all targets with
+  warnings denied is clean. Cargo fmt
+  check is clean, and the codepoint
+  scan stands at zero of U+2014 and
+  zero of U+2013. The batteries of
+  VL-72 to VL-75 run whole against the
+  round's binary: the judgment battery
+  at twenty-two cells (seventeen in
+  VL-72, five in VL-73), the walk
+  battery at eight, and the corpus of
+  VL-74 at 517 twin steps and twelve
+  judged closes, none failed. The
+  differential harness against the
+  final Python oracle ran whole on the
+  first attempt: 198 cases and 400
+  steps, all byte-clean. This round
+  changes no source, so the binary the
+  batteries and the harness measured,
+  built fresh from this round's base
+  tree, is the final tree's binary.
+  Item 3 stands passing on this
+  round's own evidence, measured
+  through the API at the round's base:
+  the repository description, the
+  README lede, and the Cargo.toml
+  description field carry the one line
+  byte for byte, as VL-54 left them.
+- VL-77. README records 10 of 100 only
+  in the closure commit written after
+  this round's three reviews, fixes,
+  and owner verification.
+
+- VL-78. The repair record. The spec
+  fidelity review returned NOT PASS
+  with two Majors and two Minors, and
+  the standards review APPROVE with
+  three Minors; this commit repairs
+  the record and changes no source.
+  Major one: VL-74's step count read
+  520, where its enumerated events sum
+  to 512, corroborated by the
+  corpus-end registry at 512 lines;
+  with the five refusal steps the true
+  count is 517 twin steps, and the 520
+  in VL-74 is the final registry's
+  line count after the judged pass
+  (512 events and the eight landing
+  judged closes), a line count VL-74
+  already states correctly in its own
+  registry sentence. VL-74 and VL-76
+  are restated to 517, and the pull
+  request body with them. Major two:
+  VL-75 named the pinned crate's
+  suites as 5 and 13 in identity and
+  digest order; counted at the pinned
+  commit, the identity suite carries
+  13 test functions and digest_cli 5,
+  and VL-75 and the body are restated.
+  Minor one: VL-71 called the PR 13
+  shell's walkthrough a walkthrough of
+  the slice head; the shell covers
+  the change from the base to the
+  closure head 31158973, and VL-71 is
+  restated. Minor two: VL-74 carried
+  no mention of the earlier corpus
+  run killed when the shared /tmp
+  scratch filled (ENOSPC); the
+  disclosure now stands in VL-74
+  itself. The standards Minors: the
+  body's storefront item 1 credited
+  the README with release, license,
+  and Rust edition badges where the
+  head README carries the CI badge
+  alone, and the body is corrected;
+  the corpus arithmetic is Major one
+  above; and neither VL-71 to VL-77
+  nor the body disclosed that the
+  round's scratch, instruments, and
+  lane reports staged in /tmp under
+  the workspace file-count quota.
+  The staging was wiped by a box
+  replacement after the pull request
+  opened, and this item is the
+  disclosure. What survives stands on
+  the remote (the contract, the body,
+  the hosted gate on the exact head)
+  and on the owner's independent
+  re-verification, including its own
+  gate re-run at 47 and its own judged
+  cells at the floor's exact points.
+  A second review set seated by a
+  parallel owner instance after the
+  same restart returned standards
+  APPROVE with the badge Minor,
+  converging with this set; its spec
+  report was overwritten on disk
+  before its verdict reached this
+  instance and is recorded as not
+  recovered.
