@@ -1590,7 +1590,8 @@ is the behavioral spec.
   final form states that no actionable
   comments were generated in the
   recent review, carries a complete
-  walkthrough of the slice head, Merge
+  walkthrough of the change, base to
+  the closure head 31158973, Merge
   Risk Minimal, and pre-merge checks
   at exactly four passed: Description,
   Title, Linked Issues, and Out of
@@ -1763,7 +1764,9 @@ is the behavioral spec.
   recomputed in exact rational
   arithmetic by the driver. The count:
   120 opens, 292 results, 100 closes,
-  520 steps, every step's exit code,
+  517 steps in all (the 512 events and
+  the five refusal steps below), every
+  step's exit code,
   stdout, and stderr identical, the
   registry bytes compared after the
   prescribed judgment cut, each cut
@@ -1802,7 +1805,19 @@ is the behavioral spec.
   malformed evidence answers), and the
   final registry, 520 lines and
   120,515 bytes, reads sound under
-  check. No repair is owed.
+  check. One earlier run of this corpus
+  died mid-corpus when the shared /tmp
+  scratch filled and a registry append
+  met ENOSPC, truncating a line and
+  poisoning the run's remaining steps;
+  the poisoned registry was discarded
+  whole, and the clean re-run after
+  space was freed is the run of record
+  above; the killed run is counted
+  neither for nor against. The round's
+  scratch and instruments staged in
+  /tmp, as VL-78 records. No behavioral
+  repair is owed.
 - VL-75. The resolver walk and the
   flighttape pin, measured fresh at
   the same binary. The walk battery
@@ -1854,8 +1869,9 @@ is the behavioral spec.
   hash-identical in the cargo checkout
   at that revision. The pinned crate's
   own identity and digest suites run
-  at the checkout (5 and 13 tests,
-  none failed), executing the golden
+  at the checkout (identity 13 tests,
+  digest_cli 5, none failed),
+  executing the golden
   digest
   cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
   over the fixture. No repair is owed.
@@ -1873,7 +1889,7 @@ is the behavioral spec.
   at twenty-two cells (seventeen in
   VL-72, five in VL-73), the walk
   battery at eight, and the corpus of
-  VL-74 at 520 twin steps and twelve
+  VL-74 at 517 twin steps and twelve
   judged closes, none failed. The
   differential harness against the
   final Python oracle ran whole on the
@@ -1894,3 +1910,71 @@ is the behavioral spec.
   in the closure commit written after
   this round's three reviews, fixes,
   and owner verification.
+
+- VL-78. The repair record. The spec
+  fidelity review returned NOT PASS
+  with two Majors and two Minors, and
+  the standards review APPROVE with
+  three Minors; this commit repairs
+  the record and changes no source.
+  Major one: VL-74's step count read
+  520, where its enumerated events sum
+  to 512, corroborated by the
+  corpus-end registry at 512 lines;
+  with the five refusal steps the true
+  count is 517 twin steps, and the 520
+  in VL-74 is the final registry's
+  line count after the judged pass
+  (512 events and the eight landing
+  judged closes), a line count VL-74
+  already states correctly in its own
+  registry sentence. VL-74 and VL-76
+  are restated to 517, and the pull
+  request body with them. Major two:
+  VL-75 named the pinned crate's
+  suites as 5 and 13 in identity and
+  digest order; counted at the pinned
+  commit, the identity suite carries
+  13 test functions and digest_cli 5,
+  and VL-75 and the body are restated.
+  Minor one: VL-71 called the PR 13
+  shell's walkthrough a walkthrough of
+  the slice head; the shell covers
+  the change from the base to the
+  closure head 31158973, and VL-71 is
+  restated. Minor two: VL-74 carried
+  no mention of the earlier corpus
+  run killed when the shared /tmp
+  scratch filled (ENOSPC); the
+  disclosure now stands in VL-74
+  itself. The standards Minors: the
+  body's storefront item 1 credited
+  the README with release, license,
+  and Rust edition badges where the
+  head README carries the CI badge
+  alone, and the body is corrected;
+  the corpus arithmetic is Major one
+  above; and neither VL-71 to VL-77
+  nor the body disclosed that the
+  round's scratch, instruments, and
+  lane reports staged in /tmp under
+  the workspace file-count quota.
+  The staging was wiped by a box
+  replacement after the pull request
+  opened, and this item is the
+  disclosure. What survives stands on
+  the remote (the contract, the body,
+  the hosted gate on the exact head)
+  and on the owner's independent
+  re-verification, including its own
+  gate re-run at 47 and its own judged
+  cells at the floor's exact points.
+  A second review set seated by a
+  parallel owner instance after the
+  same restart returned standards
+  APPROVE with the badge Minor,
+  converging with this set; its spec
+  report was overwritten on disk
+  before its verdict reached this
+  instance and is recorded as not
+  recovered.
