@@ -2366,3 +2366,51 @@ is the behavioral spec.
   merge risk note names the same fix.
   The repair changes no other figure, no
   measurement, and no source.
+- VL-86. The second repair record, on
+  the owner's three reviews of pull
+  request 15. The spec fidelity review
+  returned NOT PASS with two Minors and
+  the standards review NOT APPROVE with
+  one Minor; the red team returned
+  APPROVE with no findings. Two record
+  defects stand between them. First,
+  VL-80's discharge list misnames one
+  of the six cells comment 6793880034
+  charged on pull request 14: the
+  charge names a risk score of 11,
+  where the list names the evidence
+  score of 11. VL-80 executed the
+  evidence score of 11, malformed at
+  the second call, and the risk seam
+  at 10.5, unavailable at the third
+  call; neither is the charged cell.
+  The owner executed the charged cell
+  in this repair pass, at the binary
+  built from head cafe2822 (md5
+  9a61b3763814c879e3728c3b94d5ae87),
+  with a scripted judge answering a
+  risk score of 11: three calls in
+  order (choice, evidence, risk), the
+  close lands unavailable, and the
+  recorded reason is that the judge's
+  risk answer is malformed. The six
+  charged cells now stand discharged
+  by execution, the risk cell by this
+  item. Second, VL-85's sentence that
+  the shell's merge risk note names
+  the fix was true only of the shell's
+  form at the build lane's read; the
+  bot edited shell 6827098795 again at
+  2026-11-12T15:07:42Z, and its form at
+  this repair (8,777 chars, Merge Risk
+  Low up to the closure head 7c8d5b7b,
+  four passed checks, no Docstring
+  row) carries no mention of VL-83 or
+  the fix. The pull request body's
+  step 0 figures are corrected by the
+  owner's body edit to that form, and
+  Round 12's read-back is charged with
+  contracting this shell in its true
+  final form on the closed record. The
+  repair changes no other figure, no
+  measurement, and no source.
