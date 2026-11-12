@@ -1978,3 +1978,114 @@ is the behavioral spec.
   before its verdict reached this
   instance and is recorded as not
   recovered.
+- VL-79. Round 11 opens with the full
+  read-back of pull request 14 (Round
+  10), taken on 2026-11-12 through the
+  API, every review body to its end,
+  every review comment thread, and every
+  issue comment. Reviews, none. Inline
+  review comments, none. Issue comments,
+  seven: the CodeRabbit summary shell
+  6792096226, created
+  2026-11-11T09:23:44Z and edited into
+  its final form at
+  2026-11-11T10:02:13Z; the owner's
+  trigger 6792099920; the bot's action
+  notice 6792193593 (Action not
+  completed, already reviewed the last
+  commit, carrying no finding); the
+  owner's landing comment 6792906001;
+  the second owner instance's re-audit
+  and delta record 6793156108; the third
+  owner seat's concurrence 6793726559;
+  and the third seat's red team verdict
+  6793880034. Nothing has arrived on the
+  pull request after
+  2026-11-11T10:52:54Z. The shell in its
+  final form states that no actionable
+  comments were generated in the recent
+  review, carries a complete walkthrough
+  of the change, Merge Risk Minimal, and
+  pre-merge checks at exactly four
+  passed: Title, Linked Issues, Out of
+  Scope Changes, and Description. No
+  Docstring Coverage row stands anywhere
+  in the shell's final form, and no
+  review object stands on the pull
+  request at all. The shell assesses the
+  closure head
+  36765f0c46c912554aa374e96875db0ca594cbca
+  and never the repair head
+  8cfc88e921c313227d1a00d01a5a9818d86435ee:
+  its change assessment commit, its
+  reviewed commit range (the base
+  0d565de5 to 36765f0c), and its merge
+  risk coverage all name the closure
+  head, the head the round's
+  dispositions were written against. The
+  union of the seats' dispositions
+  grades as follows. The merging seat's
+  reviews returned spec fidelity NOT
+  PASS with two Majors and two Minors,
+  standards APPROVE with three Minors,
+  and its own red team APPROVE; both
+  Majors were true and stand repaired in
+  the repair head, recorded in VL-78:
+  VL-74's step count read 520 where its
+  enumerated events sum to 512 (120
+  opens, 292 results, 100 closes), the
+  true count with the five refusal steps
+  being 517, and VL-75 named the pinned
+  crate's suites as 5 and 13 in identity
+  and digest order where the counts are
+  identity 13 and digest_cli 5. The
+  second seat's delta reviews returned
+  spec fidelity NOT PASS with one Minor,
+  against VL-78's closing sentence
+  recording its spec report as not
+  recovered, and standards APPROVE with
+  three Nits; the Minor stands
+  discharged by that seat's own
+  acceptance on the record, the
+  qualification in the pull request
+  body's second owner instance note
+  together with comment 6793156108, no
+  measurement or figure is affected, and
+  no tree change was owed. The third
+  seat's red team verdict stands at
+  6793880034: APPROVE with zero
+  Critical, zero Major, and one Minor,
+  the suite pairing in VL-75, since
+  repaired in the repair head and
+  verified by that lane at the merged
+  head. One record state stands exactly
+  as the live record shows it and is not
+  discharged: the second seat's red team
+  lane was still running when the merge
+  landed (6793156108), and no comment
+  since has recorded its verdict or
+  converted its held position. The
+  sibling report that seat's lane found
+  occupying its assigned report path, a
+  NOT APPROVE on coverage grounds alone
+  whose own corpus the environment
+  destroyed, stands described inside
+  6793880034, and the clean corpus
+  executions that verdict's erratum
+  prescribed are among the executions
+  6793880034 records; the conversion
+  itself was never written on the pull
+  request by the seat that owed it, and
+  this round does not write it for them.
+  The same comment charged this round's
+  read-back with discharging six
+  exploratory band cells by execution;
+  VL-80 discharges them. No Round 10
+  disposition is falsified by this
+  record, nothing on the pull request
+  stands undisposed beyond the
+  conversion state just named, and no
+  source or prose change is owed to it.
+  Any late findings on this round's pull
+  request are owed to Round 12's
+  contract by the same shape.
