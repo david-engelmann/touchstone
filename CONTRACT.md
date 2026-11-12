@@ -2186,3 +2186,48 @@ is the behavioral spec.
   JSON, and the evidence score of 11.
   The band holds at every point
   measured, and no repair is owed.
+- VL-81. The resolver walk and the
+  flighttape pin, measured fresh at the
+  same binary against the Python oracle
+  (the final Python tree at d62e5dc, its
+  six Python files verified blob for
+  blob against that commit through the
+  API before the run). The walk battery
+  runs ten cells at this CLI's own
+  constant, MAX_WALK_DEPTH 991 in
+  src/cli.rs: the output path is spelled
+  through a chain of directory links so
+  that it resolves to the registry
+  itself, six cells on the list surface
+  (chain lengths 990, 991, and 992 on
+  both implementations) and four on the
+  show surface (991 and 992 on both). At
+  990 and at 991 links the guard refuses
+  with the standing line, error, a view
+  never overwrites the registry, on both
+  implementations. At 992 links the
+  resolution fails on both: the port
+  exits 1 with no output on either
+  stream, the crash class standing since
+  VL-13, and the oracle raises
+  RecursionError out of resolve() and
+  exits 1. The split stands at exactly
+  991 and 992, and the budget is the
+  walk's own. The pin stands as
+  Cargo.lock resolves it: the flighttape
+  git dependency at exactly
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  verified live through the API in this
+  round, whose tree is
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  at exactly 50 blobs, the golden
+  fixture among them at blob
+  41e713560548837a3f406f1bb23cb21eaef74ad7
+  (tests/fixtures/claude_session_synthetic.jsonl).
+  The pinned crate's own identity and
+  digest suites run at the cargo
+  checkout (identity 13 tests,
+  digest_cli 5, none failed), executing
+  the golden digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  over the fixture. No repair is owed.
