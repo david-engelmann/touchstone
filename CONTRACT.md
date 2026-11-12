@@ -2231,3 +2231,71 @@ is the behavioral spec.
   the golden digest
   cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
   over the fixture. No repair is owed.
+- VL-82. The hearing surfaces at a
+  realistic shape, measured against the
+  Python oracle (the final Python tree
+  at d62e5dc, verified as VL-81
+  records). A corpus of 126 experiments
+  is built twin-style, the same steps
+  driven at both implementations:
+  sources cycling eight fleet names, two
+  or three judged measures per
+  experiment, half the judged entries
+  carrying a margin of 5 or 10 and a
+  quarter of the openings an event-level
+  margin of 10, one to twelve results
+  each, ten experiments carrying twelve
+  results as deep histories. The
+  suggestion is steered by construction
+  (improvement inside the margins for
+  keep, a 30 percent move on one judged
+  measure for rerun, on two for kill)
+  and verified against the recorded
+  suggestion at every close under the
+  VL-9 rule, recomputed in exact
+  rational arithmetic by the driver,
+  with no disagreement. The count: 126
+  opens, 801 results, 105 closes, 1,037
+  steps in all (the 1,032 events and the
+  five refusal steps below), every
+  step's exit code, stdout, and stderr
+  identical, the registry bytes compared
+  after the prescribed judgment cut,
+  each cut span verified to be exactly
+  one of the two not consulted shapes
+  before its removal, and the final list
+  and show compared after the same cut
+  in their pretty form (105 judgment
+  spans cut on the port's list, none on
+  the oracle's, which carries no
+  judgment member); the final check is
+  identical and sound. Sixty-three
+  closes agree with the suggestion,
+  forty-two are contested, and
+  twenty-one experiments stand open. The
+  registry at the corpus end stands at
+  1,032 lines and 216,165 bytes on the
+  Rust side. Five refusal steps ride the
+  corpus, each refused identically on
+  both twins: a show naming a missing
+  experiment, a result for an unopened
+  experiment, a duplicate opening, a
+  second close of a closed experiment,
+  and a keep close naming a successor
+  against that same closed experiment,
+  which refuses on the already closed
+  line on both twins; the successor rule
+  itself is exercised against an open
+  experiment in VL-80. A judged pass
+  over twelve contested opens, on the
+  Rust side with the scripted judge
+  rotating through six arms twice, lands
+  four judged (two at confidence 0.9,
+  two at exactly 0.6), refuses four with
+  the registry byte-identical (two at
+  0.59, two abstentions), and lands four
+  unavailable (two failed calls, two
+  malformed evidence answers), and the
+  final judged registry, 32 lines and
+  13,419 bytes, reads sound under check.
+  No behavioral repair is owed.
