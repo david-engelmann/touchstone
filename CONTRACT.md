@@ -2314,8 +2314,8 @@ is the behavioral spec.
   binary: the judgment battery at
   twenty-four cells, the walk battery at
   ten, and the corpus of VL-82 at 1,037
-  twin steps and twelve judged closes,
-  none failed. This round changes no
+  twin steps with its judged pass over
+  twelve contested opens, none failed. This round changes no
   source, so the binary the batteries
   measured, built fresh from this
   round's base tree, is the final tree's
@@ -2346,3 +2346,23 @@ is the behavioral spec.
   in the closure commit written after
   this round's three reviews, fixes, and
   owner verification.
+
+- VL-85. The repair record. CodeRabbit's
+  step 0 review on pull request 15
+  (review 5876639927; one actionable
+  comment, 4552122144, a Minor against
+  VL-83) is true, and this commit
+  repairs it. VL-83 counted the judged
+  pass as twelve judged closes, where
+  VL-82 records twelve contested opens,
+  of which eight closes landed (four
+  judged and four unavailable) and four
+  were refused with the registry
+  byte-identical. VL-83 is restated in
+  this commit to name the judged pass
+  over twelve contested opens, and the
+  pull request body's verified block is
+  corrected with it. The shell's own
+  merge risk note names the same fix.
+  The repair changes no other figure, no
+  measurement, and no source.
