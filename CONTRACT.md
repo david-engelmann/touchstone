@@ -2299,3 +2299,50 @@ is the behavioral spec.
   final judged registry, 32 lines and
   13,419 bytes, reads sound under check.
   No behavioral repair is owed.
+- VL-83. The gate on the final tree of
+  this round. Cargo test passes 47, none
+  failed (24 judgment, 20 registry, 3
+  library). Cargo clippy over all
+  targets with warnings denied is clean.
+  Cargo fmt check is clean, and the
+  codepoint scan stands at zero of
+  U+2014 and zero of U+2013 over the
+  tree, and over all 21 blobs read back
+  through the API at the head this gate
+  ran on. The batteries of VL-80 to
+  VL-82 run whole against the round's
+  binary: the judgment battery at
+  twenty-four cells, the walk battery at
+  ten, and the corpus of VL-82 at 1,037
+  twin steps and twelve judged closes,
+  none failed. This round changes no
+  source, so the binary the batteries
+  measured, built fresh from this
+  round's base tree, is the final tree's
+  binary. Item 3 stands passing on this
+  round's own evidence, measured through
+  the API at the round's base: the
+  repository description, the README
+  lede, and the Cargo.toml description
+  field carry the one line byte for
+  byte, as VL-54 left them. The round's
+  staging stands disclosed: this is the
+  round's third seating, the first two
+  seatings having died silently in box
+  restarts, the first leaving nothing
+  and the second leaving only the remote
+  branch standing at the base while its
+  /tmp scratch was wiped whole. This
+  seating staged its scratch and
+  instruments in /tmp under the
+  workspace file-count quota and landed
+  every commit server-side in small
+  pieces as each family finished,
+  asserting the pushed tree SHA at every
+  step, so the remote branch is the
+  round's bank.
+
+- VL-84. README records 11 of 100 only
+  in the closure commit written after
+  this round's three reviews, fixes, and
+  owner verification.
