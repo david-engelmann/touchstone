@@ -2089,3 +2089,100 @@ is the behavioral spec.
   Any late findings on this round's pull
   request are owed to Round 12's
   contract by the same shape.
+- VL-80. The judgment band, measured
+  fresh at the shipped binary (a fresh
+  build of this round's base tree) with
+  a battery of twenty-four cells driven
+  by a scripted judge over the live
+  transport and the fixture transport;
+  no live model was called. The seed's
+  measures stand even, so the
+  deterministic rule suggests keep and a
+  rerun verdict stands contested. Where
+  the verdict equals the suggestion the
+  judge is never consulted, no call made
+  even with a live judge configured
+  whose every call fails, and the close
+  records not consulted because the
+  verdict and the suggestion agree.
+  Contested with no judge configured,
+  the close lands not consulted because
+  no judge is configured. Contested with
+  a judge, exactly three calls are made,
+  the choice, the evidence score, and
+  the regression risk score, except
+  where a malformed or failed answer
+  ends the consultation at the failing
+  call. A choice at confidence exactly
+  0.6, decided at the point itself and
+  not bracketed from its neighbours,
+  lands judged, carrying the model name
+  jev-1.13.0, the choice, the
+  confidence, the probabilities over the
+  four labels, both scores, the card,
+  and the card's SHA-256 digest. A
+  confidence of 0.599999 refuses the
+  close after the three calls with the
+  line that the judge's confidence
+  0.599999 is below 0.6, the registry
+  byte-identical; a confidence of
+  0.600001 lands judged; the
+  fifteen-nines spelling
+  0.599999999999999 refuses the same
+  way. An integer confidence of 1 lands
+  judged, recorded as the integer 1, and
+  an integer confidence of 0 refuses as
+  below the floor, the registry
+  byte-identical. The 6e-1 spelling of
+  0.6 lands judged and records 0.6.
+  Scores stand inside their bounds at
+  the bounds themselves: an evidence
+  score of 10 and a risk score of 0 land
+  judged, and a risk score of 10.5 lands
+  the close unavailable at the third
+  call with the risk answer malformed.
+  An abstaining choice refuses with the
+  abstained line and the registry
+  byte-identical at confidence 0.99, at
+  exactly 0.6, and at 0. In the fixture
+  seat, the recorded responses replayed
+  whole land a judged close whose
+  registry is byte-identical to the live
+  seat's, and an abstain replayed from
+  the same judgments file refuses the
+  same close. The unavailable family
+  lands the close with its reason
+  recorded and no call past the failing
+  one: a failed call (one call), an
+  answer that is not JSON (one call), an
+  answer naming the unpinned model
+  jev-1.12.0 (one call), probabilities
+  carrying the four labels but summing
+  to one half, so the choice answer is
+  malformed (one call), and an evidence
+  score of 11, outside its range, so the
+  evidence answer is malformed (two
+  calls). A kill close naming a
+  successor against a regressed seed,
+  with a live judge configured, refuses
+  on the successor rule at line 3 of the
+  registry with no judge call made and
+  the registry byte-identical: the
+  close's own refusals precede any call.
+  The band's outer edges stand at their
+  exact points in two further cells: a
+  move of 16 on a baseline of 128, the
+  scaled move exactly 12.5 against a
+  margin of 12.5, does not regress and
+  the suggestion is keep; a move of 17,
+  the scaled move 13.28125, regresses
+  and the suggestion is rerun. Six of
+  these cells discharge by execution the
+  charge comment 6793880034 left on pull
+  request 14: the abstain at exactly
+  0.6, the abstain at 0, the
+  probabilities summing to one half, the
+  unpinned model, the answer that is not
+  JSON, and the evidence score of 11.
+  The band holds at every point
+  measured, and no repair is owed.
