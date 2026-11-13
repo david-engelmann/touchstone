@@ -2414,3 +2414,168 @@ is the behavioral spec.
   final form on the closed record. The
   repair changes no other figure, no
   measurement, and no source.
+- VL-87. Round 12 opens with the full
+  read-back of pull request 15 (Round
+  11), taken on 2026-11-12 through the
+  API on its closed record, every review
+  body to its end, every review comment
+  thread to its end, and every issue
+  comment. Reviews, one: review
+  5876639927, COMMENTED by the review
+  bot on the closure head 7c8d5b7b,
+  submitted 2026-11-12T14:59:41Z,
+  posting exactly one actionable
+  comment. Review comments, one: the
+  Minor 4552122144 against VL-83 at
+  line 2317 of CONTRACT.md, that VL-83
+  counted the judged pass as twelve
+  judged closes where VL-82 records
+  twelve contested opens. The finding
+  was valid; it stands repaired in the
+  repair commit cafe2822, with VL-85 as
+  its record, and the comment's own
+  thread carries no reply beyond the
+  bot's later edit marking it addressed
+  in that commit (the comment's updated
+  stamp, 2026-11-12T15:03:45Z); the
+  thread ends there. Issue comments,
+  five: the bot's summary shell
+  6827098795; the owner's trigger
+  6827100537; the bot's action notice
+  6827154011 (Action not completed,
+  already reviewed the last commit,
+  carrying no finding); the merging
+  seat's landing comment 6828381681;
+  and the parallel seat's concurrence
+  6829940603. The census on the closed
+  record is therefore one review, one
+  review comment, and five issue
+  comments, and the pull request body
+  stands read in its final form as the
+  owner's body edit left it (14,617
+  chars, the repair head bdbbe58c and
+  its tree be4d83db in the verified
+  block, the owner repair note standing
+  in it, and the bot's own release
+  notes appendix at its tail, the
+  bot's wording and no claim of the
+  body). Nothing has arrived on the
+  pull request after the concurrence at
+  2026-11-12T16:48:24Z. The shell in
+  its true final form at this read:
+  created 2026-11-12T14:57:58Z and last
+  edited 2026-11-12T15:47:37Z, 8,781
+  chars, carrying a complete
+  walkthrough of the change, Merge Risk
+  Low up to the closure head 7c8d5b7b,
+  and pre-merge checks at exactly four
+  passed: Title, Linked Issues, Out of
+  Scope Changes, and Description. Its
+  change assessment commit and its
+  merge risk coverage, source and
+  covered alike, name the closure head
+  7c8d5b7b4b6467e6e4186c3d376f585681edc8c3
+  and no other head: neither repair
+  head (cafe2822, bdbbe58c) is named
+  anywhere in it. Its merge risk note
+  records only that one summary line
+  may misstate the number of judged
+  closes, naming neither VL-83 nor the
+  fix. No Docstring Coverage row stands
+  anywhere in this form (the word
+  occurs zero times), and no commits
+  range section and no Run ID line
+  stand in it. The shell's earlier
+  generations stand on the record at
+  their own moments: 11,475 chars as
+  last edited 2026-11-12T15:03:37Z at
+  the build lane's read; 8,777 chars at
+  the edit of 2026-11-12T15:07:42Z, the
+  form VL-86 records; 11,479 chars at
+  the edit of 2026-11-12T15:36:26Z, the
+  form the owner's body edit records;
+  and the final form above at
+  2026-11-12T15:47:37Z, at least four
+  edits after its creation, so every
+  shell figure in this round's items is
+  bound to the moment of its read, the
+  charge the landing comment left. The
+  title's bound and the closure formula
+  stand stated against the items' true
+  range: the title bounds the round at
+  VL-79 to VL-84, and VL-84 records the
+  README line to 11 of 100 in the
+  closure commit only, but the items'
+  true range on the merged record is
+  VL-79 to VL-86, VL-85 the step 0
+  repair record and VL-86 the second
+  repair record riding the two repair
+  commits after the closure, so the
+  title's bound names the slice to
+  closure span and not the round's
+  whole. The union of the seats' gate
+  record grades as follows. The merging
+  seat's three reviews of the repair
+  head cafe2822 returned spec NOT PASS
+  with two Minors, standards NOT
+  APPROVE with one Minor, and red team
+  APPROVE with no findings, its own
+  corpus at 1,005 steps clean; the two
+  Minors (VL-80's discharge list naming
+  the evidence score of 11 where
+  comment 6793880034 charged a risk
+  score of 11, and the step 0
+  disposition overtaken by the shell's
+  later edits) stand repaired in VL-86
+  at bdbbe58c, the charged risk cell
+  executed by the owner in that repair.
+  That seat's delta reviews of
+  bdbbe58c returned one shared Minor,
+  that VL-86 asserted the body
+  correction before it landed; the
+  owner's body edit then landed before
+  the merge and discharges it exactly
+  as the deltas specified. The parallel
+  seat's delta reviews of the same head
+  returned standards APPROVE with no
+  findings and, on a second seating
+  after its first spec delta lane
+  wedged idle and was closed, spec PASS
+  with no findings; the two sets differ
+  in verdict on the same delta and the
+  concurrence records that the body
+  edit discharges the shared Minor
+  under either reading. The merged
+  state stands verified by both seats:
+  merge 9c7e032a, its tree be4d83db
+  equal to the final head's tree, the
+  README on main at 11 of 100, and the
+  contract on main running VL-79 to
+  VL-86. The owed workspace copies of
+  Round 11's scratch stand discharged
+  as unrecoverable on this evidence:
+  the scratch stood in /tmp/vl11 at
+  landing (progress and the four
+  instruments), /tmp has been wiped
+  since, the directory does not stand
+  on this box at this read, and no
+  vl11-scratch copy stands in the
+  workspace either; nothing is
+  reconstructed, and Round 11's
+  measurements stand on its contract
+  record and its pull request record,
+  not on the lost files. Late findings
+  on pull request 15 stand disposed by
+  this item: the only finding the bot
+  ever posted there is 4552122144,
+  disposed in Round 11 itself, and the
+  shell's final form raises nothing
+  beyond the risk note already named,
+  which is that same point. No Round 11
+  disposition is falsified by this
+  record, nothing on the pull request
+  stands undisposed, and no source or
+  prose change is owed to it. Any late
+  findings on this round's pull request
+  are owed to Round 13's contract by
+  the same shape.
