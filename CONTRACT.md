@@ -2579,3 +2579,138 @@ is the behavioral spec.
   findings on this round's pull request
   are owed to Round 13's contract by
   the same shape.
+- VL-88. The judgment battery stands
+  re-run whole at this round's base
+  against scripted judges only, the
+  fake judge seated through the
+  JEV_CALL transport and the fixture
+  judgments file, twenty-five cells, no
+  failures, and no live model called.
+  The seam stands as contracted: the
+  judge is consulted only on a
+  contested close, its answers are
+  taken in the order choice, evidence,
+  risk, the model stands pinned at
+  jev-1.13.0, and the confidence floor
+  stands at 0.6 in src/judge.rs. The
+  cells, each decided at its point.
+  Where a close agrees with the
+  suggestion the judge is never
+  consulted, even with a failing judge
+  configured (no calls, the recorded
+  reason that the verdict and the
+  suggestion agree). A contested close
+  with no judge configured lands with
+  the standing not consulted record (no
+  judge is configured), no call made.
+  At the floor itself: confidence of
+  exactly 0.6 lands the close judged
+  after exactly the three calls, the
+  record carrying the judge's choice,
+  the confidence standing as rendered,
+  the two scores, and the pinned model;
+  0.599999 refuses after the three
+  calls, the registry byte-identical to
+  its bytes before the close; 0.600001
+  lands judged; the fifteen nines
+  spelling of the shortfall refuses;
+  the integer 1 lands judged and stands
+  recorded as the integer; the integer
+  0 refuses; and 6e-1 lands judged
+  recording 0.6. An abstaining choice
+  refuses at 0.99, at exactly 0.6, and
+  at 0, the registry unchanged in each
+  seat. The fixture seat replays the
+  judged close with its registry
+  byte-identical to the live seat's
+  close of the same card, and refuses
+  the abstaining replay with the
+  registry unchanged. The unavailable
+  family lands the close unavailable at
+  its own call counts: a failed call at
+  one call (the judge call failed); a
+  non-JSON answer at one call (the
+  judge's answer is not JSON); an
+  unpinned model, jev-1.12.0, at one
+  call (the judge's answer names an
+  unpinned model); probabilities
+  summing to one half at one call (the
+  judge's choice answer is malformed);
+  an evidence score of 11 at two calls
+  (the judge's evidence answer is
+  malformed); and a risk score of 11 at
+  three calls (the judge's risk answer
+  is malformed). The two score eleven
+  cells stand as ordinary members of
+  the battery from this round, the
+  evidence cell contracted in VL-80 and
+  the risk cell executed by the owner
+  and recorded in VL-86. The score
+  bounds land at the point itself:
+  evidence 10 and risk 0 land judged,
+  and a risk score of 10.5 turns the
+  close unavailable at the third call.
+  A close beside a rerun verdict naming
+  a successor refuses at zero calls
+  with the standing line (a successor
+  is recorded only on a rerun verdict).
+  The margins on the evidence score
+  stand decided on the rendered diff: a
+  margin of exactly 12.5 percent does
+  not regress, and 13.28125 regresses
+  and the close is refused. The band
+  stands measured single-arm over the
+  port's two transports, because the
+  oracle carries no judge transport, as
+  VL-80 claims.
+- VL-89. The walk stands re-measured at
+  the shipped binary on both arms, ten
+  cells, no failures. The view's output
+  path is spelled through a chain of
+  directory links resolving onto the
+  registry itself, the chain standing
+  outside both work roots, and list and
+  show are driven at the chain lengths
+  where the law turns. On list, chains
+  of 990 and 991 links refuse on both
+  arms at exit 1 with the standing line
+  (a view never overwrites the
+  registry) and empty stdout; at 992
+  the port goes out in silence at exit
+  1 and the oracle goes out at exit 1
+  under a traceback ending in
+  RecursionError. On show the same
+  points stand: 991 refuses by the
+  standing line on both arms, and 992
+  splits into the same crash class. The
+  split therefore stands at exactly 991
+  named refusal and 992 crash class on
+  both surfaces, MAX_WALK_DEPTH 991 in
+  src/cli.rs the port's own constant,
+  probed at the shipped binary and
+  inherited from no other crate. The
+  flighttape pin stands re-confirmed
+  live through the API in the same
+  item: the pinned commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  carrying exactly fifty blobs, and the
+  pinned crate's own suites at the
+  cargo checkout run green, identity at
+  thirteen tests and digest_cli at
+  five, the golden fixture digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  standing pinned inside both suites
+  and executed by them. The oracle's
+  six Python files stand verified blob
+  for blob against commit
+  d62e5dc9547295f9ea7980f8298d905767b22f14
+  through the API before any of this
+  round's measurements: the commit's
+  tree read through the API, its
+  tarball fetched, and every one of its
+  twenty-four blobs recomputed and
+  matching, the six Python files among
+  them. No walk or pin figure from the
+  earlier rounds is falsified.
