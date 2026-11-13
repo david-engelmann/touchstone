@@ -2414,3 +2414,433 @@ is the behavioral spec.
   final form on the closed record. The
   repair changes no other figure, no
   measurement, and no source.
+- VL-87. Round 12 opens with the full
+  read-back of pull request 15 (Round
+  11), taken on 2026-11-12 through the
+  API on its closed record, every review
+  body to its end, every review comment
+  thread to its end, and every issue
+  comment. Reviews, one: review
+  5876639927, COMMENTED by the review
+  bot on the closure head 7c8d5b7b,
+  submitted 2026-11-12T14:59:41Z,
+  posting exactly one actionable
+  comment. Review comments, one: the
+  Minor 4552122144 against VL-83 at
+  line 2317 of CONTRACT.md, that VL-83
+  counted the judged pass as twelve
+  judged closes where VL-82 records
+  twelve contested opens. The finding
+  was valid; it stands repaired in the
+  repair commit cafe2822, with VL-85 as
+  its record, and the comment's own
+  thread carries no reply beyond the
+  bot's later edit marking it addressed
+  in that commit (the comment's updated
+  stamp, 2026-11-12T15:03:45Z); the
+  thread ends there. Issue comments,
+  five: the bot's summary shell
+  6827098795; the owner's trigger
+  6827100537; the bot's action notice
+  6827154011 (Action not completed,
+  already reviewed the last commit,
+  carrying no finding); the merging
+  seat's landing comment 6828381681;
+  and the parallel seat's concurrence
+  6829940603. The census on the closed
+  record is therefore one review, one
+  review comment, and five issue
+  comments, and the pull request body
+  stands read in its final form as the
+  owner's body edit left it (14,617
+  chars, the repair head bdbbe58c and
+  its tree be4d83db in the verified
+  block, the owner repair note standing
+  in it, and the bot's own release
+  notes appendix at its tail, the
+  bot's wording and no claim of the
+  body). Nothing has arrived on the
+  pull request after the concurrence at
+  2026-11-12T16:48:24Z. The shell in
+  its true final form at this read:
+  created 2026-11-12T14:57:58Z and last
+  edited 2026-11-12T15:47:37Z, 8,781
+  chars, carrying a complete
+  walkthrough of the change, Merge Risk
+  Low up to the closure head 7c8d5b7b,
+  and pre-merge checks at exactly four
+  passed: Title, Linked Issues, Out of
+  Scope Changes, and Description. Its
+  change assessment commit and its
+  merge risk coverage, source and
+  covered alike, name the closure head
+  7c8d5b7b4b6467e6e4186c3d376f585681edc8c3
+  and no other head: neither repair
+  head (cafe2822, bdbbe58c) is named
+  anywhere in it. Its merge risk note
+  records only that one summary line
+  may misstate the number of judged
+  closes, naming neither VL-83 nor the
+  fix. No Docstring Coverage row stands
+  anywhere in this form (the word
+  occurs zero times), and no commits
+  range section and no Run ID line
+  stand in it. The shell's earlier
+  generations stand on the record at
+  their own moments: 11,475 chars as
+  last edited 2026-11-12T15:03:37Z at
+  the build lane's read; 8,777 chars at
+  the edit of 2026-11-12T15:07:42Z, the
+  form VL-86 records; 11,479 chars at
+  the edit of 2026-11-12T15:36:26Z, the
+  form the owner's body edit records;
+  and the final form above at
+  2026-11-12T15:47:37Z, at least four
+  edits after its creation, so every
+  shell figure in this round's items is
+  bound to the moment of its read, the
+  charge the landing comment left. The
+  title's bound and the closure formula
+  stand stated against the items' true
+  range: the title bounds the round at
+  VL-79 to VL-84, and VL-84 records the
+  README line to 11 of 100 in the
+  closure commit only, but the items'
+  true range on the merged record is
+  VL-79 to VL-86, VL-85 the step 0
+  repair record and VL-86 the second
+  repair record riding the two repair
+  commits after the closure, so the
+  title's bound names the slice to
+  closure span and not the round's
+  whole. The union of the seats' gate
+  record grades as follows. The merging
+  seat's three reviews of the repair
+  head cafe2822 returned spec NOT PASS
+  with two Minors, standards NOT
+  APPROVE with one Minor, and red team
+  APPROVE with no findings, its own
+  corpus at 1,005 steps clean; the two
+  Minors (VL-80's discharge list naming
+  the evidence score of 11 where
+  comment 6793880034 charged a risk
+  score of 11, and the step 0
+  disposition overtaken by the shell's
+  later edits) stand repaired in VL-86
+  at bdbbe58c, the charged risk cell
+  executed by the owner in that repair.
+  That seat's delta reviews of
+  bdbbe58c returned one shared Minor,
+  that VL-86 asserted the body
+  correction before it landed; the
+  owner's body edit then landed before
+  the merge and discharges it exactly
+  as the deltas specified. The parallel
+  seat's delta reviews of the same head
+  returned standards APPROVE with no
+  findings and, on a second seating
+  after its first spec delta lane
+  wedged idle and was closed, spec PASS
+  with no findings; the two sets differ
+  in verdict on the same delta and the
+  concurrence records that the body
+  edit discharges the shared Minor
+  under either reading. The merged
+  state stands verified by both seats:
+  merge 9c7e032a, its tree be4d83db
+  equal to the final head's tree, the
+  README on main at 11 of 100, and the
+  contract on main running VL-79 to
+  VL-86. The owed workspace copies of
+  Round 11's scratch stand discharged
+  as unrecoverable on this evidence:
+  the scratch stood in /tmp/vl11 at
+  landing (progress and the four
+  instruments), /tmp has been wiped
+  since, the directory does not stand
+  on this box at this read, and no
+  vl11-scratch copy stands in the
+  workspace either; nothing is
+  reconstructed, and Round 11's
+  measurements stand on its contract
+  record and its pull request record,
+  not on the lost files. Late findings
+  on pull request 15 stand disposed by
+  this item: the only finding the bot
+  ever posted there is 4552122144,
+  disposed in Round 11 itself, and the
+  shell's final form raises nothing
+  beyond the risk note already named,
+  which is that same point. No Round 11
+  disposition is falsified by this
+  record, nothing on the pull request
+  stands undisposed, and no source or
+  prose change is owed to it. Any late
+  findings on this round's pull request
+  are owed to Round 13's contract by
+  the same shape.
+- VL-88. The judgment battery stands
+  re-run whole at this round's base
+  against scripted judges only, the
+  fake judge seated through the
+  JEV_CALL transport and the fixture
+  judgments file, twenty-five cells, no
+  failures, and no live model called.
+  The seam stands as contracted: the
+  judge is consulted only on a
+  contested close, its answers are
+  taken in the order choice, evidence,
+  risk, the model stands pinned at
+  jev-1.13.0, and the confidence floor
+  stands at 0.6 in src/judge.rs. The
+  cells, each decided at its point.
+  Where a close agrees with the
+  suggestion the judge is never
+  consulted, even with a failing judge
+  configured (no calls, the recorded
+  reason that the verdict and the
+  suggestion agree). A contested close
+  with no judge configured lands with
+  the standing not consulted record (no
+  judge is configured), no call made.
+  At the floor itself: confidence of
+  exactly 0.6 lands the close judged
+  after exactly the three calls, the
+  record carrying the judge's choice,
+  the confidence standing as rendered,
+  the two scores, and the pinned model;
+  0.599999 refuses after the three
+  calls, the registry byte-identical to
+  its bytes before the close; 0.600001
+  lands judged; the fifteen nines
+  spelling of the shortfall refuses;
+  the integer 1 lands judged and stands
+  recorded as the integer; the integer
+  0 refuses; and 6e-1 lands judged
+  recording 0.6. An abstaining choice
+  refuses at 0.99, at exactly 0.6, and
+  at 0, the registry unchanged in each
+  seat. The fixture seat replays the
+  judged close with its registry
+  byte-identical to the live seat's
+  close of the same card, and refuses
+  the abstaining replay with the
+  registry unchanged. The unavailable
+  family lands the close unavailable at
+  its own call counts: a failed call at
+  one call (the judge call failed); a
+  non-JSON answer at one call (the
+  judge's answer is not JSON); an
+  unpinned model, jev-1.12.0, at one
+  call (the judge's answer names an
+  unpinned model); probabilities
+  summing to one half at one call (the
+  judge's choice answer is malformed);
+  an evidence score of 11 at two calls
+  (the judge's evidence answer is
+  malformed); and a risk score of 11 at
+  three calls (the judge's risk answer
+  is malformed). The two score eleven
+  cells stand as ordinary members of
+  the battery from this round, the
+  evidence cell contracted in VL-80 and
+  the risk cell executed by the owner
+  and recorded in VL-86. The score
+  bounds land at the point itself:
+  evidence 10 and risk 0 land judged,
+  and a risk score of 10.5 turns the
+  close unavailable at the third call.
+  A close beside a rerun verdict naming
+  a successor refuses at zero calls
+  with the standing line (a successor
+  is recorded only on a rerun verdict).
+  The margins on the evidence score
+  stand decided on the rendered diff: a
+  margin of exactly 12.5 percent does
+  not regress, and 13.28125 regresses
+  and the close is refused. The band
+  stands measured single-arm over the
+  port's two transports, because the
+  oracle carries no judge transport, as
+  VL-80 claims.
+- VL-89. The walk stands re-measured at
+  the shipped binary on both arms, ten
+  cells, no failures. The view's output
+  path is spelled through a chain of
+  directory links resolving onto the
+  registry itself, the chain standing
+  outside both work roots, and list and
+  show are driven at the chain lengths
+  where the law turns. On list, chains
+  of 990 and 991 links refuse on both
+  arms at exit 1 with the standing line
+  (a view never overwrites the
+  registry) and empty stdout; at 992
+  the port goes out in silence at exit
+  1 and the oracle goes out at exit 1
+  under a traceback ending in
+  RecursionError. On show the same
+  points stand: 991 refuses by the
+  standing line on both arms, and 992
+  splits into the same crash class. The
+  split therefore stands at exactly 991
+  named refusal and 992 crash class on
+  both surfaces, MAX_WALK_DEPTH 991 in
+  src/cli.rs the port's own constant,
+  probed at the shipped binary and
+  inherited from no other crate. The
+  flighttape pin stands re-confirmed
+  live through the API in the same
+  item: the pinned commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  carrying exactly fifty blobs, and the
+  pinned crate's own suites at the
+  cargo checkout run green, identity at
+  thirteen tests and digest_cli at
+  five, the golden fixture digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  standing pinned inside both suites
+  and executed by them. The oracle's
+  six Python files stand verified blob
+  for blob against commit
+  d62e5dc9547295f9ea7980f8298d905767b22f14
+  through the API before any of this
+  round's measurements: the commit's
+  tree read through the API, its
+  tarball fetched, and every one of its
+  twenty-four blobs recomputed and
+  matching, the six Python files among
+  them. No walk or pin figure from the
+  earlier rounds is falsified.
+- VL-90. The realistic pass stands at
+  1,270 steps against the oracle, above
+  Round 11's 1,037 (126 opens, 801
+  results, 105 closes, five refusal
+  steps). A twin corpus of 140
+  experiments is driven step for step
+  at the port and at the oracle, the
+  sources cycling eight fleet names,
+  each experiment carrying two or three
+  judged measures (seventy openings at
+  two, seventy at three), the judged
+  entries carrying their own margin on
+  169 entries and the opening carrying
+  an event level margin on thirty-five
+  openings, and results between one and
+  twelve per experiment with
+  twenty-five histories running to
+  twelve. Openings stand at 140,
+  results at 1,006, closes at 118, and
+  refusal steps at six, and 140 plus
+  1,006 plus 118 plus six is the 1,270
+  steps; no step's exit, stdout, or
+  stderr differed between the twins.
+  The closes divide at 72 in agreement
+  with the recomputed suggestion and 46
+  contested, and twenty-two experiments
+  stand left open. The suggestion at
+  every close stands recomputed in
+  exact rational arithmetic under the
+  VL-9 rule and checked against the
+  recorded suggestion, with no
+  disagreement. The six refusal steps
+  stand refused identically on both
+  arms: a show of a missing experiment;
+  a result for an unopened experiment;
+  a duplicate opening; a second close
+  of a closed experiment; a keep close
+  naming a successor against that
+  closed experiment, refused on the
+  already closed ground; and a keep
+  close naming a successor against an
+  open experiment, refused on the
+  successor rule itself. The registry
+  after the pass stands at 1,264 lines
+  on each arm (140 opens, 1,006
+  results, and 118 closes), 217,429
+  bytes on the port and 207,335 bytes
+  on the oracle, and the comparison
+  stands made on the port's bytes after
+  the judgment cut: 118 judgment spans
+  cut on the port's registry, none on
+  the oracle's, which carries no
+  judgment member, each cut span
+  verified to be exactly one of the two
+  not consulted shapes before its
+  removal, and the registry stands
+  byte-identical after the cut. The
+  final list stands identical after the
+  same cut in its pretty form, 118
+  spans cut; the final show stands
+  identical for every one of the 140
+  experiments after the same cut; and
+  the final check stands identical on
+  both arms and sound. The judged pass
+  stands in its own counts over
+  eighteen contested opens, every one
+  resting on even measures under a keep
+  suggestion and closed rerun under the
+  scripted judge: six land judged
+  (three at a confidence of 0.9 and
+  three at exactly 0.6); six refuse
+  with the registry byte-identical
+  (three at 0.59 and three
+  abstaining); and six land unavailable
+  (three on a failed judge call and
+  three on a malformed evidence score
+  of 11). The judged pass registry
+  stands at 48 lines and 17,034 bytes
+  and reads sound under check. No live
+  model was called anywhere in the
+  pass.
+- VL-91. The gate stands run at the
+  final tree, whose source stands
+  identical to the base tree's: cargo
+  test passes at forty-seven tests
+  (twenty-four judgment, twenty
+  registry, and three library), clippy
+  over all targets under denied
+  warnings is clean, fmt check is
+  clean, and the codepoint scan stands
+  at zero over the tree and over all
+  twenty-one blobs at the final head,
+  U+2014 and U+2013 alike. Item three
+  of the storefront standard stands
+  re-verified through the API at this
+  round's base: the description line
+  stands byte-identical in the
+  repository description, the
+  Cargo.toml description field, and the
+  README lede, the alignment VL-54
+  contracted, and this round changes
+  none of the three homes.
+- VL-92. Round 12 closes. Its items
+  stand at VL-87, the read-back of
+  Round 11's pull request on its closed
+  record with the four charges of its
+  landing comment discharged in the
+  item; VL-88, the judgment band
+  re-measured at its exact points over
+  twenty-five cells; VL-89, the walk at
+  its points and the flighttape pin
+  re-confirmed live; VL-90, the
+  realistic pass at 1,270 steps with
+  the judged pass in its own counts;
+  and VL-91, the gate. The round's
+  staging stands disclosed in its own
+  record: a restart in the middle of
+  the round wiped the lane's scratch
+  whole, a corpus pilot then in flight
+  with it, and the round's first three
+  items stood already banked on the
+  branch when it struck; the corpus of
+  record stands measured whole after
+  the restart on the rebuilt scratch,
+  and no figure in these items is
+  carried from the lost pilot. README
+  records 12 of 100 only in the closure
+  commit written after this round's
+  three reviews, fixes, and owner
+  verification.
