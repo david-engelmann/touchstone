@@ -2795,3 +2795,52 @@ is the behavioral spec.
   and reads sound under check. No live
   model was called anywhere in the
   pass.
+- VL-91. The gate stands run at the
+  final tree, whose source stands
+  identical to the base tree's: cargo
+  test passes at forty-seven tests
+  (twenty-four judgment, twenty
+  registry, and three library), clippy
+  over all targets under denied
+  warnings is clean, fmt check is
+  clean, and the codepoint scan stands
+  at zero over the tree and over all
+  twenty-one blobs at the final head,
+  U+2014 and U+2013 alike. Item three
+  of the storefront standard stands
+  re-verified through the API at this
+  round's base: the description line
+  stands byte-identical in the
+  repository description, the
+  Cargo.toml description field, and the
+  README lede, the alignment VL-54
+  contracted, and this round changes
+  none of the three homes.
+- VL-92. Round 12 closes. Its items
+  stand at VL-87, the read-back of
+  Round 11's pull request on its closed
+  record with the four charges of its
+  landing comment discharged in the
+  item; VL-88, the judgment band
+  re-measured at its exact points over
+  twenty-five cells; VL-89, the walk at
+  its points and the flighttape pin
+  re-confirmed live; VL-90, the
+  realistic pass at 1,270 steps with
+  the judged pass in its own counts;
+  and VL-91, the gate. The round's
+  staging stands disclosed in its own
+  record: a restart in the middle of
+  the round wiped the lane's scratch
+  whole, a corpus pilot then in flight
+  with it, and the round's first three
+  items stood already banked on the
+  branch when it struck; the corpus of
+  record stands measured whole after
+  the restart on the rebuilt scratch,
+  and no figure in these items is
+  carried from the lost pilot. README
+  records 12 of 100 only in the closure
+  commit written after this round's
+  three reviews, fixes, and owner
+  verification.
