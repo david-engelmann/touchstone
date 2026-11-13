@@ -2714,3 +2714,84 @@ is the behavioral spec.
   matching, the six Python files among
   them. No walk or pin figure from the
   earlier rounds is falsified.
+- VL-90. The realistic pass stands at
+  1,270 steps against the oracle, above
+  Round 11's 1,037 (126 opens, 801
+  results, 105 closes, five refusal
+  steps). A twin corpus of 140
+  experiments is driven step for step
+  at the port and at the oracle, the
+  sources cycling eight fleet names,
+  each experiment carrying two or three
+  judged measures (seventy openings at
+  two, seventy at three), the judged
+  entries carrying their own margin on
+  169 entries and the opening carrying
+  an event level margin on thirty-five
+  openings, and results between one and
+  twelve per experiment with
+  twenty-five histories running to
+  twelve. Openings stand at 140,
+  results at 1,006, closes at 118, and
+  refusal steps at six, and 140 plus
+  1,006 plus 118 plus six is the 1,270
+  steps; no step's exit, stdout, or
+  stderr differed between the twins.
+  The closes divide at 72 in agreement
+  with the recomputed suggestion and 46
+  contested, and twenty-two experiments
+  stand left open. The suggestion at
+  every close stands recomputed in
+  exact rational arithmetic under the
+  VL-9 rule and checked against the
+  recorded suggestion, with no
+  disagreement. The six refusal steps
+  stand refused identically on both
+  arms: a show of a missing experiment;
+  a result for an unopened experiment;
+  a duplicate opening; a second close
+  of a closed experiment; a keep close
+  naming a successor against that
+  closed experiment, refused on the
+  already closed ground; and a keep
+  close naming a successor against an
+  open experiment, refused on the
+  successor rule itself. The registry
+  after the pass stands at 1,264 lines
+  on each arm (140 opens, 1,006
+  results, and 118 closes), 217,429
+  bytes on the port and 207,335 bytes
+  on the oracle, and the comparison
+  stands made on the port's bytes after
+  the judgment cut: 118 judgment spans
+  cut on the port's registry, none on
+  the oracle's, which carries no
+  judgment member, each cut span
+  verified to be exactly one of the two
+  not consulted shapes before its
+  removal, and the registry stands
+  byte-identical after the cut. The
+  final list stands identical after the
+  same cut in its pretty form, 118
+  spans cut; the final show stands
+  identical for every one of the 140
+  experiments after the same cut; and
+  the final check stands identical on
+  both arms and sound. The judged pass
+  stands in its own counts over
+  eighteen contested opens, every one
+  resting on even measures under a keep
+  suggestion and closed rerun under the
+  scripted judge: six land judged
+  (three at a confidence of 0.9 and
+  three at exactly 0.6); six refuse
+  with the registry byte-identical
+  (three at 0.59 and three
+  abstaining); and six land unavailable
+  (three on a failed judge call and
+  three on a malformed evidence score
+  of 11). The judged pass registry
+  stands at 48 lines and 17,034 bytes
+  and reads sound under check. No live
+  model was called anywhere in the
+  pass.
