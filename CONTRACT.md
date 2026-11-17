@@ -3129,3 +3129,261 @@ is the behavioral spec.
   in the closure commit written after
   this round's three reviews, fixes,
   and owner verification.
+- VL-99. The read-back of Round 13's
+  pull request stands contracted here
+  on its closed record, read whole
+  through the API at this round's hand.
+  The pull request stands closed and
+  merged: its body stands at 16,447
+  characters with the owner completion
+  record at its tail, its head
+  1ff17e623a24e145abcfc7dfa62e0dd82b71189a
+  over the Round 12 merge
+  1ab2e17d75203d89ee577b9c01ee7d25c9e55026,
+  and it landed through the merge queue
+  as squash commit
+  ac93ef91ba356d36c8bd9989fda6ef121ab3792a,
+  single parent the Round 12 merge, the
+  landing tree
+  d4877275072a5f5a195ddcd483dc22e63029fa1e
+  verified by the owner blob for blob
+  against the reviewed tree, twenty-one
+  blobs, and the README read on main at
+  13 of 100. The census at this read
+  stands at six issue comments, one
+  review, and one review comment: the
+  trunk note 6951787931 in its landed
+  form (113 characters, merged
+  successfully, last edited
+  2026-11-17T16:04:37Z), the CodeRabbit
+  shell 6951793767 in its true final
+  form at this read (8,723 characters,
+  created 2026-11-17T15:01:35Z, last
+  edited 2026-11-17T15:56:06Z, Merge
+  Risk Low, coverage source and covered
+  both at the final head, four
+  pre-merge checks passed, no Docstring
+  Coverage row), the trigger 6951837635
+  (20 characters), the bot auto-reply
+  6951890477 (573 characters, action
+  not completed, already reviewed the
+  last commit, no finding), the merge
+  comment 6953278379 (12 characters),
+  and the landing comment 6953548156
+  (1,582 characters) carrying this
+  round's charges; the landing census
+  counted five issue comments before
+  the landing comment itself posted,
+  and nothing stands after it. The
+  shell's drift stands recorded in
+  three forms past the build lane's
+  census: 8,719 characters as the
+  body's step 0 section stated, 8,721
+  at the owner's hand (last edited
+  2026-11-17T15:09:49Z), and 8,723 at
+  the landing census and unchanged at
+  this read, no disposition fact moved
+  at any step. The one review,
+  5940955405 (COMMENTED, Run ID
+  48f64524-9e17-4234-9224-5b2b3d0904e9,
+  profile CHILL), carries exactly one
+  review comment, 4601434050 on this
+  contract (Minor, functional
+  correctness, the VL-97 gate
+  sentence), dispositioned in the body
+  as valid as raised against the body's
+  placeholder state and cured there by
+  citing the hosted runs; no late
+  CodeRabbit finding stands on the pull
+  request. The two corrections the
+  reviews left stand contracted here.
+  First, VL-97's local final-tree gate
+  never ran and never will: its waiter
+  ended with the build lane, its status
+  file stands at its waiting line
+  (waiting for build slot
+  2026-11-17T14:03:22Z), its console
+  log stands at zero bytes, and no
+  final-tree gate log with content
+  exists; the final tree's gate of
+  record is the hosted one, runs
+  44108904949 and 44109547394 on the
+  exact head. Second, the third corpus
+  execution's fourth fault step, the
+  result at exp-r13-0033, was an
+  exit-class divergence on the oracle
+  arm whose registry line verifiably
+  landed, not a refused registry write;
+  three of the four fault steps were
+  refused registry writes, and the
+  count of four fault steps stands. One
+  item stands carried from Round 13's
+  reviews by name: the red team's
+  battery slice, the six
+  malformed-family cells and two
+  ordinary cells staged with
+  byte-identical instruments against
+  the chain binary, never executed, the
+  box write fault refusing every setup
+  write at its hand and its banked
+  results file standing at zero bytes;
+  VL-100 of this round discharges it by
+  execution at this round's hand.
+- VL-100. The judgment battery stands
+  re-run whole at this round's base
+  against scripted judges only, the
+  fake judge seated through the
+  JEV_CALL transport and the fixture
+  judgments file, twenty-five cells, no
+  failures, and no live model called.
+  The seam stands as contracted in
+  VL-88: the judge is consulted only on
+  a contested close, its answers taken
+  in the order choice, evidence, risk,
+  the model pinned at jev-1.13.0, and
+  the confidence floor at 0.6 in
+  src/judge.rs; the cells stand decided
+  at the same points VL-88 enumerates.
+  The fake judge stands as Round 13
+  repaired it, its choice branch
+  defaulting the six malformed-family
+  modes to a confidence of 0.9
+  (CONF_LITERAL.get), the instrument
+  copied byte for byte from Round 13's
+  (md5
+  a79ded49ae7285fd2d7b028c8b47dd7f) and
+  the battery driver renamed only in
+  its round furniture. The carried item
+  from Round 13's reviews stands
+  discharged by this execution: the six
+  malformed-family cells the red team's
+  slice could not execute ran at this
+  round's hand on the port arm as the
+  battery is constructed, C17 the
+  unpinned model unavailable with the
+  reason the judge's answer names an
+  unpinned model after the choice call
+  alone, C18 the halved probabilities
+  unavailable, the judge's choice
+  answer is malformed, C19 the evidence
+  score of 11 unavailable, the judge's
+  evidence answer is malformed, C20 the
+  risk score of 11 unavailable, the
+  judge's risk answer is malformed, C21
+  the score bounds judged at an
+  evidence strength of 10 and a
+  regression risk of 0, and C22 the
+  risk score of 10.5 unavailable, the
+  judge's risk answer is malformed; the
+  two ordinary cells of that slice, C03
+  and C04, ran with them at their
+  contracted dispositions. The run of
+  record stands at twenty-five of
+  twenty-five.
+- VL-101. The walk stands re-measured
+  at the shipped binary on both arms,
+  ten cells, no failures: list at 990,
+  991, and 992 links and show at 991
+  and 992, the split standing at
+  exactly 991 named refusal and 992
+  crash class on both surfaces,
+  MAX_WALK_DEPTH 991 in src/cli.rs. The
+  flighttape pin stands re-confirmed
+  live through the API: the pinned
+  commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  carrying exactly fifty blobs, and the
+  pinned crate's own suites at the
+  cargo checkout run green at nineteen
+  suites and 241 tests with none
+  failed, identity at thirteen tests
+  and digest_cli at five, the golden
+  fixture digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  standing pinned inside both suites
+  and executed by them. The oracle's
+  six Python files stand verified blob
+  for blob against commit
+  d62e5dc9547295f9ea7980f8298d905767b22f14
+  before any of this round's
+  measurements: the commit's tree
+  74394802a20e03fd9f3e2c5cf781c4ef8936df21
+  read through the API, its twenty-four
+  blobs matching Round 13's saved
+  census, and every one of the
+  twenty-four recomputed from the local
+  extraction and matching. The repo's
+  only pin is the flighttape pin, as
+  VL-95 corrected the record.
+- VL-102. The corrupted-registry reads
+  stand measured fresh, a surface no
+  earlier round measured: one healthy
+  registry built by identical twin
+  steps on both arms (six opens, six
+  results, four closes, sixteen lines,
+  2,962 bytes in the oracle arm's
+  bytes, the port's registry equal
+  after the prescribed cut at every
+  build step, no judge configured), and
+  the read surfaces, check, list, and
+  show, driven on both arms over the
+  healthy bytes and twelve mutated
+  copies (truncation mid-line, the
+  final newline removed, one digit
+  changed in a result's measures, the
+  JSON syntax broken on a middle line,
+  a line duplicated, two lines swapped,
+  a blank line inserted, an unknown
+  event kind, the empty file, a
+  required field removed, CRLF line
+  endings, a trailing blank line):
+  thirteen cells, thirty-nine twin
+  comparisons, thirty-nine in
+  agreement, no cell failed and none
+  blocked, the registry bytes unchanged
+  by every read. The cut the build and
+  the show surface rely on is the VL-96
+  corpus discipline: the port's closes
+  add a not_consulted judgment member
+  the oracle predates, brace-matched,
+  parsed, and verified to be exactly
+  one of its two prescribed shapes
+  before removal; a span of any other
+  shape would have convicted. The
+  driver's first build attempt stopped
+  at the first close on that asymmetry
+  and the driver took up the cut before
+  any cell ran, an amendment recorded
+  in the lane's progress record before
+  the run.
+- VL-103. The gate stands run at the
+  base tree and at the final tree,
+  whose source stands identical to the
+  base tree's: cargo test passes at
+  forty-seven tests (twenty-four
+  judgment, twenty registry, and three
+  library), clippy over all targets
+  under denied warnings is clean, fmt
+  check is clean, and the codepoint
+  scan stands at zero over the tree and
+  over all twenty-one blobs at the
+  final head, U+2014 and U+2013 alike,
+  the scan proven on a planted control.
+  The base extraction stands verified
+  blob for blob against the landing
+  tree of Round 13's merge (twenty-one
+  blobs recomputed and matching) with
+  main read live at
+  ac93ef91ba356d36c8bd9989fda6ef121ab3792a.
+  Item three of the storefront standard
+  stands re-verified through the API at
+  this round's base: the description
+  line stands byte-identical in the
+  repository description, the
+  Cargo.toml description field, and the
+  README lede, and this round changes
+  none of the three homes; the item
+  stands passing, standing, not
+  repaired.
