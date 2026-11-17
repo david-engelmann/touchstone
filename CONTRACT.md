@@ -3387,3 +3387,53 @@ is the behavioral spec.
   none of the three homes; the item
   stands passing, standing, not
   repaired.
+- VL-104. Round 14 closes. Its items
+  stand at VL-99, the read-back of
+  Round 13's own pull request with the
+  two corrections contracted and the
+  carried battery slice named; VL-100,
+  the judgment battery re-run whole at
+  twenty-five of twenty-five,
+  discharging the carried slice by
+  execution; VL-101, the walk
+  re-measured, the flighttape pin
+  re-confirmed live, and the oracle
+  verified blob for blob; VL-102, the
+  corrupted-registry reads at
+  thirty-nine of thirty-nine
+  comparisons; and VL-103, the gate and
+  the storefront's third item standing.
+  The harness provenance stands here in
+  its own text: the measurements ran on
+  drivers kept outside the repo
+  (battery14.py and fake_judge14.py,
+  the battery driver renamed only in
+  its round furniture from Round 13's
+  and the fake judge copied byte for
+  byte, walk14.py likewise renamed,
+  corrupt14.py new this round, and
+  verify_census14.py for the pin,
+  oracle, and storefront reads). The
+  measurement runs executed in the
+  lane's staging against Round 13's
+  chain binary (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517,
+  built from the base checkout whose
+  every source blob stands identical to
+  this round's base) without a
+  build-slot hold, because the drivers
+  invoke no cargo work, on the VL-96
+  and VL-98 precedent; the round's
+  first cargo chain died queued in a
+  box restart, its successor held the
+  slot through a long closed wave of
+  the fault and died in a second
+  restart with its probe gate never
+  opened, and a third launch in the
+  post-restart window ran every gate
+  stage green under the slot; these
+  facts stand disclosed here and in the
+  pull request. The README records 14
+  of 100 in the closure commit written
+  after this round's three reviews,
+  fixes, and owner verification.
