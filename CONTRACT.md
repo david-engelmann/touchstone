@@ -3070,3 +3070,62 @@ is the behavioral spec.
   README lede, the alignment VL-54
   contracted, and this round changes
   none of the three homes.
+- VL-98. Round 13 closes. Its items
+  stand at VL-93, the read-back of
+  Round 12's own pull request; VL-94,
+  the judgment battery re-run whole at
+  twenty-five of twenty-five; VL-95,
+  the walk re-measured, the flighttape
+  pin re-confirmed live, and the oracle
+  verified blob for blob; VL-96, the
+  realistic pass at the reworked scale
+  of 1,346 steps; and VL-97, the gate
+  and the storefront's third item. The
+  harness provenance this round's
+  closure was charged to carry stands
+  here in its own text: the
+  measurements ran on four drivers kept
+  outside the repo (battery13.py,
+  walk13.py, corpus13.py, and
+  fake_judge13.py, the scripted judge
+  the battery and the judged pass
+  consult through the JEV_CALL
+  transport), the corpus driver
+  descending from the Round 9 battery's
+  corpus section and its generator
+  seeded 20261116 with the experiment
+  count raised from one hundred sixty
+  to one hundred eighty as VL-96
+  records. Two defects in this round's
+  own drivers stand recorded as driver
+  defects, not crate defects: the fake
+  judge's choice branch raised KeyError
+  for the six malformed-family modes,
+  repaired by defaulting those modes to
+  a confidence of 0.9 before the
+  battery's run of record; and the
+  corpus driver's first completed
+  executions banked nothing when the
+  box write fault returned at their
+  closing phases, answered by a
+  hardened copy (corpus13b.py,
+  differing only in banking) whose run
+  banked the fault's own four refused
+  writes, and by a tail driver
+  (corpus13_tail.py) that re-ran the
+  closing phases against the surviving
+  registries. The round was built
+  across three lanes in succession,
+  each standing down clean on an
+  ownership transfer with its records
+  banked in the line's scratch, and the
+  corpus's final execution ran without
+  a build-slot hold because the driver
+  invokes no cargo work, the slot
+  standing frozen behind another lane's
+  probe gate; both facts stand
+  disclosed here and in the pull
+  request. The README records 13 of 100
+  in the closure commit written after
+  this round's three reviews, fixes,
+  and owner verification.
