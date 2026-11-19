@@ -3711,3 +3711,75 @@ is the behavioral spec.
   hand, and this round changes none of
   the three homes; the item stands
   passing, standing, not repaired.
+- VL-110. Round 15 closes. Its items
+  stand at VL-105, the read-back of
+  Round 14's landing pull request with
+  its origin pull request read with it,
+  the shell in its true final form at
+  the reading hand; VL-106, the
+  standing regression re-run whole, the
+  battery at twenty-five of
+  twenty-five, the walk at ten of ten,
+  the flighttape pin re-confirmed live
+  with its suites green, and the oracle
+  verified blob for blob; VL-107, the
+  gate at the base tree and at the
+  final tree; VL-108, the absent
+  registry and the unknown experiment
+  at twelve of twelve cells agreeing,
+  no conviction; and VL-109, the
+  storefront's third item standing,
+  re-verified, not repaired. The
+  harness provenance stands here in its
+  own text: the measurements ran on
+  drivers kept outside the repo
+  (battery15.py and fake_judge15.py,
+  the battery driver renamed only in
+  its round furniture from Round 14's
+  and the fake judge copied byte for
+  byte, walk15.py likewise renamed,
+  absent15.py new this round, and
+  verify_census15.py for the pin,
+  oracle, and storefront reads). The
+  measurement runs executed in the
+  lane's staging against Round 13's
+  chain binary (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517,
+  built from a checkout whose every
+  source blob stands identical to this
+  round's base) without a build-slot
+  hold, because the drivers invoke no
+  cargo work, on the VL-96 and VL-98
+  precedent. The round's cargo work ran
+  under the build slot: the base gate
+  green in the chain's third launch
+  after two restart kills in the queue,
+  the pin suite at the continuation
+  lane's hand after the chain's pin
+  stage died on the box's file-count
+  quota and the detached re-run's probe
+  gate never opened in the closed wave
+  that followed, and the final-tree
+  gate at the continuation lane's hand.
+  The round's first build lane errored
+  out on 2026-11-18 with its record
+  banked through the base gate, and a
+  continuation lane adopted the banked
+  record whole and finished the round;
+  every figure in these items traces to
+  a banked run in the lane's record.
+  The absent driver's first run banked
+  ten of twelve on a derivation miss in
+  its own cell definitions, the
+  amendment recorded in the progress
+  record before the re-run, and the
+  amended run is the run of record.
+  Slice and closure staging stand in
+  separate directories this round, as
+  Round 14's standards Minor charged,
+  so both halves of the pushed-tree
+  assertion stay re-performable from
+  disk. The README records 15 of 100 in
+  the closure commit written after this
+  round's three reviews, fixes, and
+  owner verification.
