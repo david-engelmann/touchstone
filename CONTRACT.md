@@ -4679,3 +4679,55 @@ is the behavioral spec.
   none of the three homes; the item
   stands passing, standing, not
   repaired.
+- VL-128. This round's closure. The
+  round's harness: the battery driver is
+  Round 17's battery renamed only in its
+  round furniture (its summary banner,
+  its work directory, its bank's name),
+  the fake judge is Round 17's fake
+  judge byte for byte (md5
+  a79ded49ae7285fd2d7b028c8b47dd7f), the
+  walk driver is Round 17's walk renamed
+  the same way, the interleave driver is
+  new this round, and the census is this
+  round's own; the instruments stand in
+  the lane's scratch, not in the
+  repository, and nothing in this round
+  changes any code the repository ships.
+  The measurement runs (the battery, the
+  walk, the interleaved registry) ran
+  against Round 13's chain binary
+  (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517),
+  whose source blobs stand identical to
+  this round's base, the diff between
+  Round 17's base tree and this round's
+  base being exactly CONTRACT.md and
+  README.md, without a build slot hold,
+  on the precedent VL-96 and VL-98 set;
+  every cargo run stood under the build
+  slot. The round's weather stands
+  disclosed: the base gate's chain took
+  three holds inside the sitting, the
+  first acquiring at 18:02:09Z on
+  2026-11-20, verifying the base tree
+  whole, and dying in its build stage
+  when a write wave closed mid-build
+  (rustc failing with an IO failure on
+  its output stream, Operation not
+  permitted, build exit 101; that hold's
+  census and pin stages count nowhere),
+  the second acquiring at 18:06:03Z and
+  killed by a box restart inside its
+  probe gate before any stage ran, the
+  third acquiring at 18:15:58Z and
+  running whole; the head gate's holds
+  stand counted in the lane's progress
+  record with its figures at VL-125. The
+  interleaved registry's run of record
+  stands at VL-126 on its first run, no
+  amendment. The slice and the closure
+  stand staged in separate directories,
+  and the README's rounds line moves to
+  18 of 100 in this closure commit only,
+  after the reviews.
