@@ -4427,3 +4427,307 @@ is the behavioral spec.
   and the README's rounds line moves to
   17 of 100 in this closure commit only,
   after the reviews.
+- VL-123. The read-back of Round 17's
+  landing pull request stands contracted
+  here on its closed record, read whole
+  through the API at this round's hand.
+  Pull request 26 stands closed and
+  merged: its body stands at 11,432
+  characters, the lane's body with the
+  owner completion record appended after
+  it, its head
+  68f531a420ca96cefcf7f9a10d95f852259d6f4e
+  over the base
+  ecca672ea986e7f30475ef835a9714ff20ee2410,
+  and it landed through the merge queue
+  as squash commit
+  289037ddf73c99781f0754c875aa24998358dbe1,
+  single parent
+  ecca672ea986e7f30475ef835a9714ff20ee2410,
+  the landing tree
+  7af962e57334dddebfb64621fa0b3c36c3e042c0
+  verified by the owner as the reviewed
+  closure head tree itself and re-read
+  at this round's hand (main stands at
+  289037dd on a fresh read, its tree at
+  7af962e5 over twenty-one blobs), and
+  the README read on main at 17 of 100.
+  The census at this read stands at four
+  issue comments, no reviews, and no
+  review comments: the trunk note
+  7046338618 in its landed form (113
+  characters, merged successfully), the
+  CodeRabbit shell 7046342369 in its
+  true final form at this read (11,038
+  characters, created
+  2026-11-20T17:37:20Z, last edited
+  2026-11-20T17:41:52Z, Run ID
+  14dc2425-75d4-4f3a-8bf2-b2dee0f9a24c,
+  profile CHILL, Merge Risk Minimal,
+  coverage at the exact head 68f531a4,
+  pre-merge checks passed, no actionable
+  comments generated), the merge comment
+  7046451171 (12 characters), and the
+  landing comment 7046674663 (1,782
+  characters, 2026-11-20T17:51:45Z)
+  carrying this round's charges; nothing
+  stands after the landing comment. The
+  owner's completion record stands read
+  with it: spec fidelity APPROVE,
+  standards APPROVE, and red team
+  APPROVE, no findings at any grade on
+  any axis, the cleanest verdict set the
+  bench has recorded. Its account stands
+  contracted here: VL-119 discharged the
+  gate form Round 16's Minor charged, in
+  the substance at both trees, the full
+  test result lines banked with no tail
+  window anywhere in the chain and a
+  working per-file codepoint scan as the
+  run of record, the split of three
+  library, twenty-four judgment, and
+  twenty registry read from each tree's
+  own log, verified from the actual logs
+  at three hands; VL-117 contracted
+  VL-113's flat final-tree sentences by
+  name in the erratum shape, so the
+  repair stands complete on both limbs,
+  the record corrected and the practice
+  changed; VL-120's amendment, its first
+  run banked thirteen of fourteen on the
+  lane's own derivation miss in the
+  unchanged flag on the
+  result-after-close cell, was judged
+  strictly on the standing ordering
+  signals and discharged, the first bank
+  preserved, the amendment recorded in
+  the lane's progress record before the
+  re-run, and the disclosure standing in
+  the item and the body; the red team
+  reproduced the battery, the no-result
+  lifecycle surface, and the walk whole
+  at its own hand with banks
+  byte-identical to the lane's on every
+  line, re-ran the pinned crate's
+  digest_cli suite clean under the build
+  slot, and matched the closure tree
+  twenty-one of twenty-one against a
+  manifest it computed itself; and the
+  standards axis's one ungraded
+  observation, the shell's passed Title
+  check remarking that the pull request
+  title is long and dense, stands on the
+  review record, the check passed and
+  the remark non-actionable. This
+  round's gate (VL-125) stands in the
+  same form at both trees, the
+  discharged VL-119 form carried forward
+  as the standing form.
+- VL-124. The standing regression stands
+  re-run whole at this round's hand. The
+  fake-judge battery stands at
+  twenty-five of twenty-five cells, the
+  port against the oracle across the
+  judged close: the unavailability cells
+  at their contracted dispositions, C17
+  naming an unpinned model on the choice
+  call alone, C18 the choice answer
+  malformed on the choice call alone,
+  C19 the evidence answer malformed
+  across choice and evidence, C20 the
+  risk answer malformed across choice,
+  evidence, and risk, C21 judged at the
+  bounds with evidence ten and risk
+  zero, and C22 the risk answer
+  malformed across choice, evidence, and
+  risk, exactly the dispositions VL-100
+  contracted; the confidence boundary
+  exact at both edges, the abstention
+  cells refusing, the fixture replays
+  byte-identical, the successor and
+  margin cells at their standing
+  outcomes. The registry-walk battery
+  stands at ten of ten cells, five chain
+  shapes across list and show on both
+  arms: the 991 chain refused by name on
+  both arms and both surfaces, the 992
+  chain in the crash class on both, the
+  port's streams empty, the oracle's
+  recursion error named, the registry
+  byte-unchanged after every refused or
+  crashed view. The pin stands
+  re-verified: the flighttape checkout
+  at the pinned commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  at fifty blobs, its suite re-run at
+  241 tests across nineteen suites with
+  none failed, and the golden digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  standing in the source it was read
+  from. The oracle stands re-verified:
+  its tree
+  74394802a20e03fd9f3e2c5cf781c4ef8936df21
+  at twenty-four blobs, recomputed
+  against the census saved at its
+  extraction with none bad. The local
+  gate at the base and head trees stands
+  contracted at VL-125.
+- VL-125. The local gate stands run at
+  the base tree and at the head tree in
+  the form this round contracts, each
+  tree's figures read from that tree's
+  own log. At the base tree (main at
+  289037ddf73c99781f0754c875aa24998358dbe1,
+  tree
+  7af962e57334dddebfb64621fa0b3c36c3e042c0,
+  its twenty-one blobs verified in the
+  checkout before the gate ran): cargo
+  test banks its full result lines with
+  no tail window anywhere in the chain,
+  forty-seven passed and none failed,
+  three library, twenty-four judgment,
+  and twenty registry, read from the
+  base gate's own log; cargo clippy with
+  warnings denied exits 0 and cargo fmt
+  --check exits 0; and the codepoint
+  scan runs per file over the tree's
+  twenty-one files with its planted
+  control holding both dashes, the
+  control reading one em dash and one en
+  dash, every file at zero and zero, the
+  totals at zero and zero, scan exit 0.
+  At the head tree (the closure tree,
+  its twenty-one blobs verified in the
+  checkout before the gate ran): cargo
+  test banks its full result lines the
+  same way, forty-seven passed and none
+  failed, three library, twenty-four
+  judgment, and twenty registry, read
+  from the head gate's own log; cargo
+  clippy with warnings denied exits 0
+  and cargo fmt --check exits 0; and the
+  per-file codepoint scan reads its
+  control at one and one, every file at
+  zero and zero, the totals at zero and
+  zero, scan exit 0. No figure in this
+  item rests on another tree's log, and
+  no scan figure rests on a stage that
+  did not run: the VL-119 form,
+  contracted forward at VL-123 and
+  discharged here at both trees.
+- VL-126. The interleaved registry
+  stands measured fresh, a surface no
+  earlier round measured: twin fresh
+  directories on both arms, and fourteen
+  cells in one fixed sequence, two
+  experiments opened before either is
+  given a result, their results
+  interleaved, the first experiment
+  shown open with its two results at
+  positions three and five and then
+  closed with a keep verdict, the second
+  shown still open across that close and
+  then closed with a kill verdict, a
+  list over the mixed registry, a third
+  experiment opened across the two
+  closed experiments and given a result
+  and shown, and a final check reading
+  the whole registry back. The run of
+  record agrees on fourteen of fourteen
+  cells, none failed, none blocked, on
+  its first run with no amendment: the
+  first experiment's close rests on
+  baseline position one and result
+  position five on both arms, across the
+  second experiment's open and result at
+  positions two and four, with verdict
+  keep and suggestion keep; the second
+  experiment's close rests on baseline
+  position two and result position four
+  on both arms, both before the first
+  experiment's close at position six,
+  with verdict kill and suggestion kill;
+  the third experiment stands opened at
+  position eight with its result at
+  position nine; and the registry stands
+  at exactly nine lines on both arms
+  after the final check. No conviction;
+  the surface joins the standing
+  regression's evidence. The cut the
+  close and post-close cells rely on is
+  the VL-96 corpus discipline, with
+  Round 16's amendment applied from the
+  start: the registry comparison carries
+  the cut on every cell from the first
+  close onward, the port's closes adding
+  a not_consulted judgment member the
+  oracle predates, brace-matched,
+  parsed, and verified to be exactly one
+  of its two prescribed shapes before
+  removal; a span of any other shape
+  would have convicted.
+- VL-127. Item three of the storefront
+  standard stands re-verified through
+  the API at this round's base: the
+  description line stands byte-identical
+  in the repository description, the
+  Cargo.toml description field, and the
+  README lede, all three read at this
+  round's hand, and this round changes
+  none of the three homes; the item
+  stands passing, standing, not
+  repaired.
+- VL-128. This round's closure. The
+  round's harness: the battery driver is
+  Round 17's battery renamed only in its
+  round furniture (its summary banner,
+  its work directory, its bank's name),
+  the fake judge is Round 17's fake
+  judge byte for byte (md5
+  a79ded49ae7285fd2d7b028c8b47dd7f), the
+  walk driver is Round 17's walk renamed
+  the same way, the interleave driver is
+  new this round, and the census is this
+  round's own; the instruments stand in
+  the lane's scratch, not in the
+  repository, and nothing in this round
+  changes any code the repository ships.
+  The measurement runs (the battery, the
+  walk, the interleaved registry) ran
+  against Round 13's chain binary
+  (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517),
+  whose source blobs stand identical to
+  this round's base, the diff between
+  Round 17's base tree and this round's
+  base being exactly CONTRACT.md and
+  README.md, without a build slot hold,
+  on the precedent VL-96 and VL-98 set;
+  every cargo run stood under the build
+  slot. The round's weather stands
+  disclosed: the base gate's chain took
+  three holds inside the sitting, the
+  first acquiring at 18:02:09Z on
+  2026-11-20, verifying the base tree
+  whole, and dying in its build stage
+  when a write wave closed mid-build
+  (rustc failing with an IO failure on
+  its output stream, Operation not
+  permitted, build exit 101; that hold's
+  census and pin stages count nowhere),
+  the second acquiring at 18:06:03Z and
+  killed by a box restart inside its
+  probe gate before any stage ran, the
+  third acquiring at 18:15:58Z and
+  running whole; the head gate's holds
+  stand counted in the lane's progress
+  record with its figures at VL-125. The
+  interleaved registry's run of record
+  stands at VL-126 on its first run, no
+  amendment. The slice and the closure
+  stand staged in separate directories,
+  and the README's rounds line moves to
+  18 of 100 in this closure commit only,
+  after the reviews.
