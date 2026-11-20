@@ -4373,3 +4373,57 @@ is the behavioral spec.
   none of the three homes; the item
   stands passing, standing, not
   repaired.
+- VL-122. This round's closure. The
+  round's harness: the battery driver is
+  Round 16's battery renamed only in its
+  round furniture (its summary banner,
+  its work directory, its bank's name),
+  the fake judge is Round 16's fake
+  judge byte for byte (md5
+  a79ded49ae7285fd2d7b028c8b47dd7f), the
+  walk driver is Round 16's walk renamed
+  the same way, the lifecycle driver is
+  new this round, and the census is this
+  round's own; the instruments stand in
+  the lane's scratch, not in the
+  repository, and nothing in this round
+  changes any code the repository ships.
+  The measurement runs (the battery, the
+  walk, the lifecycle surface) ran
+  against Round 13's chain binary
+  (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517),
+  whose source blobs stand identical to
+  this round's base, the diff between
+  Round 16's base tree and this round's
+  base being exactly CONTRACT.md and
+  README.md, without a build slot hold,
+  on the precedent VL-96 and VL-98 set;
+  every cargo run stood under the build
+  slot. The round's weather stands
+  disclosed: a write wave held content
+  writes closed from about 11:07Z to
+  about 11:24Z on 2026-11-20, and the
+  base extraction and the instrument
+  rename rode it out in retry loops
+  inside the sitting, landing whole when
+  the window opened; the base gate's
+  chain took three holds inside the
+  sitting, the first queueing two hours
+  thirteen minutes and acquired, then
+  killed by a box restart before its
+  first stage landed, the second
+  queueing one hour thirty-eight minutes
+  and acquired, then dying inside its
+  probe gate in a closed write wave at a
+  second restart, the third queueing
+  about seven minutes and running whole,
+  and the head gate ran at the closure
+  tree under the same slot, its figures
+  at VL-119. The lifecycle surface's
+  first run and its amendment stand at
+  VL-120. The slice and the closure
+  stand staged in separate directories,
+  and the README's rounds line moves to
+  17 of 100 in this closure commit only,
+  after the reviews.
