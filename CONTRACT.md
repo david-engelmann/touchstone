@@ -4023,3 +4023,80 @@ is the behavioral spec.
   hand, and this round changes none of
   the three homes; the item stands
   passing, standing, not repaired.
+- VL-116. Round 16 closes. Its items
+  stand at VL-111, the read-back of
+  Round 15's landing pull request, the
+  shell in its true final form at the
+  reading hand; VL-112, the standing
+  regression re-run whole, the battery
+  at twenty-five of twenty-five, the
+  walk at ten of ten, the flighttape
+  pin re-confirmed live with its suites
+  green, and the oracle verified blob
+  for blob; VL-113, the gate at the
+  base tree and at the final tree;
+  VL-114, the rerun successor at
+  fourteen of fourteen cells agreeing,
+  no conviction; and VL-115, the
+  storefront's third item standing,
+  re-verified, not repaired. The
+  harness provenance stands here in its
+  own text: the measurements ran on
+  drivers kept outside the repo
+  (battery16.py and fake_judge16.py,
+  the battery driver renamed only in
+  its round furniture from Round 15's
+  and the fake judge copied byte for
+  byte, walk16.py likewise renamed,
+  successor16.py new this round, and
+  verify_census16.py for the pin,
+  oracle, and storefront reads). The
+  measurement runs executed in the
+  lane's staging against Round 13's
+  chain binary (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517,
+  built from a checkout whose every
+  source blob stands identical to this
+  round's base) without a build-slot
+  hold, because the drivers invoke no
+  cargo work, on the VL-96 and VL-98
+  precedent. The round's cargo work ran
+  under the build slot: the base gate,
+  the census, and the pin suite green
+  in the chain's run under the slot:
+  the chain's first launches waited out
+  the box's closed write wave from
+  02:05Z, the wave cleared in the box
+  restart of about 04:02Z that killed
+  the waiting launchers, and the chain
+  relaunched into the open window
+  acquired the slot at 04:26:40Z and
+  ran every stage green; the final-tree
+  gate at this lane's hand under the
+  same slot discipline. The successor
+  driver's first run banked seven of
+  fourteen on a derivation miss in its
+  own cell definitions, the amendment
+  recorded in the progress record
+  before the re-run, and the amended
+  run is the run of record; the amended
+  successor run's banking stands
+  disclosed: its first attempts banked
+  BLOCKED at setup in the closed wave,
+  and one retry attempt's console
+  showed fourteen of fourteen while its
+  bank landed at zero bytes in the
+  wave, which counts nowhere; the run
+  of record landed at this lane's hand
+  in the open window after the restart,
+  its bank read back whole at 1,352
+  bytes. Slice and closure staging
+  stand in separate directories this
+  round, as the standing hygiene
+  charges, so both halves of the
+  pushed-tree assertion stay
+  re-performable from disk. The README
+  records 16 of 100 in the closure
+  commit written after this round's
+  three reviews, fixes, and owner
+  verification.
