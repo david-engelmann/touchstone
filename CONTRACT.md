@@ -4992,3 +4992,57 @@ is the behavioral spec.
   none of the three homes; the item
   stands passing, standing, not
   repaired.
+- VL-134. This round's closure. The
+  round's harness: the battery driver is
+  Round 18's battery renamed only in its
+  round furniture (its summary banner,
+  its work directory, its bank's name),
+  the fake judge is Round 18's fake
+  judge byte for byte (md5
+  a79ded49ae7285fd2d7b028c8b47dd7f), the
+  walk driver is Round 18's walk renamed
+  the same way, the partial driver is
+  new this round, and the census is this
+  round's own; the instruments stand in
+  the lane's scratch, not in the
+  repository, and nothing in this round
+  changes any code the repository ships.
+  The measurement runs (the battery, the
+  walk, the partial and mixed measures)
+  ran against Round 13's chain binary
+  (sha256
+  4e5ee9dca8bcc591786db8576f11009e1b55a6a15015829f9a21cd1b4a018517),
+  whose source blobs stand identical to
+  this round's base, the diff between
+  Round 18's base tree and this round's
+  base being exactly CONTRACT.md and
+  README.md, without a build slot hold,
+  on the precedent VL-96 and VL-98 set;
+  every cargo run stood under the build
+  slot. The round's weather stands
+  disclosed: a write wave stood closed
+  at the lane's seating, exec writes
+  refused with Operation not permitted
+  from about 19:57Z on 2026-11-20, the
+  read-back first taken by a stdout-only
+  pass and its banking landed when the
+  wave opened after a box restart at
+  20:18Z; the base gate's chain took two
+  holds inside the sitting, the first
+  queueing on the build slot from
+  20:22:32Z for about an hour without
+  acquiring and killed by SIGTERM in a
+  box restart with no stage run and no
+  log written, the second queueing from
+  21:24:08Z, acquiring at 21:27:34Z, and
+  running whole; the head gate's holds
+  stand counted in the lane's progress
+  record with its figures at VL-131. The
+  partial and mixed measures run of
+  record stands at VL-132 on its first
+  run, no amendment. The slice and the
+  closure stand staged in separate
+  directories, and the README's rounds
+  line moves to 19 of 100 in this
+  closure commit only, after the
+  reviews.
