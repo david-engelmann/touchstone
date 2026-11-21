@@ -5357,3 +5357,61 @@ is the behavioral spec.
   none of the three homes; the item
   stands passing, standing, not
   repaired.
+- VL-140. This round's closure. The
+  round's harness: the battery driver is
+  Round 19's battery renamed only in its
+  round furniture (its summary banner,
+  its work directory, its bank's name,
+  its item number), the fake judge is
+  Round 19's fake judge byte for byte
+  (md5
+  a79ded49ae7285fd2d7b028c8b47dd7f), the
+  walk driver is Round 19's walk renamed
+  the same way, the rests driver is new
+  this round, and the census is this
+  round's own; the instruments stand in
+  the lane's scratch, not in the
+  repository, and nothing in this round
+  changes any code the repository ships.
+  The measurement runs (the battery, the
+  walk, the resting result) ran against
+  the chain binary built fresh from the
+  blob-verified base checkout in this
+  lane's own chain (sha256
+  b66790055a8875ccd9e59ad529202f63d9243239754945dc7383bd35b2a8c055),
+  the Round 13 binary's home directory
+  having been removed in Round 19; every
+  cargo run stood under the build slot.
+  The round's weather stands disclosed:
+  a write wave stood shut at the lane's
+  seating, exec writes refused with
+  Operation not permitted from about
+  05:01Z on 2026-11-21, the read-back
+  first taken by a stdout-only pass, its
+  banking and the base and oracle
+  extractions landed in a short open
+  window after a box restart at 05:29Z,
+  and the wave shut again until a second
+  restart opened it at 10:51Z; the base
+  chain took three holds inside the
+  sitting, the first queueing from
+  05:32:26Z, acquiring at 08:31:43Z
+  after one hundred seventy-nine minutes
+  queued, and dying at its probe gate
+  with two hundred forty tries exhausted
+  and no stage run, the second launched
+  at 09:32:07Z and killed queued by the
+  second box restart at about 10:50Z
+  with no stage run, the third queueing
+  from 10:51:38Z, acquiring at
+  10:54:42Z, and running whole; the head
+  gate's holds stand counted in the
+  lane's progress record with its
+  figures at VL-137. The resting result
+  run of record stands at VL-138 on its
+  first run, no amendment. The slice and
+  the closure stand staged in separate
+  directories, and the README's rounds
+  line moves to 20 of 100 in this
+  closure commit only, after the
+  reviews.
