@@ -6199,3 +6199,42 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-152. Round 22 stands closed. The
+  README count stands at 22 of 100 in
+  this closure commit only, the slice
+  carrying VL-147 to VL-151 in
+  CONTRACT.md alone and the closure
+  adding this item and the README line,
+  the two staged in separate
+  directories, CONTRACT append-only
+  throughout, and the tree diff from the
+  base to the head touching exactly
+  CONTRACT.md and README.md. The round's
+  whole hold census stands here: two
+  slot holds, both ran, hold 1 the chain
+  hold of VL-149 and hold 2 the head
+  gate hold, and no hold died. The
+  round's weather stands carried by
+  name: the write fault's fsync wave
+  stood shut from seating at about
+  07:36Z until 17:21:22Z on 2026-11-22,
+  about nine and three-quarter hours,
+  across four runtime restarts at about
+  07:52Z, 09:33Z, 11:34Z, and 17:19Z;
+  three openers probed the wave in the
+  sitting's background, the first
+  spending its 400 attempts by 14:37Z,
+  the second killed by the 17:19Z
+  restart, and the third finding the
+  wave open at its launch and banking
+  the read-back, both extractions, and
+  the instrument copies in one pass,
+  every step exit 0; no figure in the
+  round rests on a dead opener, a dead
+  hold, or a refused probe. The
+  instrument disclosures stand as in
+  Rounds 19 to 21: the battery and the
+  walk were renamed only in round
+  furniture for this round, and the walk
+  driver's summary token reads WALK13,
+  furniture carried since Round 19.
