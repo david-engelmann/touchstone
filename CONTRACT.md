@@ -5749,3 +5749,85 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-146. This round closes here. Round
+  22 is charged with the read-back of
+  this round's pull request on its
+  closed record, the standing regression
+  and the gate in their standing forms,
+  a fresh twin surface Rounds 14 through
+  21 did not measure, and storefront
+  item 3 verified again. The round's
+  whole hold census: nine holds in all,
+  four acquired and ran, five dead, and
+  the count sums from the stated parts.
+  Hold 1, the base chain's first, queued
+  at 18:31:03Z on 2026-11-21 and died in
+  the runtime restart at about 20:24Z
+  without acquiring; hold 2 acquired at
+  20:37:22Z and ran the base verify, the
+  base build, the base gate, and the
+  census whole, its pin step struck by
+  the wave's return at 20:39Z; hold 3,
+  the recovery's, acquired at 22:26:35Z,
+  its pin attempt failing on a registry
+  read while its measurement legs, the
+  battery, the walk, and the named
+  margins, ran whole against the chain
+  binary; hold 4, the pin's run of
+  record at this lane's hand, acquired
+  and ran whole at exit 0; hold 5, the
+  head gate's first launch, queued at
+  22:41Z and was killed by the lane in
+  the queue when the wave's return broke
+  its checkout copy, the round's second
+  dead hold; hold 6, the head gate's
+  first relaunch on the rebuilt tree,
+  queued at 00:28Z on 2026-11-22 and
+  died in the runtime restart at about
+  02:26Z without acquiring, the round's
+  third dead hold; hold 7, the head
+  gate's second relaunch, acquired at
+  04:24Z on 2026-11-22 and died in the
+  runtime restart moments later, before
+  any gate output banked, the round's
+  fourth dead hold; hold 8, the head
+  gate's third relaunch, acquired at
+  05:53Z on 2026-11-22 and died in the
+  runtime restart moments later, before
+  any gate output banked, the round's
+  fifth dead hold; and hold 9, the head
+  gate's fourth relaunch, acquired and
+  ran whole. The recovery's first
+  attempt died probing in the same
+  restart that killed hold 1, before it
+  ever reached the slot, and counts as a
+  dead recovery attempt, not a hold. The
+  weather stands disclosed: the write
+  fault stood shut from the lane's
+  seating until about 18:26Z, opened for
+  the banking and the extractions,
+  returned at the base chain's pin step,
+  and stood shut again until the restart
+  at about 22:24Z, after which it stood
+  open for the recovery and the pin's
+  run of record, flickered shut once
+  more at 22:41Z long enough to break
+  the head gate's first checkout copy,
+  and stood open for the head gate's
+  fourth relaunch on the rebuilt tree.
+  Two instrument disclosures stand: the
+  walk driver's final summary token
+  reads WALK13, furniture carried
+  unchanged since Round 19 and named
+  here as in Rounds 19 and 20, its cells
+  and counts this round's own; and the
+  battery driver's summary token stands
+  updated to this round's number, its
+  docstring and bank renamed with the
+  round. The slice and the closure were
+  staged in separate directories, the
+  slice carrying VL-141 to VL-145 in
+  CONTRACT.md alone and the closure
+  adding this item and the README line
+  at 21 of 100, the README change
+  standing in the closure commit only.
