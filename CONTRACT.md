@@ -5831,3 +5831,371 @@ is the behavioral spec.
   adding this item and the README line
   at 21 of 100, the README change
   standing in the closure commit only.
+- VL-147. The read-back of Round 21's
+  landing pull request stands contracted
+  here on its closed record, read whole
+  through the API at this round's hand.
+  Pull request 34 stands closed and
+  merged: its body stands at 16,930
+  characters, the lane's body with its
+  hosted line, its step 0 section, and
+  the CodeRabbit release-notes appendix
+  and the owner completion record
+  appended after it, its head
+  e15293ceafd122219ed11f8b8a64d92194a17a0d
+  over the base
+  286c0ef56590372fd7310222025026451bc2b733,
+  and it landed through the merge queue
+  as squash commit
+  5f226b024be1480082d4bce2e29888923dbecc80,
+  single parent
+  286c0ef56590372fd7310222025026451bc2b733,
+  the landing tree
+  c6f95051fd775ef1d7db730022ea46965e320ff6
+  verified by the owner as the reviewed
+  closure head tree itself and re-read
+  at this round's hand (main stands at
+  5f226b02 on a fresh read, its tree at
+  c6f95051 over twenty-one blobs, not
+  truncated), and the README read on
+  main at 21 of 100. The census at this
+  read stands at four issue comments, no
+  reviews, and no review comments: the
+  trunk note 7075137465 in its landed
+  form (113 characters, merged
+  successfully), the CodeRabbit shell
+  7075139442 cited in drift-aware form
+  (11,118 characters at this hand, edit
+  stamp 2026-11-22T06:32:43Z; the Round
+  21 lane read 11,116 characters in its
+  finished form, the edit stamp
+  2026-11-22T06:09:04Z standing in its
+  step 0 section, the shell's
+  two-character re-render drift standing
+  between the reads and the re-render
+  carrying the later stamp, and the
+  owner's hand reading the same 11,118
+  characters with the same later stamp
+  in the completion record; created
+  2026-11-22T06:07:17Z, Run ID
+  b578cd00-304f-4e84-af4c-6c34e89b1735,
+  profile CHILL, Merge Risk Minimal,
+  coverage at the exact head e15293ce,
+  four pre-merge checks passed, no
+  actionable comments generated, no
+  review object, and no inline comments;
+  the shell read whole at this round's
+  hand), the merge comment 7075387211
+  (12 characters), and the landing
+  comment 7076013691 (3,212 characters,
+  2026-11-22T07:36:22Z) carrying this
+  round's charges; nothing stands after
+  the landing comment. The owner's
+  completion record stands read with it:
+  spec fidelity APPROVE with one Minor,
+  standards APPROVE with one Minor, and
+  red team APPROVE with one Minor and
+  one carried limitation, no Blocker, no
+  Major, and no defect in the round at
+  any grade on any axis. Its account
+  stands contracted here: the spec Minor
+  is a narrative timestamp slip the
+  owner corrected in the record itself,
+  the body's Disclosures and VL-146
+  placing the pin recovery's first dead
+  attempt in the same restart that
+  killed hold 1, where the lane's own
+  record shows the recovery launched at
+  20:45:26Z, after the 20:24Z restart
+  that killed hold 1, and died in the
+  restart at about 22:24Z, VL-146's own
+  weather paragraph placing the recovery
+  after that 22:24Z restart; the attempt
+  stands correctly counted as a dead
+  recovery attempt in both texts, the
+  census sums exactly at nine holds,
+  four ran, five dead, and two dead
+  recovery attempts outside the census,
+  and no figure rests on the sentence;
+  the corrected placement stands
+  contracted in this item in one line:
+  the pin recovery's first dead attempt
+  launched at 20:45:26Z, after the
+  20:24Z restart, and died in the
+  restart at about 22:24Z. The standards
+  Minor is a verification limit on the
+  step 0 appendix, the body's claim that
+  the CodeRabbit appendix stands
+  preserved byte for byte not
+  re-verifiable at the standards hand,
+  the shell's current form no longer
+  carrying the appendix after its
+  re-render and the lane's banked shell
+  copies standing at zero bytes under
+  the write fault, the claim resting on
+  the lane's read and corroborated by
+  the counts, the body's appendix at
+  exactly the lane record's 450
+  characters and the body at exactly the
+  PATCH-verified 11,978 characters,
+  nothing else in the round depending on
+  it; this round banks the shell's full
+  text at its own step 0 under the
+  temp-write-verify discipline, as
+  charged, so the preservation claim
+  stands re-verifiable at review hands.
+  The red team's Minor is a completeness
+  observation in VL-144's own terms, the
+  suggestion ladder stated whole (keep
+  at no regressed measures, rerun at
+  one, kill at two or more) while no
+  cell regressed two measures, so the
+  kill rung stood unexercised, and a
+  zero-baseline measure in the higher
+  direction stood likewise uncelled, N22
+  to N24 covering the zero baseline only
+  for the lower direction, the surface
+  delivering exactly its contracted
+  twenty-six cells; this round's VL-150
+  part (a) is the charged extension and
+  cells both shapes. VL-144's fresh
+  surface, the named margins, ran clean
+  on its first run, twenty-six of
+  twenty-six with no amendment, the
+  fourth consecutive first-run-clean
+  surface on this repo, and the
+  first-run claim was attacked against
+  the disk at the red team's hand and
+  held, exactly one driver composed
+  before the run, one bank and one run
+  log byte-identical at twenty-six PASS
+  lines, one work directory, the
+  append-mode bank undoubled; the VL-119
+  gate form discharged a fifth round
+  running, in the substance at both
+  trees, the full test result lines
+  banked with no tail window anywhere in
+  the chain and a working per-file
+  codepoint scan as the run of record,
+  the split of three library,
+  twenty-four judgment, and twenty
+  registry read from each tree's own
+  log. And the red team's carried
+  limitation stands stated as it stands,
+  a limitation, not a defect: its
+  run-side reproduction stands unrun at
+  its hand, the chain it built for the
+  reproduction, a fresh build from the
+  blob-verified base checkout under the
+  slot with drivers re-run from verified
+  copies, probe-gating on the write
+  fault and the gate never opening, 110
+  attempts, one every thirty seconds
+  from 2026-11-22T06:36Z to 07:31Z,
+  every one refused, the probe file at
+  zero bytes at the last attempt; those
+  legs rest on the lane's banks, which
+  the red team read whole and matched
+  cell for cell, and on everything it
+  verified firsthand at full strength,
+  all three trees listed live at
+  twenty-one of twenty-one against its
+  own manifest, both gate logs
+  re-derived, the hold census checked
+  line for line against the four status
+  files, the pin log re-summed at 241
+  across 19 suites with the golden
+  constant standing in source, the fake
+  judge md5 re-derived at its hand, the
+  chain binary hashed at its hand to the
+  claimed sha256, and the margins driver
+  read whole with its arms anchored to
+  the contracted constants on each arm's
+  own registry; and the standards axis's
+  one ungraded observation, the shell's
+  passed Title check remarking the
+  title's density while passing, stands
+  on the review record, the check passed
+  and the remark non-actionable. This
+  round's gate (VL-149) stands in the
+  same form at both trees, the
+  discharged VL-119 form carried forward
+  as the standing form.
+- VL-148. The standing regression stands
+  re-run whole in its contracted forms
+  against a chain binary built fresh
+  from the blob-verified base checkout,
+  sha256
+  a8aa9dbb2090e4e0d78441eedb612a749f0dde02b9303dbfc2b902afdf311d96.
+  The judgment battery stands at
+  twenty-five of twenty-five, with C17
+  to C22 at VL-100's dispositions: C17
+  the judge unavailable naming an
+  unpinned model, C18 the choice answer
+  malformed, C19 the evidence answer
+  malformed, C20 the risk answer
+  malformed, C21 the bounds holding at
+  scores 10 and 0, and C22 the risk
+  answer at 105 malformed, the fake
+  judge md5 standing at
+  a79ded49ae7285fd2d7b028c8b47dd7f,
+  re-derived at the instrument copy and
+  at the run. The walk stands at ten of
+  ten. The flighttape pin stands
+  re-verified live: commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  at fifty blobs, the pin suite at 241
+  tests across 19 suites with none
+  failed, summed from the suite's own
+  result lines at this round's chain
+  run, and the golden digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  standing in source. The oracle stands
+  re-verified: commit
+  d62e5dc9547295f9ea7980f8298d905767b22f14,
+  tree
+  74394802a20e03fd9f3e2c5cf781c4ef8936df21
+  at twenty-four blobs, its blobs
+  recomputed at the census with none
+  bad. The census at the chain run
+  stands ALL OK: the main head and tree,
+  the twenty-one blobs recomputed
+  locally, the base tree's diff against
+  Round 21's base touching exactly
+  CONTRACT.md and README.md, and item 3
+  standing in its three homes.
+- VL-149. The local gate stands
+  discharged in the VL-119 form at the
+  base tree and at the head tree, the
+  full cargo test result lines banked at
+  both trees with no tail window
+  anywhere. At the base tree the test
+  lines read 47 passed in the split of 3
+  library, 24 judgment, and 20 registry,
+  read from the base tree's own log,
+  with clippy exit 0, fmt exit 0, and
+  the per-file codepoint scan as the run
+  of record, its planted control holding
+  both dashes at 1 and 1, its totals at
+  0 and 0, and scan exit 0. At the head
+  tree the same form stands: 47 passed
+  in the same split of 3 library, 24
+  judgment, and 20 registry, read from
+  the head tree's own log, clippy exit
+  0, fmt exit 0, and the scan in the
+  same form, control 1 and 1, totals 0
+  and 0, scan exit 0. Every hold of the
+  round stands counted and named here:
+  hold 1, the chain hold, waited from
+  17:24:09Z, acquired the slot at
+  17:27:08Z, and ran to completion at
+  17:30:08Z on 2026-11-22, carrying the
+  base verification, the base build, the
+  base gate block, the census, and the
+  pin suite, every step exit 0; hold 2,
+  the head gate hold, ran against the
+  staged closure tree in the same form.
+  No figure in this item rests on a dead
+  hold; no hold of the round died.
+- VL-150. The fresh surface work stands
+  in two parts, each proposed in the
+  lane record before running and each
+  run clean on its first run with no
+  derivation amendment. Part (a) extends
+  VL-144's named margins over the two
+  shapes Round 21 left uncelled,
+  fourteen cells, fourteen of fourteen
+  in agreement between the port and the
+  oracle, none failed and none blocked.
+  The suggestion ladder's kill rung
+  stands exercised: exp-k-0001, opened
+  at margin 20 over baselines cost 100
+  and rescue 80, rested at cost 130 and
+  rescue 60, adverse moves of 30 percent
+  and 25 percent, both past the margin,
+  its close kill resting on lines 1 and
+  2 with both measures regressed and the
+  suggestion kill, the close agreeing;
+  and exp-m-0002, opened with no margin
+  so the default 10 stood, rested at
+  cost 120 and rescue 60, its close keep
+  contested against the same suggested
+  kill. The zero-baseline measure in the
+  higher direction stands celled twice:
+  exp-z-0003, opened at margin 90 over
+  baselines cost 100 and rescue 0,
+  rested at cost 100 and rescue 5, no
+  measure regressed and the suggestion
+  keep; and exp-w-0004, opened at margin
+  10 with the rescue entry carrying its
+  own margin of 1, rested at cost 105
+  and rescue 500, no measure regressed,
+  the zero baseline leaving the margin
+  unconsulted on the rescue measure
+  exactly as on exp-z-0003. One
+  correction to the round's seating text
+  stands recorded in the proposal before
+  running: the seating text supposed the
+  higher-direction zero-baseline case
+  regresses when its rested value is
+  adverse-positive, and both shipped
+  sources, read whole at the rule, show
+  the opposite, the port's zero branch
+  returning a regression only for the
+  lower direction at a positive value
+  and the oracle's higher branch
+  clearing its flag at a zero baseline,
+  so a zero-baseline measure in the
+  higher direction never regresses; the
+  cells were derived and run on the
+  shipped rule, and both arms agreed on
+  every cell. Part (b) takes a fresh
+  twin surface Rounds 14 through 21 did
+  not measure, the out-of-order clock,
+  seventeen cells, seventeen of
+  seventeen in agreement, none failed
+  and none blocked. Its derivation
+  stands read from both sources before
+  running: neither source carries a
+  temporal-order defect, the only
+  timestamp defect in either being the
+  malformed at, rests_on stands
+  positional, and the VL-9 arithmetic
+  never reads the at field, so a
+  registry whose clocks run backward
+  stands judged by position alone. The
+  cells bear it out: exp-t-0001, its
+  result dated a week before its open
+  and its close dated before both,
+  closed keep resting on lines 1 and 2
+  with no measure regressed and the
+  suggestion keep; exp-u-0002, its
+  result dated a year after its open and
+  its close dated between the two
+  clocks, closed rerun with cost
+  regressed on its numbers alone;
+  exp-v-0003 and exp-w-0004 interleaved,
+  each close resting on its own open and
+  result lines, exp-v's keep agreeing
+  and exp-w's kill contested against a
+  suggested keep; and exp-x-0005, its
+  open, result, and close at one
+  identical instant, closed keep with no
+  measure regressed.
+- VL-151. Storefront item 3 stands
+  PASSING, verified again and not
+  repaired: the description of 163
+  characters, "An experiment registry
+  for a fleet's setup. Every proposed
+  change becomes a tracked experiment
+  with a hypothesis, a run,
+  measurements, and a verdict, keep or
+  kill.", stands byte-identical in the
+  repository description, in the
+  Cargo.toml description field, and in
+  the README lede, the match re-verified
+  at this round's census against the
+  base tree's own files and the live
+  repository description.
