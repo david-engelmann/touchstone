@@ -6987,3 +6987,31 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-164. Closure. The README stands at
+  24 of 100 in the closure commit only;
+  the slice and closure stand staged in
+  separate directories; the CONTRACT
+  stands append-only by byte-prefix; and
+  the tree diff from base to head
+  touches exactly CONTRACT.md and
+  README.md. The round's weather stands
+  carried by name: the first lane ended
+  without a report and this completion
+  lane adopted its banked work; the
+  write wave stood shut in its
+  fsync-refusal form from before the
+  first lane's seating until 07:35:51Z,
+  killing the first lane's two waiters
+  between 07:29Z and 07:35Z; it shut
+  again across the base chain's first
+  hold and a runtime restart killed that
+  chain at about 09:24Z; the next chain
+  launch lost every cargo leg to a
+  missing cargo path in the post-restart
+  window; and the battery's first run
+  failed on a missed furniture rename,
+  amended and re-banked as VL-160
+  states. Every figure in VL-159 to
+  VL-163 rests on banks verified at this
+  lane's hand, and the holds and dead
+  launches stand counted in VL-161.
