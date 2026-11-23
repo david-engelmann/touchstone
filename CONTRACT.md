@@ -7353,3 +7353,23 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-170. Closure. README moves to 25 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  by byte-prefix; the tree diff base to
+  head touches exactly CONTRACT.md and
+  README.md. The round's weather, by
+  name: the write wave's flutter closed
+  the pin suite's first launch at exit
+  101, discharged by the re-run banked
+  under new names; a runtime restart
+  killed the pin re-run's first launch
+  while it queued on the build slot for
+  about twenty-three minutes, counted
+  dead and relaunched in the same
+  sitting; no other launch died. No
+  launch's failure is counted as
+  evidence anywhere in this round's
+  items.
