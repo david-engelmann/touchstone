@@ -8147,3 +8147,40 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-182. Closure. README moves to 27 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  by byte-prefix; the tree diff base to
+  head touches exactly CONTRACT.md and
+  README.md. The round's weather, by
+  name: the write wave stood shut at the
+  seating for exec writes of any real
+  size, routing the seating reads
+  through the file tool and the stdout;
+  the first extraction sequence ran
+  about twenty-five minutes against the
+  fluttering wave, the base extraction's
+  first three files failing their writes
+  in the opening shut stretch and the
+  first read-back launch failing at its
+  first bank, both discharged by a
+  relaunch that landed every file (the
+  base extraction at 21 of 21 blobs, the
+  oracle at 24 of 24, the read-back
+  complete); the base chain's launch 1
+  died queued on the build slot in a
+  runtime restart, counted dead and
+  relaunched in the same sitting, its
+  launch 2 running the chain whole; the
+  measurements and the head gate each
+  ran once and passed whole at their
+  first launches. The API pool drained
+  fleet-wide through the extraction
+  sequence (3,278 remaining at the
+  seating probe, 569 at the read-back
+  relaunch's probe); no rate-limit stop
+  hit this lane. No launch's failure is
+  counted as evidence anywhere in this
+  round's items.
