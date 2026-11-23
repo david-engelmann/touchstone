@@ -8024,7 +8024,7 @@ is the behavioral spec.
   passing in the 3 library, 24 judgment,
   20 registry split, clippy and fmt at
   exit 0. At the head,
-  gate_head_launch3.log: VERIFY exit 0
+  gate_head_launch4.log: VERIFY exit 0
   (21 files, bad none), cargo test 47 in
   the same 3 plus 24 plus 20 split,
   TEST, CLIPPY, FMT, and SCAN exits all
@@ -8049,7 +8049,7 @@ is the behavioral spec.
   launch's output under its own
   launch-numbered file
   (gate_base_launch2.log,
-  gate_head_launch3.log), no launch's
+  gate_head_launch4.log), no launch's
   log overwrites another's, and a launch
   that reaches its gate banks its output
   under its own name even when it counts
@@ -8064,9 +8064,11 @@ is the behavioral spec.
   round's build-slot holds stand counted
   in the lane record (the base chain's
   hold at its launch 2 and the head
-  gate's three holds). The base chain's
-  launch 1 died queued on the build slot
-  in a runtime restart (SIGTERM at about
+  gate's holds at launches 1, 2, and 4,
+  its launch 3 dead queued without
+  acquiring). The base chain's launch 1
+  died queued on the build slot in a
+  runtime restart (SIGTERM at about
   twenty-six minutes, never acquiring,
   no stage run, no bank, its status file
   never created), counted dead and
@@ -8087,10 +8089,14 @@ is the behavioral spec.
   closure tree 3ac9a059 and verified
   file by file, and passed whole,
   standing until this item's wording was
-  tightened at step 0; launch 3 ran
-  against the final head checkout,
-  rebuilt from the tree carrying that
-  tightening and verified file by file,
+  tightened at step 0; launch 3 queued
+  on the build slot behind the fleet's
+  holds and died in a runtime restart
+  without acquiring, no gate run and no
+  status line, counted dead; launch 4
+  ran against the final head checkout,
+  rebuilt from the tree carrying this
+  accounting and verified file by file,
   and passed whole, its log the standing
   one. No other gate launch died or
   failed.
@@ -8203,16 +8209,19 @@ is the behavioral spec.
   after acquiring the slot and probing
   the shut wave (no gate run, counted
   dead), its launch 2 passed whole
-  against the repaired closure, and its
-  launch 3 passed whole against the
-  final tree after a second repair
-  tightened VL-179's wording at step 0
-  (the retention claim qualified, the
-  head gate's covered tree named). The
-  API pool drained fleet-wide through
-  the extraction sequence (3,278
-  remaining at the seating probe, 569 at
-  the read-back relaunch's probe); no
+  against the repaired closure, its
+  launch 3 died queued on the build slot
+  in a runtime restart without acquiring
+  (no gate run, counted dead), and its
+  launch 4 passed whole against the
+  final tree after the repairs the
+  restarts and step 0 required (the
+  retention claim qualified, the head
+  gate's covered tree named). The API
+  pool drained fleet-wide through the
+  extraction sequence (3,278 remaining
+  at the seating probe, 569 at the
+  read-back relaunch's probe); no
   rate-limit stop hit this lane. No
   launch's failure is counted as
   evidence anywhere in this round's
