@@ -7781,3 +7781,45 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-176. Closure. README moves to 26 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  by byte-prefix; the tree diff base to
+  head touches exactly CONTRACT.md and
+  README.md. The round's weather, by
+  name: the write wave stood shut from
+  the seating through a runtime restart,
+  killing the opener's first launch
+  after about seventy-seven minutes of
+  probing; the wave's flutter closed the
+  pin suite's first launch at exit 101,
+  discharged by the amended re-run; a
+  runtime restart killed the pin
+  re-run's first launch while it queued
+  on the build slot for about one
+  hundred minutes, counted dead; the
+  first build lane died on a runtime
+  database error at 15:28Z with its
+  record banked whole, and a completion
+  lane adopted the round, found the
+  relaunched pin re-run alive, and never
+  duplicated it; the first lane's
+  session in fact kept working after its
+  recovery, running its own amended
+  measurement sequence and staging a
+  draft of its own, and the two lanes'
+  measurement launches collided once, as
+  VL-172 states; the first lane's draft
+  and staging stand preserved in the
+  lane scratch under renamed paths, not
+  used, for the two named reasons the
+  lane record states (its item 3 text
+  and its head gate account do not stand
+  against the tree and the banks). The
+  first measurement launch died in the
+  restart against the shut wave. No
+  launch's failure is counted as
+  evidence anywhere in this round's
+  items.
