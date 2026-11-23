@@ -8024,7 +8024,7 @@ is the behavioral spec.
   passing in the 3 library, 24 judgment,
   20 registry split, clippy and fmt at
   exit 0. At the head,
-  gate_head_launch1.log: VERIFY exit 0
+  gate_head_launch2.log: VERIFY exit 0
   (21 files, bad none), cargo test 47 in
   the same 3 plus 24 plus 20 split,
   TEST, CLIPPY, FMT, and SCAN exits all
@@ -8047,9 +8047,11 @@ is the behavioral spec.
   both trees. The retention form stands
   discharged: the gate scripts bank each
   launch's output under its own
-  launch-numbered file, no launch's log
-  overwrites another's, and a failed or
-  dead launch's output stands banked
+  launch-numbered file
+  (gate_base_launch2.log,
+  gate_head_launch2.log), no launch's
+  log overwrites another's, and a failed
+  or dead launch's output stands banked
   under its own name even when it counts
   nowhere. Holds and launches: the
   round's build-slot holds stand counted
@@ -8065,12 +8067,19 @@ is the behavioral spec.
   2 acquired at 19:31:48Z and ran the
   chain whole (verify, build, base gate,
   census, and the pin suite, every stage
-  at exit 0). The head gate ran once,
-  against the head checkout rebuilt from
-  the pushed closure tree and verified
-  file by file, and passed whole at its
-  first launch. No other gate launch
-  died or failed.
+  at exit 0). The head gate's launch 1
+  queued on the build slot behind the
+  fleet's holds, acquired at 21:10:03Z,
+  probed the shut write wave without
+  opening, and died in a runtime restart
+  at about 21:59Z with no gate run and
+  no log banked, its slot line standing
+  in gate_head27_status.txt, counted
+  dead; launch 2 ran against the head
+  checkout rebuilt from the pushed
+  closure tree and verified file by
+  file, and passed whole. No other gate
+  launch died or failed.
 - VL-180. Fresh surface work, proposed
   in the lane record before it ran. The
   text forms in the free-text fields
@@ -8174,13 +8183,17 @@ is the behavioral spec.
   runtime restart, counted dead and
   relaunched in the same sitting, its
   launch 2 running the chain whole; the
-  measurements and the head gate each
-  ran once and passed whole at their
-  first launches. The API pool drained
-  fleet-wide through the extraction
-  sequence (3,278 remaining at the
-  seating probe, 569 at the read-back
-  relaunch's probe); no rate-limit stop
-  hit this lane. No launch's failure is
-  counted as evidence anywhere in this
-  round's items.
+  measurements ran once and passed whole
+  at their first launch; the head gate's
+  launch 1 died in a runtime restart
+  after acquiring the slot and probing
+  the shut wave (no gate run, counted
+  dead), and its launch 2 passed whole.
+  The API pool drained fleet-wide
+  through the extraction sequence (3,278
+  remaining at the seating probe, 569 at
+  the read-back relaunch's probe); no
+  rate-limit stop hit this lane. No
+  launch's failure is counted as
+  evidence anywhere in this round's
+  items.
