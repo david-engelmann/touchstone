@@ -6606,3 +6606,81 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-158. Round 23 stands closed. The
+  README count stands at 23 of 100 in
+  this closure commit only, the slice
+  carrying VL-153 to VL-157 in
+  CONTRACT.md alone and the closure
+  adding this item and the README line,
+  the two staged in separate
+  directories, CONTRACT append-only
+  throughout, and the tree diff from the
+  base to the head touching exactly
+  CONTRACT.md and README.md. The round's
+  whole hold census stands here: four
+  slot holds, hold 1 the chain hold of
+  VL-155 ran, hold 2 the head gate's
+  first launch acquired the slot and
+  died in a runtime restart during its
+  probe loop before the gate block ran,
+  hold 3 the head gate's second launch
+  acquired the slot and died on its
+  probe gate after 240 refused attempts
+  on the re-shut fault, and hold 4 the
+  head gate's third launch ran; no
+  figure in the round rests on a dead
+  hold. The round's weather stands
+  carried by name: the write fault's
+  fsync wave stood shut from seating at
+  about 20:13Z until 21:02:19Z on
+  2026-11-22, about forty-nine minutes
+  across one runtime restart at about
+  21:01Z, opened for the read-back, both
+  extractions, the instrument copies,
+  and the chain, then re-shut between
+  the chain's completion at 21:20:48Z
+  and the lane's refused probe at about
+  21:39Z and stood shut until 23:11:10Z,
+  about an hour and a half from that
+  probe, across one further runtime
+  restart; two openers probed the first
+  shut in the sitting's background, the
+  first killed by the 21:01Z restart,
+  the second finding the wave open at
+  its launch and banking the read-back,
+  both extractions, and the instrument
+  copies in one pass, every step exit 0;
+  the four measurements' first launches
+  died at exit 120 on the re-shut fault,
+  their run logs at zero bytes, before
+  any cell ran; and two measurement
+  waiters probed the second shut, the
+  first killed by the further restart,
+  the second finding the wave open at
+  its launch and running all four
+  measurements clean in one pass, every
+  exit 0; and a third runtime restart at
+  about 01:11Z on 2026-11-23 killed the
+  head gate's first launch after it
+  acquired the slot, as VL-155 records;
+  and the fault re-shut a third time
+  before the head gate's second launch
+  probed, the lane's own probe refusing
+  at 02:14:44Z, and stood shut through
+  that launch's 240 refused probe
+  attempts, the head gate's third launch
+  waiting on the wave in the sitting and
+  running when it opened. No figure in
+  the round rests on a dead opener, a
+  dead waiter, a dead launch, a dead
+  hold, or a refused probe. The
+  instrument disclosures stand as in
+  Rounds 19 to 22: the battery and the
+  walk were renamed only in round
+  furniture for this round, and the walk
+  driver's summary token reads WALK13,
+  furniture carried since Round 19; the
+  extra-cases driver of part (a) is the
+  Round 22 red team's own, copied byte
+  for byte, and the refusals driver of
+  part (b) is new this round.
