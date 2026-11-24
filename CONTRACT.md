@@ -9639,7 +9639,7 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head, gate_head_launch4.log:
+  0. At the head, gate_head_launch5.log:
   VERIFY exit 0 (21 files, bad none),
   cargo test 47 in the same 3 plus 24
   plus 20 split, TEST, CLIPPY, FMT, and
@@ -9670,15 +9670,15 @@ is the behavioral spec.
   disk stand named here whole:
   gate_base_launch2.log at the base,
   gate_head_launch3.log and
-  gate_head_launch4.log at the head, and
-  no other gate bank. Three launches
-  died before their gates and banked no
-  gate log, each standing on its named
-  status evidence in the lane's scratch:
-  the base chain's launch 1, killed
-  queued on the build slot in a runtime
-  restart before it acquired the slot,
-  its status file never created, on the
+  gate_head_launch5.log at the head, and
+  no other gate bank. Four launches died
+  before their gates and banked no gate
+  log, each standing on its named status
+  evidence in the lane's scratch: the
+  base chain's launch 1, killed queued
+  on the build slot in a runtime restart
+  before it acquired the slot, its
+  status file never created, on the
   evidence note
   chain31_launch1_evidence.txt, which
   records the kill and the absence it
@@ -9689,22 +9689,29 @@ is the behavioral spec.
   status bank standing at zero bytes, on
   the evidence note
   gate_head_launch1_evidence.txt, which
-  quotes its failing steps verbatim; and
-  the head gate's launch 2, killed in a
+  quotes its failing steps verbatim; the
+  head gate's launch 2, killed in a
   runtime restart while it queued on the
   slot or rode its probe inside the same
   wave, its log never created and the
   status bank carrying no line for it,
   on the evidence note
-  gate_head_launch2_evidence.txt. The
+  gate_head_launch2_evidence.txt; and
+  the head gate's launch 4, which
+  acquired the slot at 12:57:59Z on the
+  status bank and was killed in a
+  runtime restart before its gate, no
+  probe-open line and no log, on the
+  evidence note
+  gate_head_launch4_evidence.txt. The
   head gate's launch 3 ran against the
   head checkout rebuilt from the pushed
   closure tree and verified file by
   file, and passed whole, and stands
-  superseded by this round's repair on
+  superseded by this round's repairs on
   the gate's accounting alone; its
-  launch 4 gates the repair tree and is
-  the standing gate.
+  launch 5 gates the second repair tree
+  and is the standing gate.
 - VL-204. Fresh surface work, proposed
   in the lane record before it ran. The
   verdict forms at the close, a twin
@@ -9864,16 +9871,20 @@ is the behavioral spec.
   inside the same wave; its launch 3
   passing whole against the pushed
   closure tree and superseded on the
-  gate's accounting alone by the repair
-  that names its launch 4 the standing
-  gate; the measurements and the fresh
-  surface clean at their first launches
-  with no amendment; the GitHub API pool
-  standing at 2,106 calls when the lane
-  was seated, at 2,064 after the
-  read-back batch, and at 4,365 at the
-  staging probe after a reset, no
-  rate-limit stop met; the write fault
-  quiet through the round's banks, every
-  load-bearing write verified by size or
-  read-back. Nothing else stands open.
+  gate's accounting alone by the
+  repairs; its launch 4 acquiring the
+  slot at 12:57:59Z and killed before
+  its gate in a third runtime restart;
+  its launch 5 the standing gate on the
+  second repair tree; the measurements
+  and the fresh surface clean at their
+  first launches with no amendment; the
+  GitHub API pool standing at 2,106
+  calls when the lane was seated, at
+  2,064 after the read-back batch, and
+  at 4,365 at the staging probe after a
+  reset, no rate-limit stop met; the
+  write fault quiet through the round's
+  banks, every load-bearing write
+  verified by size or read-back. Nothing
+  else stands open.
