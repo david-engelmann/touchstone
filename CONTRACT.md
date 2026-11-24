@@ -10625,7 +10625,7 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head the gate stands at four
+  0. At the head the gate stands at six
   launches. Its first launch, against
   the checkout rebuilt from the pushed
   closure tree and verified file by file
@@ -10658,14 +10658,26 @@ is the behavioral spec.
   superseded on the accounting alone.
   Its fourth launch, against the
   checkout rebuilt from this round's
-  repair tree and verified file by file,
-  is the standing gate and passed whole
-  in the same figures. The codepoint
-  scan at both trees takes an explicit
-  per-file list expanded from the tree
-  listing and covers every text file in
-  the tree, 21 of 21 files at both
-  trees, the gate log printing the
+  first repair tree and verified file by
+  file, queued about forty minutes and
+  died before its gate in a runtime
+  service restart, no stage run and no
+  bank created, standing on
+  gate_head_launch4_evidence.txt. Its
+  fifth launch passed whole on the first
+  repair tree in the same figures,
+  standing at gate_head_launch5.log, and
+  stands superseded on the accounting
+  alone. Its sixth launch, against the
+  checkout rebuilt from this round's
+  second repair tree and verified file
+  by file, is the standing gate and
+  passed whole in the same figures. The
+  codepoint scan at both trees takes an
+  explicit per-file list expanded from
+  the tree listing and covers every text
+  file in the tree, 21 of 21 files at
+  both trees, the gate log printing the
   scanned count against the tree's file
   count; the six files Round 24's scan
   omitted (.github/workflows/ci.yml,
@@ -10689,10 +10701,11 @@ is the behavioral spec.
   round leaves on disk stand named here
   whole: gate_base_launch1.log at the
   base and gate_head_launch3.log and
-  gate_head_launch4.log at the head, and
-  no other gate bank; the first and
-  second head launches banked no gate
-  log and stand as accounted above.
+  gate_head_launch5.log and
+  gate_head_launch6.log at the head, and
+  no other gate bank; the first, second,
+  and fourth head launches banked no
+  gate log and stand as accounted above.
 - VL-216. Fresh surface work, proposed
   in the lane record before it ran. The
   fold-defect census at check and the
@@ -10866,7 +10879,7 @@ is the behavioral spec.
   written, and the measurements and the
   fresh surface stood clean at their
   first launches with no amendment; the
-  head gate stands at four launches, its
+  head gate stands at six launches, its
   first dying queued on the build slot
   when its launching session was torn
   down and standing on its evidence
@@ -10876,19 +10889,24 @@ is the behavioral spec.
   third queueing about fifty-five
   minutes and passing whole on the
   closure tree and standing superseded
-  on the accounting alone, and its
-  fourth the standing gate on the repair
-  tree, the repair confined to VL-215
-  and this item in CONTRACT.md alone; a
-  write-fault wave shut at about 18:45Z
-  across the repair's staging, exec
-  writes refused while the file tools'
-  writes landed, the repair staging
-  built under it as the lane record
-  states; the GitHub API pool stood at
-  2,456 calls remaining at the first
-  lane's seating probe, at 2,396 after
-  its read-back batch, and at 4,718 at
-  the completion lane's seating probe,
-  and no rate-limit stop hit either
-  lane.
+  on the accounting alone, its fourth
+  dying queued in a runtime service
+  restart and standing on its evidence
+  note, its fifth passing whole on the
+  first repair tree and standing
+  superseded on the accounting alone,
+  and its sixth the standing gate on the
+  second repair tree, the repairs
+  confined to VL-215 and this item in
+  CONTRACT.md alone; a write-fault wave
+  shut at about 18:45Z across the
+  repair's staging, exec writes refused
+  while the file tools' writes landed,
+  the repair staging built under it as
+  the lane record states; the GitHub API
+  pool stood at 2,456 calls remaining at
+  the first lane's seating probe, at
+  2,396 after its read-back batch, and
+  at 4,718 at the completion lane's
+  seating probe, and no rate-limit stop
+  hit either lane.
