@@ -10135,22 +10135,29 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head, gate_head_launch1.log:
+  0. At the head, gate_head_launch3.log:
   the same figures whole against the
-  head checkout rebuilt from the pushed
-  closure tree and verified file by file
-  (21 files, bad none), the gate passing
-  on the closure tree at the first
-  launch. The codepoint scan at both
-  trees takes an explicit per-file list
-  expanded from the tree listing and
-  covers every text file in the tree, 21
-  of 21 files at both trees, the gate
-  log printing the scanned count against
-  the tree's file count; the six files
-  Round 24's scan omitted
-  (.github/workflows/ci.yml, .gitignore,
-  Cargo.lock, LICENSE,
+  head checkout rebuilt from the repair
+  tree and verified file by file (21
+  files, bad none). The head gate's
+  launches stand three: its first launch
+  passed whole on the closure tree and
+  stands superseded on the staging
+  render's accounting alone, its second
+  died in a runtime restart before its
+  gate and stands on its evidence note
+  (gate_head_launch2_evidence.txt), and
+  its third, against the repair tree, is
+  the standing gate. The codepoint scan
+  at both trees takes an explicit
+  per-file list expanded from the tree
+  listing and covers every text file in
+  the tree, 21 of 21 files at both
+  trees, the gate log printing the
+  scanned count against the tree's file
+  count; the six files Round 24's scan
+  omitted (.github/workflows/ci.yml,
+  .gitignore, Cargo.lock, LICENSE,
   scripts/codepoint_scan.py,
   tests/fixtures/judgments_synthetic.json)
   stand in the list by name, and no file
@@ -10167,14 +10174,17 @@ is the behavioral spec.
   The gate banks this round leaves on
   disk stand named here whole:
   gate_base_launch1.log at the base and
-  gate_head_launch1.log at the head, and
-  no other gate bank. The chain's pin
-  stage failed at its first run on the
-  write fault and stands accounted in
-  VL-212, its figure resting on the
-  re-run bank named in VL-208; it banked
-  no gate log and is no part of this
-  item's census.
+  gate_head_launch1.log and
+  gate_head_launch3.log at the head, and
+  no other gate bank; the dead second
+  head launch banked no log and stands
+  on its evidence note, named above. The
+  chain's pin stage failed at its first
+  run on the write fault and stands
+  accounted in VL-212, its figure
+  resting on the re-run bank named in
+  VL-208; it banked no gate log and is
+  no part of this item's census.
 - VL-210. Fresh surface work, proposed
   in the lane record before it ran. The
   write commands against a defective
@@ -10350,11 +10360,29 @@ is the behavioral spec.
   gate queued on the build slot for
   about fourteen minutes behind other
   lanes' gates and passed whole at its
-  first launch on the closure tree; the
-  GitHub API pool standing at 1,339
-  calls when the lane was seated and at
-  1,336 after the read-back batch, and
-  at 2,583 at the staging probe and
-  2,576 at the branch creation, no
-  rate-limit stop met. Nothing else
-  stands open.
+  first launch on the closure tree, its
+  second launch dying in a runtime
+  restart before its gate, counted dead
+  on its evidence note
+  gate_head_launch2_evidence.txt, and
+  its third launch passing whole on the
+  repair tree as the standing gate, the
+  first launch's pass standing
+  superseded on the render accounting
+  alone; the GitHub API pool standing at
+  1,339 calls when the lane was seated
+  and at 1,336 after the read-back
+  batch, and at 2,583 at the staging
+  probe and 2,576 at the branch
+  creation, no rate-limit stop met. One
+  lane slip stands recorded in the
+  round's record: the staging script's
+  joinery glued the round's first item
+  to the prior round's last line and
+  added a trailing newline in the slice
+  and closure as first pushed, caught at
+  the first repair's staging before any
+  repair push, corrected in the script
+  and on the branch by repair 1, and no
+  figure rested on the defective render.
+  Nothing else stands open.
