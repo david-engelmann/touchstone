@@ -9155,7 +9155,7 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head, gate_head_launch2.log:
+  0. At the head, gate_head_launch3.log:
   VERIFY exit 0 (21 files, bad none),
   cargo test 47 in the same 3 plus 24
   plus 20 split, TEST, CLIPPY, FMT, and
@@ -9181,7 +9181,7 @@ is the behavioral spec.
   under its own launch-numbered file
   (gate_base_launch1.log and
   gate_base_launch2.log at the base,
-  gate_head_launch2.log at the head), no
+  gate_head_launch3.log at the head), no
   launch's log overwrites another's, and
   a launch that reaches its gate banks
   its output under its own name even
@@ -9225,10 +9225,17 @@ is the behavioral spec.
   record and relaunched in the same
   sitting; its launch 2 ran against the
   head checkout rebuilt from the pushed
-  closure tree and verified file by
-  file, and passed whole, its log the
-  standing one. No other gate launch
-  died or failed.
+  repair tree and verified file by file
+  and passed whole on that tree, and
+  stands superseded by the second
+  repair, which amended this item's own
+  wording where it named the closure
+  tree for the tree launch 2 gated; its
+  launch 3 ran against the head checkout
+  rebuilt from the pushed head tree and
+  verified file by file, and passed
+  whole, its log the standing one. No
+  other gate launch died or failed.
 - VL-198. Fresh surface work, proposed
   in the lane record before it ran. The
   signed baselines, a twin surface
@@ -9367,10 +9374,13 @@ is the behavioral spec.
   build slot in a runtime restart, its
   status file never created, counted
   dead and relaunched in the same
-  sitting, its launch 2 the standing
-  one; the measurements and the fresh
-  surface clean at their first launch;
-  the extractions landed whole on their
+  sitting, a second repair amending
+  VL-197's wording where it named the
+  closure tree for the tree the gate
+  gated, its launch 3 the standing one;
+  the measurements and the fresh surface
+  clean at their first launch; the
+  extractions landed whole on their
   first passes. The API pool stood at
   3,721 remaining at the seating probe,
   3,519 after the read-back batch, 2,751
