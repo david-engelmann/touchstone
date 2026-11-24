@@ -10300,3 +10300,49 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-212. Closure. README moves to 32 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: the base chain's
+  launch 1 queued on the build slot for
+  about twenty minutes behind other
+  lanes' gates, acquired at 14:27:42Z,
+  and ran the chain whole except its pin
+  stage, which failed at exit 101 on the
+  write fault as rustc's write of a
+  dependency rmeta into the pin target
+  was refused, the registry index
+  configuration standing intact at 76
+  bytes; the pin stage's re-run, charged
+  under an amendment recorded in the
+  lane record before it ran, lost its
+  first launch to a runtime restart at
+  about 15:48Z after about seventy-nine
+  minutes with the write fault shut for
+  its whole life, no stage run and no
+  bank created, counted dead on its
+  evidence note
+  pin_rerun_launch1_evidence.txt, and
+  its second launch acquired the slot at
+  15:57:55Z with the wave open after the
+  restart and passed whole; a first
+  probe of the fresh surface's
+  derivation at about 14:31Z measured no
+  cell on the same wave and the probe of
+  record agreed 26 of 26 whole once the
+  wave opened; the measurements and the
+  fresh surface clean at their first
+  launches with no amendment; the GitHub
+  API pool standing at 1,339 calls when
+  the lane was seated and at 1,336 after
+  the read-back batch, no rate-limit
+  stop met. Nothing else stands open.
