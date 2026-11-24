@@ -9806,3 +9806,35 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-206. Closure. README moves to 31 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: the base chain's
+  launch 1 died queued on the build slot
+  in a runtime restart, its exec session
+  killed about seventy minutes into the
+  queue, its status file never created,
+  no stage run and no bank created,
+  counted dead on its evidence note and
+  relaunched in the same sitting, its
+  launch 2 acquiring the slot at once on
+  the cleared queue and running the
+  chain whole; the measurements and the
+  fresh surface clean at their first
+  launches with no amendment; the GitHub
+  API pool standing at 2,106 calls when
+  the lane was seated and at 2,064 after
+  the read-back batch, no rate-limit
+  stop met; the write fault quiet
+  through the round's banks, every
+  load-bearing write verified by size or
+  read-back. Nothing else stands open.
