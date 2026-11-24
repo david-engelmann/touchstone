@@ -10790,3 +10790,57 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-218. Closure. README moves to 33 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by two lanes. The first build
+  lane ended without a final answer
+  after the read-back, the fresh
+  surface's proposal and probe, the base
+  chain, and the measurements stood
+  banked whole in its scratch, and a
+  completion lane adopted the banked
+  work after verifying it at its own
+  hand (every bank re-read, the pin
+  re-summed, the measurement banks
+  compared byte for byte against their
+  stdout banks, the remote state read
+  live) and carried the round from the
+  items draft to the gate; the owner's
+  process check found no detached
+  process of the first lane alive, and
+  the completion lane's own check
+  agreed. The base chain launched
+  detached at about 16:50Z, queued on
+  the build slot behind other lanes,
+  acquired the slot at 17:15:29Z with
+  its probe open at attempt 0, and ran
+  whole at its first launch (verify,
+  build, gate, census, and pin exits all
+  0, the chain done at 17:17:47Z); the
+  pin passed at the chain's own stage
+  and needed no re-run; the fresh
+  surface's probe of record agreed 26 of
+  26 whole before its driver was
+  written, and the measurements and the
+  fresh surface stood clean at their
+  first launches with no amendment; the
+  head gate passed whole at its first
+  launch on the pushed closure tree as
+  the standing gate; the GitHub API pool
+  stood at 2,456 calls remaining at the
+  first lane's seating probe, at 2,396
+  after its read-back batch, and at
+  4,718 at the completion lane's seating
+  probe, and no rate-limit stop hit
+  either lane.
