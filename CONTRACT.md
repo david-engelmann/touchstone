@@ -8931,3 +8931,46 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-194. Closure. README moves to 29 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: the base chain's
+  launch 1 queued on the build slot for
+  about sixty-nine minutes behind the
+  fleet's holds, acquired, and died at
+  its first status write under the box's
+  write wave, counted dead and
+  relaunched in the same sitting, its
+  launch 2 queuing about six minutes and
+  running the chain whole; the write
+  wave that killed it was survived by
+  clearing the download caches and
+  probing inside the sitting, the probe
+  failing through 03:29Z and a runtime
+  restart interrupting it before writes
+  verified healthy again at 03:30Z; the
+  measurements' first launch stood at 27
+  of 28 on the judged surface's J10 cell
+  as first written, a driver slip
+  against the recorded proposal with the
+  two implementations agreeing
+  throughout, the cell conformed and the
+  measurements relaunched whole; the
+  extractions landed whole on their
+  first passes. The API pool stood tight
+  through the round's reads (610
+  remaining at the seating probe, 550
+  after the read-back batch) and drained
+  fleet-wide; no rate-limit stop hit
+  this lane. No launch's failure is
+  counted as evidence anywhere in this
+  round's items.
