@@ -8557,3 +8557,35 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-188. Closure. README moves to 28 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: the base chain's
+  launch 1 died queued on the build slot
+  in a runtime restart, counted dead and
+  relaunched in the same sitting, its
+  launch 2 queuing behind the fleet's
+  holds for about fifty-seven minutes
+  before running the chain whole; the
+  measurements ran once and passed whole
+  at their first launch; the extractions
+  landed whole on their first passes,
+  the write wave recording no failed
+  write against this round's seating.
+  The API pool drained fleet-wide
+  through the round's reads (2,094
+  remaining at the seating probe, 1,797
+  at the oracle extraction's probe); no
+  rate-limit stop hit this lane. No
+  launch's failure is counted as
+  evidence anywhere in this round's
+  items.
