@@ -10626,7 +10626,7 @@ is the behavioral spec.
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
   0. At the head the gate stands at
-  seven launches. Its first launch,
+  eight launches. Its first launch,
   against the checkout rebuilt from the
   pushed closure tree and verified file
   by file (21 files, bad none), queued
@@ -10679,18 +10679,26 @@ is the behavioral spec.
   gate_head_launch6_evidence.txt. Its
   seventh launch, against the checkout
   rebuilt from this round's third repair
-  tree and verified file by file, is the
-  standing gate and passed whole in the
-  same figures. The codepoint scan at
-  both trees takes an explicit per-file
-  list expanded from the tree listing
-  and covers every text file in the
-  tree, 21 of 21 files at both trees,
-  the gate log printing the scanned
-  count against the tree's file count;
-  the six files Round 24's scan omitted
-  (.github/workflows/ci.yml, .gitignore,
-  Cargo.lock, LICENSE,
+  tree and verified file by file, queued
+  about an hour and thirty-five minutes
+  and died before its gate in a third
+  runtime service restart, no stage run
+  and no bank created, standing on
+  gate_head_launch7_evidence.txt. Its
+  eighth launch, against the checkout
+  rebuilt from this round's fourth
+  repair tree and verified file by file,
+  is the standing gate and passed whole
+  in the same figures. The codepoint
+  scan at both trees takes an explicit
+  per-file list expanded from the tree
+  listing and covers every text file in
+  the tree, 21 of 21 files at both
+  trees, the gate log printing the
+  scanned count against the tree's file
+  count; the six files Round 24's scan
+  omitted (.github/workflows/ci.yml,
+  .gitignore, Cargo.lock, LICENSE,
   scripts/codepoint_scan.py,
   tests/fixtures/judgments_synthetic.json)
   stand in the list by name, and no file
@@ -10711,11 +10719,11 @@ is the behavioral spec.
   whole: gate_base_launch1.log at the
   base and gate_head_launch3.log and
   gate_head_launch5.log and
-  gate_head_launch7.log at the head, and
+  gate_head_launch8.log at the head, and
   no other gate bank; the first, second,
-  fourth, and sixth head launches banked
-  no gate log and stand as accounted
-  above.
+  fourth, sixth, and seventh head
+  launches banked no gate log and stand
+  as accounted above.
 - VL-216. Fresh surface work, proposed
   in the lane record before it ran. The
   fold-defect census at check and the
@@ -10889,7 +10897,7 @@ is the behavioral spec.
   written, and the measurements and the
   fresh surface stood clean at their
   first launches with no amendment; the
-  head gate stands at seven launches,
+  head gate stands at eight launches,
   its first dying queued on the build
   slot when its launching session was
   torn down and standing on its evidence
@@ -10907,8 +10915,11 @@ is the behavioral spec.
   superseded on the accounting alone,
   its sixth dying queued in a second
   runtime service restart and standing
-  on its evidence note, and its seventh
-  the standing gate on the third repair
+  on its evidence note, its seventh
+  dying queued in a third runtime
+  service restart and standing on its
+  evidence note, and its eighth the
+  standing gate on the fourth repair
   tree, the repairs confined to VL-215
   and this item in CONTRACT.md alone; a
   write-fault wave shut at about 18:45Z
