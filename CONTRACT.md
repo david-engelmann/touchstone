@@ -9887,7 +9887,8 @@ is the behavioral spec.
   write fault quiet through the round's
   banks, every load-bearing write
   verified by size or read-back. Nothing
-  else stands open.- VL-207. The read-back of Round 31's
+  else stands open.
+- VL-207. The read-back of Round 31's
   landing pull request stands contracted
   here on its closed record, read whole
   through the API at this round's hand.
@@ -10134,19 +10135,22 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head, the gate stands to run
-  against the head checkout rebuilt from
-  the pushed closure tree and verified
-  file by file, in the same form. The
-  codepoint scan at both trees takes an
-  explicit per-file list expanded from
-  the tree listing and covers every text
-  file in the tree, 21 of 21 files at
-  both trees, the gate log printing the
-  scanned count against the tree's file
-  count; the six files Round 24's scan
-  omitted (.github/workflows/ci.yml,
-  .gitignore, Cargo.lock, LICENSE,
+  0. At the head, gate_head_launch1.log:
+  the same figures whole against the
+  head checkout rebuilt from the pushed
+  closure tree and verified file by file
+  (21 files, bad none), the gate passing
+  on the closure tree at the first
+  launch. The codepoint scan at both
+  trees takes an explicit per-file list
+  expanded from the tree listing and
+  covers every text file in the tree, 21
+  of 21 files at both trees, the gate
+  log printing the scanned count against
+  the tree's file count; the six files
+  Round 24's scan omitted
+  (.github/workflows/ci.yml, .gitignore,
+  Cargo.lock, LICENSE,
   scripts/codepoint_scan.py,
   tests/fixtures/judgments_synthetic.json)
   stand in the list by name, and no file
@@ -10162,14 +10166,15 @@ is the behavioral spec.
   its gate output whole under that name.
   The gate banks this round leaves on
   disk stand named here whole:
-  gate_base_launch1.log at the base, and
-  no other gate bank at the base. The
-  chain's pin stage failed at its first
-  run on the write fault and stands
-  accounted in VL-212, its figure
-  resting on the re-run bank named in
-  VL-208; it banked no gate log and is
-  no part of this item's census.
+  gate_base_launch1.log at the base and
+  gate_head_launch1.log at the head, and
+  no other gate bank. The chain's pin
+  stage failed at its first run on the
+  write fault and stands accounted in
+  VL-212, its figure resting on the
+  re-run bank named in VL-208; it banked
+  no gate log and is no part of this
+  item's census.
 - VL-210. Fresh surface work, proposed
   in the lane record before it ran. The
   write commands against a defective
@@ -10341,8 +10346,15 @@ is the behavioral spec.
   record agreed 26 of 26 whole once the
   wave opened; the measurements and the
   fresh surface clean at their first
-  launches with no amendment; the GitHub
-  API pool standing at 1,339 calls when
-  the lane was seated and at 1,336 after
-  the read-back batch, no rate-limit
-  stop met. Nothing else stands open.
+  launches with no amendment; the head
+  gate queued on the build slot for
+  about fourteen minutes behind other
+  lanes' gates and passed whole at its
+  first launch on the closure tree; the
+  GitHub API pool standing at 1,339
+  calls when the lane was seated and at
+  1,336 after the read-back batch, and
+  at 2,583 at the staging probe and
+  2,576 at the branch creation, no
+  rate-limit stop met. Nothing else
+  stands open.
