@@ -10625,14 +10625,14 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head the gate stands at six
-  launches. Its first launch, against
-  the checkout rebuilt from the pushed
-  closure tree and verified file by file
-  (21 files, bad none), queued on the
-  build slot behind other lanes' gates
-  and died before its gate when the
-  runtime tore down the exec session
+  0. At the head the gate stands at
+  seven launches. Its first launch,
+  against the checkout rebuilt from the
+  pushed closure tree and verified file
+  by file (21 files, bad none), queued
+  on the build slot behind other lanes'
+  gates and died before its gate when
+  the runtime tore down the exec session
   that had launched it, between 17:35Z
   and 17:38Z on 2026-11-24; no stage ran
   and no bank was created, and the
@@ -10671,17 +10671,26 @@ is the behavioral spec.
   alone. Its sixth launch, against the
   checkout rebuilt from this round's
   second repair tree and verified file
-  by file, is the standing gate and
-  passed whole in the same figures. The
-  codepoint scan at both trees takes an
-  explicit per-file list expanded from
-  the tree listing and covers every text
-  file in the tree, 21 of 21 files at
-  both trees, the gate log printing the
-  scanned count against the tree's file
-  count; the six files Round 24's scan
-  omitted (.github/workflows/ci.yml,
-  .gitignore, Cargo.lock, LICENSE,
+  by file, queued about an hour and
+  fifty-five minutes and died before its
+  gate in a second runtime service
+  restart, no stage run and no bank
+  created, standing on
+  gate_head_launch6_evidence.txt. Its
+  seventh launch, against the checkout
+  rebuilt from this round's third repair
+  tree and verified file by file, is the
+  standing gate and passed whole in the
+  same figures. The codepoint scan at
+  both trees takes an explicit per-file
+  list expanded from the tree listing
+  and covers every text file in the
+  tree, 21 of 21 files at both trees,
+  the gate log printing the scanned
+  count against the tree's file count;
+  the six files Round 24's scan omitted
+  (.github/workflows/ci.yml, .gitignore,
+  Cargo.lock, LICENSE,
   scripts/codepoint_scan.py,
   tests/fixtures/judgments_synthetic.json)
   stand in the list by name, and no file
@@ -10702,10 +10711,11 @@ is the behavioral spec.
   whole: gate_base_launch1.log at the
   base and gate_head_launch3.log and
   gate_head_launch5.log and
-  gate_head_launch6.log at the head, and
+  gate_head_launch7.log at the head, and
   no other gate bank; the first, second,
-  and fourth head launches banked no
-  gate log and stand as accounted above.
+  fourth, and sixth head launches banked
+  no gate log and stand as accounted
+  above.
 - VL-216. Fresh surface work, proposed
   in the lane record before it ran. The
   fold-defect census at check and the
@@ -10879,10 +10889,10 @@ is the behavioral spec.
   written, and the measurements and the
   fresh surface stood clean at their
   first launches with no amendment; the
-  head gate stands at six launches, its
-  first dying queued on the build slot
-  when its launching session was torn
-  down and standing on its evidence
+  head gate stands at seven launches,
+  its first dying queued on the build
+  slot when its launching session was
+  torn down and standing on its evidence
   note, its second withdrawn by the
   completion lane while it queued on a
   false completion report's premise, its
@@ -10895,18 +10905,21 @@ is the behavioral spec.
   note, its fifth passing whole on the
   first repair tree and standing
   superseded on the accounting alone,
-  and its sixth the standing gate on the
-  second repair tree, the repairs
-  confined to VL-215 and this item in
-  CONTRACT.md alone; a write-fault wave
-  shut at about 18:45Z across the
-  repair's staging, exec writes refused
-  while the file tools' writes landed,
-  the repair staging built under it as
-  the lane record states; the GitHub API
-  pool stood at 2,456 calls remaining at
-  the first lane's seating probe, at
-  2,396 after its read-back batch, and
-  at 4,718 at the completion lane's
-  seating probe, and no rate-limit stop
-  hit either lane.
+  its sixth dying queued in a second
+  runtime service restart and standing
+  on its evidence note, and its seventh
+  the standing gate on the third repair
+  tree, the repairs confined to VL-215
+  and this item in CONTRACT.md alone; a
+  write-fault wave shut at about 18:45Z
+  across the repair's staging, exec
+  writes refused while the file tools'
+  writes landed, the repair staging
+  built under it as the lane record
+  states; the GitHub API pool stood at
+  2,456 calls remaining at the first
+  lane's seating probe, at 2,396 after
+  its read-back batch, and at 4,718 at
+  the completion lane's seating probe,
+  and no rate-limit stop hit either
+  lane.
