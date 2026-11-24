@@ -9327,3 +9327,45 @@ is the behavioral spec.
   at this round's census against the
   base tree's own files and the live
   repository description.
+- VL-200. Closure. README moves to 30 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: the base chain's
+  launch 1 failed at its verify stage on
+  this lane's instrument defect, the
+  base tree SHA corrupted in
+  verify_base30.py's tree URL by the
+  lane's own adaptation and refused by
+  the API at 422, its remaining stages
+  running whole and banked under their
+  own names, its census bank standing at
+  census29_l1.log under the chain
+  script's unadapted log name as written
+  at that launch, the launch counted and
+  superseded by launch 2 after the
+  script's repair; the build slot's
+  queues, the base chain's launch 1
+  waiting about ten minutes and its
+  launch 2 about thirty-seven minutes
+  behind the fleet's holds; the
+  measurements and the fresh surface
+  clean at their first launch; the
+  extractions landed whole on their
+  first passes. The API pool stood at
+  3,721 remaining at the seating probe,
+  3,519 after the read-back batch, 2,751
+  at the first chain launch's verify
+  probe, and reset by the second
+  launch's probe at 4,188; no rate-limit
+  stop hit this lane. No launch's
+  failure is counted as evidence
+  anywhere in this round's items.
