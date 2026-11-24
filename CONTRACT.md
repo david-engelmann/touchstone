@@ -10625,15 +10625,43 @@ is the behavioral spec.
   none), cargo test 47 tests passing in
   the 3 library, 24 judgment, 20
   registry split, clippy and fmt at exit
-  0. At the head, gate_head_launch1.log:
-  the same figures whole against the
-  head checkout rebuilt from the pushed
+  0. At the head the gate stands at four
+  launches. Its first launch, against
+  the checkout rebuilt from the pushed
   closure tree and verified file by file
-  (21 files, bad none). The head gate's
-  launches stand one: its first launch,
-  against the pushed closure tree, is
-  the standing gate. The codepoint scan
-  at both trees takes an explicit
+  (21 files, bad none), queued on the
+  build slot behind other lanes' gates
+  and died before its gate when the
+  runtime tore down the exec session
+  that had launched it, between 17:35Z
+  and 17:38Z on 2026-11-24; no stage ran
+  and no bank was created, and the
+  launch stands on
+  gate_head_launch1_evidence.txt, which
+  also corrects an earlier form of that
+  note written on a false completion
+  report from the launching session, no
+  figure resting on that report. Its
+  second launch was launched detached on
+  that false report's premise and was
+  withdrawn by the completion lane that
+  had launched it, at 17:35Z while it
+  still queued, before it acquired the
+  slot or banked anything; its driver
+  log stands at zero bytes. Its third
+  launch queued about fifty-five
+  minutes, acquired the slot at
+  18:33:56Z, and passed whole on the
+  pushed closure tree in the same
+  figures as the base gate, standing at
+  gate_head_launch3.log, and stands
+  superseded on the accounting alone.
+  Its fourth launch, against the
+  checkout rebuilt from this round's
+  repair tree and verified file by file,
+  is the standing gate and passed whole
+  in the same figures. The codepoint
+  scan at both trees takes an explicit
   per-file list expanded from the tree
   listing and covers every text file in
   the tree, 21 of 21 files at both
@@ -10660,8 +10688,11 @@ is the behavioral spec.
   status evidence. The gate banks this
   round leaves on disk stand named here
   whole: gate_base_launch1.log at the
-  base and gate_head_launch1.log at the
-  head, and no other gate bank.
+  base and gate_head_launch3.log and
+  gate_head_launch4.log at the head, and
+  no other gate bank; the first and
+  second head launches banked no gate
+  log and stand as accounted above.
 - VL-216. Fresh surface work, proposed
   in the lane record before it ran. The
   fold-defect census at check and the
@@ -10835,12 +10866,29 @@ is the behavioral spec.
   written, and the measurements and the
   fresh surface stood clean at their
   first launches with no amendment; the
-  head gate passed whole at its first
-  launch on the pushed closure tree as
-  the standing gate; the GitHub API pool
-  stood at 2,456 calls remaining at the
-  first lane's seating probe, at 2,396
-  after its read-back batch, and at
-  4,718 at the completion lane's seating
-  probe, and no rate-limit stop hit
-  either lane.
+  head gate stands at four launches, its
+  first dying queued on the build slot
+  when its launching session was torn
+  down and standing on its evidence
+  note, its second withdrawn by the
+  completion lane while it queued on a
+  false completion report's premise, its
+  third queueing about fifty-five
+  minutes and passing whole on the
+  closure tree and standing superseded
+  on the accounting alone, and its
+  fourth the standing gate on the repair
+  tree, the repair confined to VL-215
+  and this item in CONTRACT.md alone; a
+  write-fault wave shut at about 18:45Z
+  across the repair's staging, exec
+  writes refused while the file tools'
+  writes landed, the repair staging
+  built under it as the lane record
+  states; the GitHub API pool stood at
+  2,456 calls remaining at the first
+  lane's seating probe, at 2,396 after
+  its read-back batch, and at 4,718 at
+  the completion lane's seating probe,
+  and no rate-limit stop hit either
+  lane.
