@@ -10386,3 +10386,551 @@ is the behavioral spec.
   and on the branch by repair 1, and no
   figure rested on the defective render.
   Nothing else stands open.
+- VL-213. The read-back of Round 32's
+  landing pull request stands contracted
+  here on its closed record, read whole
+  through the API at this round's hand.
+  Pull request 56 stands closed and
+  merged: its body stands at 24,807
+  characters at this hand, the lane's
+  body of 22,074 characters with the
+  owner completion record appended after
+  it, its head
+  229a14aef960fc65f4a90318578240417072431d
+  over repair
+  de00e2988f2ae7a362f4183bb481f58d00db5104
+  over closure
+  a28378ecc4c6610aa9692cf3a80b65a0629821da
+  over slice
+  d9fc1f225512f777aa227fb27c99abfe0d12d5cb
+  over the base
+  a661e8ac641dbdec713587fdffdcc29ed3b6dd4a,
+  a four-commit chain, and it landed
+  through the merge queue as squash
+  commit
+  b4c5138c7bd45e9abf32729a85cf5761ba5f6770,
+  single parent a661e8ac, the landing
+  tree
+  f5e58026ce9a513b8caa3db705548f0f68c64094
+  verified by the owner as the reviewed
+  head tree itself and re-read at this
+  round's hand (main stands at b4c5138c
+  on a fresh read, its tree at f5e58026
+  over twenty-one blobs, not truncated),
+  and the README read on main at 32 of
+  100. The census at this read stands at
+  four issue comments, no reviews, and
+  no review comments: the trunk note
+  7137885305 (113 characters, created
+  2026-11-24T16:34:44Z, last edited
+  2026-11-24T16:48:07Z, its text now the
+  merged form), the CodeRabbit shell
+  7137890656 cited in drift-aware form
+  (11,294 characters at this hand,
+  created 2026-11-24T16:34:57Z, last
+  edited 2026-11-24T16:40:39Z; the Round
+  32 lane read 11,292 characters at its
+  hand, last edited
+  2026-11-24T16:37:00Z, its full text
+  banked whole under temp-write-verify
+  at pr56_shell.md in its scratch, and
+  the owner read 11,294 characters at
+  the later edit, the shell standing in
+  its longer form at both later hands
+  with the substance unchanged; Run ID
+  3480f45e-f6aa-4c36-a672-cd32244e6d76
+  standing in the banked text, Merge
+  Risk Minimal at the exact head
+  229a14ae, four pre-merge checks passed
+  with the title check passed in its own
+  form, no review objects, no review
+  comments, and no actionable comments
+  generated in the review; nothing stood
+  to fix and nothing to dismiss), the
+  merge comment 7138039660 (12
+  characters, created
+  2026-11-24T16:40:46Z), and the landing
+  comment 7138264213 (3,928 characters,
+  created 2026-11-24T16:49:32Z) carrying
+  this round's charges, with nothing
+  standing after it. The verdicts stand
+  in the owner completion record
+  appended to the body: spec fidelity
+  APPROVE with no findings, standards
+  APPROVE with one Minor, red team
+  APPROVE with no findings at any grade
+  and no carried limitation, the sixth
+  consecutive clean red team verdict on
+  this repo. The standards Minor is a
+  body-completeness point: repair 2 is
+  named in the body only in the Verified
+  block's staging read-back line, and
+  what it changed (the final VL-209 and
+  VL-212 accounting naming launch 3 the
+  standing gate) stands in the lane
+  record and the items' final texts, but
+  the body never states the second
+  repair's confined scope where the
+  first repair's is stated plainly; no
+  figure rests on the omission and the
+  pushed items are exact. The correction
+  stands contracted in one line: repair
+  2's confined scope is the final VL-209
+  and VL-212 accounting naming launch 3
+  the standing gate, CONTRACT.md alone.
+  Each repair's diff against its parent
+  touches CONTRACT.md alone: repair 1
+  the CONTRACT render correction plus
+  the VL-209 and VL-212 accounting,
+  repair 2 the VL-209 and VL-212 final
+  accounting naming launch 3 the
+  standing gate. The render defect
+  stands in its exact form: the staging
+  script's joinery glued VL-207's bullet
+  to VL-206's last line and added a
+  trailing newline in the slice and
+  closure as first pushed, the defect
+  standing visible in both pushed blobs
+  exactly as disclosed (the slice
+  CONTRACT reading "else stands open.-
+  VL-207." with a trailing newline at
+  its tail, the closure blob carrying
+  the identical defect); repair 1
+  corrected the script, with line-start
+  and prefix asserts added, and the
+  branch, and at the head the base
+  CONTRACT (368,659 bytes) stands intact
+  as a prefix over its whole length,
+  breaking at byte 368,659, the end of
+  the base text, and resuming with a
+  newline and VL-207 on its own line, no
+  trailing newline, no prior-round byte
+  altered, and no figure resting on the
+  defective render. The standing head
+  gate gated the repair 1 tree (launch
+  3, gate_head_launch3.log; its status
+  marks reconciled at three hands as
+  slot acquisition 16:32:42Z, probe
+  confirmation 16:32:45Z, and script
+  completion 16:32:48Z over a warm
+  target, the log carrying all 47 full
+  test lines); its first launch passed
+  whole on the closure tree and stands
+  superseded on the render accounting
+  alone, and its second died in a
+  runtime restart before its gate and
+  stands on its evidence note
+  (gate_head_launch2_evidence.txt). The
+  pin weather stands whole: the base
+  chain ran whole except its pin stage,
+  which failed at exit 101 on the write
+  fault (rustc's write of a dependency
+  rmeta into the pin target refused,
+  Operation not permitted, os error 1;
+  the registry index configuration
+  standing intact at 76 bytes); the pin
+  re-run, charged under an amendment
+  recorded in the lane record before it
+  ran, lost its first launch to a
+  runtime restart after about
+  seventy-nine minutes with the write
+  fault shut for its whole life, no
+  stage run and no bank created, counted
+  dead on
+  pin_rerun_launch1_evidence.txt, and
+  its second launch acquired the slot at
+  15:57:55Z and passed whole
+  (pin_suite_re2.log: 241 passing across
+  19 suites, 0 failed). DEFECTWRITES32,
+  the write commands against a defective
+  registry, stands at 26 of 26 agree, 0
+  failed, 0 blocked, on its first launch
+  with no amendment, and the red team's
+  composed twenty-seventh case (a result
+  event for the unopened exp-w-zz
+  displacing exp-w-b's result, and a
+  close of exp-w-a against it) agreed on
+  both arms at its hand. Hosted checks
+  on the exact head stand all success:
+  gate twice, CodeRabbit, CodeQL,
+  Analyze (rust), Analyze (python),
+  Analyze (actions); the queue check
+  stood queued at the reviews' hands.
+  The opened body read back
+  byte-identical with no external
+  append, and after the one patch read
+  back byte-identical at 22,074
+  characters, every label single; the
+  body's step 0 record states the title
+  check passed in this round's own true
+  form.
+- VL-214. Standing regression, in the
+  VL-119 form. Every measurement ran
+  against the chain binary built fresh
+  in this round from the blob-verified
+  base checkout (sha256
+  0977e045cfa68d992870eed6de4f151c9c7725f13ea217b3575a8b3e585d7a78).
+  The battery stands at 25 of 25 cells
+  passing (battery33_results.txt; its
+  bank's summary line keeps the
+  instrument's standing BATTERY28 label,
+  the figures this round's own), with
+  C17 to C22 at VL-100's dispositions:
+  the unavailable cells closing with
+  their contracted reasons, the judge's
+  answer naming an unpinned model, its
+  choice answer malformed, its evidence
+  answer malformed, its risk answer
+  malformed at C20 and again at C22, and
+  the bounds cell scoring 10 and 0; the
+  fake judge stands byte-identical at
+  its contracted md5
+  a79ded49ae7285fd2d7b028c8b47dd7f,
+  re-derived at this lane's hand. The
+  walk stands at 10 of 10 cells passing
+  (walk33_results.txt; its bank's
+  summary line keeps the instrument's
+  standing WALK13 label). The pin stands
+  re-verified: flighttape commit
+  74a83298, tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  50 blobs confirmed against the live
+  tree at this round's census, its suite
+  at 241 tests passing across 19 suites,
+  0 failed, at the chain's own pin stage
+  (pin_suite_l1.log and
+  pin_summary_l1.txt), no re-run needed
+  this round; and the golden digest
+  cc9c4e01 standing in the pinned
+  source, read at this lane's hand in
+  tests/digest_cli.rs. The oracle stands
+  re-verified: commit d62e5dc, tree
+  74394802a20e03fd9f3e2c5cf781c4ef8936df21,
+  24 blobs, the census recomputing its
+  blobs clean against the saved
+  manifest, and the base checkout itself
+  blob-verified against the base tree
+  before the chain binary was built from
+  it (verify_base_l1.log, 21 blobs, bad
+  none). Each measurement bank stands
+  byte-identical to its launch's stdout
+  bank.
+- VL-215. The local gate at base and
+  head trees, in the VL-119 form, with
+  whole-tree scan coverage standing and
+  the retention form standing in its
+  qualified final form. At the base,
+  gate_base_launch1.log in the chain's
+  banks: verify exit 0 (21 blobs, bad
+  none), cargo test 47 tests passing in
+  the 3 library, 24 judgment, 20
+  registry split, clippy and fmt at exit
+  0. At the head the gate stands at
+  eight launches. Its first launch,
+  against the checkout rebuilt from the
+  pushed closure tree and verified file
+  by file (21 files, bad none), queued
+  on the build slot behind other lanes'
+  gates and died before its gate when
+  the runtime tore down the exec session
+  that had launched it, between 17:35Z
+  and 17:38Z on 2026-11-24; no stage ran
+  and no bank was created, and the
+  launch stands on
+  gate_head_launch1_evidence.txt, which
+  also corrects an earlier form of that
+  note written on a false completion
+  report from the launching session, no
+  figure resting on that report. Its
+  second launch was launched detached on
+  that false report's premise and was
+  withdrawn by the completion lane that
+  had launched it, at 17:35Z while it
+  still queued, before it acquired the
+  slot or banked anything; its driver
+  log stands at zero bytes. Its third
+  launch queued about fifty-five
+  minutes, acquired the slot at
+  18:33:56Z, and passed whole on the
+  pushed closure tree in the same
+  figures as the base gate, standing at
+  gate_head_launch3.log, and stands
+  superseded on the accounting alone.
+  Its fourth launch, against the
+  checkout rebuilt from this round's
+  first repair tree and verified file by
+  file, queued about forty minutes and
+  died before its gate in a runtime
+  service restart, no stage run and no
+  bank created, standing on
+  gate_head_launch4_evidence.txt. Its
+  fifth launch passed whole on the first
+  repair tree in the same figures,
+  standing at gate_head_launch5.log, and
+  stands superseded on the accounting
+  alone. Its sixth launch, against the
+  checkout rebuilt from this round's
+  second repair tree and verified file
+  by file, queued about an hour and
+  fifty-five minutes and died before its
+  gate in a second runtime service
+  restart, no stage run and no bank
+  created, standing on
+  gate_head_launch6_evidence.txt. Its
+  seventh launch, against the checkout
+  rebuilt from this round's third repair
+  tree and verified file by file, queued
+  about an hour and thirty-five minutes
+  and died before its gate in a third
+  runtime service restart, no stage run
+  and no bank created, standing on
+  gate_head_launch7_evidence.txt. Its
+  eighth launch, against the checkout
+  rebuilt from this round's fourth
+  repair tree and verified file by file,
+  is the standing gate and passed whole
+  in the same figures. The codepoint
+  scan at both trees takes an explicit
+  per-file list expanded from the tree
+  listing and covers every text file in
+  the tree, 21 of 21 files at both
+  trees, the gate log printing the
+  scanned count against the tree's file
+  count; the six files Round 24's scan
+  omitted (.github/workflows/ci.yml,
+  .gitignore, Cargo.lock, LICENSE,
+  scripts/codepoint_scan.py,
+  tests/fixtures/judgments_synthetic.json)
+  stand in the list by name, and no file
+  is excluded. The scan's planted
+  control convicted inside each gate log
+  (control 1 and 1), totals 0 and 0 at
+  both trees. The retention form stands
+  in its qualified final form: the gate
+  scripts bank each launch's output
+  under its own launch-numbered file, no
+  launch's log overwrites another's, and
+  a launch that reaches its gate banks
+  its gate output whole under that name;
+  a launch that dies before its gate
+  banks no log and stands on its named
+  status evidence. The gate banks this
+  round leaves on disk stand named here
+  whole: gate_base_launch1.log at the
+  base and gate_head_launch3.log and
+  gate_head_launch5.log and
+  gate_head_launch8.log at the head, and
+  no other gate bank; the first, second,
+  fourth, sixth, and seventh head
+  launches banked no gate log and stand
+  as accounted above.
+- VL-216. Fresh surface work, proposed
+  in the lane record before it ran. The
+  fold-defect census at check and the
+  views, a twin surface Rounds 14
+  through 32 did not measure, twenty-six
+  cells on twin fresh directories
+  (foldcensus33_results.txt), standing
+  at 26 of 26 agree, 0 failed, 0
+  blocked, on its first launch with no
+  amendment. Round 14 celled the
+  corrupted-registry reads and Round 32
+  the write commands against a defective
+  registry, with one fold family, the
+  duplicate opening, inside its
+  censuses, but the sequence violations
+  the fold itself names had never been
+  celled as a census: each family, its
+  exact line, and the order the census
+  prints them in. The derivation was
+  read from the shipped source before
+  running (in both arms load first
+  collects the line defects in line
+  order during the line pass, an event
+  carrying a line defect never reaching
+  the fold, then appends the fold
+  defects after them; the fold walks the
+  surviving events in position order and
+  names a duplicate opening of an
+  experiment already opened, a result or
+  closed event for an experiment with no
+  opening, a result after the close, a
+  second close whose rests checks still
+  run, a close resting on a baseline
+  that is not the opening, a close
+  resting on a position that is not a
+  result of the experiment, a close
+  resting on a result that is not the
+  current one, naming the last later
+  result's line, and a recorded
+  suggestion that does not match the
+  measures it rests on; check prints
+  every defect on stdout, one per line,
+  in census order, at exit 1, and on a
+  sound registry prints the registry is
+  sound at exit 0; list, show, and every
+  write first require soundness whole,
+  refusing at exit 1 with stdout empty
+  on the line error, the registry has
+  defects, carrying every defect joined,
+  and show refuses whole even for an
+  experiment the file names; a refused
+  write appends nothing and every
+  defective file stands byte-unchanged
+  after every cell). Two healthy
+  registries built by identical twin
+  steps on both arms (H: exp-f-a opens
+  judged on cost lower over a baseline
+  of 100 and rests at 130, exp-f-b opens
+  judged on rescue higher over a
+  baseline of 80 and rests at 60, four
+  lines, no close; HC: exp-f-c opens
+  judged on cost lower over a baseline
+  of 100, rests at 100, and closes keep,
+  its closed event resting on (1, 2)
+  with the suggestion keep, three
+  lines), and ten defective files
+  derived from the healthy bytes or
+  hand-authored identically on both
+  arms, their censuses standing as
+  contracted: F1 the duplicate opening
+  of exp-f-a at line 2; F2 the result
+  event for unopened experiment
+  exp-ghost at line 1; F3 the closed
+  event for unopened experiment
+  exp-ghost at line 1; F4 the result
+  after the close of exp-f-c at line 4;
+  F5 the second close of exp-f-c at line
+  4; F6 the close resting on a baseline
+  that is not the opening of exp-f-a at
+  line 3; F7 the close resting on a
+  result that is not a result of exp-f-a
+  at line 3; F8 the close resting on a
+  result that is not the current one at
+  line 4, a later result standing at
+  line 3; F9 the recorded suggestion not
+  matching the measures it rests on at
+  line 3; F10 the census in load order,
+  the line defect first (line 5, not
+  valid JSON) then the fold defect (line
+  4, result after the close of exp-f-c).
+  The twenty-six cells stand seven
+  accepted writes, sixteen refused reads
+  and writes (ten checks, four list
+  refusals, one show refusal, one open
+  refusal), and three controls (check on
+  H and check on HC printing the
+  registry is sound at exit 0, list on H
+  landing at exit 0 with its document
+  equal across the arms); each check
+  cell's stdout and each refusal's
+  stderr stands byte-equal to its
+  contracted census on both arms, the
+  defective files byte-unchanged on both
+  arms after every refused cell, H
+  standing at four lines and HC at three
+  on both arms at the end. Every
+  derivation stood probed at the first
+  lane's hand against this round's chain
+  binary and oracle extraction before
+  the driver was written, the probe of
+  record standing at PROBE33 26 of 26
+  agree, 0 failed, and the proposal
+  stands unamended.
+- VL-217. Storefront item 3 stands
+  PASSING, verified again and not
+  repaired: the description of 163
+  characters, "An experiment registry
+  for a fleet's setup. Every proposed
+  change becomes a tracked experiment
+  with a hypothesis, a run,
+  measurements, and a verdict, keep or
+  kill.", stands byte-identical in the
+  repository description, in the
+  Cargo.toml description field, and in
+  the README lede, the match re-verified
+  at this round's census against the
+  base tree's own files and the live
+  repository description.
+- VL-218. Closure. README moves to 33 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by two lanes. The first build
+  lane ended without a final answer
+  after the read-back, the fresh
+  surface's proposal and probe, the base
+  chain, and the measurements stood
+  banked whole in its scratch, and a
+  completion lane adopted the banked
+  work after verifying it at its own
+  hand (every bank re-read, the pin
+  re-summed, the measurement banks
+  compared byte for byte against their
+  stdout banks, the remote state read
+  live) and carried the round from the
+  items draft to the gate; the owner's
+  process check found no detached
+  process of the first lane alive, and
+  the completion lane's own check
+  agreed. The base chain launched
+  detached at about 16:50Z, queued on
+  the build slot behind other lanes,
+  acquired the slot at 17:15:29Z with
+  its probe open at attempt 0, and ran
+  whole at its first launch (verify,
+  build, gate, census, and pin exits all
+  0, the chain done at 17:17:47Z); the
+  pin passed at the chain's own stage
+  and needed no re-run; the fresh
+  surface's probe of record agreed 26 of
+  26 whole before its driver was
+  written, and the measurements and the
+  fresh surface stood clean at their
+  first launches with no amendment; the
+  head gate stands at eight launches,
+  its first dying queued on the build
+  slot when its launching session was
+  torn down and standing on its evidence
+  note, its second withdrawn by the
+  completion lane while it queued on a
+  false completion report's premise, its
+  third queueing about fifty-five
+  minutes and passing whole on the
+  closure tree and standing superseded
+  on the accounting alone, its fourth
+  dying queued in a runtime service
+  restart and standing on its evidence
+  note, its fifth passing whole on the
+  first repair tree and standing
+  superseded on the accounting alone,
+  its sixth dying queued in a second
+  runtime service restart and standing
+  on its evidence note, its seventh
+  dying queued in a third runtime
+  service restart and standing on its
+  evidence note, and its eighth the
+  standing gate on the fourth repair
+  tree, the repairs confined to VL-215
+  and this item in CONTRACT.md alone; a
+  write-fault wave shut at about 18:45Z
+  across the repair's staging, exec
+  writes refused while the file tools'
+  writes landed, the repair staging
+  built under it as the lane record
+  states; the GitHub API pool stood at
+  2,456 calls remaining at the first
+  lane's seating probe, at 2,396 after
+  its read-back batch, and at 4,718 at
+  the completion lane's seating probe,
+  and no rate-limit stop hit either
+  lane.
