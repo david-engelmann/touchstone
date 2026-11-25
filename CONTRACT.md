@@ -12097,3 +12097,33 @@ is the behavioral spec.
   base tree's own files and the live
   repository description
   (census35_l1.log, CENSUS35: ALL OK).
+- VL-230. Closure. README moves to 35 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by one lane, against Round
+  34's four. The write window stood open
+  at the lane's arrival and at every
+  stage through the gates (the chain's
+  probe open at attempt 0, the
+  measurement waiter's probe open at
+  attempt 0), the build slot stood free
+  at the chain's arrival, no launch of
+  the chain, the measurements, or either
+  gate died before its gate, and no
+  environmental stop delayed any stage
+  through the gates. The API pool stood
+  at 3,285 of 5,000 at the round's
+  seating probe, 2,681 at the chain's
+  verify probe, and 2,607 at the census
+  probe, and no rate-limit stop was hit
+  at any hand.
