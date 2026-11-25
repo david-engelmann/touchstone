@@ -11479,3 +11479,123 @@ is the behavioral spec.
   base tree's own files and the live
   repository description
   (census34_l2.log, CENSUS34 ALL OK).
+- VL-224. Closure. README moves to 34 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by four lanes. The first build
+  lane ended without a final answer
+  under a hard write-fault wave, after
+  the read-back, the fresh surface's
+  proposal and probe, and the instrument
+  set stood banked in its scratch; its
+  API banks stood at zero bytes from the
+  refused writes and its base and oracle
+  fetches died mid-run. A first
+  completion lane adopted the banked
+  work after verifying it at its own
+  hand (the PR 58 body and the live
+  shell re-banked through the file tools
+  and verified byte-equal against the
+  API, the commit chain and the comment
+  census re-read live, the driver
+  transcriptions diffed against their
+  Round 33 sources and the fold driver
+  and fake judge md5-matched, the case27
+  adaptation diffed against the
+  original, the base and oracle
+  extractions carried over from the
+  Round 33 scratch's blob-verified
+  trees, standing first as verified
+  links the fault forced and
+  dereferenced into real files on a
+  later opening, each file blob-verified
+  after its copy); its process check
+  found no detached process of the first
+  lane alive, and the first lane's own
+  status files show its fetches started
+  and never completed. That lane ran the
+  chain's second launch whole but for
+  the pin stage, banked the base gate
+  and the census, re-verified PROBE34,
+  and on its three divergences stopped
+  the round as a finding, as VL-222
+  states; a runtime fault then ended it
+  with the finding and its full record
+  banked. A second completion lane
+  executed the owner's adjudication of
+  the finding (the VL-96 cut taken up by
+  the amendment recorded in the lane
+  record before the surface ran, the
+  span verified at its hand to be
+  exactly the VL-20 prescribed shape),
+  re-probed at 20 of 20 under the cut,
+  and ran the whole measurement
+  programme, then went silent with every
+  bank standing and nothing staged. A
+  third completion lane verified every
+  bank at its own hand and carried the
+  round from the items to the gate. The
+  gate and measurement weather, by name:
+  the box write fault stood shut against
+  Python-process writes at the round's
+  seating and for long stretches after,
+  in its EPERM form, its standing caches
+  cleared to no effect, the file tools'
+  writes landing throughout; a runtime
+  teardown at about 05:01Z to 05:05Z
+  killed the chain's first launch in its
+  probe wait, the measurement waiter's
+  first launch in its wait, and the
+  verifying copy in its passes, no stage
+  run and no bank created by any of
+  them, the dead launches standing on
+  the lane record and the measurement
+  status line; the chain's second launch
+  ran on a four-minute opening at 05:12Z
+  and passed the base gate whole and the
+  census whole, its pin stage failing at
+  exit 101 as the wave flickered shut on
+  a rustc write; the pin re-run's first
+  launch queued behind a build-slot
+  holder that held from about 05:17Z
+  (another line's closure gate,
+  OOM-killed on its own pin segment and
+  retrying in a sleep loop with no build
+  running, attributed by the hub and
+  cleared by it after the owner
+  escalated) and died unbanked, its
+  second queued from 07:23Z and died in
+  the box reboot at about 12:50Z without
+  acquiring the slot, and its third
+  acquired the slot on the reboot's
+  opening and passed whole; the probe
+  re-run's waiter exhausted its first
+  launch's 600 attempts with the probe
+  never open twice and died unbanked,
+  its second launch died in the same
+  reboot in its probe wait, and the
+  re-run itself ran in the second
+  completion lane's sitting on the
+  reboot's opening at 20 of 20; the
+  measurement waiter's second launch ran
+  on the same opening and carried the
+  battery, the walk, the case27
+  extension, and the view-files surface
+  whole, every stage at exit 0. The API
+  pool stood at 840 of 5,000 at the
+  round's seating and reset across the
+  round (4,722 at the fetch batch's
+  probe, 2,537 at the census probe,
+  4,618 at the third completion lane's
+  arrival), and no rate-limit stop was
+  hit at any hand.
