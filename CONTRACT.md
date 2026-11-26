@@ -13146,3 +13146,54 @@ is the behavioral spec.
   and at this lane's hand against the
   live repository description read
   through the API.
+- VL-242. Closure. README moves to 37 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by one lane. The chain's first
+  launch took the build slot at its
+  arrival (slot acquired 02:27:37Z, the
+  probe open at attempt 0, the chain
+  done at 02:30:53Z), and no stage of
+  the chain or the gates waited on the
+  slot's contention this round. The
+  measurement stage met two instrument
+  faults of this lane's own making and
+  one environmental stop: the first
+  measure run invoked the walk without
+  its oracle argument and carried a
+  parse driver whose usage cut demanded
+  close's judge segment of an empty
+  stdout, both repaired in the
+  instruments and rerun; and a service
+  restart killed the combined rerun
+  after the walk had banked whole
+  (WALK13: 10 of 10) and before the
+  parse rerun could bank, the parse
+  surface then passing whole at its
+  second launch (PARSE37: 43 of 43); no
+  measurement figure rests on a faulted
+  or a killed run, every bank standing
+  from a clean launch. The write window
+  stood open at every probe from the
+  chain on, no launch of the chain died
+  before its gate, and the head gate
+  stood at one launch on a checkout
+  built before it, passed whole. The
+  push stage's own events and the hosted
+  checks stand accounted in the body's
+  Known deviations, written after them;
+  the API pool stood at 4,819 of 5,000
+  at this lane's arrival probe, 4,661
+  after the read-back and fetch probes,
+  and 4,120 at the item 3 probe, and no
+  rate-limit stop was hit at any hand.
