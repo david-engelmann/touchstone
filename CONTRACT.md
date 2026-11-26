@@ -13389,9 +13389,10 @@ is the behavioral spec.
   to PR 67's body rather than stating in
   the closure item. Second: the close
   help-body line the parse cut removes
-  stands at two leading spaces, "
-  --judge JUDGE", where VL-240 quotes it
-  with one.
+  stands at two leading spaces, its text
+  --judge JUDGE preceded by exactly
+  those two spaces, where VL-240 quotes
+  it with one.
 - VL-244. Standing regression, in the
   VL-119 form. Every measurement ran
   against the chain binary built fresh
@@ -13491,8 +13492,19 @@ is the behavioral spec.
   4, on a head checkout built from the
   staged closure before the launch and
   verified file by file (21 files, bad
-  none, extra none), is the standing
-  gate: gate_head_launch4.log, passed
+  none, extra none), passed whole at
+  gate_head_launch4.log on the closure
+  as first pushed; launch 5, on a head
+  checkout built from the repaired
+  staged closure (VL-243's second
+  correction restated in words under
+  step 0's one valid finding, VL-248's
+  push and PR accounting completed, and
+  the two sentences of this item naming
+  the standing bank amended to match)
+  and verified file by file (21 files,
+  bad none, extra none), is the standing
+  gate: gate_head_launch5.log, passed
   whole in the same figures as the base
   gate. The codepoint scan at both trees
   takes an explicit per-file list
@@ -13522,8 +13534,9 @@ is the behavioral spec.
   status evidence. The gate banks this
   round leaves on disk stand named here
   whole: gate_base_launch2.log at the
-  base and gate_head_launch4.log at the
-  head, and no other gate bank.
+  base and gate_head_launch4.log and
+  gate_head_launch5.log at the head, and
+  no other gate bank.
 - VL-246. Fresh surface work, proposed
   in the lane record before it ran.
   REGFORMS38, the malformed-registry
@@ -13775,5 +13788,41 @@ is the behavioral spec.
   stood at 3,422 of 5,000 at this lane's
   arrival probe, 3,198 at the base fetch
   probe, and 3,162 at the oracle fetch
-  probe, and no rate-limit stop was hit
-  at any hand.
+  probe. The push stage met no false
+  start: the pool stood at 3,421 of
+  5,000 at the push batch's probe, and
+  the branch creation, the slice push,
+  and the closure push each landed at
+  the first call, each verified by
+  branch-ref and commit-chain read-back
+  before the next step, and the tree
+  assertion stood at 21 of 21 blobs on
+  both pushed trees. The pull request
+  opened as PR 69 at the first call, its
+  title in its Round 38 form from the
+  start and its body read back equal to
+  the composed file at 28,179
+  characters. Step 0 at the first head
+  posted its shell in two forms, the
+  in-progress form at 5,208 characters
+  created 15:23:07Z and the final form
+  at 8,455 characters last edited
+  15:25:55Z (Run ID
+  75df09db-65c1-495a-b41c-7de2f662a6f3),
+  with one review comment, a Minor
+  holding that VL-243's two-space
+  quotation does not preserve its two
+  spaces in the rendered line; the
+  finding stood valid against the staged
+  bytes, the contract's wrap collapsing
+  the quotation's space run, and
+  VL-243's second correction stands
+  restated in words in the repair this
+  round closes with, the repair confined
+  to CONTRACT.md and gated at head gate
+  launch 5. The hosted checks at the
+  first head stood green whole (gate
+  twice, CodeQL, and the three Analyze
+  checks, with the CodeRabbit run
+  completed success). No rate-limit stop
+  was hit at any hand.
