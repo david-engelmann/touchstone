@@ -12127,3 +12127,519 @@ is the behavioral spec.
   verify probe, and 2,607 at the census
   probe, and no rate-limit stop was hit
   at any hand.
+- VL-231. The read-back of Round 35's
+  landing pull request stands contracted
+  here on its closed record, read whole
+  through the API at this round's hand.
+  Pull request 63 stands closed and
+  merged: its body stands at 26,855
+  characters at this hand and the same
+  26,855 bytes, the lane's body of
+  24,563 characters with the owner
+  completion record appended after it,
+  its head
+  c7906843445f8ef390d4049d52606e70abce869b
+  over slice
+  d3cdba591678c232290242f200901f791bd192e8
+  over the base
+  90228f35639803a5d12d430612a3a018ed705541,
+  a two-commit chain, and it landed
+  through the merge queue as squash
+  commit
+  6ff008dab9877c25641539c477cdbb65ae61eb2f,
+  single parent 90228f35, the landing
+  tree
+  9fc5d284f94b8f8f40d06d265d2ad9ec3578990a
+  verified by the owner as the reviewed
+  head tree itself and re-read at this
+  round's hand (main stands at 6ff008da
+  on a fresh read, its tree at 9fc5d284
+  over twenty-one blobs, not truncated),
+  and the README read on main at 35 of
+  100. The census at this read stands at
+  four issue comments, no reviews, and
+  no review comments: the trunk note
+  7173473420 (113 characters, created
+  2026-11-25T20:18:24Z, last edited
+  2026-11-25T20:31:30Z, its text now the
+  merged form), the CodeRabbit shell
+  7173478004 cited in drift-aware form
+  (11,143 characters at this hand,
+  created 2026-11-25T20:18:35Z, last
+  edited 2026-11-25T20:23:42Z; the Round
+  35 lane banked 11,141 characters at
+  its hand, last edited
+  2026-11-25T20:20:54Z, its full text
+  banked whole under temp-write-verify
+  at pr63_shell.md in its scratch, and
+  the owner read the same 11,143
+  characters at the later edit in the
+  completion record; Run ID
+  764f5219-c14e-4814-af78-dfd087f2265c
+  verified present in the live shell
+  text at this hand, Merge Risk Minimal
+  at the exact head c7906843, four
+  pre-merge checks passed with the title
+  check passed in Round 35's own true
+  form, no review objects, no review
+  comments, and no actionable comments
+  generated in the review; nothing stood
+  to fix and nothing to dismiss), the
+  merge comment 7173607434 (12
+  characters, created
+  2026-11-25T20:23:45Z), and the landing
+  comment 7176518887 (3,962 characters,
+  created 2026-11-25T22:33:52Z) carrying
+  this round's charges, with nothing
+  standing after it. The verdicts stand
+  in the owner completion record
+  appended to the body: spec fidelity
+  APPROVE with one Minor, standards
+  APPROVE with one Minor, red team
+  APPROVE with one Minor, the three axes
+  converging on the same single defect
+  from three directions; no Blocker and
+  no Major at any hand. Each commit's
+  diff against its parent stands
+  verified at this hand: the slice
+  touches CONTRACT.md alone, and the
+  closure CONTRACT.md and README.md with
+  the README's move to 35 of 100 in the
+  closure commit only; no repair commits
+  stand in the chain. MARGINFORMS35, the
+  margin argument forms at the open,
+  stands at 33 of 33 agree, 0 failed, 0
+  blocked, on its first launch under the
+  one recorded amendment (the -inf cell
+  in its glued form, recorded in the
+  lane record before the driver was
+  written; PROBE35 32 of 33 derivations
+  agree, the one divergence the spaced
+  -inf's argparse-level stop in both
+  arms), and the red team re-ran it
+  whole against its own build with eight
+  further adversarial margin forms, all
+  agreeing. The round's one amendment
+  stands contracted whole: VL-226's
+  closing sentence as first drafted
+  claimed each measurement bank
+  byte-identical to its launch's stdout
+  bank, where the margin-forms bank
+  stands as its stdout bank's
+  thirty-three cell lines whole with the
+  summary line in the stdout bank alone;
+  the sentence and VL-227's head
+  accounting were amended in the items
+  draft before the push, and the head
+  gate's first launch, passed whole on
+  the pre-amendment staged closure,
+  stands superseded on the accounting
+  alone with the amended closure
+  re-gated as the standing second
+  launch. The gates of Round 35 stand as
+  VL-227 names them: at the base,
+  gate_base_launch1.log in the chain's
+  banks (chain launch 1, slot acquired
+  19:56:49Z, the chain done at
+  19:58:45Z): verify exit 0 (21 blobs,
+  bad none), cargo test 47 tests passing
+  in the 3 library, 24 judgment, 20
+  registry split, clippy and fmt at exit
+  0, and the codepoint scan covering
+  every text file in the tree at both
+  trees, 21 of 21, its planted control
+  convicted inside each gate log
+  (control 1 and 1), totals 0 and 0; no
+  launch of the chain died before its
+  gate. At the head the gate stood at
+  two launches: launch 1,
+  gate_head_launch1.log (slot acquired
+  20:08:43Z, done at 20:09:15Z), passed
+  whole in the same figures and stands
+  superseded on the accounting alone;
+  launch 2, gate_head_launch2.log (slot
+  acquired 20:16:11Z, done at
+  20:16:24Z), is the standing gate,
+  passed whole in the same figures
+  against the checkout rebuilt from the
+  amended staged closure and verified
+  file by file (21 files, bad none,
+  extra none). The gate census of Round
+  35 stands exact: gate_base_launch1.log
+  at the base and gate_head_launch1.log
+  and gate_head_launch2.log at the head,
+  and no other gate bank. The standing
+  regression of Round 35 stands as
+  VL-226 records it: battery 25 of 25
+  with C17 to C22 at VL-100's
+  dispositions, walk 10 of 10, pin 241
+  passing across 19 suites, 0 failed, at
+  the chain's own pin stage on its first
+  launch, no re-run standing needed,
+  oracle re-verified over 24 blobs, and
+  the chain binary built fresh from the
+  blob-verified base checkout (sha256
+  0e2fd637746fbcb4ea557a3b1d14027ec2f46694e4dc665ab169f362567a4705).
+  The census verdict of Round 35 stands
+  quoted in VL-229 in its banked form,
+  "CENSUS35: ALL OK", the colon
+  restored, discharging Round 34's Minor
+  in form. The round stood carried by
+  one lane, against Round 34's four: the
+  write window stood open at every stage
+  through the gates, the probes open at
+  attempt 0, the build slot free at the
+  chain's arrival and costing the head
+  gate's second launch only a short
+  in-hold wait, no launch dead before
+  its gate, and no environmental stop at
+  any stage; hosted checks on the exact
+  head stood all completed success at
+  the body's patch (gate twice, CodeQL,
+  CodeRabbit, Analyze (rust), Analyze
+  (python), Analyze (actions)). The
+  body's summary sentence stands checked
+  against the items it introduces and no
+  label in it doubles. One correction
+  stands discharged here in one line: PR
+  60's body stands at 32,889 bytes,
+  which is 32,887 characters, where
+  VL-225 states the byte count as
+  characters.
+- VL-232. Standing regression, in the
+  VL-119 form. Every measurement ran
+  against the chain binary built fresh
+  in this round from the blob-verified
+  base checkout (sha256
+  10d883dd5687fd39d1dd285da2a27185ecd40f553c0c7ba2ea0af35faf3c647f,
+  chain_binary_l1.sha256). The battery
+  stands at 25 of 25 cells pass
+  (battery36_results.txt, byte-identical
+  to its launch's stdout bank; its
+  bank's summary line keeps the
+  instrument's standing BATTERY28 label,
+  the figures this round's own), with
+  C17 to C22 at VL-100's dispositions:
+  C17 unavailable on the judge's answer
+  naming an unpinned model, C18 on the
+  judge's choice answer malformed, C19
+  on the judge's evidence answer
+  malformed, C20 and C22 on the judge's
+  risk answer malformed, and C21's
+  bounds standing at scores 10/0. The
+  fake judge stands byte-identical at
+  its contracted md5
+  a79ded49ae7285fd2d7b028c8b47dd7f,
+  re-derived at this lane's hand. The
+  walk stands at 10 of 10 cells pass
+  (walk36_results.txt, byte-identical to
+  its launch's stdout bank; its bank's
+  summary line keeps the instrument's
+  standing WALK13 label). The pin stands
+  re-verified at the chain's own pin
+  stage on its first launch, no re-run
+  standing needed: flighttape commit
+  74a83298, tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  50 blobs confirmed against the live
+  tree at this round's census, its suite
+  at 241 passing across 19 suites, 0
+  failed (pin_suite_l1.log,
+  pin_summary_l1.txt re-summed at this
+  lane's hand), and the golden digest
+  cc9c4e01 standing in the pinned
+  source, read at this lane's hand in
+  tests/digest_cli.rs. The oracle stands
+  re-verified: commit d62e5dc, tree
+  74394802a20e03fd9f3e2c5cf781c4ef8936df21,
+  24 blobs, the census recomputing its
+  blobs clean against the saved
+  manifest, and the base checkout itself
+  blob-verified against the base tree
+  before the chain binary was built from
+  it (verify_base_l1.log, 21 blobs, bad
+  none). The battery and walk banks
+  stand byte-identical to their
+  launches' stdout banks, confirmed at
+  this hand, and the timestamp-forms
+  bank stands as its launch's stdout
+  bank's forty cell lines whole, the
+  summary line standing in the stdout
+  bank (atforms36_stdout_l1.txt) alone.
+- VL-233. The local gate at base and
+  head trees, in the VL-119 form, with
+  whole-tree scan coverage standing and
+  the retention form standing in its
+  qualified final form. At the base,
+  gate_base_launch1.log in the chain's
+  banks: verify exit 0 (21 blobs, bad
+  none), cargo test 47 tests passing in
+  the 3 library, 24 judgment, 20
+  registry split, clippy and fmt at exit
+  0; the standing base gate is the
+  chain's first launch, no launch of the
+  chain dying before its gate this
+  round, the chain's one wait standing
+  at its head: launched at 22:43Z, it
+  queued in the build slot's flock
+  behind other lanes' builds and took
+  the slot at 23:25:38Z, the probe then
+  open at attempt 0, the chain done at
+  23:29:57Z with the census and the pin
+  stage inside the same hold. At the
+  head the gate stands at three
+  launches. Its first launch, standing
+  at gate_head_launch1.log, failed at
+  its verify step before any test stage
+  ran: the head checkout had never been
+  built, the lane's own staging
+  omission, the verify naming all
+  twenty-one files missing in the head;
+  no figure rests on it. Its second
+  launch, against the checkout rebuilt
+  from the staged closure and verified
+  file by file (21 files, bad none,
+  extra none), passed whole in the same
+  figures as the base gate, standing at
+  gate_head_launch2.log (slot acquired
+  00:08:10Z after a twenty-seven-minute
+  wait in the flock queue, done at
+  00:08:59Z), and stands superseded on
+  the accounting alone, the staged
+  closure having been amended after it
+  in this item's own accounting and in
+  VL-236's weather. Its third launch,
+  against the checkout rebuilt from the
+  amended staged closure and verified
+  file by file (21 files, bad none,
+  extra none), is the standing gate and
+  passed whole in the same figures,
+  standing at gate_head_launch3.log. The
+  codepoint scan at both trees takes an
+  explicit per-file list expanded from
+  the tree listing and covers every text
+  file in the tree, 21 of 21 files at
+  both trees, the gate log printing the
+  scanned count against the tree's file
+  count; the six files Round 24's scan
+  omitted (.github/workflows/ci.yml,
+  .gitignore, Cargo.lock, LICENSE,
+  scripts/codepoint_scan.py,
+  tests/fixtures/judgments_synthetic.json)
+  stand in the list by name, and no file
+  is excluded. The scan's planted
+  control convicted inside each gate log
+  (control 1 and 1), totals 0 and 0 at
+  both trees. The retention form stands
+  in its qualified final form: the gate
+  scripts bank each launch's output
+  under its own launch-numbered file, no
+  launch's log overwrites another's, and
+  a launch that reaches its gate banks
+  its gate output whole under that name;
+  a launch that dies before its gate
+  banks no log and stands on its named
+  status evidence. The gate banks this
+  round leaves on disk stand named here
+  whole: gate_base_launch1.log at the
+  base and gate_head_launch1.log,
+  gate_head_launch2.log, and
+  gate_head_launch3.log at the head, and
+  no other gate bank.
+- VL-234. Fresh surface work, proposed
+  in the lane record before it ran.
+  ATFORMS36, the timestamp argument
+  forms, a fresh twin surface Rounds 14
+  through 35 did not measure, forty
+  cells on twin fresh directories
+  (atforms36_results.txt), standing at
+  40 of 40 agree, 0 failed, 0 blocked,
+  on its first launch under the one
+  correction the probe recorded, stated
+  at this item's end. Round 22 celled
+  the out-of-order clock (the ordering
+  of well-formed stamps), Round 26 the
+  measure number forms inside the JSON
+  arguments, and Round 35 the forms of
+  the --margin argument itself; no round
+  had celled the forms of the --at
+  argument, the other argument every
+  write command carries, whose
+  acceptance is a grammar of its own in
+  both arms. The derivation was read
+  from the shipped source before
+  running, in both arms (the oracle's
+  cli.py and registry.py; the port's
+  cli.rs and registry.rs; the source
+  trees are identical at this round's
+  base): the oracle records the --at
+  string verbatim in the event and gates
+  it in registry.py's _is_timestamp, a
+  prefix form ^\d{4}-\d{2}-\d{2}[T
+  ]\d{2}:\d{2} that must match and
+  datetime.fromisoformat over the whole
+  string, with Z replaced by +00:00,
+  that must succeed; a failure is the
+  defect "at is not an ISO timestamp" at
+  the incoming event's position, so an
+  open on an empty registry refuses with
+  the line "error, line 1: at is not an
+  ISO timestamp" at exit 1 and no
+  registry created. The port transcribes
+  the same two legs in registry.rs's
+  is_timestamp (VL-5a, VL-5c): an
+  ASCII-digit prefix gate over the first
+  sixteen units in the same shape, then
+  the pinned flighttape crate's
+  timeparse::parse_timestamp, a
+  deliberate transcription of
+  fromisoformat carrying its own tail
+  laws (the fraction's six-digit window
+  with further digits skipped, a
+  fraction behind a point or a comma at
+  any component, offset forms from the
+  hour alone through offset seconds, the
+  offset's fields read arithmetically
+  with the total strictly under a day
+  the only bound). The prefix pins the
+  date, the separator, and the hour and
+  minute; everything this surface cells
+  stands in the tail the prefix leaves
+  free. Twenty-three accepted spellings,
+  each opening exp-t judged on cost
+  lower over a baseline of 100 on an
+  empty registry, stand recorded
+  verbatim as the event's at on both
+  arms, the registry bytes byte-equal
+  across arms and the show of exp-t
+  byte-equal across arms: the standing
+  form 2026-01-05T09:00:00Z; no seconds,
+  2026-01-05T09:00Z; naive,
+  2026-01-05T09:00; the space separator,
+  2026-01-05 09:00:00Z; fractions of
+  one, six, and nine digits and the
+  smallest fraction, .5, .123456,
+  .123456789, and .000001 behind the
+  seconds; the comma fraction,
+  2026-01-05T09:00:00,5Z; a fraction on
+  the minute, 2026-01-05T09:00.5Z;
+  offsets +00:00, +02:00, and -05:30;
+  the basic +0000; the hour alone, +00;
+  offset seconds, +00:00:30; an offset
+  without seconds,
+  2026-01-05T09:00+02:00; +23:59; the
+  offset minute overflow, +00:60; the
+  offset second overflow, +00:00:60; the
+  leap day 2024-02-29T09:00:00Z; the
+  year 0001; and the maximum
+  9999-12-31T23:59:59Z. Fifteen defect
+  refusals stand at exit 1 on both arms
+  with stderr byte-equal to the
+  contracted line and no registry on
+  either arm: the date alone; the
+  lowercase t separator; the lowercase
+  z; month 13; day 32; 2025-02-29;
+  2026-02-30; hour 24; minute 60; second
+  60; the leap second
+  2016-12-31T23:59:60Z; trailing junk
+  behind the Z; an offset of a full day,
+  +24:00; the Arabic-Indic year digits;
+  and the trailing empty fraction, a
+  point at the string's end. Two
+  lifecycle cells in mixed spellings at
+  plainly increasing instants, each
+  built open, result, close on its own
+  registry pair, stand with every step
+  agreeing and the registry bytes and
+  the list renders compared under the
+  VL-96 cut taken up in the cell
+  definitions from the start (the closes
+  execute on both arms; a cut returning
+  None would have failed the cell): open
+  at 2026-01-05T09:00Z, result at
+  2026-01-06 09:00:00+00:00 in the
+  space-separated offset form, and close
+  keep at 2026-01-07T09:00:00.25Z behind
+  a two-digit fraction; and open at
+  2024-02-29T09:00:00+02:00 on the leap
+  day behind an offset, result at
+  2024-03-01T09:00:00,5Z behind the
+  comma fraction, and close kill at
+  2024-03-02T09:00Z without seconds.
+  Every derivation stood probed at this
+  lane's hand against this round's chain
+  binary and oracle extraction before
+  the driver was written (PROBE36,
+  probe36_stdout.txt): 40 of 40
+  derivations agree, 0 diverge, and the
+  probe corrected the cell contract in
+  one place, recorded in the lane record
+  before the driver ran: the two offset
+  overflow spellings (+00:60 and
+  +00:00:60), proposed as refusals,
+  stand accepted on both arms, the
+  grammar reading the offset's fields
+  arithmetically and bounding only the
+  total; they stand celled as accepted
+  spellings above, and the surface's
+  counts stand at twenty-three accepted,
+  fifteen refused, two lifecycles.
+- VL-235. Storefront item 3 stands
+  PASSING, verified again and not
+  repaired: the description of 163
+  characters, "An experiment registry
+  for a fleet's setup. Every proposed
+  change becomes a tracked experiment
+  with a hypothesis, a run,
+  measurements, and a verdict, keep or
+  kill.", stands byte-identical in the
+  repository description, in the
+  Cargo.toml description field, and in
+  the README lede, the match re-verified
+  at this round's census against the
+  base tree's own files and the live
+  repository description
+  (census36_l1.log, CENSUS36: ALL OK).
+- VL-236. Closure. README moves to 36 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by one lane. The build slot's
+  contention delayed two stages: the
+  chain's launch, launched at 22:43Z,
+  stood in the flock queue for forty-two
+  minutes behind other lanes' builds and
+  took the slot at 23:25:38Z, and the
+  head gate's second launch stood
+  twenty-seven minutes in the same queue
+  (launched at 23:40Z, slot at
+  00:08:10Z); each launch passed whole
+  once its slot stood taken, and no
+  stage was lost to the waits; the write
+  window stood open at every stage from
+  the chain's probe on (the chain's
+  probe open at attempt 0 once the slot
+  stood taken, the measurement waiter's
+  probe open at attempt 0), no launch of
+  the chain or the measurements died
+  before its gate, and no other
+  environmental stop delayed any stage;
+  the head gate's first launch failed at
+  its verify step on the lane's own
+  omission, the head checkout never
+  built, and stands accounted in VL-233,
+  the standing gate its third launch.
+  The API pool stood at 4,290 of 5,000
+  at the round's seating probe, 4,687 at
+  the census probe, and 2,923 at the
+  read of PR 63's commit chain, and no
+  rate-limit stop was hit at any hand.
