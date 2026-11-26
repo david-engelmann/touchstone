@@ -14197,3 +14197,50 @@ is the behavioral spec.
   and at this lane's hand against the
   live repository description read
   through the API.
+- VL-254. Closure. README moves to 39 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it, this
+  item's push and pull request
+  accounting among them; the tree diff
+  base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name, stated here whole
+  and not deferred: this round stood
+  carried by one lane. The chain stood
+  at one launch, the build slot standing
+  free at its arrival (slot acquired
+  20:28:09Z, the write probe open at
+  attempt 0, the chain done at
+  20:35:06Z), and no stage of the chain
+  or the gates waited on the slot's
+  contention this round. The write
+  window stood open at every probe from
+  the chain on. The probe and the
+  measurement stage each ran once,
+  whole, no instrument fault and no
+  environmental stop standing at either,
+  every bank standing from a clean
+  launch. The head gate stood at two
+  launches: its first died during its
+  gate when a service restart took the
+  session carrying it in the test
+  stage's compile, no test run and no
+  figure resting on it, and its second
+  passed whole, the full accounting
+  standing in VL-251. The API pool stood
+  at 2,755 of 5,000 at this lane's
+  arrival probe, at 4,614 at the chain's
+  verify stage, and at 4,278 at its
+  census stage, and no rate-limit stop
+  was hit at any hand. The push and pull
+  request accounting completes this item
+  in its final sentences, amended in
+  place in the round's accounting
+  commit.
