@@ -13715,3 +13715,65 @@ is the behavioral spec.
   and at this lane's hand against the
   live repository description read
   through the API.
+- VL-248. Closure. README moves to 38 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name, stated here whole
+  and not deferred: this round stood
+  carried by one lane. The chain stage
+  met the round's one long stop: the
+  build slot stood held by other lanes'
+  work from before the chain's first
+  launch, the tetlock lane's chain first
+  and then the onrecord lane's long
+  harness, whose inner process stood
+  blocked on the lock it already held
+  for the last hour of the wait, read at
+  this hand from the process table and
+  its open files; the chain's first
+  launch, queued on the slot from
+  06:02Z, died before its gate when the
+  session carrying it took a SIGTERM at
+  1,589 seconds, standing on its named
+  evidence note with no figure resting
+  on it, and the chain relaunched
+  detached and took the slot at
+  08:16:18Z, the probe open at attempt
+  0, the chain then passing whole at
+  that launch with no stage lost. The
+  measurement stage ran once, whole, no
+  instrument fault and no environmental
+  stop standing at it. The write window
+  stood open at every probe from the
+  chain on. The head gate stood at four
+  launches under the same contention:
+  its first three launches queued behind
+  other lanes' work (the first from
+  08:29Z, the second from about 10:35Z
+  behind the muda lane's long battery
+  driver, the third from about 12:59Z
+  behind the fleet's relaunched queue)
+  and were taken before their gate by
+  the service teardown of 10:24Z, the
+  service restart of 12:56Z, and the
+  service teardown of 15:02Z
+  respectively, each after a wait of
+  about two hours or over and each
+  standing on its named evidence note
+  with no figure resting on it, and its
+  fourth launch, on a checkout built
+  before it, passed whole. The API pool
+  stood at 3,422 of 5,000 at this lane's
+  arrival probe, 3,198 at the base fetch
+  probe, and 3,162 at the oracle fetch
+  probe, and no rate-limit stop was hit
+  at any hand.
