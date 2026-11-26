@@ -12600,3 +12600,46 @@ is the behavioral spec.
   base tree's own files and the live
   repository description
   (census36_l1.log, CENSUS36: ALL OK).
+- VL-236. Closure. README moves to 36 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it; the tree
+  diff base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name: this round stood
+  carried by one lane. The build slot's
+  contention delayed two stages: the
+  chain's launch, launched at 22:43Z,
+  stood in the flock queue for forty-two
+  minutes behind other lanes' builds and
+  took the slot at 23:25:38Z, and the
+  head gate's second launch stood
+  twenty-seven minutes in the same queue
+  (launched at 23:40Z, slot at
+  00:08:10Z); each launch passed whole
+  once its slot stood taken, and no
+  stage was lost to the waits; the write
+  window stood open at every stage from
+  the chain's probe on (the chain's
+  probe open at attempt 0 once the slot
+  stood taken, the measurement waiter's
+  probe open at attempt 0), no launch of
+  the chain or the measurements died
+  before its gate, and no other
+  environmental stop delayed any stage;
+  the head gate's first launch failed at
+  its verify step on the lane's own
+  omission, the head checkout never
+  built, and stands accounted in VL-233,
+  the standing gate its third launch.
+  The API pool stood at 4,290 of 5,000
+  at the round's seating probe, 4,687 at
+  the census probe, and 2,923 at the
+  read of PR 63's commit chain, and no
+  rate-limit stop was hit at any hand.
