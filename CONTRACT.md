@@ -14022,8 +14022,18 @@ is the behavioral spec.
   launch 2, on a head checkout rebuilt
   from the staged closure and verified
   file by file (21 files, bad none,
-  extra none), is the standing gate:
-  gate_head_launch2.log, passed whole in
+  extra none), passed whole at
+  gate_head_launch2.log on the closure
+  as first pushed and stands superseded
+  on the accounting alone; launch 3, on
+  a head checkout built from the amended
+  staged closure (VL-254's push and pull
+  request accounting completed in place,
+  step 0's one valid finding repaired in
+  the same amendment) and verified file
+  by file (21 files, bad none, extra
+  none), is the standing gate:
+  gate_head_launch3.log, passed whole in
   the same figures as the base gate. The
   codepoint scan at both trees takes an
   explicit per-file list expanded from
@@ -14056,8 +14066,9 @@ is the behavioral spec.
   resting on it. The gate banks this
   round leaves on disk stand named here
   whole: gate_base_launch1.log at the
-  base and gate_head_launch1.log and
-  gate_head_launch2.log at the head, and
+  base and gate_head_launch1.log,
+  gate_head_launch2.log, and
+  gate_head_launch3.log at the head, and
   no other gate bank.
 - VL-252. Fresh surface work, proposed
   in the lane record before it ran.
@@ -14227,20 +14238,53 @@ is the behavioral spec.
   whole, no instrument fault and no
   environmental stop standing at either,
   every bank standing from a clean
-  launch. The head gate stood at two
+  launch. The head gate stood at three
   launches: its first died during its
   gate when a service restart took the
   session carrying it in the test
   stage's compile, no test run and no
-  figure resting on it, and its second
-  passed whole, the full accounting
-  standing in VL-251. The API pool stood
-  at 2,755 of 5,000 at this lane's
-  arrival probe, at 4,614 at the chain's
-  verify stage, and at 4,278 at its
-  census stage, and no rate-limit stop
-  was hit at any hand. The push and pull
-  request accounting completes this item
-  in its final sentences, amended in
-  place in the round's accounting
-  commit.
+  figure resting on it, its second
+  passed whole on the closure as first
+  pushed and stands superseded on the
+  accounting alone, and its third, on
+  the amended staged closure, passed
+  whole as the standing gate, the full
+  accounting standing in VL-251. The API
+  pool stood at 2,755 of 5,000 at this
+  lane's arrival probe, at 4,614 at the
+  chain's verify stage, and at 4,278 at
+  its census stage, and no rate-limit
+  stop was hit at any hand. The push
+  stage met no false start: the branch
+  creation and the slice and closure
+  pushes each landed at the first call,
+  each push verified by branch-ref and
+  commit-chain read-back before the next
+  step, and the tree assertion stood at
+  21 of 21 blobs on both pushed trees
+  (TREES39: ALL OK). The pull request
+  opened as PR 71 at the first call, its
+  title in its Round 39 form from the
+  start and its body read back equal to
+  the composed file at 20,046
+  characters. Step 0 at the first head
+  posted its shell in two forms, the
+  in-progress form at 5,208 characters
+  created 21:07:44Z and the final form
+  at 8,714 characters last edited
+  21:09:57Z (Run ID
+  a1054aec-0535-49fb-b7c2-3954e8b1ee64),
+  Merge Risk Low, its four pre-merge
+  checks passed, with one review
+  comment, a Minor holding that this
+  item's promised push and pull request
+  accounting stood incomplete in its own
+  text; the finding stood valid against
+  the staged text, the item's closing
+  sentence carrying the promise without
+  the accounting, and stands repaired in
+  the accounting commit this round
+  closes with, the repair confined to
+  CONTRACT.md and gated at head gate
+  launch 3, this accounting standing
+  completed in place in that commit.
