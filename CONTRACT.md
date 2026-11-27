@@ -14653,3 +14653,59 @@ is the behavioral spec.
   and at this lane's hand against the
   live repository description read
   through the API.
+- VL-260. Closure. README moves to 40 of
+  100 in the closure commit only; slice
+  and closure staged in separate
+  directories (stage_slice,
+  stage_closure); CONTRACT append-only
+  in the standing sense, the prior
+  rounds' text standing intact as a
+  prefix and this round's own additions
+  amended in place only where a repair's
+  named accounting requires it, this
+  item's push and pull request
+  accounting among them; the tree diff
+  base to head touches exactly
+  CONTRACT.md and README.md. The round's
+  weather, by name, stated here whole
+  and not deferred: this round stood
+  carried by one lane. The chain stood
+  at one launch and took the round's one
+  long wait: launched at 23:23Z, it
+  queued behind other lanes' holds of
+  the build slot for about sixty-seven
+  minutes (the holds standing ahead of
+  it at this lane's reads were the sb32
+  red-team hold, the or32 clippy hold,
+  the tetlock Round 29 chain, and the
+  st43 closure hold, in the flock's
+  order), the slot acquired at 00:30:37Z
+  with the write probe open at attempt
+  0, and the chain done at 00:40:10Z
+  with every stage passing; the head
+  gate also waited on the slot's
+  contention at both its launches, each
+  queued behind other lanes' holds, the
+  first for about twenty-five minutes.
+  The write window stood open at every
+  probe from the chain on. The probe and
+  the measurement stage each ran once,
+  whole, no instrument fault and no
+  environmental stop standing at either,
+  every bank standing from a clean
+  launch. The head gate stood at two
+  launches, the first passing whole on
+  the closure as first staged and
+  superseded on the slot accounting
+  alone, the second standing, the full
+  accounting standing in VL-257. The API
+  pool stood at 2,537 of 5,000 at this
+  lane's arrival probe and at 4,233 at
+  the chain's census stage, and no
+  rate-limit stop was hit at any hand.
+  This item's push and pull request
+  accounting, and step 0's with it,
+  completes this item in place in the
+  accounting commit this round closes
+  with, gated at a further head launch
+  before it pushes.
