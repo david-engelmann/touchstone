@@ -14469,7 +14469,7 @@ is the behavioral spec.
   chain40_launch1_driver.log), no launch
   of the chain dying before its gate
   this round. At the head the gate
-  stands at two launches: launch 1,
+  stands at five launches: launch 1,
   launched at 00:49Z and queued behind
   other lanes' holds of the build slot
   for about twenty-five minutes before
@@ -14484,9 +14484,37 @@ is the behavioral spec.
   staged closure before the launch and
   verified file by file (21 files, bad
   none, extra none), the slot acquired
+  at 02:26:25Z behind the holds then
+  standing, about sixty-seven minutes
+  after its launch, and the probe open
+  at attempt 0, passed whole at
+  gate_head_launch2.log in the same
+  figures as the base gate and
+  superseded on this item's closing
+  accounting alone; launch 3, launched
+  at 02:46Z, died before its gate while
+  queued behind other lanes' holds of
+  the build slot, its process taken with
+  its launching session before the slot
+  was acquired, banking no log and
+  standing on its named evidence note
+  gate_head_launch3_note.txt, no figure
+  resting on it; launch 4, launched at
+  03:03Z, died before its gate while
+  queued behind other lanes' holds of
+  the build slot, its process taken in a
+  service restart before the slot was
+  acquired, banking no log and standing
+  on its named evidence note
+  gate_head_launch4_note.txt, no figure
+  resting on it; launch 5, on a head
+  checkout rebuilt from the accounting
+  staged closure before the launch and
+  verified file by file (21 files, bad
+  none, extra none), the slot acquired
   behind the holds then standing and the
   probe open at attempt 0, passed whole
-  at gate_head_launch2.log in the same
+  at gate_head_launch5.log in the same
   figures as the base gate. The
   codepoint scan at both trees takes an
   explicit per-file list expanded from
@@ -14519,9 +14547,14 @@ is the behavioral spec.
   resting on it. The gate banks this
   round leaves on disk stand named here
   whole: gate_base_launch1.log at the
-  base and gate_head_launch1.log and
-  gate_head_launch2.log at the head, and
-  no other gate bank.
+  base and gate_head_launch1.log,
+  gate_head_launch2.log, and
+  gate_head_launch5.log at the head,
+  with launches 3 and 4 standing on
+  their named evidence notes
+  gate_head_launch3_note.txt and
+  gate_head_launch4_note.txt, and no
+  other gate bank.
 - VL-258. Fresh surface work, proposed
   in the lane record before it ran.
   WRITEPATH40, the write commands over a
@@ -14693,19 +14726,51 @@ is the behavioral spec.
   whole, no instrument fault and no
   environmental stop standing at either,
   every bank standing from a clean
-  launch. The head gate stood at two
+  launch. The head gate stood at five
   launches, the first passing whole on
   the closure as first staged and
   superseded on the slot accounting
-  alone, the second standing, the full
+  alone, the second passing whole on the
+  amended closure and superseded on this
+  closing accounting alone, the third
+  and fourth each dying before its gate
+  while queued, their sessions taken
+  (the fourth in a service restart), and
+  the fifth standing, the full
   accounting standing in VL-257. The API
   pool stood at 2,537 of 5,000 at this
   lane's arrival probe and at 4,233 at
   the chain's census stage, and no
   rate-limit stop was hit at any hand.
-  This item's push and pull request
-  accounting, and step 0's with it,
-  completes this item in place in the
-  accounting commit this round closes
-  with, gated at a further head launch
-  before it pushes.
+  The branch refine/vl-round40 was
+  created at 98a27b79 at the first call;
+  the slice pushed CONTRACT.md alone as
+  d04b96c0 (tree ffdf056a) and the
+  closure CONTRACT.md and README.md as
+  e6ed549b (tree 6aebc7c5), each at the
+  first call and each verified by
+  branch-ref and commit-chain read-back
+  immediately, the pushed trees standing
+  at TREES40: ALL OK, 21 of 21 blobs on
+  both pushed trees. The pull request
+  opened as PR 73 at the first call, its
+  title in its Round 40 form from the
+  start, its body read back equal at
+  20,534 characters. Step 0 stands clean
+  at the first head: the shell
+  7208226992, banked whole in this
+  lane's scratch in two forms (the
+  in-progress form at 5,210 bytes
+  created 02:33:01Z and the finished
+  form at the first head at 8,696 bytes
+  last edited 02:36:18Z), Merge Risk
+  Low, its four pre-merge checks passed,
+  its one review COMMENTED with no
+  review comment and no finding, so
+  nothing stands fixed and nothing
+  dismissed, and the title check passed
+  with accurate commentary. This
+  accounting stands completed in place
+  in the accounting commit this round
+  closes with, gated at a further head
+  launch before it pushes.
