@@ -15164,3 +15164,50 @@ is the behavioral spec.
   and at this lane's hand against the
   live repository description read
   through the API.
+- VL-266. Closure. This round's
+  accounting stands: the chain at two
+  launches, the first dying before its
+  gate while queued on the slot, its
+  launching session taken, and standing
+  on its named evidence note, the second
+  running whole and standing; the head
+  gate at four launches, the first two
+  dying before their gates while queued
+  in the day's two service restarts and
+  standing on their named notes, the
+  third failing at its head checkout
+  blob check on the unassembled
+  checkout, and the fourth standing; the
+  measurements at one launch with their
+  three drivers each exiting 0; step 0
+  and the push and pull request stages
+  standing accounted in this item's
+  amendment at the final head; and the
+  weather whole: the build slot's
+  contention stood behind the chain's
+  first launch for the hour it queued,
+  behind the chain's second for about
+  three minutes, behind the head gate's
+  second launch for about four and a
+  half hours, and behind its fourth for
+  about thirty-four minutes, the slot's
+  holder across the long waits
+  unattributed and never signaled, the
+  shared API pool drained by the fleet's
+  other lanes from 3,627 remaining at
+  this lane's arrival reads to 1,617 at
+  the census's own probe without this
+  lane's roughly ten calls explaining
+  it, and no other environmental event
+  at any stage through this closure's
+  staging. The six corrections charged
+  by PR 73's landing comment stand
+  discharged in VL-261, each in one
+  line, and the count-sentence charge
+  stands discharged in fact: every count
+  sentence in this round's items and in
+  the pull request body's Summary stands
+  re-read against its own enumeration at
+  this lane's hand before the push.
+  Touchstone stands at 41 of 100 closed
+  rounds with this round's landing.
