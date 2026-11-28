@@ -15708,3 +15708,74 @@ is the behavioral spec.
   and at this lane's hand against the
   live repository description read
   through the API.
+- VL-272. Closure. This round's
+  accounting stands: the chain at four
+  launches, the first three dying before
+  their gates while queued on the build
+  slot (the first two launching sessions
+  taken, the third launched detached by
+  the first lane as its last act and
+  dying in the service restart at about
+  01:19Z on 2026-11-28), each standing
+  on its named evidence note, and the
+  fourth, launched in-sitting under the
+  completion lane that took the round up
+  from the first lane's banks after its
+  session ended in the runtime transport
+  failure at about 23:29Z on 2026-11-27,
+  running whole and standing; the
+  measurements at one launch with their
+  three drivers each exiting 0, the
+  probe launch standing separate at 16
+  of 16 with no cell-contract
+  correction; STEP0ACCT the pull request
+  opened at the first call with its
+  title in its Round 42 form from the
+  start, its body read back equal at
+  BODYCHARS characters; the branch
+  creation and both pushes landed at the
+  first call each, verified by
+  branch-ref and commit-chain read-back
+  immediately, the tree assertion at 21
+  of 21 blobs on both pushed trees; and
+  the weather whole: the build slot's
+  contention stood behind the chain's
+  first launch for the about
+  twenty-seven minutes it queued, behind
+  its second for about one hundred and
+  seven minutes, behind its third for
+  about one hundred and eight minutes,
+  and behind its fourth for about
+  forty-six minutes, and behind the head
+  gate's first launch for about
+  forty-five minutes and behind its
+  second for about fourteen minutes, the
+  slot's holders across the long waits
+  unattributed and never signaled, the
+  shared API pool standing at 2,940 of
+  5,000 remaining at the first lane's
+  arrival probe, at 3,010 at chain
+  launch 4's verify stage, at 2,907 at
+  its census stage, and at 2,099 at the
+  completion lane's item 3 read, no
+  rate-limit stop hit at any hand, two
+  service restarts interrupting the
+  round (at about 01:19Z on 2026-11-28,
+  killing chain launch 3, and at about
+  03:25Z, killing head gate launch 2),
+  the runtime transport failure ending
+  the first lane's session at about
+  23:29Z on 2026-11-27, and no other
+  environmental event at any stage. The
+  seven corrections charged by PR 75's
+  landing comment stand discharged in
+  VL-267, each in one line, and the
+  count-sentence charge stands
+  discharged in fact: every count
+  sentence in this round's items and in
+  the pull request body's Summary and
+  Verified bullets stands re-read
+  against its own enumeration at this
+  lane's hand before the push.
+  Touchstone stands at 42 of 100 closed
+  rounds with this round's landing.
