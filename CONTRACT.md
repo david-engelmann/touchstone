@@ -15296,3 +15296,415 @@ is the behavioral spec.
   this lane's hand before the push.
   Touchstone stands at 41 of 100 closed
   rounds with this round's landing.
+- VL-267. Read-back. PR 75 read back
+  whole at this lane's hand: its body in
+  its final form at 33,241 characters
+  (the lane's 29,512 plus the owner
+  completion record), its three commits,
+  its three issue comments, its one
+  review, and the review's one comment;
+  the charges for this round stand in
+  its landing comment 7227968605. PR 75
+  landed through the merge queue as
+  squash commit
+  90b9f3d3effbfcc0185dbdd0033bc58ef116dc54,
+  single parent 6fd85824, tree
+  3a6f1c689118768dc9562ed8cf26651f5bddab46,
+  identical to the reviewed head's tree;
+  the chain stands slice f8bf4390 (tree
+  8b8802c5, CONTRACT.md alone), closure
+  2a55ca61 (tree 8b95dbe2, CONTRACT.md
+  and README.md, the README moving to 41
+  of 100 in that commit only), and
+  accounting b45ecd64 (tree 3a6f1c68,
+  CONTRACT.md alone) as head, and its
+  items VL-261 to VL-266 stand in the
+  landed CONTRACT as their final texts.
+  Step 0 stands at both heads: the shell
+  7224598538, banked whole in the Round
+  41 lane's scratch in two forms at the
+  first head (the in-progress form at
+  5,210 bytes created 17:36:47Z and the
+  finished form at 9,063 bytes, 9,051
+  characters, last edited 17:39:40Z),
+  Merge Risk Low, its four pre-merge
+  checks passed, its one review
+  COMMENTED with one review comment
+  standing as one valid Minor (review
+  comment 4722266626, charging the
+  head-gate record in VL-263 to name
+  every launch and the gate covering the
+  final head), discharged by the
+  accounting amendment itself, and
+  nothing dismissed; at the final head
+  the shell stands re-rendered, banked
+  whole under the final head's own
+  filenames (pr75_shell_final_v1.md at
+  10,898 bytes edited 20:00:57Z and
+  pr75_shell_final_v2.md at 12,048
+  bytes, 12,037 characters, last edited
+  20:01:49Z), Merge Risk Minimal, its
+  four pre-merge checks passed, and no
+  new review or review comment; the
+  shell's live form at the owner's
+  closeout stood at 12,039 characters,
+  last edited 20:06:08Z. The three owner
+  reviews, run as a post-landing
+  re-audit because the queue landed the
+  pull request before they were seated,
+  stand: spec fidelity APPROVE with
+  three Minors; standards APPROVE with
+  three Minors; red team APPROVE with
+  five Minors and one carried
+  limitation, its own-hand build of the
+  head tree standing uncompleted behind
+  the held build slot, its re-runs of
+  PROBE41 and DUPKEYS41 and its four
+  adversarial repeated-key cells run
+  against the lane's head-gate binary
+  built from the head checkout it
+  verified blob for blob equal to the
+  pushed head tree. The round's
+  regression, gate, and census stand as
+  their items contracted them: the
+  battery at 25 of 25 and the walk at 10
+  of 10 against the chain binary of
+  sha256
+  b496077e441d0918443b175c73f0205f69b04b9c5f1a08887f60ee19f7f53253,
+  the pin at 241 passing across 19
+  test-result lines, the chain at two
+  launches (the first dying before its
+  gate while queued, its launching
+  session taken, standing on its named
+  evidence note, the second running
+  whole and standing), the head gate at
+  eight launches (launches 1, 2, 5, and
+  7 dying before their gates while
+  queued in the day's four service
+  restarts and standing on their named
+  notes, launch 3 failing at its head
+  checkout blob check on the unassembled
+  checkout, launches 4 and 6 passing
+  whole on the first and amended
+  stagings and superseded on the
+  accounting alone, and launch 8
+  standing on the accounting closure),
+  DUPKEYS41 at 16 of 16 cells agree with
+  PROBE41 at 16 of 16 derivations agree
+  and no cell-contract correction, its
+  cell table carrying seven close steps,
+  the hosted checks on the exact final
+  head standing success with the
+  CodeRabbit check completed success,
+  and CENSUS41: ALL OK. All six of Round
+  40's corrections stand discharged in
+  fact in VL-261, and the body's Items
+  section carries the final texts. Seven
+  corrections ride into this round, each
+  in one line. First correction:
+  VL-266's weather sentence reads the
+  shared API pool as drained from 3,627
+  remaining at the lane's arrival reads,
+  where the lane record banks the
+  arrival probe at 3,652 and 3,627 as
+  the later read-batch probe. Second
+  correction: VL-263's bank list closes
+  with no other gate bank standing in
+  the lane's scratch, while
+  build_base_l2.log and
+  verify_base_l2.log, chain launch 2's
+  build and verify stage banks, stand on
+  disk unnamed in the item. Third
+  correction: VL-266's step 0 account at
+  the final head defers its figures and
+  disposition to the pull request body's
+  step 0 account by reference and names
+  one bank file and its successors,
+  where its first-head account in the
+  same item carries both files with full
+  figures. Fourth correction: VL-265
+  cites its census bank as
+  census41_l1.log, a bank that does not
+  stand, chain launch 1 having died
+  before any stage ran, where the
+  standing census bank is
+  census41_l2.log. Fifth correction:
+  VL-264 states its eight executing
+  closes, where the cell table the
+  driver imports carries seven close
+  steps. Sixth correction: PR 75's body
+  Verified chain bullet states the chain
+  done at 09:11:03Z, the base gate's
+  done line, where the chain completed
+  at 09:14:18Z. Seventh correction:
+  VL-266's weather omits the eighth head
+  gate launch's about fifty minutes
+  queued, which the body's Verified
+  bullet and the lane record state.
+- VL-268. Standing regression, in the
+  VL-119 form. The local gate's full
+  test lines stand banked at both trees
+  (gate_base_launch4.log at the base and
+  gate_head_launch1.log at the head): 47
+  tests at each, 3 library, 24 judgment,
+  and 20 registry, all passing at both,
+  with clippy and fmt clean at both and
+  the whole-tree codepoint scan at 21 of
+  21 files clean at both, its planted
+  control failing as designed at both.
+  The standing regression stands re-run
+  at this lane's hand against the chain
+  binary of sha256
+  3bb6ae6596642aedb46de945445cd8664ba4f34d366d6c7b7c6089851fabb25f,
+  the measurements at one launch
+  (measure42_status.txt, 02:14:59Z to
+  02:16:49Z on 2026-11-28, its three
+  drivers each exiting 0): the judgment
+  battery (pre/battery42_results.txt,
+  byte-identical to its launch's stdout
+  bank whole, battery42_stdout.txt) at
+  25 of 25 under its standing BATTERY28
+  summary, driven by scripted fake
+  judges only over the live transport
+  and the fixture seat (the fake judge's
+  md5 a79ded49ae7285fd2d7b028c8b47dd7f),
+  no live model called, and the
+  cross-surface walk
+  (pre/walk42_results.txt,
+  byte-identical to its launch's stdout
+  bank whole, walk42_stdout.txt) at 10
+  of 10 under its standing WALK13
+  summary. The pin stands re-summed from
+  the chain's own summary bank
+  (pin_summary_l4.txt) at 241 passing
+  across its 19 test-result lines, none
+  failing, and the oracle stands
+  re-verified against its live tree at
+  commit d62e5dc, tree 74394802, 24
+  blobs, in the same census run that
+  returned CENSUS42: ALL OK.
+- VL-269. The local gate at base and
+  head trees, in the VL-119 form. The
+  chain stands at four launches: the
+  first launched at 21:08Z on 2026-11-27
+  and died before its gate while queued
+  on the build slot, its launching
+  session taken at about 21:35Z after
+  about twenty-seven minutes queued, the
+  slot never acquired and no stage run,
+  standing on its named evidence note
+  (chain42_launch1_note.txt) with its
+  driver log at 0 bytes; the second
+  relaunched in-sitting at 21:41Z,
+  queued about one hundred and seven
+  minutes, and died before its gate
+  while queued, its launching session
+  taken at about 23:28Z, standing on its
+  named evidence note
+  (chain42_launch2_note.txt) with its
+  driver log at 0 bytes; the third
+  launched detached at 23:31Z by the
+  first lane as its last act before its
+  session ended in the runtime transport
+  failure, queued about one hundred and
+  eight minutes, and died before its
+  gate while queued in the service
+  restart at about 01:19Z on 2026-11-28,
+  standing on its named evidence note
+  (chain42_launch3_note.txt) with its
+  driver log at 0 bytes; the fourth,
+  launched in-sitting under the
+  completion lane that took the round up
+  from the banks at 01:22:34Z, acquired
+  the slot at 02:08:14Z after about
+  forty-six minutes queued behind the
+  fleet's other lanes, its writability
+  probe open at attempt 0 (02:08:17Z),
+  and ran whole: base verified
+  (02:08:23Z), built (02:09:24Z), the
+  base gate done at 02:10:33Z, the
+  census at 02:10:53Z returning
+  CENSUS42: ALL OK, and the pin suite
+  done at 02:13:15Z, the chain done at
+  02:13:15Z. At the base tree 3a6f1c68
+  the gate stands
+  (gate_base_launch4.log): 47 tests, 3
+  library, 24 judgment, and 20 registry,
+  all passing, clippy and fmt clean, the
+  whole-tree codepoint scan clean at 21
+  of 21 files with its planted control
+  failing as designed, the pin re-summed
+  at 241 passing across 19, and the
+  chain binary's sha256
+  3bb6ae6596642aedb46de945445cd8664ba4f34d366d6c7b7c6089851fabb25f.
+  The head gate stands at two launches:
+  the first launched at 02:22:42Z on
+  2026-11-28, acquired the slot at
+  03:08:09Z after about forty-five
+  minutes queued behind the fleet's
+  other lanes, its writability probe
+  open at attempt 0 (03:08:12Z), and
+  passed whole on the closure as first
+  staged (gate_head_launch1.log, done
+  03:10:43Z) in the same figures as the
+  base gate: 47 tests, 3 library, 24
+  judgment, and 20 registry, all
+  passing, clippy and fmt clean, the
+  whole-tree codepoint scan clean at 21
+  of 21 files with its planted control
+  failing as designed, and the head
+  checkout's blob check clean at 21 of
+  21 files, superseded on the launch
+  accounting alone; the second launched
+  in-sitting at 03:11:21Z on the amended
+  staged closure, queued about fourteen
+  minutes, and died before its gate
+  while queued, its launching session
+  taken in the service restart at about
+  03:25Z, standing on its named evidence
+  note (gate_head_launch2_note.txt) with
+  its driver log at 0 bytes and no gate
+  log standing from it. The gate banks
+  this round leaves on disk stand named
+  whole, the list scoped to the chain
+  and head gate banks (the probe and
+  measurement banks stand named in
+  VL-268 and VL-270): BANKLIST Staging
+  stands verified in the staging
+  script's own asserts (STAGE42 OK: the
+  base CONTRACT a byte prefix of both
+  staged CONTRACTs, VL-267 beginning on
+  its own line directly after the base
+  text's final byte, the README's round
+  line moving only in the closure) and
+  by the standing head gate's blob check
+  over the assembled head checkout, and
+  the pushed trees stand verified
+  against the staged trees at 21 of 21
+  blobs on all three trees
+  (assert_trees42.py, TREES42: ALL OK),
+  the accounting tree verified against
+  this accounting staging.
+- VL-270. Fresh surface work, proposed
+  in the lane record before it ran.
+  KEYFORMS42, the object key forms in
+  the JSON arguments: the surface the
+  repeated-key round walked past, since
+  DUPKEYS41 celled the repeated keys
+  inside one argument and REGFORMS38 the
+  registry file's own keys, while no
+  round celled the order of the keys
+  within the argument objects or the
+  surplus keys a judged entry carries.
+  The derivation stands read from the
+  shipped source in both arms before any
+  cell ran: the oracle parses each
+  argument with plain json.loads
+  (verdictloop/cli.py, _parse_json),
+  whose dicts stand in offered order,
+  and its defect check reads the judged
+  entries by their prescribed keys alone
+  (name, direction, margin_pct;
+  verdictloop/registry.py,
+  event_defects), so a surplus key is
+  never consulted and stands in the
+  recorded event; the port parses
+  through flighttape's JSON reader
+  (src/registry.rs, parse_arg_json),
+  whose object assembly stands in
+  offered order with a repeated key's
+  value replaced at its first position,
+  and its defect check likewise reads
+  the prescribed keys alone
+  (src/registry.rs, event_defects). Both
+  arms therefore record each argument
+  object in its offered key order with
+  any surplus keys standing, read the
+  judged entries by their prescribed
+  keys wherever they stand in the entry,
+  and a surplus key spelled margin does
+  not stand in for margin_pct, the
+  default margin governing in its place.
+  Sixteen cells on twin fresh
+  directories: seven opens (the measures
+  in reversed order against the judged
+  order; the judged entries' keys
+  reversed; an entry with margin_pct
+  standing first, its close revealing
+  the margin; an entry carrying a
+  surplus string key; an entry carrying
+  a surplus number key; an entry
+  carrying a surplus null key; an entry
+  carrying the surplus key margin
+  spelled without the suffix, its result
+  and close revealing the default margin
+  governing), three results (the result
+  measures in reversed order; the result
+  measures permuted against the
+  baseline's order; a plain result over
+  an open whose entry carries a surplus
+  key, its close revealing the entry
+  read by its prescribed keys), five
+  judged entries (entries of mixed key
+  order with margin_pct standing in the
+  middle; a surplus key with an object
+  value; a surplus key with an array
+  value; a surplus key spelled Name
+  beside the prescribed name; a surplus
+  key standing beside a defective
+  direction, refused at the open with
+  the snapshot unchanged), and one
+  lifecycle cell tying the forms
+  together over the reads. Every
+  derivation stands probed against this
+  round's chain binary and oracle
+  extraction before the driver ran
+  (PROBE42, probe42_stdout.txt) at 16 of
+  16 derivations agree with no
+  divergence and no cell-contract
+  correction, and the driver
+  (pre/keyforms42.py) cells exactly what
+  the probe probed, its cell table
+  imported from the probe's own. The
+  agreement predicate is byte equality
+  of the exit code, stdout, stderr, and
+  the whole resulting directory
+  snapshot, with registry bytes and any
+  stream carrying a closed line compared
+  under the VL-96 cut taken up in the
+  cell definitions from the start, in
+  the standing Round 16 form, and
+  refusal steps additionally asserted
+  snapshot-unchanged against their
+  setups; the result stands KEYFORMS42:
+  16 of 16 cells agree
+  (pre/keyforms42_results.txt,
+  byte-identical to its launch's stdout
+  bank whole, keyforms42_stdout.txt),
+  its seven executing closes measuring
+  the same k-close posture the earlier
+  surfaces measured. The cut property
+  stands scoped to these cells'
+  selection: no cell configures a judge,
+  so every close that executes lands in
+  one of the two not_consulted bands and
+  no other judgment span can stand in
+  any compared byte.
+- VL-271. Storefront item 3 stands
+  PASSING, verified again and not
+  repaired: the description of 163
+  characters, "An experiment registry
+  for a fleet's setup. Every proposed
+  change becomes a tracked experiment
+  with a hypothesis, a run,
+  measurements, and a verdict, keep or
+  kill.", stands byte-identical in the
+  repository description, in the
+  Cargo.toml description field, and in
+  the README lede, the match re-verified
+  at this round's census against the
+  base tree's own files
+  (census42_l4.log, CENSUS42: ALL OK)
+  and at this lane's hand against the
+  live repository description read
+  through the API.
