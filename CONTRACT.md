@@ -15445,7 +15445,7 @@ is the behavioral spec.
   VL-119 form. The local gate's full
   test lines stand banked at both trees
   (gate_base_launch4.log at the base and
-  gate_head_launch1.log at the head): 47
+  gate_head_launch5.log at the head): 47
   tests at each, 3 library, 24 judgment,
   and 20 registry, all passing at both,
   with clippy and fmt clean at both and
@@ -15537,7 +15537,7 @@ is the behavioral spec.
   at 241 passing across 19, and the
   chain binary's sha256
   3bb6ae6596642aedb46de945445cd8664ba4f34d366d6c7b7c6089851fabb25f.
-  The head gate stands at two launches:
+  The head gate stands at five launches:
   the first launched at 02:22:42Z on
   2026-11-28, acquired the slot at
   03:08:09Z after about forty-five
@@ -15564,27 +15564,71 @@ is the behavioral spec.
   03:25Z, standing on its named evidence
   note (gate_head_launch2_note.txt) with
   its driver log at 0 bytes and no gate
-  log standing from it. The gate banks
-  this round leaves on disk stand named
-  whole, the list scoped to the chain
-  and head gate banks (the probe and
-  measurement banks stand named in
-  VL-268 and VL-270): BANKLIST Staging
-  stands verified in the staging
-  script's own asserts (STAGE42 OK: the
-  base CONTRACT a byte prefix of both
-  staged CONTRACTs, VL-267 beginning on
-  its own line directly after the base
-  text's final byte, the README's round
-  line moving only in the closure) and
-  by the standing head gate's blob check
-  over the assembled head checkout, and
-  the pushed trees stand verified
-  against the staged trees at 21 of 21
-  blobs on all three trees
-  (assert_trees42.py, TREES42: ALL OK),
-  the accounting tree verified against
-  this accounting staging.
+  log standing from it; the third
+  launched in-sitting at 03:27:47Z on
+  the amended staged closure, acquired
+  the slot at 04:08:27Z after about
+  forty-one minutes queued, its
+  writability probe open at attempt 0
+  (04:08:30Z), and passed whole
+  (gate_head_launch3.log, done
+  04:09:06Z) in the same figures,
+  superseded on the closing accounting
+  alone; the fourth launched in-sitting
+  at 04:42:20Z on the accounting staged
+  closure, queued about thirty minutes,
+  and died before its gate while queued,
+  its launching session taken in the
+  service restart at about 05:12Z,
+  standing on its named evidence note
+  (gate_head_launch4_note.txt) with its
+  driver log at 0 bytes and no gate log
+  standing from it; the fifth passed
+  whole on the accounting staged closure
+  (gate_head_launch5.log) in the same
+  figures. The gate banks this round
+  leaves on disk stand named whole, the
+  list scoped to the chain and head gate
+  banks (the probe and measurement banks
+  stand named in VL-268 and VL-270): the
+  chain's banks
+  chain42_launch1_driver.log,
+  chain42_launch1_note.txt,
+  chain42_launch2_driver.log,
+  chain42_launch2_note.txt,
+  chain42_launch3_driver.log,
+  chain42_launch3_note.txt,
+  chain42_launch4_driver.log,
+  chain42_status.txt,
+  verify_base_l4.log, build_base_l4.log,
+  gate_base_launch4.log,
+  census42_l4.log, pin_suite_l4.log,
+  pin_summary_l4.txt, and
+  chain_binary_l4.sha256, and the head
+  gate's banks gate_head_launch1.log,
+  gate_head_launch1_driver.log,
+  gate_head_launch2_driver.log,
+  gate_head_launch2_note.txt,
+  gate_head_launch3.log,
+  gate_head_launch3_driver.log,
+  gate_head_launch4_driver.log,
+  gate_head_launch4_note.txt, and
+  gate_head42_status.txt. Staging stands
+  verified in the staging script's own
+  asserts (STAGE42 OK: the base CONTRACT
+  a byte prefix of both staged
+  CONTRACTs, VL-267 beginning on its own
+  line directly after the base text's
+  final byte, the README's round line
+  moving only in the closure) and by the
+  standing head gate's blob check over
+  the assembled head checkout, and the
+  pushed trees stand verified against
+  the staged trees at 21 of 21 blobs on
+  all three trees (assert_trees42.py,
+  TREES42: ALL OK), the accounting tree
+  verified against this accounting
+  staging.
 - VL-270. Fresh surface work, proposed
   in the lane record before it ran.
   KEYFORMS42, the object key forms in
@@ -15728,29 +15772,56 @@ is the behavioral spec.
   three drivers each exiting 0, the
   probe launch standing separate at 16
   of 16 with no cell-contract
-  correction; STEP0ACCT the pull request
-  opened at the first call with its
-  title in its Round 42 form from the
-  start, its body read back equal at
-  BODYCHARS characters; the branch
-  creation and both pushes landed at the
-  first call each, verified by
-  branch-ref and commit-chain read-back
-  immediately, the tree assertion at 21
-  of 21 blobs on both pushed trees; and
-  the weather whole: the build slot's
-  contention stood behind the chain's
-  first launch for the about
-  twenty-seven minutes it queued, behind
-  its second for about one hundred and
-  seven minutes, behind its third for
-  about one hundred and eight minutes,
-  and behind its fourth for about
-  forty-six minutes, and behind the head
-  gate's first launch for about
-  forty-five minutes and behind its
-  second for about fourteen minutes, the
-  slot's holders across the long waits
+  correction; step 0 at the first head
+  in full: the shell 7233854987 banked
+  whole in this lane's scratch in three
+  forms at the first head under the
+  first head's own filenames
+  (pr77_shell_first_v1.md at 5,210
+  bytes, created 04:15:18Z on
+  2026-11-28; pr77_shell_first_v2.md at
+  7,791 bytes, last edited 04:18:33Z;
+  and pr77_shell_first_v3.md at 8,713
+  bytes, 8,699 characters, last edited
+  04:18:39Z), Merge Risk Low at the
+  first head, its four pre-merge checks
+  passed, its one review COMMENTED
+  (6095757215) with two review comments
+  standing as two valid Minors
+  (4725458097, charging this round's
+  gate item to replace its bank list
+  placeholder with the list, and
+  4725458103, charging this item to fill
+  its own step 0 and body count
+  placeholders), both fixed in the
+  accounting amendment this item
+  carries, nothing dismissed, and the
+  title check passed with accurate
+  commentary; the pull request opened at
+  the first call with its title in its
+  Round 42 form from the start, its body
+  read back equal at 23,324 characters;
+  the branch creation and both pushes
+  landed at the first call each,
+  verified by branch-ref and
+  commit-chain read-back immediately,
+  the tree assertion at 21 of 21 blobs
+  on both pushed trees; and the weather
+  whole: the build slot's contention
+  stood behind the chain's first launch
+  for the about twenty-seven minutes it
+  queued, behind its second for about
+  one hundred and seven minutes, behind
+  its third for about one hundred and
+  eight minutes, and behind its fourth
+  for about forty-six minutes, and
+  behind the head gate's first launch
+  for about forty-five minutes, behind
+  its second for about fourteen minutes,
+  behind its third for about forty-one
+  minutes, and behind its fourth for
+  about thirty minutes, the slot's
+  holders across the long waits
   unattributed and never signaled, the
   shared API pool standing at 2,940 of
   5,000 remaining at the first lane's
@@ -15758,24 +15829,25 @@ is the behavioral spec.
   launch 4's verify stage, at 2,907 at
   its census stage, and at 2,099 at the
   completion lane's item 3 read, no
-  rate-limit stop hit at any hand, two
+  rate-limit stop hit at any hand, three
   service restarts interrupting the
   round (at about 01:19Z on 2026-11-28,
-  killing chain launch 3, and at about
-  03:25Z, killing head gate launch 2),
-  the runtime transport failure ending
-  the first lane's session at about
-  23:29Z on 2026-11-27, and no other
-  environmental event at any stage. The
-  seven corrections charged by PR 75's
-  landing comment stand discharged in
-  VL-267, each in one line, and the
-  count-sentence charge stands
-  discharged in fact: every count
-  sentence in this round's items and in
-  the pull request body's Summary and
-  Verified bullets stands re-read
-  against its own enumeration at this
-  lane's hand before the push.
+  killing chain launch 3, at about
+  03:25Z, killing head gate launch 2,
+  and at about 05:12Z, killing head gate
+  launch 4), the runtime transport
+  failure ending the first lane's
+  session at about 23:29Z on 2026-11-27,
+  and no other environmental event at
+  any stage. The seven corrections
+  charged by PR 75's landing comment
+  stand discharged in VL-267, each in
+  one line, and the count-sentence
+  charge stands discharged in fact:
+  every count sentence in this round's
+  items and in the pull request body's
+  Summary and Verified bullets stands
+  re-read against its own enumeration at
+  this lane's hand before the push.
   Touchstone stands at 42 of 100 closed
   rounds with this round's landing.
