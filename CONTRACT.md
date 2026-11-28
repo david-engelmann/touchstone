@@ -15445,7 +15445,7 @@ is the behavioral spec.
   VL-119 form. The local gate's full
   test lines stand banked at both trees
   (gate_base_launch4.log at the base and
-  gate_head_launch5.log at the head): 47
+  gate_head_launch6.log at the head): 47
   tests at each, 3 library, 24 judgment,
   and 20 registry, all passing at both,
   with clippy and fmt clean at both and
@@ -15537,7 +15537,7 @@ is the behavioral spec.
   at 241 passing across 19, and the
   chain binary's sha256
   3bb6ae6596642aedb46de945445cd8664ba4f34d366d6c7b7c6089851fabb25f.
-  The head gate stands at five launches:
+  The head gate stands at six launches:
   the first launched at 02:22:42Z on
   2026-11-28, acquired the slot at
   03:08:09Z after about forty-five
@@ -15583,9 +15583,19 @@ is the behavioral spec.
   standing on its named evidence note
   (gate_head_launch4_note.txt) with its
   driver log at 0 bytes and no gate log
-  standing from it; the fifth passed
-  whole on the accounting staged closure
-  (gate_head_launch5.log) in the same
+  standing from it; the fifth launched
+  in-sitting at 05:15:11Z on the
+  accounting staged closure, acquired
+  the slot at 05:23:13Z after about
+  eight minutes queued, its writability
+  probe open at attempt 0 (05:23:15Z),
+  and passed whole
+  (gate_head_launch5.log, done
+  05:23:45Z) in the same figures,
+  superseded on the closing accounting
+  alone; the sixth passed whole on the
+  final accounting staged closure
+  (gate_head_launch6.log) in the same
   figures. The gate banks this round
   leaves on disk stand named whole, the
   list scoped to the chain and head gate
@@ -15612,7 +15622,9 @@ is the behavioral spec.
   gate_head_launch3.log,
   gate_head_launch3_driver.log,
   gate_head_launch4_driver.log,
-  gate_head_launch4_note.txt, and
+  gate_head_launch4_note.txt,
+  gate_head_launch5.log,
+  gate_head_launch5_driver.log, and
   gate_head42_status.txt. Staging stands
   verified in the staging script's own
   asserts (STAGE42 OK: the base CONTRACT
@@ -15797,30 +15809,45 @@ is the behavioral spec.
   accounting amendment this item
   carries, nothing dismissed, and the
   title check passed with accurate
-  commentary; the pull request opened at
-  the first call with its title in its
-  Round 42 form from the start, its body
-  read back equal at 23,324 characters;
-  the branch creation and both pushes
-  landed at the first call each,
-  verified by branch-ref and
-  commit-chain read-back immediately,
-  the tree assertion at 21 of 21 blobs
-  on both pushed trees; and the weather
-  whole: the build slot's contention
-  stood behind the chain's first launch
-  for the about twenty-seven minutes it
-  queued, behind its second for about
-  one hundred and seven minutes, behind
-  its third for about one hundred and
-  eight minutes, and behind its fourth
-  for about forty-six minutes, and
-  behind the head gate's first launch
-  for about forty-five minutes, behind
-  its second for about fourteen minutes,
-  behind its third for about forty-one
-  minutes, and behind its fourth for
-  about thirty minutes, the slot's
+  commentary; step 0 at the accounting
+  head in full: the shell stands
+  re-rendered at the accounting head,
+  banked whole under the accounting
+  head's own filenames
+  (pr77_shell_acct_v1.md at 10,548
+  bytes, last edited 05:24:38Z on
+  2026-11-28, and pr77_shell_acct_v2.md
+  at 11,718 bytes, 11,707 characters,
+  last edited 05:26:51Z), Merge Risk
+  Minimal at the accounting head, its
+  four pre-merge checks passed, no
+  actionable comments, and no new review
+  or review comment at the accounting
+  head; the pull request opened at the
+  first call with its title in its Round
+  42 form from the start, its body read
+  back equal at 23,324 characters; the
+  branch creation and both pushes landed
+  at the first call each, verified by
+  branch-ref and commit-chain read-back
+  immediately, the tree assertion at 21
+  of 21 blobs on both pushed trees; and
+  the weather whole: the build slot's
+  contention stood behind the chain's
+  first launch for the about
+  twenty-seven minutes it queued, behind
+  its second for about one hundred and
+  seven minutes, behind its third for
+  about one hundred and eight minutes,
+  and behind its fourth for about
+  forty-six minutes, and behind the head
+  gate's first launch for about
+  forty-five minutes, behind its second
+  for about fourteen minutes, behind its
+  third for about forty-one minutes, and
+  behind its fourth for about thirty
+  minutes, and behind its fifth for
+  about eight minutes, the slot's
   holders across the long waits
   unattributed and never signaled, the
   shared API pool standing at 2,940 of
